@@ -111,7 +111,7 @@ getSonginfo(String SongInfoString) {
 	if(bitrateint < 10) {bitrateText.setText("  "+tkn);}
 	if(bitrateint > 1000) {bitrateText.setText(strleft(tkn, 2)+"H");} //what's this? Hhousands?
 	if(bitrateint > 10000) {bitrateText.setText(strleft(tkn, 1)+"C");} //Cillions???
-	if(bitrateint == 0 || bitrateint == -1) {bitrateText.setText(" 0");}
+	if(bitrateint == 0 || bitrateint == -1) {bitrateText.setText("  0");}
 
 	tkn = tokenizeSongInfo("Channels", SongInfoString);
 	tkn = tokenizeSongInfo("Frequency", SongInfoString);

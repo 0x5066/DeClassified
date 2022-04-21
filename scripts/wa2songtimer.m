@@ -131,7 +131,7 @@ PauseBlinkPaused.onTimer(){ //Remainder
         StaticTimeRemainder();
     }else{
         timerSongTimer.stop();
-        DisplayTime.setXmlParam("text", "...:..");
+        DisplayTime.setXmlParam("text", "   :  ");
         //DisplayTimeShade.setXmlParam("text", "   :  ");
     }
 }
@@ -141,7 +141,7 @@ PauseBlink.onTimer(){ //Elapsed
         StaticTime();
     }else{
         timerSongTimer.stop();
-        DisplayTime.setXmlParam("text", "..:..");
+        DisplayTime.setXmlParam("text", "  :  ");
         //DisplayTimeShade.setXmlParam("text", "  :  ");
     }
 }
