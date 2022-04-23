@@ -111,6 +111,7 @@ setState(){
     }else{
         playstatus.setXmlParam("image", "wa.play.red");
     }
+    setState2();
 }
 
 setState2(){
@@ -128,11 +129,12 @@ setState2(){
     if(System.strsearch(currenttitle, "[buffer") != -1){
 		playstatus.setXmlParam("image", "wa.play.red");
 	}else{
-        if(bitrateint == 0 || bitrateint == -1 && freqint == 0 || freqint == -1) {playstatus.setXmlParam("image", "wa.play.red"); setPlaysymbol.stop();}
-        if(bitrateint > 0 && freqint > 0) setPlaysymbol.start();
+        if(bitrateint == 0 || bitrateint == -1 && freqint == 0 || freqint == -1){
+            playstatus.setXmlParam("image", "wa.play.red"); 
+            //setPlaysymbol.stop();
+        }
+        if(bitrateint > 0 && freqint > 0){setPlaysymbol.start(); 
+            playstatus.setXmlParam("image", "wa.play.green");
+        }
     }
-
-    
-    //if(freqint == 0 || freqint == -1) {playstatus.setXmlParam("image", "wa.play.red"); setPlaysymbol.stop();}
-    //if(freqint > 0) setPlaysymbol.start();
 }
