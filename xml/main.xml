@@ -134,6 +134,15 @@
 		font="wasabi.font.default" fontsize="13"
 	/>
 
+	<!--text
+		id="debugticker" ticker="1"
+		x="110" y="27"
+		w="155" h="9"
+		font="wasabi.font.default" fontsize="13"
+	/>
+
+<script file="scripts/getSongInfoText.maki"/-->
+
 	<slider id="player.slider.seek" action="SEEK" x="16" y="72" w="248" h="10" orientation="horizontal" thumb="posbar" downthumb="posbarp" rectrgn="1"/>	
 
 	<togglebutton id="Repeat" x="210" y="89" image="rep"

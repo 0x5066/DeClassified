@@ -121,4 +121,9 @@ getSonginfo(String SongInfoString) {
 	if(freqint < 100) {frequencyText.setText(tkn);}
 	if(freqint < 10) {frequencyText.setText(" "+tkn);}
 	if(freqint == 0 || freqint == -1 ) {frequencyText.setText(" 0");}
+
+	if(getStatus() == 0){
+		bitrateText.setText("   ");
+		frequencyText.setText("  ");
+	}
 }

@@ -114,8 +114,25 @@ setState(){
 }
 
 setState2(){
-    if(bitrateint == 0 || bitrateint == -1 && freqint == 0 || freqint == -1) {playstatus.setXmlParam("image", "wa.play.red"); setPlaysymbol.stop();}
-    if(bitrateint > 0 && freqint > 0) setPlaysymbol.start();
+    String currenttitle = System.strlower(System.getPlayItemDisplayTitle());
+    
+    if(System.strsearch(currenttitle, "[connecting") != -1){
+		playstatus.setXmlParam("image", "wa.play.red");
+	}
+    if(System.strsearch(currenttitle, "[resolving hostname") != -1){
+		playstatus.setXmlParam("image", "wa.play.red");
+	}
+    if(System.strsearch(currenttitle, "[http/1.1") != -1){
+		playstatus.setXmlParam("image", "wa.play.red");
+	}
+    if(System.strsearch(currenttitle, "[buffer") != -1){
+		playstatus.setXmlParam("image", "wa.play.red");
+	}else{
+        if(bitrateint == 0 || bitrateint == -1 && freqint == 0 || freqint == -1) {playstatus.setXmlParam("image", "wa.play.red"); setPlaysymbol.stop();}
+        if(bitrateint > 0 && freqint > 0) setPlaysymbol.start();
+    }
+
+    
     //if(freqint == 0 || freqint == -1) {playstatus.setXmlParam("image", "wa.play.red"); setPlaysymbol.stop();}
     //if(freqint > 0) setPlaysymbol.start();
 }
