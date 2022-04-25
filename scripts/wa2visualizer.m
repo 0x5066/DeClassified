@@ -31,8 +31,9 @@ Global PopUpMenu pksmenu;
 Global PopUpMenu anamenu;
 Global PopUpMenu anasettings;
 Global PopUpMenu oscsettings;
+Global PopUpMenu stylemenu;
 
-Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render;
+Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring;
 Global Boolean show_peaks, isShade;
 Global layer trigger;
 
@@ -65,12 +66,31 @@ refreshVisSettings ()
 	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer peaks falloff", 2);
 	osc_render = getPrivateInt(getSkinName(), "Oscilloscope Settings", 1);
 	ana_render = getPrivateInt(getSkinName(), "Spectrum Analyzer Settings", 2);
+	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
 
 	visualizer.setXmlParam("peaks", integerToString(show_peaks));
 	visualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
 	visualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
 	visualizer.setXmlParam("oscstyle", integerToString(osc_render));
 	visualizer.setXmlParam("bandwidth", integerToString(ana_render));
+
+	if (a_coloring == 0)
+	{
+		visualizer.setXmlParam("coloring", "Normal");
+	}
+	else if (a_coloring == 1)
+	{
+		visualizer.setXmlParam("coloring", "Normal");
+	}
+	else if (a_coloring == 2)
+	{
+		visualizer.setXmlParam("coloring", "Fire");
+	}
+	else if (a_coloring == 3)
+	{
+		visualizer.setXmlParam("coloring", "Line");
+	}
+
 
 	if (osc_render == 0)
 		{
@@ -152,6 +172,7 @@ trigger.onRightButtonUp (int x, int y)
 	visMenu = new PopUpMenu;
 	pksmenu = new PopUpMenu;
 	anamenu = new PopUpMenu;
+	stylemenu = new PopUpMenu;
 	anasettings = new PopUpMenu;
 	oscsettings = new PopUpMenu;
 
@@ -188,6 +209,13 @@ trigger.onRightButtonUp (int x, int y)
 	anamenu.addCommand("Fast", 303, a_falloffspeed == 3, 0);
 	anamenu.addCommand("Faster", 304, a_falloffspeed == 4, 0);
 	anasettings.addSubMenu(anamenu, "Analyzer falloff Speed");
+
+	anasettings.addSubMenu(stylemenu, "Analyzer Coloring");
+	stylemenu.addCommand("Normal", 400, a_coloring == 0, 0);
+	stylemenu.addCommand("Fire", 402, a_coloring == 2, 0);
+	stylemenu.addCommand("Line", 403, a_coloring == 3, 0);
+	
+
 	visMenu.addSubmenu(oscsettings, "Oscilloscope Options");
 	oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
 	oscsettings.addSeparator();
@@ -200,6 +228,7 @@ trigger.onRightButtonUp (int x, int y)
 	delete visMenu;
 	delete pksmenu;
 	delete anamenu;
+	delete stylemenu;
 	delete anasettings;
 	delete oscsettings;
 
@@ -235,6 +264,28 @@ ProcessMenuResult (int a)
 		a_falloffspeed = a - 300;
 		visualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
 		setPrivateInt(getSkinName(), "Visualizer analyzer falloff", a_falloffspeed);
+	}
+
+else if (a >= 400 && a <= 403)
+	{
+		a_coloring = a - 400;
+		if (a_coloring == 0)
+		{
+			visualizer.setXmlParam("coloring", "Normal");
+		}
+		else if (a_coloring == 1)
+		{
+			visualizer.setXmlParam("coloring", "Normal");
+		}
+		else if (a_coloring == 2)
+		{
+			visualizer.setXmlParam("coloring", "Fire");
+		}
+		else if (a_coloring == 3)
+		{
+			visualizer.setXmlParam("coloring", "Line");
+		}
+		setPrivateInt(getSkinName(), "Visualizer analyzer coloring", a_coloring);
 	}
 
 	else if (a >= 600 && a <= 603)
