@@ -136,13 +136,13 @@
 
 	<script file="scripts/wa2songtimer.maki"/>
 
-    <button id="Previous" action="PREV" x="166" y="3" tooltip="Previous"/>
-    <button id="Play" action="PLAY" x="176" y="3" tooltip="Play"/>
-    <button id="Pause" action="PAUSE" x="186" y="3" tooltip="Pause"/>
-    <button id="Stop" action="STOP" x="196" y="3" tooltip="Stop"/>
-    <button id="Next" action="NEXT" x="206" y="3" tooltip="Next"/>
+    <button id="Previous" action="PREV" x="166" y="3" w="8" h="9" tooltip="Previous" rectrgn="1"/>
+    <button id="Play" action="PLAY" x="176" y="3" w="10" h="9" tooltip="Play" rectrgn="1"/>
+    <button id="Pause" action="PAUSE" x="186" y="3" w="10" h="9" tooltip="Pause" rectrgn="1"/>
+    <button id="Stop" action="STOP" x="196" y="3" w="9" h="9" tooltip="Stop" rectrgn="1"/>
+    <button id="Next" action="NEXT" x="206" y="3" w="8" h="9" tooltip="Next" rectrgn="1"/>
 
-    <button id="Eject" action="EJECT" x="216" y="3" tooltip="Eject"/>
+    <button id="Eject" action="EJECT" x="216" y="3" w="9" h="9" tooltip="Eject" rectrgn="1"/>
 
     <vis id="wa.vis" x="79" y="5" w="38" h="5" fps="60"/>
 	<layer id="main.vis.trigger" x="79" y="5" w="38" h="5"/>
