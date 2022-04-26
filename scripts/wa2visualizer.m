@@ -32,6 +32,7 @@ Global PopUpMenu anamenu;
 Global PopUpMenu anasettings;
 Global PopUpMenu oscsettings;
 Global PopUpMenu stylemenu;
+Global PopUpMenu fpsmenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring;
 Global Boolean show_peaks, isShade;
@@ -175,53 +176,57 @@ trigger.onRightButtonUp (int x, int y)
 	stylemenu = new PopUpMenu;
 	anasettings = new PopUpMenu;
 	oscsettings = new PopUpMenu;
+	fpsmenu = new PopUpMenu;
 
 	visMenu.addCommand("Modes:", 999, 0, 1);
 	visMenu.addSeparator();
-	visMenu.addCommand("Disabled", 100, currentMode == 0, 0);
-	visMenu.addCommand("Spectrum Analyzer", 1, currentMode == 1, 0);
-	visMenu.addCommand("Oscilloscope", 2, currentMode == 2, 0);
+	visMenu.addCommand("Off", 100, currentMode == 0, 0);
+	visMenu.addCommand("Spectrum analyzer / Winshade VU", 1, currentMode == 1, 0);
+	visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
 	
 	visMenu.addSeparator();
 	visMenu.addCommand("Modern Visualizer Settings", 998, 0, 1);
 	visMenu.addSeparator();
-	visMenu.addSubmenu(anasettings, "Spectrum Analyzer Options");
-	anasettings.addCommand("Band line width:", 997, 0, 1);
+	visMenu.addSubmenu(fpsmenu, "Refresh rate");
+	visMenu.addSubmenu(anasettings, "Spectrum analyzer options");
+	//anasettings.addCommand("Band line width:", 997, 0, 1);
+	//anasettings.addSeparator();
+
+	anasettings.addCommand("Normal style", 400, a_coloring == 0, 0);
+	anasettings.addCommand("Fire style", 402, a_coloring == 2, 0);
+	anasettings.addCommand("Line style", 403, a_coloring == 3, 0);
 	anasettings.addSeparator();
-	anasettings.addCommand("Thin", 701, ana_render == 1, 0);
+	anasettings.addCommand("Peaks", 101, show_peaks == 1, 0);
+	anasettings.addSeparator();
+	anasettings.addCommand("Thin bands", 701, ana_render == 1, 0);
 	if(getDateDay(getDate()) == 1 && getDateMonth(getDate()) == 3){
 		anasettings.addCommand("乇乂丅尺卂 丅卄工匚匚", 702, ana_render == 2, 0);
 	}else{
-		anasettings.addCommand("Thick", 702, ana_render == 2, 0);
+		anasettings.addCommand("Thick bands", 702, ana_render == 2, 0);
 	}
 	anasettings.addSeparator();
-	anasettings.addCommand("Show Peaks", 101, show_peaks == 1, 0);
-	anasettings.addSeparator();
-	pksmenu.addCommand("Slower", 200, p_falloffspeed == 0, 0);
-	pksmenu.addCommand("Slow", 201, p_falloffspeed == 1, 0);
-	pksmenu.addCommand("Moderate", 202, p_falloffspeed == 2, 0);
-	pksmenu.addCommand("Fast", 203, p_falloffspeed == 3, 0);
-	pksmenu.addCommand("Faster", 204, p_falloffspeed == 4, 0);
-	anasettings.addSubMenu(pksmenu, "Peak falloff Speed");
+
+	anasettings.addSubMenu(anamenu, "Analyzer falloff");
 	anamenu.addCommand("Slower", 300, a_falloffspeed == 0, 0);
 	anamenu.addCommand("Slow", 301, a_falloffspeed == 1, 0);
 	anamenu.addCommand("Moderate", 302, a_falloffspeed == 2, 0);
 	anamenu.addCommand("Fast", 303, a_falloffspeed == 3, 0);
 	anamenu.addCommand("Faster", 304, a_falloffspeed == 4, 0);
-	anasettings.addSubMenu(anamenu, "Analyzer falloff Speed");
+	anasettings.addSubMenu(pksmenu, "Peaks falloff");
+	pksmenu.addCommand("Slower", 200, p_falloffspeed == 0, 0);
+	pksmenu.addCommand("Slow", 201, p_falloffspeed == 1, 0);
+	pksmenu.addCommand("Moderate", 202, p_falloffspeed == 2, 0);
+	pksmenu.addCommand("Fast", 203, p_falloffspeed == 3, 0);
+	pksmenu.addCommand("Faster", 204, p_falloffspeed == 4, 0);
 
-	anasettings.addSubMenu(stylemenu, "Analyzer Coloring");
-	stylemenu.addCommand("Normal", 400, a_coloring == 0, 0);
-	stylemenu.addCommand("Fire", 402, a_coloring == 2, 0);
-	stylemenu.addCommand("Line", 403, a_coloring == 3, 0);
-	
+	//anasettings.addSubMenu(stylemenu, "Analyzer Coloring");
 
-	visMenu.addSubmenu(oscsettings, "Oscilloscope Options");
-	oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
-	oscsettings.addSeparator();
-	oscsettings.addCommand("Dots", 603, osc_render == 3, 0);
-	oscsettings.addCommand("Lines", 601, osc_render == 1, 0);
-	oscsettings.addCommand("Solid", 602, osc_render == 2, 0);
+	visMenu.addSubmenu(oscsettings, "Oscilliscope Options");
+	//oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
+	//oscsettings.addSeparator();
+	oscsettings.addCommand("Dot scope", 603, osc_render == 3, 0);
+	oscsettings.addCommand("Line scope", 601, osc_render == 1, 0);
+	oscsettings.addCommand("Solid scope", 602, osc_render == 2, 0);
 
 	ProcessMenuResult (visMenu.popAtMouse());
 
@@ -231,6 +236,7 @@ trigger.onRightButtonUp (int x, int y)
 	delete stylemenu;
 	delete anasettings;
 	delete oscsettings;
+	delete fpsmenu;
 
 	complete;	
 }
