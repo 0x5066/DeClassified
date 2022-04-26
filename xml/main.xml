@@ -30,17 +30,24 @@
 		id="songticker" ticker="1"
 		x="110" y="27"
 		w="155" h="9"
-		font="wasabi.font.default" fontsize="13"
+		font="wasabi.font.default" altfont="arial" fontsize="13"
+		altvalign="center" dblclickaction="trackinfo" 
+	rightclickaction="trackmenu"
 	/>
 
+	<text id="infoticker" x="110" y="27" offsetx="-1" offsety="-1"
+		w="155" h="9" font="wasabi.font.default" fontsize="13" ghost="1"/> 
+
 	<!--text
-		id="debugticker" ticker="1"
+		id="debugticker"
+		display="SONGNAME" ticker="1"
 		x="110" y="27"
 		w="155" h="9"
 		font="wasabi.font.default" fontsize="13"
-	/>
+		altvalign="bottom"
+	/-->
 
-<script file="scripts/getSongInfoText.maki"/-->
+<!--script file="scripts/getSongInfoText.maki"/-->
 
 	<slider id="player.slider.seek" action="SEEK" x="16" y="72" w="248" h="10" orientation="horizontal" thumb="posbar" downthumb="posbarp" rectrgn="1"/>	
 	<!--button id="player.slider.seek" x="16" y="72" image="posbar" downimage="posbarp" rectrgn="1"/>
@@ -48,7 +55,7 @@
 
 	<togglebutton id="Repeat" x="210" y="89" image="rep"
 		downImage="repp" activeImage="repa"
-		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Repeat" cfgval="2"/>
+		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Repeat" cfgvals="0;1;-1"/>
 	
 	<togglebutton id="Shuffle" x="164" y="89" image="shuf"
 		downImage="shufp" activeImage="shufa"
@@ -59,8 +66,8 @@
 
 	<script file="scripts/classicplaystatus.maki"/>
 
-	<text id="mixrate" display="songsamplerate" x="154" y="43" w="12" h="14" font="wasabi.font.default" fontsize="13" align="left" valign="top"/>	
-	<text id="bitrate" display="songbitrate" x="109" y="43" w="17" h="14" font="wasabi.font.default" fontsize="13" align="left" valign="top"/>	
+	<text id="mixrate" display="songsamplerate" x="154" y="43" w="12" h="9" font="wasabi.font.default" fontsize="13" align="left" valign="top"/>	
+	<text id="bitrate" display="songbitrate" x="109" y="43" w="17" h="9" font="wasabi.font.default" fontsize="13" align="left" valign="top"/>	
 
 	<script file="scripts/winamp1kbps.maki"/>
 
@@ -93,6 +100,8 @@
 
 	<togglebutton id="AboutWinamp" x="251" y="91" w="14" h="16" rectrgn="1" action="TOGGLE" param="guid:{D6201408-476A-4308-BF1B-7BACA1124B12}"/>
 
+	<script file="scripts/actioninfo.maki"/>
+
 </groupdef>	
 
 <groupdef id="sliders">
@@ -100,8 +109,8 @@
 	<AnimatedLayer id="volume" w="68" h="15" image="volume" start="0" end="27" frameheight="15" ghost="1"/>
 	<Slider id="volumewa2" action="volume" orientation="horizontal" x="-3" y="-1" w="68" h="15" thumb="volbtn" downThumb="volbtnd"/>
 	<script file="scripts/volume.maki"/>
-	<AnimatedLayer id="balance" x="70" w="38" h="15" image="balance" start="0" end="27" frameheight="15" ghost="1"/>
-	<Slider id="balancewa2" action="PAN" orientation="horizontal" x="70" y="-1" w="38" h="15" thumb="panbtn" downThumb="panbtnd"/>
+	<AnimatedLayer id="balancewa2" x="70" w="38" h="15" image="balance" start="0" end="27" frameheight="15" ghost="1"/>
+	<Slider id="balance" action="PAN" orientation="horizontal" x="70" y="-1" w="38" h="15" thumb="panbtn" downThumb="panbtnd"/>
 	<script file="scripts/balance.maki"/>
 </groupdef>
 
