@@ -35,8 +35,8 @@
 <script file="scripts/wa2songtimer.maki"/>
 	<Songticker
 		id="songticker" ticker="1"
-		x="110" y="27"
-		w="155" h="9"
+		x="111" y="27"
+		w="154" h="9"
 		font="wasabi.font.default" altfont="arial" fontsize="13"
 		altvalign="center" dblclickaction="trackinfo" 
 	rightclickaction="trackmenu"
