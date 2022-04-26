@@ -1,3 +1,6 @@
+//Taken from Victhor's Winamp Classic Modern, which was
+//deeply nested inside it's mainplayer.m script.
+
 #include "..\..\..\lib/std.mi"
 
 Global AnimatedLayer anlBalance;

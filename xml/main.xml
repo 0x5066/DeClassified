@@ -1,3 +1,10 @@
+<!-- Parts of this was ripped directly from Winamp3's wa2skin.wac component,
+	part of this was also taken from the WMC framework by garrjo, tweaked to
+	fit the positions of the Classic Skin objects and imagesheets better.
+	Most of this however, was made by me, particularly the scripts,
+	although those too came from different sources and tweaked to
+	fit my own needs.-->
+
 <elements>	
 <bitmap id="wa.main" file="skin/main.bmp"/>	
 <include file="classic-elements.xml"/>
@@ -107,7 +114,7 @@
 <groupdef id="sliders">
 
 	<AnimatedLayer id="volume" w="68" h="15" image="volume" start="0" end="27" frameheight="15" ghost="1"/>
-	<Slider id="volumewa2" action="volume" orientation="horizontal" x="-3" y="-1" w="68" h="15" thumb="volbtn" downThumb="volbtnd"/>
+	<Slider id="volumewa2" action="volume" orientation="horizontal" x="0" y="-1" w="65" h="15" thumb="volbtn" downThumb="volbtnd"/>
 	<script file="scripts/volume.maki"/>
 	<AnimatedLayer id="balancewa2" x="70" w="38" h="15" image="balance" start="0" end="27" frameheight="15" ghost="1"/>
 	<Slider id="balance" action="PAN" orientation="horizontal" x="70" y="-1" w="38" h="15" thumb="panbtn" downThumb="panbtnd"/>

@@ -1,7 +1,7 @@
 /*---------------------------------------------------
 -----------------------------------------------------
-Filename:	visualizer.m
-Version:	2.0
+Filename:	wa2visualizer.m
+Version:	2.1
 
 Type:		maki
 Date:		07. Okt. 2007 - 19:56 , May 24th 2021 - 2:13am UTC+1
@@ -10,9 +10,9 @@ E-Mail:		martin@skinconsortium.com
 Internet:	www.skinconsortium.com
 			www.martin.deimos.de.vu
 
-Note:		This script revamped the vis menu and cycling
-			with the mouse, as well as adding a VU Meter
-			to be on parity with WACUP Classic
+Note:		Ripped from Winamp Modern, removed the VU Meter section
+			as it's not relevant just yet, this also includes
+			the option to set the Spectrum Analyzer coloring.
 -----------------------------------------------------
 ---------------------------------------------------*/
 

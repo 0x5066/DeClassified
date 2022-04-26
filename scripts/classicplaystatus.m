@@ -1,3 +1,7 @@
+//Attempts to emulate to the best of it's abilities, the play symbol
+//aka the green and red LED's found in the Classic Skins.
+//Handles empty kbps and khz and streaming related things.
+
 #include "..\..\..\lib/std.mi"
 #include "songinfo.m"
 

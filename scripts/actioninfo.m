@@ -1,3 +1,6 @@
+//Taken straight out of Winamp Modern's display.m.
+//Modified to include the Volume change messages.
+
 #include "../../../lib/std.mi"
 
 Global Group frameGroup;

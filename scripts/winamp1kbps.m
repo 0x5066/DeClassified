@@ -1,3 +1,6 @@
+//Taken from Winamp Modern, does not come with the channels
+//handling, as that is done inside monoster.m
+
 #include "..\..\..\lib/std.mi"
 
 Function string tokenizeSongInfo(String tkn, String sinfo);

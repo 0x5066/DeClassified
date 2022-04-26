@@ -1,3 +1,6 @@
+//Helper library for the play symbol to switch it's green or red state
+//according to the available kbps and khz data.
+
 Function string tokenizeSongInfo(String tkn, String sinfo);
 Function getSonginfo(String SongInfoString);
 Function initSongInfoGrabber();
