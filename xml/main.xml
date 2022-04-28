@@ -17,6 +17,8 @@
 	<layer id="blah" dblClickAction="SWITCH;shade" x="0" y="0" h="14" w="275" move="1"/>
 
 	<layer image="clutterbar" x="10" y="22"/>
+	<Togglebutton id="CLB.O" x="11" y="24" w="8" h="9" action="CONTROLMENU" rectrgn="1"/>
+	<Togglebutton id="CLB.A" x="11" y="33" w="8" h="9" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1"/>
 
 	<group id="waclassicvis" x="24" y="43" w="76" h="16"/>	
 	<!-- Timer -->	

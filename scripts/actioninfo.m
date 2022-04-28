@@ -4,7 +4,7 @@
 #include "../../../lib/std.mi"
 
 Global Group frameGroup;
-Global Togglebutton ShuffleBtn,RepeatBtn;
+Global Togglebutton ShuffleBtn, RepeatBtn, CLBA;
 Global Timer SongTickerTimer;
 Global Text InfoTicker;
 Global GuiObject SongTicker;
@@ -22,6 +22,7 @@ System.onScriptLoaded() {
 
 	RepeatBtn = frameGroup.findObject("Repeat");
 	ShuffleBtn = frameGroup.findObject("Shuffle");
+    CLBA = frameGroup.findObject("CLB.A");
 
 	Balance = frameGroup.findObject("Balance");
 }
@@ -86,4 +87,11 @@ ShuffleBtn.onToggle(boolean on) {
 	SongTicker.hide();
 	InfoTicker.show();
 	if (on) InfoTicker.setText("Shuffle: ON"); else InfoTicker.setText("Shuffle: OFF");
+}
+
+CLBA.onToggle(boolean on) {
+	SongTickerTimer.start();
+	SongTicker.hide();
+	InfoTicker.show();
+	if (on) InfoTicker.setText("Enable Always-on-Top"); else InfoTicker.setText("Disable Always-on-Top");
 }
