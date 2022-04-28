@@ -10,5 +10,6 @@
 	</skininfo>
 
 	<include file="xml/main.xml"/>
+	<include file="xml/eqmain.xml"/>
 
 </WinampAbstractionLayer>

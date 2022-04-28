@@ -1,0 +1,38 @@
+<elements>
+
+<bitmap id="wa.eq" file="skin/eqmain.bmp" x="0" y="0" w="275" h="116"/>
+<bitmap id="waeq.titlebar.on" file="skin/eqmain.bmp" x="0" y="134" w="275" h="14"/>
+<bitmap id="waeq.titlebar.off" file="skin/eqmain.bmp" x="0" y="149" w="275" h="14"/>
+
+</elements>
+
+<container id="EQ" name="Equalizer" default_w="275">
+    <groupdef id="eq">
+        <layer id="waeq.titlebar" x="0" y="0" image="waeq.titlebar.on" inactiveimage="waeq.titlebar.off" ghost="1"/>
+
+        <eqvis x="88" y="17" w="109" h="19" colortop="239,24,16" colormiddle="239,231,49" colorbottom="24,156,8" colorpreamp="156,181,206"/>
+
+        <!--grid top="wasabi.slider.vertical.top" middle="wasabi.slider.vertical.middle" bottom="wasabi.slider.vertical.bottom" x="74" y="127" h="88" w="8"/>
+        <grid top="wasabi.slider.vertical.top" middle="wasabi.slider.vertical.middle" bottom="wasabi.slider.vertical.bottom" x="111" y="127" h="88" w="8"/>
+        <grid top="wasabi.slider.vertical.top" middle="wasabi.slider.vertical.middle" bottom="wasabi.slider.vertical.bottom" x="149" y="127" h="88" w="8"/>
+        <grid top="wasabi.slider.vertical.top" middle="wasabi.slider.vertical.middle" bottom="wasabi.slider.vertical.bottom" x="186" y="127" h="88" w="8"/>
+        <grid top="wasabi.slider.vertical.top" middle="wasabi.slider.vertical.middle" bottom="wasabi.slider.vertical.bottom" x="224" y="127" h="88" w="8"/>
+        <grid top="wasabi.slider.vertical.top" middle="wasabi.slider.vertical.middle" bottom="wasabi.slider.vertical.bottom" x="261" y="127" h="88" w="8"/>
+        <grid top="wasabi.slider.vertical.top" middle="wasabi.slider.vertical.middle" bottom="wasabi.slider.vertical.bottom" x="299" y="127" h="88" w="8"/>
+        <grid top="wasabi.slider.vertical.top" middle="wasabi.slider.vertical.middle" bottom="wasabi.slider.vertical.bottom" x="336" y="127" h="88" w="8"/>
+        <Slider id="eq1" orientation="vertical" action="EQ_BAND" param="1" x="67" y="127" h="88" w="22" thumb="wasabi.slider.vertical.button" downThumb="wasabi.slider.vertical.button.pressed"/>
+        <Slider id="eq2" orientation="vertical" action="EQ_BAND" param="2" x="104" y="127" h="88" w="22" thumb="wasabi.slider.vertical.button" downThumb="wasabi.slider.vertical.button.pressed"/>
+        <Slider id="eq3" orientation="vertical" action="EQ_BAND" param="3" x="142" y="127" h="88" w="22" thumb="wasabi.slider.vertical.button" downThumb="wasabi.slider.vertical.button.pressed"/>
+        <Slider id="eq4" orientation="vertical" action="EQ_BAND" param="4" x="179" y="127" h="88" w="22" thumb="wasabi.slider.vertical.button" downThumb="wasabi.slider.vertical.button.pressed"/>
+        <Slider id="eq5" orientation="vertical" action="EQ_BAND" param="5" x="217" y="127" h="88" w="22" thumb="wasabi.slider.vertical.button" downThumb="wasabi.slider.vertical.button.pressed"/>
+        <Slider id="eq6" orientation="vertical" action="EQ_BAND" param="6" x="254" y="127" h="88" w="22" thumb="wasabi.slider.vertical.button" downThumb="wasabi.slider.vertical.button.pressed"/>
+        <Slider id="eq7" orientation="vertical" action="EQ_BAND" param="7" x="292" y="127" h="88" w="22" thumb="wasabi.slider.vertical.button" downThumb="wasabi.slider.vertical.button.pressed"/>
+        <Slider id="eq8" orientation="vertical" action="EQ_BAND" param="8" x="329" y="127" h="88" w="22" thumb="wasabi.slider.vertical.button" downThumb="wasabi.slider.vertical.button.pressed"/-->
+
+    </groupdef>
+
+    <layout id="EQ" background="wa.eq" minimum_w="275" minimum_h="116" maximum_w="275" maximum_h="116">
+        <group id="eq"/>
+    </layout>
+
+</container>

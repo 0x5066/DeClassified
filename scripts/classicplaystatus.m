@@ -21,7 +21,7 @@ System.onScriptLoaded(){
     playstatus = player.findObject("playbackstatus");
 
     setPlaysymbol = new Timer;
-	setPlaysymbol.setDelay(50);
+	setPlaysymbol.setDelay(250);
 
     setState();
     setState2();

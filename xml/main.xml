@@ -88,8 +88,7 @@
 
 	<button id="wabtn.open" action="EJECT" 		x="136" y="89" image="eject" downimage="ejectp" tooltip="Open File(s)"/>	
 
-	<layer id="wa.titlebar.on" x="0" y="0" image="wa.titlebar.on" ghost="1" activealpha="255" inactivealpha="0"/>	
-	<layer id="wa.titlebar.on" x="0" y="0" image="wa.titlebar.off" ghost="1" activealpha="0" inactivealpha="255"/>	
+	<layer id="wa.titlebar" x="0" y="0" image="wa.titlebar.on" inactiveimage="wa.titlebar.off" ghost="1"/>
 
 	<button id="wa.sysmenu" action="SYSMENU" x="6" y="3" image="menu" downimage="menup" activealpha="255" inactivealpha="0" tooltip="Winamp Menu"/>	
 
