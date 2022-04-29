@@ -178,10 +178,10 @@ trigger.onRightButtonUp (int x, int y)
 	oscsettings = new PopUpMenu;
 	fpsmenu = new PopUpMenu;
 
-	visMenu.addCommand("Modes:", 999, 0, 1);
+	visMenu.addCommand("Visualization mode:", 999, 0, 1);
 	visMenu.addSeparator();
 	visMenu.addCommand("Off", 100, currentMode == 0, 0);
-	visMenu.addCommand("Spectrum analyzer / Winshade VU", 1, currentMode == 1, 0);
+	visMenu.addCommand("Spectrum analyzer", 1, currentMode == 1, 0);
 	visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
 	
 	visMenu.addSeparator();
