@@ -34,7 +34,7 @@ Global PopUpMenu oscsettings;
 Global PopUpMenu stylemenu;
 Global PopUpMenu fpsmenu;
 
-Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring;
+Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps;
 Global Boolean show_peaks, isShade;
 Global layer trigger;
 
@@ -51,7 +51,7 @@ System.onScriptLoaded()
 
 	trigger = scriptGroup.findObject("main.vis.trigger");
 
-	visualizer.setXmlParam("peaks", integerToString(show_peaks));
+	visualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	visualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
 	visualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
 	visualizer.setXmlParam("oscstyle", integerToString(osc_render));
@@ -64,12 +64,13 @@ refreshVisSettings ()
 	currentMode = getPrivateInt(getSkinName(), "Visualizer Mode", 1);
 	show_peaks = getPrivateInt(getSkinName(), "Visualizer show Peaks", 1);
 	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
-	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer peaks falloff", 2);
+	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer Peaks falloff", 2);
 	osc_render = getPrivateInt(getSkinName(), "Oscilloscope Settings", 1);
 	ana_render = getPrivateInt(getSkinName(), "Spectrum Analyzer Settings", 2);
 	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
+	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
 
-	visualizer.setXmlParam("peaks", integerToString(show_peaks));
+	visualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	visualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
 	visualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
 	visualizer.setXmlParam("oscstyle", integerToString(osc_render));
@@ -124,6 +125,26 @@ refreshVisSettings ()
 			visualizer.setXmlParam("bandwidth", "wide");
 		}
 	setPrivateInt(getSkinName(), "Spectrum Analyzer Settings", ana_render);
+	if (v_fps == 0)
+		{
+			visualizer.setXmlParam("fps", "9");
+		}
+		else if (v_fps == 1)
+		{
+			visualizer.setXmlParam("fps", "9");
+		}
+		else if (v_fps == 2)
+		{
+			visualizer.setXmlParam("fps", "18");
+		}
+		else if (v_fps == 3)
+		{
+			visualizer.setXmlParam("fps", "35");
+		}
+		else if (v_fps == 4)
+		{
+			visualizer.setXmlParam("fps", "70");
+		}
 
 	setVis (currentMode);
 }
@@ -188,6 +209,10 @@ trigger.onRightButtonUp (int x, int y)
 	visMenu.addCommand("Modern Visualizer Settings", 998, 0, 1);
 	visMenu.addSeparator();
 	visMenu.addSubmenu(fpsmenu, "Refresh rate");
+	fpsmenu.addCommand("9fps", 800, v_fps == 0, 0);
+	fpsmenu.addCommand("18fps", 802, v_fps == 2, 0);
+	fpsmenu.addCommand("35fps", 803, v_fps == 3, 0);
+	fpsmenu.addCommand("70fps", 804, v_fps == 4, 0);
 	visMenu.addSubmenu(anasettings, "Spectrum analyzer options");
 	//anasettings.addCommand("Band line width:", 997, 0, 1);
 	//anasettings.addSeparator();
@@ -254,7 +279,7 @@ ProcessMenuResult (int a)
 	else if (a == 101)
 	{
 		show_peaks = (show_peaks - 1) * (-1);
-		visualizer.setXmlParam("peaks", integerToString(show_peaks));
+		visualizer.setXmlParam("Peaks", integerToString(show_peaks));
 		setPrivateInt(getSkinName(), "Visualizer show Peaks", show_peaks);
 	}
 
@@ -262,7 +287,7 @@ ProcessMenuResult (int a)
 	{
 		p_falloffspeed = a - 200;
 		visualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
-		setPrivateInt(getSkinName(), "Visualizer peaks falloff", p_falloffspeed);
+		setPrivateInt(getSkinName(), "Visualizer Peaks falloff", p_falloffspeed);
 	}
 
 	else if (a >= 300 && a <= 304)
@@ -332,6 +357,32 @@ else if (a >= 400 && a <= 403)
 			visualizer.setXmlParam("bandwidth", "wide");
 		}
 		setPrivateInt(getSkinName(), "Spectrum Analyzer Settings", ana_render);
+	}
+
+	else if (a >= 800 && a <= 804)
+	{
+		v_fps = a - 800;
+		if (v_fps == 0)
+		{
+			visualizer.setXmlParam("fps", "9");
+		}
+		else if (v_fps == 1)
+		{
+			visualizer.setXmlParam("fps", "9");
+		}
+		else if (v_fps == 2)
+		{
+			visualizer.setXmlParam("fps", "18");
+		}
+		else if (v_fps == 3)
+		{
+			visualizer.setXmlParam("fps", "35");
+		}
+		else if (v_fps == 4)
+		{
+			visualizer.setXmlParam("fps", "70");
+		}
+		setPrivateInt(getSkinName(), "Visualizer Refresh rate", v_fps);
 	}
 }
 
