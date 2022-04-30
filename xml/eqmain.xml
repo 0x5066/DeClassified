@@ -1,14 +1,44 @@
 <elements>
 
 <bitmap id="wa.eq" file="skin/eqmain.bmp" x="0" y="0" w="275" h="116"/>
+<bitmap id="wa.eqvis.bg" file="skin/eqmain.bmp" x="0" y="294" w="113" h="19"/>
 <bitmap id="waeq.titlebar.on" file="skin/eqmain.bmp" x="0" y="134" w="275" h="14"/>
 <bitmap id="waeq.titlebar.off" file="skin/eqmain.bmp" x="0" y="149" w="275" h="14"/>
+
+<bitmap id="eq.close" file="skin/eqmain.bmp" x="0" y="116" w="9" h="9"/>
+<bitmap id="eq.closep" file="skin/eqmain.bmp" x="0" y="125" w="9" h="9"/>
+
+<bitmap id="eqs.close" file="skin/eq_ex.bmp"  x="11" y="38" w="9" h="9"/>
+<bitmap id="eqs.closep" file="skin/eq_ex.bmp" x="11" y="47" w="9" h="9"/>
+
+<bitmap id="eq.switch" file="skin/eqmain.bmp" x="254" y="137" h="9" w="9"/>
+<bitmap id="eq.switchp" file="skin/eq_ex.bmp" x="1" y="38" h="9" w="9"/>
+
+<bitmap id="eq.presets" file="skin/eqmain.bmp"  x="224" y="164" w="44" h="12"/>
+<bitmap id="eq.presetsp" file="skin/eqmain.bmp" x="224" y="176" w="44" h="12"/>
+
+<bitmap id="eq.off" file="skin/eqmain.bmp"  x="10" y="119" w="25" h="12"/>
+<bitmap id="eq.offp" file="skin/eqmain.bmp" x="128" y="119" w="25" h="12"/>
+<bitmap id="eq.on" file="skin/eqmain.bmp"  x="69" y="119" w="25" h="12"/>
+
+<bitmap id="eq.auto" file="skin/eqmain.bmp"   x="35" y="119" w="33" h="12"/>
+<bitmap id="eq.autop" file="skin/eqmain.bmp"  x="153" y="119" w="33" h="12"/>
+<bitmap id="eq.autoon" file="skin/eqmain.bmp" x="94" y="119" w="33" h="12"/>
 
 </elements>
 
 <container id="EQ" name="Equalizer" default_w="275">
     <groupdef id="eq">
         <layer id="waeq.titlebar" x="0" y="0" image="waeq.titlebar.on" inactiveimage="waeq.titlebar.off" ghost="1"/>
+        <layer id="waeq.titlebar" x="86" y="17" image="wa.eqvis.bg" ghost="1"/>
+
+        <button id="eq.switch" x="254" y="3" action="SWITCH" param="shadeeq" image="eq.switch" downimage="eq.switchp" activealpha="255" inactivealpha="0"/>
+        <button id="eq.close" x="264" y="3" action="CLOSE" image="eq.close" downimage="eq.closep" activealpha="255" inactivealpha="0"/>
+
+        <Button id="eq.on" action="EQ_TOGGLE" x="14" y="18" image="eq.off" downimage="eq.offp" activeImage="eq.on"/>
+        <Button id="eq.auto" visible="1" action="EQ_AUTO" x="39" y="18" image="eq.auto" downimage="eq.autop" activeImage="eq.autoon"/>
+
+        <togglebutton id="eq.presets" x="217" y="18" image="eq.presets" downimage="eq.presetsp" action="MENU" param="PRESETS"/>
 
         <eqvis x="88" y="17" w="109" h="19" colortop="239,24,16" colormiddle="239,231,49" colorbottom="24,156,8" colorpreamp="156,181,206"/>
 
