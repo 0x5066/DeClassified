@@ -61,10 +61,6 @@
 	<bitmap id="wa.switch.on" file="skin/titlebar.bmp" x="0" y="36" w="18" h="18"/>	
 	<bitmap id="wa.switch.pressed" file="skin/titlebar.bmp" x="18" y="36" w="18" h="18"/>
 
-	<bitmap id="posbarbg" file="skin/posbar.bmp" x="0" y="0" w="248" h="10"/>
-	<bitmap id="posbar" file="skin/posbar.bmp" x="248" y="0" w="29" h="10"/>
-	<bitmap id="posbarp" file="skin/posbar.bmp" x="278" y="0" w="29" h="10"/>
-
 	<bitmap id="menu" file="skin/titlebar.bmp" x="0" y="0" w="9" h="9"/>
 	<bitmap id="menup" file="skin/titlebar.bmp" x="0" y="9" w="9" h="9"/>
 
