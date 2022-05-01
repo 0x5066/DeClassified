@@ -69,6 +69,12 @@
 <bitmap id="eqshade.bal.seekm" file="skin/eq_ex.bmp" x="14" y="30" w="3" h="7"/>
 <bitmap id="eqshade.bal.seekr" file="skin/eq_ex.bmp" x="17" y="30" w="3" h="7"/>
 
+<bitmap id="eqshade.close" file="skin/eq_ex.bmp" x="11" y="38" w="9" h="9"/>
+<bitmap id="eqshade.closep" file="skin/eq_ex.bmp" x="11" y="47" w="9" h="9"/>
+
+<bitmap id="eqshade.shade" file="skin/eq_ex.bmp" x="254" y="3" w="9" h="9"/>
+<bitmap id="eqshade.shadep" file="skin/eq_ex.bmp" x="1" y="47" w="9" h="9"/>
+
 </elements>
 
 <container id="EQ" name="Equalizer" default_w="275">
@@ -141,6 +147,9 @@
     <groupdef id="shadeeq">
     
         <layer id="blah" dblClickAction="SWITCH;eq" x="0" y="0" h="14" w="275" image="eq.shade.on" inactiveimage="eq.shade.off" move="1"/>
+
+        <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="eqshade.shade" downImage="eqshade.shadep"/>
+        <button id="Close" inactivealpha="0" action="close" x="264" y="3" image="eqshade.close" downImage="eqshade.closep"/>
 
         <slider id="volume" action="volume" x="61" y="4" h="7" w="97" thumb="eqshade.vol.seekm"/>
         <slider id="balance" action="pan" x="164" y="4" h="7" w="43" thumb="eqshade.vol.seekm"/>
