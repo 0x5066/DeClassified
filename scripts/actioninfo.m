@@ -11,6 +11,9 @@ Global GuiObject SongTicker;
 Global Slider Balance, BalanceEQ;
 Global Layout Normal, ShadeEQ;
 
+Global Slider Seeker;
+Global Int Seeking;
+
 System.onScriptLoaded() {
 
 	frameGroup = getContainer("Main").getLayout("Normal");
@@ -29,6 +32,10 @@ System.onScriptLoaded() {
 
 	Balance = frameGroup.findObject("Balance");
     BalanceEQ = frameGroupEQ.findObject("Balance");
+
+	Seeker = frameGroup.findObject("player.slider.seek");
+	SongTicker = frameGroup.findObject("songticker");
+	InfoTicker = frameGroup.findObject("infoticker");
 }
 
 Normal.onAction (String action, String param, Int x, int y, int p1, int p2, GuiObject source)
@@ -127,4 +134,48 @@ BalanceEQ.onSetPosition(int newpos)
 	SongTicker.hide();
 	InfoTicker.show();
 	InfoTicker.setText(t);
+}
+
+SongTickerTimer.onTimer() {
+	SongTicker.show();
+	InfoTicker.hide();
+	SongTickerTimer.stop();
+}
+
+System.onScriptUnloading() {
+	delete SongTickerTimer;
+}
+
+
+Seeker.onSetPosition(int p) {
+	if (seeking) {
+		Float f;
+		f = p;
+		f = f / 255 * 100;
+		Float len = getPlayItemLength();
+		if (len != 0) {
+			int np = len * f / 100;
+			SongTickerTimer.start();
+			SongTicker.hide();
+			InfoTicker.show();
+			InfoTicker.setText(translate("Seek to") + ": " + integerToTime(np) + "/" + integerToTime(len) + " (" + integerToString(f) + "%) ");
+		}
+	}
+}
+
+Seeker.onLeftButtonDown(int x, int y) {
+	seeking = 1;
+}
+
+Seeker.onLeftButtonUp(int x, int y) {
+	seeking = 0;
+	SongTickerTimer.start();
+	SongTicker.show();
+	InfoTicker.hide();
+}
+
+Seeker.onSetFinalPosition(int p) {
+	SongTickerTimer.start();
+	SongTicker.show();
+	InfoTicker.hide();
 }
