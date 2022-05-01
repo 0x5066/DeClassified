@@ -1,0 +1,116 @@
+<elements>
+
+    <!--Playlist Grid Elements-->
+    <bitmap id="wa2.pl.base" file="skin/plmain.bmp" x="0" y="0" h="116" w="275"/>
+    <bitmap id="wa2.pl.1" file="skin/pledit.bmp"  x="0" y="0" h="20" w="25"/>
+    <bitmap id="wa2.pl.2" file="skin/pledit.bmp"  x="127" y="0" h="20" w="25"/>
+    <bitmap id="wa2.pl.2.center" file="skin/pledit.bmp"  x="26" y="0" h="20" w="100"/>
+    <bitmap id="wa2.pl.3" file="skin/pledit.bmp"  x="153" y="0" h="20" w="25"/>
+    <bitmap id="wa2.pl.4" file="skin/pledit.bmp"  x="0" y="42" h="29" w="25"/>
+    <bitmap id="wa2.pl.5" file="$solid" h="64" w="64" color="0,0,0"/>
+    <bitmap id="wa2.pl.6" file="skin/pledit.bmp"  x="26" y="42" h="29" w="25"/>
+    <bitmap id="wa2.pl.7" file="skin/pledit.bmp"  x="0" y="72" h="38" w="125"/>
+    <bitmap id="wa2.pl.8" file="skin/pledit.bmp"  x="179" y="0" h="38" w="25"/>
+    <bitmap id="wa2.pl.8.vis" file="skin/pledit.bmp"  x="205" y="0" h="38" w="75"/>
+    <bitmap id="wa2.pl.9" file="skin/pledit.bmp"  x="126" y="72" h="38" w="150"/>
+
+    <bitmap id="wa2.pl.1.disabled" file="skin/pledit.bmp" x="0" y="21" h="20" w="25"/>
+    <bitmap id="wa2.pl.2.disabled" file="skin/pledit.bmp"  x="127" y="21" h="20" w="25"/>
+    <bitmap id="wa2.pl.2.center.disabled" file="skin/pledit.bmp"  x="26" y="21" h="20" w="100"/>
+    <bitmap id="wa2.pl.3.disabled" file="skin/pledit.bmp"  x="153" y="21" h="20" w="25"/>
+
+    <!-- PL Titlebar -->
+    <bitmap id="wa2.pl.titlebar.left.enabled" file="skin/pledit.bmp" x="0" y="21" h="20" w="25"/>
+    <bitmap id="wa2.pl.titlebar.left.disabled" file="skin/pledit.bmp" x="0" y="0" h="20" w="25"/>
+    <bitmap id="wa2.pl.titlebar.middle.enabled" file="skin/pledit.bmp" x="26" y="21" h="20" w="100"/>
+    <bitmap id="wa2.pl.titlebar.middle.disabled" file="skin/pledit.bmp" x="26" y="0" h="20" w="100"/>
+    <bitmap id="wa2.pl.titlebar.right.enabled" file="skin/pledit.bmp" x="153" y="21" h="20" w="25"/>
+    <bitmap id="wa2.pl.titlebar.right.disabled" file="skin/pledit.bmp" x="153" y="0" h="20" w="25"/>
+
+    <bitmap id="wa2.pl.close" file="skin/pledit.bmp" x="167" y="3" h="9" w="9"/>
+    <bitmap id="wa2.pl.closep" file="skin/pledit.bmp" x="52" y="42" h="9" w="9"/>
+    <bitmap id="wa2.pl.shade" file="skin/pledit.bmp" x="157" y="3" h="9" w="9"/>
+    <bitmap id="wa2.pl.shadep" file="skin/pledit.bmp" x="62" y="42" h="9" w="9"/>
+
+    <!-- PL Buttons-->
+    <bitmap id="wa2.pl.add" file="skin/pledit.bmp" x="14" y="86" h="12" w="22"/>
+    <bitmap id="wa2.pl.rem" file="skin/pledit.bmp" x="43" y="86" h="12" w="22"/>
+    <bitmap id="wa2.pl.sel" file="skin/pledit.bmp" x="72" y="86" h="12" w="22"/>
+    <bitmap id="wa2.pl.misc" file="skin/pledit.bmp" x="101" y="86" h="12" w="22"/>
+    <bitmap id="wa2.pl.load" file="skin/pledit.bmp" x="227" y="86" h="12" w="22"/>
+
+    <!-- PL Player Controls-->
+    <bitmap id="wa2.pl.prev" file="skin/pledit.bmp" x="134" y="96" h="5" w="5"/>
+    <bitmap id="wa2.pl.play" file="skin/pledit.bmp" x="142" y="96" h="5" w="5"/>
+    <bitmap id="wa2.pl.pause" file="skin/pledit.bmp" x="152" y="96" h="5" w="5"/>
+    <bitmap id="wa2.pl.stop" file="skin/pledit.bmp" x="162" y="96" h="5" w="5"/>
+    <bitmap id="wa2.pl.next" file="skin/pledit.bmp" x="171" y="96" h="5" w="5"/>
+    <bitmap id="wa2.pl.eject" file="skin/pledit.bmp" x="180" y="96" h="5" w="5"/>
+
+</elements>
+
+<container id="PL" name="Playlist Editor" default_x="0" default_y="232" default_visible="1" >
+	<layout id="normal" image="wa2.pl.base" minimum_h="116" minimum_w="275">
+		<AlbumArt id="wa2.player.eq.album" notfoundImage="notfound" valign="top" align="left" stretched="true"  minimum_h="116" minimum_w="275" x="0" y="0" alpha="15"/>
+		<!-- Can use the grid object here but then you won't have the inactive image option -->
+		<layer image="wa2.pl.1" x="0" y="0" inactivealpha="0" regionop="1"/>
+		<layer image="wa2.pl.1.disabled" x="0" y="0" activealpha="0" regionop="1"/>
+		<layer image="wa2.pl.2" x="25" y="0" w="-50" relatw="1" inactivealpha="0" regionop="1"/>
+		<layer image="wa2.pl.2.disabled" x="25" y="0" w="-50" relatw="1" activealpha="0" regionop="1"/>
+		<layer image="wa2.pl.3" x="-25" y="0" relatx="1" inactivealpha="0" regionop="1"/>
+		<layer image="wa2.pl.3.disabled" x="-25" y="0" relatx="1" activealpha="0" regionop="1"/>
+		<layer image="wa2.pl.4" x="0" y="20" h="-58" relath="1" regionop="1"/>
+		<layer image="wa2.pl.5" x="25" y="20" w="-50" h="-58" relatw="1" relath="1" regionop="1"/>
+		<layer image="wa2.pl.6" x="-25" y="20" h="-58" relatx="1" relath="1" regionop="1"/>
+		<layer image="wa2.pl.7" x="0" y="-38" relaty="1" regionop="1"/>
+		<layer image="wa2.pl.8" x="125" y="-38" w="-275" relaty="1" relatw="1" regionop="1"/>
+		<layer image="wa2.pl.9" x="-150" y="-38" relatx="1" relaty="1" regionop="1"/>
+		<layer x="-19" y="-19" w="19" h="19" relatx="1" relaty="1" resize="bottomright" move="0"/>
+
+		<!-- Layers that needs to be hidden or centered -->
+		<layer id="pl.center.logo.active" image="wa2.pl.2.center" x="-100" y="0" inactivealpha="0"/>
+		<script file="scripts/_wa2-easylayout.maki" param="pl.center.logo.active;0;0;1;0;0;0"/>
+
+		<layer id="pl.center.logo.inactive" image="wa2.pl.2.center.disabled" x="-100" y="0" activealpha="0"/>
+		<script file="scripts/_wa2-easylayout.maki" param="pl.center.logo.inactive;0;0;1;0;0;0"/>
+
+		<layer id="pl.vis.area" image="wa2.pl.8.vis" x="-225" y="-38" relatx="1" relaty="1"/>
+        <group id="waclassicvis" x="-223" y="-26" relatx="1" relaty="1"/>
+		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;350;0;0;0;0;0"/>
+        <script file="scripts/_wa2-easylayout.maki" param="waclassicvis;350;0;0;0;0;0"/>
+		<!-- Small Ticker/Timer -->
+		<text id="pe.info" display="PE_INFO" x="-145" y="-28" w="88" h="6" font="wasabi.font.default" relatx="1" relaty="1"/>
+		<text id="timer" display="time" x="-83" y="-15" w="31" h="6" timeroffstyle="2" align="right" font="wasabi.font.default" relatx="1" relaty="1"  timecolonwidth="5"/>
+        <layer id="TimerTrigger" x="-83" y="-15" w="31" h="6" relatx="1" relaty="1"/>
+        <script file="scripts/wa2songtimer.maki"/>
+
+		<!-- Add Playlist Entry (List) -->
+		<button action="PE_ADD"	x="14" y="-24" w="22" h="10" relatx="0" relaty="1" rectrgn="1"/>
+		<button action="PE_REM"	x="43" y="-24" w="22" h="10" relatx="0" relaty="1" rectrgn="1"/>
+		<button action="PE_SEL"	x="72" y="-24" w="22" h="10" relatx="0" relaty="1" rectrgn="1"/>
+		<button action="PE_MISC" x="101" y="-24" w="22" h="10" relatx="0" relaty="1" rectrgn="1"/>
+		<button action="PE_LIST" x="-49" y="-24" w="22" h="10" relatx="1" relaty="1" rectrgn="1"/>
+		<!-- End Playlist Entries -->
+
+		<!-- Since Winamp 5.0 the component xml object was renamed to windowholder -->
+		<windowholder id="wasabi.list" component="guid:{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D}"  fitparent="1"
+			x="12" y="20" w="-20" h="-58" relatw="1" relath="1"
+			noshowcmdbar="1" autoopen="1" autoclose="1" opacity="120"
+			param="guid:pl"
+		/>
+
+		<!-- Playback buttons - No images so must use rectrgn="1" -->
+		<button x="-145" y="-16" w="8" h="9" relatx="1" relaty="1" action="Prev" rectrgn="1"/>
+		<button x="-137" y="-16" w="10" h="9" relatx="1" relaty="1" action="Play" rectrgn="1"/>
+		<button x="-127" y="-16" w="10" h="9" relatx="1" relaty="1" action="Pause" rectrgn="1"/>
+		<button x="-117" y="-16" w="9" h="9" relatx="1" relaty="1" action="Stop" rectrgn="1"/>
+		<button x="-108" y="-16" w="8" h="9" relatx="1" relaty="1" action="Next" rectrgn="1"/>
+		<button x="-100" y="-16" w="10" h="9" relatx="1" relaty="1" action="Eject" rectrgn="1"/>
+		<!-- Close Button -->
+		<button image="wa2.pl.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1"
+		/>
+		<!-- Playlist Shade -->
+		<button id="winshade" action="SWITCH" param="shade" x="-21" y="3" relatx="1" relaty="0" image="wa2.pl.shade" downImage="wa2.pl.shadep" inactiveAlpha="0"
+    />
+	</layout>
+</container>

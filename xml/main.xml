@@ -158,7 +158,7 @@
 
     <layer id="blah" dblClickAction="SWITCH;normal" x="0" y="0" h="14" w="275" image="wa2.player.shade.enabled" inactiveimage="wa2.player.shade.disabled" move="1"/>
 
-    <text id="timer" display="time" x="128" y="2" w="31" h="10" font="wasabi.font.default" align="right"/>
+    <text id="timer" display="time" x="128" y="2" w="31" h="10" font="wasabi.font.default" align="right" timecolonwidth="5"/>
 	<layer id="TimerTrigger" x="128" y="2" w="31" h="10"/>
 
 	<script file="scripts/wa2songtimer.maki"/>

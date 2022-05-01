@@ -12,6 +12,7 @@
 
 	<include file="xml/main.xml"/>
 	<include file="xml/eqmain.xml"/>
+	<include file="xml/pledit.xml"/>
 	<include file="xml/tooltips.xml"/>
 
 	<script file="scripts/actioninfo.maki"/>

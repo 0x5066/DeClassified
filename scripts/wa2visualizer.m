@@ -44,8 +44,6 @@ Global Container main;
 System.onScriptLoaded()
 { 
 	scriptGroup = getScriptGroup();
-	thislayout = scriptGroup.getParentLayout();
-	main = thislayout.getContainer();
 
 	visualizer = scriptGroup.findObject("wa.vis");
 
