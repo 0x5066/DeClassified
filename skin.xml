@@ -7,9 +7,13 @@
 		<comment>-</comment>
 		<author>-</author>
 		<email>-</email>
+		<screenshot>screenshot.png</screenshot>
 	</skininfo>
 
 	<include file="xml/main.xml"/>
 	<include file="xml/eqmain.xml"/>
+	<include file="xml/tooltips.xml"/>
+
+	<script file="scripts/actioninfo.maki"/>
 
 </WinampAbstractionLayer>

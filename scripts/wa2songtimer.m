@@ -421,7 +421,7 @@ stopped(){
     timerSongTimerReverse.stop();
     PauseBlink.stop();
     PauseBlinkPaused.stop();
-    DisplayTime.setXmlParam("text", "..:..");
+    DisplayTime.setXmlParam("text", "  :  ");
     //DisplayTimeShade.setXmlParam("text", "00:00");
 }
 

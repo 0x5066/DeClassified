@@ -121,6 +121,20 @@
     <bitmap id="wasabi.scrollbar.horizontal.button.right.pressed"   file="skin/genex.bmp" x="67" y="31" h="28" w="3"/-->
 
 
+    <!--bitmap id="studio.scrollbar.vertical.background" 			    file="skin/genex.bmp" x="112" y="35" h="20" w="14"/>
+
+    <bitmap id="wasabi.scrollbar.vertical.background" 			    file="skin/genex.bmp" x="112" y="35" h="20" w="14"/>
+	<bitmap id="wasabi.scrollbar.vertical.background.top" 		    file="skin/genex.bmp" x="112" y="31" h="4" w="14"/>
+	<bitmap id="wasabi.scrollbar.vertical.background.middle" 	    file="skin/genex.bmp" x="112" y="35" h="20" w="14"/>
+	<bitmap id="wasabi.scrollbar.vertical.background.bottom" 	    file="skin/genex.bmp" x="112" y="55" h="4" w="14"/>
+	
+    <bitmap id="studio.scrollbar.horizontal.background" 			file="skin/genex.bmp" x="88" y="59" h="14" w="20"/>
+
+    <bitmap id="wasabi.scrollbar.horizontal.background" 			file="skin/genex.bmp" x="88" y="59" h="14" w="20"/>
+	<bitmap id="wasabi.scrollbar.horizontal.background.top" 	    file="skin/genex.bmp" x="84" y="59" h="14" w="4"/>
+	<bitmap id="wasabi.scrollbar.horizontal.background.middle" 	    file="skin/genex.bmp" x="88" y="59" h="14" w="20"/>
+	<bitmap id="wasabi.scrollbar.horizontal.background.bottom" 	    file="skin/genex.bmp" x="108" y="59" h="14" w="4"/-->
+
     <bitmap id="wasabi.scrollbar.vertical.background" 			    file="skin/genex.bmp" x="112" y="31" h="28" w="14"/>
 	<bitmap id="wasabi.scrollbar.vertical.background.top" 		    file="skin/genex.bmp" x="112" y="31" h="28" w="14"/>
 	<bitmap id="wasabi.scrollbar.vertical.background.middle" 	    file="skin/genex.bmp" x="112" y="31" h="28" w="14"/>
@@ -131,7 +145,6 @@
 	<bitmap id="wasabi.scrollbar.horizontal.background.middle" 	    file="skin/genex.bmp" x="84" y="59" h="14" w="28"/>
 	<bitmap id="wasabi.scrollbar.horizontal.background.bottom" 	    file="skin/genex.bmp" x="84" y="59" h="14" w="28"/>
 
-	
 	
     <bitmap id="wasabi.scrollbar.vertical.left"					    file="skin/genex.bmp" x="0" y="31" h="14" w="14"/> <!-- up -->
     <bitmap id="wasabi.scrollbar.vertical.left.hover" 			    file="skin/genex.bmp" x="0" y="31" h="14" w="14"/>

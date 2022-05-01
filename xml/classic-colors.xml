@@ -1,4 +1,28 @@
-	<!-- Generic Lists -->
+	<!--color id="colorband1" value="24,132,8"/> <bottom of spec>
+    <color id="colorband2" value="41,148,0"/>
+    <color id="colorband3" value="49,156,8"/>
+    <color id="colorband4" value="57,181,16"/>
+    <color id="colorband5" value="50,190,16"/>
+    <color id="colorband6" value="41,206,16"/>
+    <color id="colorband7" value="148,222,33"/>
+    <color id="colorband8" value="189,222,41"/>
+    <color id="colorband9" value="214,181,33"/>
+    <color id="colorband10" value="222,165,24"/>
+    <color id="colorband11" value="198,123,8"/>
+    <color id="colorband12" value="214,115,0"/>
+    <color id="colorband13" value="214,102,0"/>
+    <color id="colorband14" value="214,90,0"/>
+    <color id="colorband15" value="206,41,16"/>
+    <color id="colorband16" value="239,49,16"/> <top of spec>
+    <color id="colorpeak" value="150,150,150"/> <analyzer peak dots>
+
+    <color id="colorosc1" value="255,255,255"/>
+    <color id="colorosc2" value="214,214,222"/>
+    <color id="colorosc3" value="181,189,189"/>
+    <color id="colorosc4" value="160,170,175"/>
+    <color id="colorosc5" value="148,156,165"/-->
+    
+    <!-- Generic Lists -->
 	<color id="wasabi.list.text" value="x50"/> <!--lists/trees item foreground (also edit text) -->
 	<color id="wasabi.list.background" value="x48"/>	<!--lists/trees item background (also bg for edit) -->
 	<color id="wasabi.list.text.alternate" value="x50"/> <!-- ML txt and such -->

@@ -3,31 +3,35 @@
 
 #include "../../../lib/std.mi"
 
-Global Group frameGroup;
-Global Togglebutton ShuffleBtn, RepeatBtn, CLBA;
+Global Group frameGroup, frameGroupEQ;
+Global Togglebutton ShuffleBtn, RepeatBtn/*, CLBA*/;
 Global Timer SongTickerTimer;
 Global Text InfoTicker;
 Global GuiObject SongTicker;
-Global Slider Balance;
-Global Layout normal;
+Global Slider Balance, BalanceEQ;
+Global Layout Normal, ShadeEQ;
 
 System.onScriptLoaded() {
-	frameGroup = getScriptGroup();
+
+	frameGroup = getContainer("Main").getLayout("Normal");
+    frameGroupEQ = getContainer("eq").getLayout("shadeeq");
 	SongTicker = frameGroup.findObject("songticker");
 	InfoTicker = frameGroup.findObject("infoticker");
-	normal = frameGroup.getParentLayout();
+	normal = getContainer("main").getlayout("normal");
+    shadeeq = getContainer("eq").getlayout("shadeeq");
 
 	SongTickerTimer = new Timer;
 	SongTickerTimer.setDelay(1000);
 
 	RepeatBtn = frameGroup.findObject("Repeat");
 	ShuffleBtn = frameGroup.findObject("Shuffle");
-    CLBA = frameGroup.findObject("CLB.A");
+    //CLBA = frameGroup.findObject("CLB.A");
 
 	Balance = frameGroup.findObject("Balance");
+    BalanceEQ = frameGroupEQ.findObject("Balance");
 }
 
-normal.onAction (String action, String param, Int x, int y, int p1, int p2, GuiObject source)
+Normal.onAction (String action, String param, Int x, int y, int p1, int p2, GuiObject source)
 {
 	if (strlower(action) == "showinfo")
 	{
@@ -39,7 +43,7 @@ normal.onAction (String action, String param, Int x, int y, int p1, int p2, GuiO
 	}
 	else if (strlower(action) == "cancelinfo")
 	{
-		SongTickerTimer.onTimer ();
+		SongTickerTimer.onTimer();
 	}
 }
 
@@ -88,10 +92,39 @@ ShuffleBtn.onToggle(boolean on) {
 	InfoTicker.show();
 	if (on) InfoTicker.setText("Shuffle: ON"); else InfoTicker.setText("Shuffle: OFF");
 }
-
+/*
 CLBA.onToggle(boolean on) {
 	SongTickerTimer.start();
 	SongTicker.hide();
 	InfoTicker.show();
 	if (on) InfoTicker.setText("Enable Always-on-Top"); else InfoTicker.setText("Disable Always-on-Top");
+}*/
+
+shadeEQ.onAction (String action, String param, Int x, int y, int p1, int p2, GuiObject source)
+{
+	if (strlower(action) == "showinfo")
+	{
+		SongTicker.hide();
+		SongTickerTimer.start();
+		InfoTicker.setText(param);
+		InfoTicker.show();
+
+	}
+	else if (strlower(action) == "cancelinfo")
+	{
+		SongTickerTimer.onTimer ();
+	}
+}
+
+BalanceEQ.onSetPosition(int newpos)
+{
+	string t=translate("Balance")+":";
+	if (newpos==127) t+= " " + translate("Center");
+	if (newpos<127) t += " " + integerToString((100-(newpos/127)*100))+"% "+translate("Left");
+	if (newpos>127) t += " " + integerToString(((newpos-127)/127)*100)+"% "+translate("Right");
+
+	SongTickerTimer.start();
+	SongTicker.hide();
+	InfoTicker.show();
+	InfoTicker.setText(t);
 }

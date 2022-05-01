@@ -16,9 +16,9 @@
 	
 	<layer id="blah" dblClickAction="SWITCH;shade" x="0" y="0" h="14" w="275" move="1"/>
 
-	<layer image="clutterbar" x="10" y="22"/>
-	<Togglebutton id="CLB.O" x="11" y="24" w="8" h="9" action="CONTROLMENU" rectrgn="1"/>
-	<Togglebutton id="CLB.A" x="11" y="33" w="8" h="9" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1"/>
+	<layer image="clutterbar" x="10" y="22" tooltip="Clutterbar is not done yet, sorry. :("/>
+	<!--Togglebutton id="CLB.O" x="11" y="24" w="8" h="9" action="CONTROLMENU" rectrgn="1"/>
+	<Togglebutton id="CLB.A" x="11" y="33" w="8" h="9" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1"/-->
 
 	<group id="waclassicvis" x="24" y="43" w="76" h="16"/>	
 	<!-- Timer -->	
@@ -108,8 +108,6 @@
 
 	<togglebutton id="AboutWinamp" x="251" y="91" w="14" h="16" rectrgn="1" action="TOGGLE" param="guid:{D6201408-476A-4308-BF1B-7BACA1124B12}"/>
 
-	<script file="scripts/actioninfo.maki"/>
-
 </groupdef>	
 
 <groupdef id="sliders">
@@ -123,7 +121,30 @@
 </groupdef>
 
 <groupdef id="waclassicvis">
-	<vis id="wa.vis" y="0" w="72" h="16" fps="60"/>
+	<vis id="wa.vis" y="0" w="72" h="16" fps="60"
+	ColorBand1="24,132,8"
+    ColorBand2="41,148,0"
+    ColorBand3="49,156,8"
+    ColorBand4="57,181,16"
+    ColorBand5="50,190,16"
+    ColorBand6="41,206,16"
+    ColorBand7="148,222,33"
+    ColorBand8="189,222,41"
+    ColorBand9="214,181,33"
+    ColorBand10="222,165,24"
+    ColorBand11="198,123,8"
+    ColorBand12="214,115,0"
+    ColorBand13="214,102,0"
+    ColorBand14="214,90,0"
+    ColorBand15="206,41,16"
+    ColorBand16="239,49,16"
+	colorbandpeak="150,150,150"
+
+    colorosc1="255,255,255"
+    colorosc2="214,214,222"
+    colorosc3="181,189,189"
+    colorosc4="160,170,175"
+    colorosc5="148,156,165"/>
 	<layer id="main.vis.trigger" w="72" h="16"/>
 	<script file="scripts/wa2visualizer.maki"/>
 </groupdef>
