@@ -149,16 +149,32 @@ System.onScriptUnloading() {
 
 Seeker.onSetPosition(int p) {
 	if (seeking) {
+        String propertime;
+        String propertime2;
 		Float f;
 		f = p;
 		f = f / 255 * 100;
 		Float len = getPlayItemLength();
 		if (len != 0) {
 			int np = len * f / 100;
+                if(np < 600000){
+                    propertime = "0"+integerToTime(np);
+                }
+                else{
+                    propertime = integerToTime(np);
+                }
+
+                if(len < 600000){
+                    propertime2 = "0"+integerToTime(len);
+                }
+                else{
+                    propertime2 = integerToTime(len);
+                }
+
 			SongTickerTimer.start();
 			SongTicker.hide();
 			InfoTicker.show();
-			InfoTicker.setText(translate("Seek to") + ": " + integerToTime(np) + "/" + integerToTime(len) + " (" + integerToString(f) + "%) ");
+			InfoTicker.setText(translate("Seek to") + ": " + propertime + "/" + propertime2 + " (" + integerToString(f) + "%)");
 		}
 	}
 }
