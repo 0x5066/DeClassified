@@ -21,7 +21,8 @@
 	<Togglebutton id="CLB.A" x="11" y="33" w="8" h="9" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1"/-->
 
 	<group id="waclassicvis" x="24" y="43" w="76" h="16"/>	
-	<!-- Timer -->	
+	<!-- Timer -->
+	<layer id="nums_ex_disabled_dash" x="36" y="26" image="disabled.dash" ghost="1" visible="0"/>
 	<text
 		id="timer"
 		display="time"

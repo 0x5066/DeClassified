@@ -11,6 +11,7 @@
 
 	<!-- NUMFONT -->
 	<bitmapfont id="player.BIGNUM" file="skin/numfont.png" charwidth="9" charheight="13" hspacing="3" vspacing="1"/>
+	<bitmap id="disabled.dash" file="skin/nums_ex.bmp" x="90" y="0" w="9" h="13"/>
 	<!-- SONGTICKERFONT -->	
 	<bitmapfont id="wasabi.font.default" file="skin/text.bmp" charwidth="5" charheight="6" hspacing="0" vspacing="0"/>	
 
