@@ -126,7 +126,7 @@
 </groupdef>
 
 <groupdef id="waclassicvis">
-	<vis id="wa.vis" y="0" w="72" h="16" fps="60"
+	<vis id="wa.vis" y="2" w="72" h="16" fps="60"
 	ColorBand1="24,132,8"
     ColorBand2="41,148,0"
     ColorBand3="49,156,8"
