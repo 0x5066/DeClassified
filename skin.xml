@@ -14,6 +14,8 @@
 	<include file="xml/eqmain.xml"/>
 	<include file="xml/pledit.xml"/>
 	<include file="xml/tooltips.xml"/>
+	<include file="xml/standardframe.xml"/>
+	<include file="xml/titlebar.xml"/>
 
 	<script file="scripts/actioninfo.maki"/>
 
