@@ -89,6 +89,7 @@
 
 		<layer id="pl.vis.area" image="wa2.pl.8.vis" x="-225" y="-38" relatx="1" relaty="1"/>
         <group id="waclassicvis" x="-223" y="-26" w="76" h="16" relatx="1" relaty="1"/>
+        <!--script file="scripts/hideplvis.maki"/-->
 		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;350;0;0;0;0;0"/>
         <script file="scripts/_wa2-easylayout.maki" param="waclassicvis;350;0;0;0;0;0"/>
 		<!-- Small Ticker/Timer -->
