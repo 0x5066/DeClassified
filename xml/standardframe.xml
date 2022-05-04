@@ -292,17 +292,17 @@
      resize="bottomleft"
    /-->
 
-   <layer
+   <!--layer
      id="window.bottom.top"
      x="15" y="-5"
      w="-30"
      relatw="1" relaty="1"
      image="wasabi.frame.bottom.top"
-   />
+   /-->
    <layer
      id="window.bottom"
-     x="15" y="-14"
-     w="-30"
+     x="125" y="-14"
+     w="-250"
      relatw="1" relaty="1"
      image="wasabi.frame.bottom"
      tile="1"
