@@ -93,17 +93,17 @@
 		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;350;0;0;0;0;0"/>
         <script file="scripts/_wa2-easylayout.maki" param="waclassicvis;350;0;0;0;0;0"/>
 		<!-- Small Ticker/Timer -->
-		<text id="pe.info" display="PE_INFO" x="-145" y="-28" w="88" h="6" font="wasabi.font.default" relatx="1" relaty="1"/>
+		<text id="pe.info" display="PE_INFO" x="-145" y="-28" w="91" h="6" font="wasabi.font.default" relatx="1" relaty="1"/>
 		<text id="timer" display="time" x="-83" y="-15" w="31" h="6" timeroffstyle="2" align="right" font="wasabi.font.default" relatx="1" relaty="1"  timecolonwidth="5"/>
         <layer id="TimerTrigger" x="-83" y="-15" w="31" h="6" relatx="1" relaty="1"/>
         <script file="scripts/wa2songtimer.maki"/>
 
 		<!-- Add Playlist Entry (List) -->
-		<button action="PE_ADD"	x="14" y="-24" w="22" h="10" relatx="0" relaty="1" rectrgn="1"/>
-		<button action="PE_REM"	x="43" y="-24" w="22" h="10" relatx="0" relaty="1" rectrgn="1"/>
-		<button action="PE_SEL"	x="72" y="-24" w="22" h="10" relatx="0" relaty="1" rectrgn="1"/>
-		<button action="PE_MISC" x="101" y="-24" w="22" h="10" relatx="0" relaty="1" rectrgn="1"/>
-		<button action="PE_LIST" x="-49" y="-24" w="22" h="10" relatx="1" relaty="1" rectrgn="1"/>
+		<button action="PE_ADD"	x="11" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1"/>
+		<button action="PE_REM"	x="40" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1"/>
+		<button action="PE_SEL"	x="69" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1"/>
+		<button action="PE_MISC" x="98" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1"/>
+		<button action="PE_LIST" x="-47" y="-30" w="25" h="18" relatx="1" relaty="1" rectrgn="1"/>
 		<!-- End Playlist Entries -->
 
 		<!-- Since Winamp 5.0 the component xml object was renamed to windowholder -->
