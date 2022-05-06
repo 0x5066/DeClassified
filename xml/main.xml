@@ -6,7 +6,7 @@
 	fit my own needs.-->
 
 <elements>	
-<bitmap id="wa.main" file="skin/main.bmp"/>	
+<bitmap id="wa.main" file="skin/main.bmp" gammagroup="Background"/>	
 <include file="classic-elements.xml"/>
 <include file="classic-colors.xml"/>
 <include file="classic-genex.xml"/>

@@ -1,0 +1,91 @@
+<!-- =======================================================================================================
+
+  <Wasabi:HSlider/> implementation
+
+======================================================================================================== -->
+
+<elements>
+
+<bitmap id="wasabi.slider.horizontal.left" file="skin/volume.bmp" x="1" y="4" w="4" h="5"/>
+<bitmap id="wasabi.slider.horizontal.middle" file="skin/volume.bmp" x="5" y="4" w="59" h="5"/>
+<bitmap id="wasabi.slider.horizontal.right" file="skin/volume.bmp" x="64" y="4" w="1" h="5"/>
+
+<bitmap id="wasabi.slider.horizontal.button" file="skin/volume.bmp" x="15" y="422" w="14" h="11"/>
+<bitmap id="wasabi.slider.horizontal.button.pressed" file="skin/volume.bmp" x="0" y="422" w="14" h="11"/>
+
+</elements>
+
+<groupdef id="wasabi.slider.horizontal" embed_xui="slider.button" xuitag="Wasabi:HSlider" h="15" >
+
+    <layer
+        id="slider.background"
+        x="0" y="4"
+        image="wasabi.slider.horizontal.left"
+    />
+    <layer
+        id="slider.background"
+        x="4" y="4"
+        w="-12"
+        relatw="1"
+        image="wasabi.slider.horizontal.middle"
+    />
+    <layer
+        id="slider.background"
+        x="-8" y="4"
+        relatx="1"
+        image="wasabi.slider.horizontal.right"
+    />
+
+    <slider
+        id="slider.button"
+        x="0" y="0" 
+        w="0" h="13"
+        relatw="1"
+        thumb="wasabi.slider.horizontal.button"
+        downThumb="wasabi.slider.horizontal.button.pressed"
+        wantfocus="1"
+    />
+
+</groupdef>
+
+<!-- =======================================================================================================
+
+    <Wasabi:VSlider/> implementation 
+
+======================================================================================================== -->
+
+
+<groupdef id="wasabi.slider.vertical" embed_xui="slider.button" xuitag="Wasabi:VSlider" w="16"> <!-- default_h="100"  -->	
+
+    <layer
+        id="slider.background"
+        x="4" y="0"
+        image="wasabi.slider.vertical.top"
+    />
+    <layer
+        id="slider.background"
+        x="4" y="8"
+        h="-17"
+        relath="1"
+        image="wasabi.slider.vertical.middle"
+    />
+    <layer
+        id="slider.background"
+        x="4" y="-9"
+        relaty="1"
+        image="wasabi.slider.vertical.bottom"
+    />
+
+    <slider
+        id="slider.button"
+        x="0" y="0" 
+        w="16" h="0"
+        relath="1"
+        thumb="wasabi.slider.vertical.button"
+        downThumb="wasabi.slider.vertical.button.pressed"
+        orientation="v"
+        wantfocus="1"
+    />
+
+</groupdef>
+

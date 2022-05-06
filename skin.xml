@@ -10,12 +10,19 @@
 		<screenshot>screenshot.png</screenshot>
 	</skininfo>
 
+	<!-- needs to exist for testing -->
+	<include file="xml/themes.xml"/>
+
 	<include file="xml/main.xml"/>
 	<include file="xml/eqmain.xml"/>
 	<include file="xml/pledit.xml"/>
 	<include file="xml/tooltips.xml"/>
-	<include file="xml/standardframe.xml"/>
-	<include file="xml/titlebar.xml"/>
+
+	<!-- wasabi replacement stuff -->
+	<include file="xml/wasabi.classic/xui/slider/slider.xml"/>
+	<include file="xml/wasabi.classic/xui/standardframe/standardframe.xml"/>
+	<include file="xml/wasabi.classic/xui/titlebar/titlebar.xml"/>
+	<include file="xml/wasabi.classic/system-elements.xml"/>
 
 	<script file="scripts/actioninfo.maki"/>
 
