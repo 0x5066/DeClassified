@@ -23,6 +23,8 @@
 	<include file="xml/wasabi.classic/xui/standardframe/standardframe.xml"/>
 	<include file="xml/wasabi.classic/xui/titlebar/titlebar.xml"/>
 	<include file="xml/wasabi.classic/system-elements.xml"/>
+	<include file="xml/wasabi.classic/groups/objectframe.xml"/>
+	<include file="xml/wasabi.classic/titlebox/titlebox.xml"/>
 
 	<script file="scripts/actioninfo.maki"/>
 

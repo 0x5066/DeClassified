@@ -61,8 +61,8 @@
    />
    <layer
      id="window.top"
-     x="15" y="0"
-     w="-30"
+     x="25" y="0"
+     w="-50"
      relatw="1"
      image="wasabi.frame.top"
      inactivealpha="0"
@@ -86,7 +86,7 @@
    />
    <layer
      id="window.top"
-     x="15" y="0"
+     x="25" y="0"
      w="-30"
      relatw="1"
      image="wasabi.frame.top.inactive"
@@ -158,8 +158,8 @@
    />
    <Wasabi:TitleBar
      id="wasabi.titlebar"
-     x="15" y="2"
-     w="-32" h="11"
+     x="15" y="0"
+     w="-32" h="20"
      relatw="1"
    />
      
