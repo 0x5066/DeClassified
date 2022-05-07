@@ -11,7 +11,7 @@
 	</skininfo>
 
 	<!-- needs to exist for testing -->
-	<include file="xml/themes.xml"/>
+	<!--include file="xml/themes.xml"/-->
 
 	<include file="xml/main.xml"/>
 	<include file="xml/eqmain.xml"/>
