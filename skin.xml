@@ -24,7 +24,6 @@
 	<include file="xml/main.xml"/>
 	<include file="xml/eqmain.xml"/>
 	<include file="xml/pledit.xml"/>
-	<include file="xml/pledit.xml"/>
 
 	<!-- needs to exist for testing -->
 	<include file="xml/themes.xml"/>
