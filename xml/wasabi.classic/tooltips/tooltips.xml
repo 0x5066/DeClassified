@@ -9,6 +9,6 @@
     relatw="1" relath="0" align="left" valign="top" default="Tooltip Sample" 
     font="tahoma" antialias="1" fontsize="14" color="x56"/>
 	
-	<script id="tip" file="scripts\tooltips.maki"/>
+	<script id="tip" file="xml\wasabi.classic\tooltips\tooltips.maki"/>
 
 </groupdef>
