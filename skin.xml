@@ -17,6 +17,7 @@
 	<include file="xml/wasabi.classic/system-elements.xml"/>
 	<include file="xml/wasabi.classic/groups/objectframe.xml"/>
 	<include file="xml/wasabi.classic/titlebox/titlebox.xml"/>
+	<include file="xml/wasabi.classic/statusbar/statusbar.xml"/>
 
 	<!-- the usual suspects -->
 	<include file="xml/main.xml"/>
