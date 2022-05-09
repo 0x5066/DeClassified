@@ -10,8 +10,8 @@
 <bitmap id="wasabi.slider.horizontal.middle" file="xml/wasabi.classic/xui/slider/slider.png" x="4" y="0" w="59" h="140"/>
 <bitmap id="wasabi.slider.horizontal.right" file="xml/wasabi.classic/xui/slider/slider.png" x="63" y="0" w="1" h="140"/>
 
-<bitmap id="wasabi.slider.horizontal.button" file="skin/volume.bmp" x="15" y="422" w="14" h="11"/>
-<bitmap id="wasabi.slider.horizontal.button.pressed" file="skin/volume.bmp" x="0" y="422" w="14" h="11"/>
+<bitmap id="wasabi.slider.horizontal.button" file="xml/wasabi.classic/xui/slider/slider.png" x="14" y="140" w="14" h="11"/>
+<bitmap id="wasabi.slider.horizontal.button.pressed" file="xml/wasabi.classic/xui/slider/slider.png" x="0" y="140" w="14" h="11"/>
 
 </elements>
 
