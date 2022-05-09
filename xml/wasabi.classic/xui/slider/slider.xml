@@ -6,9 +6,9 @@
 
 <elements>
 
-<bitmap id="wasabi.slider.horizontal.left" file="skin/volume.bmp" x="1" y="4" w="4" h="5"/>
-<bitmap id="wasabi.slider.horizontal.middle" file="skin/volume.bmp" x="5" y="4" w="59" h="5"/>
-<bitmap id="wasabi.slider.horizontal.right" file="skin/volume.bmp" x="64" y="4" w="1" h="5"/>
+<bitmap id="wasabi.slider.horizontal.left" file="xml/wasabi.classic/xui/slider/slider.png" x="0" y="0" w="4" h="140"/>
+<bitmap id="wasabi.slider.horizontal.middle" file="xml/wasabi.classic/xui/slider/slider.png" x="4" y="0" w="59" h="140"/>
+<bitmap id="wasabi.slider.horizontal.right" file="xml/wasabi.classic/xui/slider/slider.png" x="63" y="0" w="1" h="140"/>
 
 <bitmap id="wasabi.slider.horizontal.button" file="skin/volume.bmp" x="15" y="422" w="14" h="11"/>
 <bitmap id="wasabi.slider.horizontal.button.pressed" file="skin/volume.bmp" x="0" y="422" w="14" h="11"/>
@@ -17,23 +17,26 @@
 
 <groupdef id="wasabi.slider.horizontal" embed_xui="slider.button" xuitag="Wasabi:HSlider" h="15" >
 
-    <layer
-        id="slider.background"
+    <animatedlayer
+        id="slider.background1"
         x="0" y="4"
         image="wasabi.slider.horizontal.left"
+        frameheight="5"
     />
-    <layer
-        id="slider.background"
+    <animatedlayer
+        id="slider.background2"
         x="4" y="4"
         w="-12"
         relatw="1"
         image="wasabi.slider.horizontal.middle"
+        frameheight="5"
     />
-    <layer
-        id="slider.background"
+    <animatedlayer
+        id="slider.background3"
         x="-8" y="4"
         relatx="1"
         image="wasabi.slider.horizontal.right"
+        frameheight="5"
     />
 
     <slider
@@ -45,6 +48,8 @@
         downThumb="wasabi.slider.horizontal.button.pressed"
         wantfocus="1"
     />
+
+<script file="xml/wasabi.classic/xui/slider/slider.maki"/>
 
 </groupdef>
 

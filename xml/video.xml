@@ -19,13 +19,13 @@
 			param="guid:{F0816D7B-FFFC-4343-80F2-E8199AA15CC3}"
 		/>
 
+    <button x="9" y="-29" action="VID_FS" relaty="1" rectrgn="1" image="video.fullscreen" downImage="video.fullscreenp"/>
+    <button x="24" y="-29" action="VID_1X" relaty="1" rectrgn="1" image="video.1x" downImage="video.1xp"/>
+    <button x="39" y="-29" action="VID_2X" relaty="1" rectrgn="1" image="video.2x" downImage="video.2xp"/>
+    <button x="69" y="-29" action="VID_Misc" relaty="1" rectrgn="1" image="video.misc" downImage="video.miscp"/>
+
     <text id="wasabi.statusbar.text" display="VID_INFO" x="94" y="-28" w="-119" h="14" valign="top" relatw="1" relaty="1" font="Tahoma" color="x50" fontsize="14" wrap="0" ghost="1" antialias="0"/>
 		<!-- Close Button -->
-		<button
-		image="video.close"
-		downImage="video.closep"
-		inactiveAlpha="0"
-		x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1"
-		/>
+		<button x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1" image="video.close" downImage="video.closep" inactiveAlpha="0"/>
 	</layout>
 </container>
