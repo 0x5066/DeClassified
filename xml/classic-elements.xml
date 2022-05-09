@@ -131,13 +131,13 @@
 	<bitmap id="video.fullscreenp" file="skin/video.bmp" x="158" y="42" h="18" w="15"/>
 
 	<bitmap id="video.1x" file="skin/video.bmp" x="24" y="51" h="18" w="15"/>
-	<bitmap id="video.1xp" file="skin/video.bmp" x="174" y="42" h="18" w="15"/>
+	<bitmap id="video.1xp" file="skin/video.bmp" x="173" y="42" h="18" w="15"/>
 
 	<bitmap id="video.2x" file="skin/video.bmp" x="39" y="51" h="18" w="15"/>
-	<bitmap id="video.2xp" file="skin/video.bmp" x="189" y="42" h="18" w="15"/>
+	<bitmap id="video.2xp" file="skin/video.bmp" x="188" y="42" h="18" w="15"/>
 
 	<bitmap id="video.misc" file="skin/video.bmp" x="69" y="51" h="18" w="15"/>
-	<bitmap id="video.miscp" file="skin/video.bmp" x="219" y="42" h="18" w="15"/>
+	<bitmap id="video.miscp" file="skin/video.bmp" x="218" y="42" h="18" w="15"/>
 
 <include file="classic-colors.xml"/>
 <include file="classic-genex.xml"/>
