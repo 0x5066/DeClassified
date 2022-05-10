@@ -1,4 +1,4 @@
-<container id="video" name="Video Window" default_x="0" default_y="232" default_visible="1">
+<container id="video" name="Video Window" default_x="0" default_y="232" default_visible="0">
 	<layout id="normal" background="wasabi.frame.basetexture" minimum_h="116" minimum_w="275">
 		<layer image="video.topleft.active" x="0" y="0" inactiveimage="video.topleft.inactive" regionop="1"/>
 		<layer image="video.top.stretchybit.active" x="25" y="0" w="-50" relatw="1" inactiveimage="video.top.stretchybit.inactive" regionop="1"/>

@@ -25,6 +25,7 @@
 	<include file="xml/eqmain.xml"/>
 	<include file="xml/pledit.xml"/>
 	<include file="xml/video.xml"/>
+	<include file="xml/medialibrary.xml"/>
 
 	<!-- needs to exist for testing -->
 	<include file="xml/themes.xml"/>

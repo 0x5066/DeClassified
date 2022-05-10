@@ -61,8 +61,8 @@
 
 </elements>
 
-<container id="PL" name="Playlist Editor" default_x="0" default_y="232" default_visible="1">
-	<layout id="normal" image="wa2.pl.base" minimum_h="116" minimum_w="275" linkwidth="shadepl">
+<container id="PL" name="Playlist Editor" default_y="232" default_visible="1">
+	<layout id="normal" image="wa2.pl.base" minimum_h="116" minimum_w="275" default_h="116" linkwidth="shadepl">
 		<!-- Can use the grid object here but then you won't have the inactive image option -->
 		<layer image="wa2.pl.1" x="0" y="0" inactivealpha="0" regionop="1"/>
 		<layer image="wa2.pl.1.disabled" x="0" y="0" activealpha="0" regionop="1"/>

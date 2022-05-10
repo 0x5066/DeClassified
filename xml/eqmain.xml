@@ -131,7 +131,7 @@
 
 </elements>
 
-<container id="EQ" name="Equalizer" default_w="275">
+<container id="EQ" name="Equalizer" default_y="116">
     <groupdef id="eq">
 
         <layer id="blah" dblClickAction="SWITCH;shadeeq" x="0" y="0" h="14" w="275" move="1"/>
