@@ -5,6 +5,11 @@
 <bitmap id="waeq.titlebar.on" file="skin/eqmain.bmp" x="0" y="134" w="275" h="14"/>
 <bitmap id="waeq.titlebar.off" file="skin/eqmain.bmp" x="0" y="149" w="275" h="14"/>
 
+<bitmap id="wacup.eq" file="skin/eqmain_wacup.bmp" x="0" y="0" w="275" h="116"/>
+<bitmap id="wacup.eqvis.bg" file="skin/eqmain_wacup.bmp" x="0" y="294" w="113" h="19"/>
+<bitmap id="wacupeq.titlebar.on" file="skin/eqmain_wacup.bmp" x="0" y="134" w="275" h="14"/>
+<bitmap id="wacupeq.titlebar.off" file="skin/eqmain_wacup.bmp" x="0" y="149" w="275" h="14"/>
+
 <bitmap id="eq.shade.on" file="skin/eq_ex.bmp" x="0" y="0" h="14" w="275"/>
 <bitmap id="eq.shade.off" file="skin/eq_ex.bmp" x="0" y="15" h="14" w="275"/>
 
@@ -79,6 +84,11 @@
 <bitmap id="wa.iso.eqvis.bg" file="skin/eqmain_iso.bmp" x="0" y="294" w="113" h="19"/>
 <bitmap id="waisoeq.titlebar.on" file="skin/eqmain_iso.bmp" x="0" y="134" w="275" h="14"/>
 <bitmap id="waisoeq.titlebar.off" file="skin/eqmain_iso.bmp" x="0" y="149" w="275" h="14"/>
+
+<bitmap id="wacup.iso.eq" file="skin/eqmain_iso_wacup.bmp" x="0" y="0" w="275" h="116"/>
+<bitmap id="wacup.iso.eqvis.bg" file="skin/eqmain_iso_wacup.bmp" x="0" y="294" w="113" h="19"/>
+<bitmap id="wacupisoeq.titlebar.on" file="skin/eqmain_iso_wacup.bmp" x="0" y="134" w="275" h="14"/>
+<bitmap id="wacupisoeq.titlebar.off" file="skin/eqmain_iso_wacup.bmp" x="0" y="149" w="275" h="14"/>
 
 <bitmap id="iso.eq.close" file="skin/eqmain_iso.bmp" x="0" y="116" w="9" h="9"/>
 <bitmap id="iso.eq.closep" file="skin/eqmain_iso.bmp" x="0" y="125" w="9" h="9"/>
@@ -194,8 +204,6 @@
 
         <slider id="volume" action="volume" x="61" y="4" h="7" w="97" thumb="eqshade.vol.seekm"/>
         <slider id="balance" action="pan" x="164" y="4" h="7" w="43" thumb="eqshade.vol.seekm"/>
-
-        <script file="scripts/actioninfo.maki"/>
 
     </groupdef>
 

@@ -1,5 +1,8 @@
 <elements>
-	<bitmap id="wa.main" file="skin/main.bmp"/>	
+	<bitmap id="shade_fallback" file="skin/wasabi/shade_fallback.png"/> <!-- DO NOT TOUCH -->
+	<bitmap id="mainwnd_fallback" file="skin/wasabi/main_fallback.png"/> <!-- DO NOT TOUCH -->
+	<bitmap id="wa.main" file="skin/main.bmp"/>
+	<bitmap id="wacup.main" file="skin/main_wacup.bmp"/>
 
 	<bitmap id="posbarbg" file="skin/posbar.bmp" x="0" y="0" w="248" h="10"/>
 	<bitmap id="posbar" file="skin/posbar.bmp" x="248" y="0" w="29" h="10"/>
@@ -59,6 +62,9 @@
 	<bitmap id="wa.titlebar.on" file="skin/titlebar.bmp"  x="27" y="0" h="13" w="275"/>
 	<bitmap id="wa.titlebar.off" file="skin/titlebar.bmp"  x="27" y="15" h="13" w="275"/>
 
+	<bitmap id="wacup.titlebar.on" file="skin/titlebar_wacup.bmp"  x="27" y="0" h="13" w="275"/>
+	<bitmap id="wacup.titlebar.off" file="skin/titlebar_wacup.bmp"  x="27" y="15" h="13" w="275"/>
+
 	<bitmap id="wa.switch.on" file="skin/titlebar.bmp" x="0" y="36" w="18" h="18"/>	
 	<bitmap id="wa.switch.pressed" file="skin/titlebar.bmp" x="18" y="36" w="18" h="18"/>
 
@@ -75,8 +81,7 @@
 	<bitmap id="switchp" file="skin/titlebar.bmp"  x="9" y="18" h="9" w="9"/>
 
 	<!-- titlebar.png to titlebar.png -->
-	<bitmap id="wa2.player.title.enabled" file="skin/titlebar.bmp" x="27" y="0" h="13" w="275"/>
-	<bitmap id="wa2.player.title.dissabled" file="skin/titlebar.bmp" x="27" y="15" h="13" w="275"/>
+
 	<bitmap id="wa2.player.title.quit" file="skin/titlebar.bmp" x="18" y="0" h="9" w="9"/>
 	<bitmap id="wa2.player.title.quit.pressed" file="skin/titlebar.bmp" x="18" y="9" h="9" w="9"/>
 	<bitmap id="wa2.player.title.shade" file="skin/titlebar.bmp" x="0" y="18" h="9" w="9"/>
@@ -93,6 +98,10 @@
 	<!-- Winshade Stuff -->
 	<bitmap id="wa2.player.shade.enabled" file="skin/titlebar.bmp" x="27" y="29" h="14" w="275"/>
 	<bitmap id="wa2.player.shade.disabled" file="skin/titlebar.bmp" x="27" y="42" h="14" w="275"/>
+
+	<bitmap id="wacup.player.shade.enabled" file="skin/titlebar_wacup.bmp" x="27" y="29" h="14" w="275"/>
+	<bitmap id="wacup.player.shade.disabled" file="skin/titlebar_wacup.bmp" x="27" y="42" h="14" w="275"/>
+
 	<bitmap id="wa2.player.shade.menu" file="skin/titlebar.bmp" x="0" y="0" h="9" w="9"/>
 	<bitmap id="wa2.player.shade.menu.pressed" file="skin/titlebar.bmp" x="0" y="9" h="9" w="9"/>
 
