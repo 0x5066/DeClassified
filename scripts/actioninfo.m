@@ -1,5 +1,11 @@
 //Taken straight out of Winamp Modern's display.m.
-//Modified to include the Volume change messages.
+//Modified to include the Volume change, balance change,
+//EQ change messages. Also hooks into the Main Window
+//and Equalizer for obvious reasons.
+
+//Now handles switching most of the main windows,
+//the Equalizer does this on it's own, though the
+//mechanism is the same.
 
 #include "../../../lib/std.mi"
 #include "..\..\..\lib/winampconfig.mi"
