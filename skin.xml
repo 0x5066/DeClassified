@@ -20,6 +20,9 @@
 	<include file="xml/wasabi.classic/statusbar/statusbar.xml"/>
 	<include file="xml/wasabi.classic/tooltips/tooltips.xml"/>
 
+	<!-- the very building blocks to get our 4 main windows rendered -->
+	<include file="xml/classic-elements.xml"/>
+
 	<!-- the usual suspects -->
 	<include file="xml/main.xml"/>
 	<include file="xml/eqmain.xml"/>

@@ -5,13 +5,6 @@
 	although those too came from different sources and tweaked to
 	fit my own needs.-->
 
-<elements>	
-<bitmap id="wa.main" file="skin/main.bmp" gammagroup="Background"/>	
-<include file="classic-elements.xml"/>
-<include file="classic-colors.xml"/>
-<include file="classic-genex.xml"/>
-</elements>	
-
 <groupdef id="mainwindow" x="0" y="0" w="275" h="116">
 	
 	<layer id="mainwnd" image="wa.main" ghost="1"/>
