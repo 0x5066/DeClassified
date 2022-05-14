@@ -1,0 +1,25 @@
+<elements>
+
+<bitmap id="wasabi.frame.top.left" file="skin/gen.bmp" w="25" h="20"/>
+<bitmap id="wasabi.frame.top" file="skin/gen.bmp" x="52" w="25" h="20"/>
+<bitmap id="wasabi.frame.top.right" file="skin/gen.bmp" x="130" w="25" h="20"/>
+
+<bitmap id="wasabi.frame.bottom.left" file="skin/gen.bmp" x="0" y="42" w="125" h="14"/>
+<bitmap id="wasabi.frame.bottom" file="skin/gen.bmp" x="127" y="72" w="25" h="14"/>
+<bitmap id="wasabi.frame.bottom.right" file="skin/gen.bmp" x="0" y="57" w="125" h="14"/>
+
+<bitmap id="wasabi.frame.top.left.inactive" file="skin/gen.bmp" y="21" w="25" h="20"/>
+<bitmap id="wasabi.frame.top.inactive" file="skin/gen.bmp" x="52" y="21" w="25" h="20"/>
+<bitmap id="wasabi.frame.top.right.inactive" file="skin/gen.bmp" x="130" y="21" w="25" h="20"/>
+
+<bitmap id="wasabi.frame.left" file="skin/gen.bmp" x="127" y="42" w="11" h="29"/>
+<bitmap id="wasabi.frame.left2" file="skin/gen.bmp" x="158" y="42" w="11" h="24"/>
+<bitmap id="wasabi.frame.right" file="skin/gen.bmp" x="139" y="42" w="8" h="29"/>
+<bitmap id="wasabi.frame.right2" file="skin/gen.bmp" x="170" y="42" w="8" h="24"/>
+
+<bitmap id="wasabi.button.close" file="skin/gen.bmp" x="144" y="3" w="9" h="9"/>
+<bitmap id="wasabi.button.close.pressed" file="skin/gen.bmp" x="148" y="42" w="9" h="9"/>
+
+<bitmap id="wasabi.frame.basetexture" file="$solid" h="64" w="64" color="33,33,57"/>
+
+</elements>
