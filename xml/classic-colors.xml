@@ -96,7 +96,7 @@
 
     <!-- Winamp 5.53+ PopupMenu -->
 
-    <color id="wasabi.popupmenu.frame" value="x78"/>
+    <color id="wasabi.popupmenu.frame" value="x58"/>
     <color id="wasabi.popupmenu.separator" value="wasabi.popupmenu.frame"/>
     <color id="wasabi.popupmenu.background.selected" value="x50"/>
 
