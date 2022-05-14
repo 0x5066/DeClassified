@@ -28,15 +28,15 @@
 	<color id="wasabi.list.text.alternate" value="x50"/> <!-- ML txt and such -->
 	<color id="wasabi.list.background.alternate" value="x48"/>	
 
-    <color id="wasabi.list.text.selected" value="x56"/> <!--listview/treeview selection bar text color -->
-	<color id="wasabi.list.text.selected.background" value="x60"/> <!--listview/treeview selection bar background color -->
+    <color id="wasabi.list.text.selected" value="x84"/> <!--listview/treeview selection bar text color -->
+	<color id="wasabi.list.text.selected.background" value="x86"/> <!--listview/treeview selection bar background color -->
 	<color id="studio.list.item.selected" value="x60"/>
-	<color id="studio.list.item.focused" value="x60"/>
+	<color id="studio.list.item.focused" value="x86"/>
     <color id="studio.list.item.selected.fg" value="x60"/>
 
-	<color id="wasabi.list.text.current" value="x56"/> <!-- currently playing item in lists -->
-	<color id="wasabi.list.text.selected.inactive" value="240,240,240"/> <!-- listview/treeview selection bar textcolor (inactive) -->
-	<color id="wasabi.list.text.selected.background.inactive" value="x60-ext"/> <!-- listview/treeview selectionbar back color (inactive) -->
+	<color id="wasabi.list.text.current" value="x84"/> <!-- currently playing item in lists -->
+	<color id="wasabi.list.text.selected.inactive" value="x88"/> <!-- listview/treeview selection bar textcolor (inactive) -->
+	<color id="wasabi.list.text.selected.background.inactive" value="x90"/> <!-- listview/treeview selectionbar back color (inactive) -->
 
 	<!-- edit wnds -->
 	<color id="wasabi.window.background" value="x52"/> <!-- window background. -	If this color is not defined, a whole container is created in memory to 
@@ -96,7 +96,7 @@
 
     <!-- Winamp 5.53+ PopupMenu -->
 
-    <color id="wasabi.popupmenu.frame" value="x78"/>
+    <color id="wasabi.popupmenu.frame" value="x58"/>
     <color id="wasabi.popupmenu.separator" value="wasabi.popupmenu.frame"/>
     <color id="wasabi.popupmenu.background.selected" value="x50"/>
 
@@ -125,10 +125,10 @@
     <elementalias id="wasabi.scrollbar.foreground.inverted" target="wasabi.scrollbar.background"/>
     <elementalias id="wasabi.scrollbar.background.inverted" target="wasabi.scrollbar.background"/>
 
-    <color id="wasabi.scrollbar.foreground.inverted" value="88,91,101"/> <!-- inverse scrollbar foreground color -->
-    <color id="wasabi.scrollbar.background.inverted" value="20,18,28"/> <!-- inverse inverse scrollbar background color AND PL Editor bg-->
-    <color id="wasabi.scrollbar.foreground" value="88,91,101"/> <!-- scrollbar foreground color -->
-    <color id="wasabi.scrollbar.background" value="20,18,28"/> <!-- scrollbar background color -->
+    <color id="wasabi.scrollbar.foreground.inverted" value="x78"/> <!-- inverse scrollbar foreground color -->
+    <color id="wasabi.scrollbar.background.inverted" value="x80"/> <!-- inverse inverse scrollbar background color AND PL Editor bg-->
+    <color id="wasabi.scrollbar.foreground" value="x74"/> <!-- scrollbar foreground color -->
+    <color id="wasabi.scrollbar.background" value="x76"/> <!-- scrollbar background color -->
     
     <!-- WACUP only: Waveseeker >
 
