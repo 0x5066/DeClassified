@@ -61,6 +61,7 @@
 
         <slider id="volume" action="volume" x="61" y="4" h="7" w="97" thumb="eqshade.vol.seekm"/>
         <slider id="balance" action="pan" x="164" y="4" h="7" w="43" thumb="eqshade.vol.seekm"/>
+        <script file="scripts/setShadeEQPosbar.maki"/>
 
     </groupdef>
 
