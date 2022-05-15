@@ -98,7 +98,7 @@
 
     <color id="wasabi.popupmenu.frame" value="x58"/>
     <color id="wasabi.popupmenu.separator" value="wasabi.popupmenu.frame"/>
-    <color id="wasabi.popupmenu.background.selected" value="x50"/>
+    <color id="wasabi.popupmenu.background.selected" value="x58"/>
 
     <!-- Tooltip/Button -->	
     <color id="wasabi.tooltip.text" value="wasabi.popupmenu.text"/>
