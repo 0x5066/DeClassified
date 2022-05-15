@@ -55,6 +55,14 @@ System.onScriptLoaded()
 	visualizer.setXmlParam("oscstyle", integerToString(osc_render));
 	visualizer.setXmlParam("bandwidth", integerToString(ana_render));
 	refreshVisSettings();
+
+	if(getStatus() == -1){
+		visualizer.setXmlParam("visible", "1");
+	}else if(getStatus() == 0){
+		visualizer.setXmlParam("visible", "0");
+	}else if(getStatus() == 1){
+		visualizer.setXmlParam("visible", "1");
+	}
 }
 
 refreshVisSettings ()
@@ -145,6 +153,18 @@ refreshVisSettings ()
 		}
 
 	setVis (currentMode);
+}
+
+System.onStop(){
+	visualizer.setXmlParam("visible", "0");
+}
+
+System.onPlay(){
+	visualizer.setXmlParam("visible", "1");
+}
+
+System.onResume(){
+	visualizer.setXmlParam("visible", "1");
 }
 
 trigger.onLeftButtonDown (int x, int y)
