@@ -21,6 +21,7 @@ Note:		Ripped from Winamp Modern, removed the VU Meter section
 Function refreshVisSettings();
 Function setVis (int mode);
 Function ProcessMenuResult (int a);
+Function LegacyOptions(int legacy);
 
 Global Group scriptGroup;
 Global Vis visualizer;
@@ -35,7 +36,7 @@ Global PopUpMenu stylemenu;
 Global PopUpMenu fpsmenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps;
-Global Boolean show_peaks, isShade;
+Global Boolean show_peaks, isShade, compatibility;
 Global layer trigger;
 
 Global Layout thislayout;
@@ -55,20 +56,13 @@ System.onScriptLoaded()
 	visualizer.setXmlParam("oscstyle", integerToString(osc_render));
 	visualizer.setXmlParam("bandwidth", integerToString(ana_render));
 	refreshVisSettings();
-
-	if(getStatus() == -1){
-		visualizer.setXmlParam("visible", "1");
-	}else if(getStatus() == 0){
-		visualizer.setXmlParam("visible", "0");
-	}else if(getStatus() == 1){
-		visualizer.setXmlParam("visible", "1");
-	}
 }
 
 refreshVisSettings ()
 {
 	currentMode = getPrivateInt(getSkinName(), "Visualizer Mode", 1);
 	show_peaks = getPrivateInt(getSkinName(), "Visualizer show Peaks", 1);
+	compatibility = getPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", 1);
 	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
 	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer Peaks falloff", 2);
 	osc_render = getPrivateInt(getSkinName(), "Oscilloscope Settings", 1);
@@ -98,7 +92,6 @@ refreshVisSettings ()
 	{
 		visualizer.setXmlParam("coloring", "Line");
 	}
-
 
 	if (osc_render == 0)
 		{
@@ -153,18 +146,19 @@ refreshVisSettings ()
 		}
 
 	setVis (currentMode);
+	LegacyOptions(compatibility);
 }
 
 System.onStop(){
-	visualizer.setXmlParam("visible", "0");
+	LegacyOptions(compatibility);
 }
 
 System.onPlay(){
-	visualizer.setXmlParam("visible", "1");
+	LegacyOptions(compatibility);
 }
 
 System.onResume(){
-	visualizer.setXmlParam("visible", "1");
+	LegacyOptions(compatibility);
 }
 
 trigger.onLeftButtonDown (int x, int y)
@@ -225,6 +219,7 @@ trigger.onRightButtonUp (int x, int y)
 	
 	visMenu.addSeparator();
 	visMenu.addCommand("Modern Visualizer Settings", 998, 0, 1);
+	visMenu.addCommand("Modern Visualizer stays invisible", 102, compatibility == 1, 0);
 	visMenu.addSeparator();
 	visMenu.addSubmenu(fpsmenu, "Refresh rate");
 	fpsmenu.addCommand("9fps", 800, v_fps == 0, 0);
@@ -299,6 +294,13 @@ ProcessMenuResult (int a)
 		show_peaks = (show_peaks - 1) * (-1);
 		visualizer.setXmlParam("Peaks", integerToString(show_peaks));
 		setPrivateInt(getSkinName(), "Visualizer show Peaks", show_peaks);
+	}
+
+	else if (a == 102)
+	{
+		compatibility = (compatibility - 1) * (-1);
+		LegacyOptions(compatibility);
+		setPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", compatibility);
 	}
 
 	else if (a >= 200 && a <= 204)
@@ -420,6 +422,21 @@ setVis (int mode)
 		visualizer.setMode(2);
 	}
 	currentMode = mode;
+}
+
+LegacyOptions(int legacy){
+	//messageBox(integertoString(legacy), "", 1, "");
+	if(legacy == 1){
+		if(getStatus() == -1){
+			visualizer.setXmlParam("visible", "1");
+		}else if(getStatus() == 0){
+			visualizer.setXmlParam("visible", "0");
+		}else if(getStatus() == 1){
+			visualizer.setXmlParam("visible", "1");
+		}
+	}else{
+		visualizer.setXmlParam("visible", "1");
+	}
 }
 
 // Sync Normal and Shade Layout
