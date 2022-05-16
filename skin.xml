@@ -42,4 +42,7 @@
 	<!-- prevent loading for 5.8 users -->
 	<script file="scripts/NoWinamp58.maki"/>
 
+	<!-- Modern Skin Album Art window -->
+	<include file="xml/albumart.xml"/> 
+
 </WinampAbstractionLayer>
