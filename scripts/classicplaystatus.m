@@ -140,7 +140,7 @@ setState(){
 }
 
 setState2(){
-    if(getPosition() < getPlayItemLength()-5000){
+    if(getPosition() < getPlayItemLength()-1000){
         playstatus.setXmlParam("image", "wa.play.green");
         setState();
     }else if(getPlayItemLength() <= 0){
