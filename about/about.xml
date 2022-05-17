@@ -32,7 +32,7 @@
 
 <groupdef id="skin.about.group" w="0" h="0" relatw="1" relath="1" rectrgn="1">
 
-    <rect w="380" h="321" color="56,55,87" filled="1"/>
+    <rect w="380" h="321" color="x52" filled="1"/> <!-- using the window background pixel/color from classic-genex, use a different color if it doesnt look good -->
     <group id="aboutplayer" x="52" y="100"/>
 
     <rect y="313" w="380" h="11" color="0,0,0" filled="1"/>
