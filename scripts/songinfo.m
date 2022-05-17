@@ -29,13 +29,6 @@ deleteSongInfoGrabber(){
 	delete songInfoTimer;
 }
 
-songInfoTimer.onTimer(){
-	String sit = getSongInfoText();
-	if (sit == "") return;
-	songInfoTimer.setDelay(250);
-	getSonginfo(sit);
-}
-
 String tokenizeSongInfo(String tkn, String sinfo){
 	int searchResult;
 	String rtn;

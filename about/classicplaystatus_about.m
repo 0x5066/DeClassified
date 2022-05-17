@@ -3,11 +3,14 @@
 //Handles empty kbps and khz and streaming related things.
 
 #include "..\..\..\lib/std.mi"
-#include "songinfo.m"
+#include "..\scripts\songinfo.m"
 
 Global Group player;
-Global layer playstatus;
+Global GuiObject playstatus;
 Global timer setPlaysymbol;
+
+Global String PLAYING;
+Global String initText;
 
 Function setState();
 Function setState2();
@@ -15,10 +18,11 @@ Function setState2();
 System.onScriptLoaded(){
 
     initSongInfoGrabber();
+    initText = "Playback Status: ";
 
     Group player = getScriptGroup();
 
-    playstatus = player.findObject("playbackstatus");
+    playstatus = player.findObject("status");
 
     setPlaysymbol = new Timer;
 	setPlaysymbol.setDelay(250);
@@ -27,12 +31,14 @@ System.onScriptLoaded(){
     setState2();
 
     if(getStatus() == 1){
-        playstatus.setXmlParam("visible", "1");
+        PLAYING = initText+"Playing";
+        playstatus.setXmlParam("text", PLAYING);
     }else if(getStatus() == -1){
-        playstatus.setXmlParam("visible", "0");
+        PLAYING = initText+"Paused";
+        playstatus.setXmlParam("text", PLAYING);
     }else if(getStatus() == 0){
-        playstatus.setXmlParam("visible", "0");
-        playstatus.setXmlParam("image", "wa.play.green");
+        PLAYING = initText+"Stopped";
+        playstatus.setXmlParam("text", PLAYING);
     }
 }
 
@@ -43,7 +49,8 @@ System.onScriptUnloading(){
 System.onPause(){
     songInfoTimer.stop();
 
-    playstatus.setXmlParam("visible", "0");
+    PLAYING = initText+"Paused";
+    playstatus.setXmlParam("text", PLAYING);
 }
 
 System.onResume()
@@ -55,9 +62,9 @@ System.onResume()
 	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
 	songInfoTimer.start();
     setState2();
+    PLAYING = initText+"Playing";
 
     //setPlaysymbol.start();
-    playstatus.setXmlParam("visible", "1");
     //messageBox(bitratestring, freqstring, 0, "");
 }
 
@@ -70,7 +77,6 @@ System.onPlay()
     setState2();
 
     //setPlaysymbol.start();
-    playstatus.setXmlParam("visible", "1");
 }
 
 System.onTitleChange(String newtitle)
@@ -82,23 +88,25 @@ System.onTitleChange(String newtitle)
     setState2();
 
     if(getStatus() == 1){
-        playstatus.setXmlParam("visible", "1");
+        PLAYING = initText+"Playing";
+        playstatus.setXmlParam("text", PLAYING);
         //setPlaysymbol.start();
     }else if(getStatus() == -1){
-        playstatus.setXmlParam("visible", "0");
+        PLAYING = initText+"Paused";
+        playstatus.setXmlParam("text", PLAYING);
         setPlaysymbol.stop();
     }else if(getStatus() == 0){
         setPlaysymbol.stop();
-        playstatus.setXmlParam("visible", "0");
-        playstatus.setXmlParam("image", "wa.play.green");
+        PLAYING = initText+"Stopped";
+        playstatus.setXmlParam("text", PLAYING);
     }
 }
 
 System.onStop(){
     songInfoTimer.stop();
 
-    playstatus.setXmlParam("visible", "0");
-    playstatus.setXmlParam("image", "wa.play.green");
+    PLAYING = initText+"Stopped";
+    playstatus.setXmlParam("text", PLAYING);
 }
 
 songInfoTimer.onTimer(){
@@ -118,35 +126,62 @@ setState(){
     String currenttitle = System.strlower(System.getPlayItemDisplayTitle());
     
     if(System.strsearch(currenttitle, "[connecting") != -1){
-		playstatus.setXmlParam("image", "wa.play.red");
+		PLAYING = initText+"Connecting to stream...";
+        playstatus.setXmlParam("text", PLAYING);
 	}
     if(System.strsearch(currenttitle, "[resolving hostname") != -1){
-		playstatus.setXmlParam("image", "wa.play.red");
+		PLAYING = initText+"Resolving hostname...";
+        playstatus.setXmlParam("text", PLAYING);
 	}
     if(System.strsearch(currenttitle, "[http/1.1") != -1){
-		playstatus.setXmlParam("image", "wa.play.red");
+		PLAYING = initText+"200 OK";
+        playstatus.setXmlParam("text", PLAYING);
 	}
     if(System.strsearch(currenttitle, "[buffer") != -1){
-		playstatus.setXmlParam("image", "wa.play.red");
+		PLAYING = initText+"Buffering...";
+        playstatus.setXmlParam("text", PLAYING);
 	}else{
         if(bitrateint == 0 || bitrateint == -1 && freqint == 0 || freqint == -1){
-            playstatus.setXmlParam("image", "wa.play.red"); 
+            //PLAYING = initText+"No data!";
+            playstatus.setXmlParam("text", PLAYING);
             setPlaysymbol.start();
         }
         if(bitrateint > 0 && freqint > 0){setPlaysymbol.start(); 
-            playstatus.setXmlParam("image", "wa.play.green");
+            //PLAYING = initText+"Data available!";
+            playstatus.setXmlParam("text", PLAYING);
         }
     }
 }
 
 setState2(){
     if(getPosition() < getPlayItemLength()-5000){
-        playstatus.setXmlParam("image", "wa.play.green");
+        if(getStatus() == -1){
+            PLAYING = initText+"Paused";
+            playstatus.setXmlParam("text", PLAYING);
+        }
+        if(getStatus() == 1){
+            PLAYING = initText+"Playing";
+            playstatus.setXmlParam("text", PLAYING);
+        }
         setState();
     }else if(getPlayItemLength() <= 0){
-        playstatus.setXmlParam("image", "wa.play.green");
+        if(getStatus() == 0){
+            PLAYING = initText+"Stopped";
+            playstatus.setXmlParam("text", PLAYING);
+        }
+        if(getStatus() == 1){
+            PLAYING = initText+"Streaming";
+            playstatus.setXmlParam("text", PLAYING);
+        }
         setState();
     }else{
-        playstatus.setXmlParam("image", "wa.play.red");
+        if(getStatus() == -1){
+            PLAYING = initText+"Paused";
+            playstatus.setXmlParam("text", PLAYING);
+        }
+        if(getStatus() == 1){
+            PLAYING = initText+"About to end";
+            playstatus.setXmlParam("text", PLAYING);
+        }
     }
 }

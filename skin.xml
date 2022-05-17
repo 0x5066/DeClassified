@@ -45,4 +45,7 @@
 	<!-- Modern Skin Album Art window -->
 	<include file="xml/albumart.xml"/> 
 
+	<!-- About the skin -->
+	<include file="about/about.xml"/> 
+
 </WinampAbstractionLayer>
