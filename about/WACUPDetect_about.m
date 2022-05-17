@@ -2,18 +2,20 @@
 #include "..\scripts\IsWACUP.m"
 
 Global group frameGroup;
-Global Text IsWACUP;
+Global Text WACUPtxt;
+
+Function DetectWACUP();
 
 System.onScriptLoaded(){
 
     initDetector();
     frameGroup = getScriptGroup();
 
-    IsWACUP = frameGroup.findObject("isthiswacup");
+    WACUPtxt = frameGroup.findObject("isthiswacup");
 
-    if(IsWACUP != 0){
-        IsWACUP.setText("Is this WACUP?: Yes");
-    }else{
-        IsWACUP.setText("Is this WACUP?: No");
+    if(IsWACUP == 1){
+        WACUPtxt.setText("Is this WACUP?: Yes");
+    }else if(IsWACUP == 0){
+        WACUPtxt.setText("Is this WACUP?: No");
     }
 }
