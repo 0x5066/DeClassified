@@ -19,8 +19,8 @@
     <text id="isthiswacup" text="Is this WACUP?: " x="-2" y="49" font="wasabi.font.default" align="left" valign="top"/>
 
     <text text="DECLASSIFIED" x="0" y="53" w="380" font="Winamp" align="center" fontsize="43" valign="top"/>
-    <text id="blurrytext" text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title.blur" align="left" fontsize="14" valign="top" antialias="0"/>
     <text text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title" align="left" fontsize="14" valign="top" antialias="0"/>
+    <text id="blurrytext" text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title.blur" align="left" fontsize="14" valign="top" antialias="0"/>
 
 <script file="about/wa2songtimer_about.maki"/>
 <script file="about/classicplaystatus_about.maki"/>
