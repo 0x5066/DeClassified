@@ -40,7 +40,8 @@
 	/>
 
 	<text id="infoticker" x="110" y="27" offsetx="-1" offsety="-1"
-		w="155" h="9" font="wasabi.font.default" fontsize="13" ghost="1"/> 
+		w="155" h="9" font="wasabi.font.default" fontsize="13" dblclickaction="trackinfo" 
+		rightclickaction="trackmenu" ghost="0"/> 
 
 	<!--text
 		id="debugticker"
