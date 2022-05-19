@@ -28,7 +28,7 @@
 
   <text
     id="window.titlebar.title"
-    x="100" y="2"
+    x="100" y="3"
     w="50" h="11" 
     default=":componentname"
     font="studio.component.title"
