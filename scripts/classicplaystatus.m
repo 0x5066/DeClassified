@@ -21,7 +21,7 @@ System.onScriptLoaded(){
     playstatus = player.findObject("playbackstatus");
 
     setPlaysymbol = new Timer;
-	setPlaysymbol.setDelay(15);
+	setPlaysymbol.setDelay(250); //needs to be 250 or gen_ff will hang
 
     setState();
     setState2();
