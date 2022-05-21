@@ -5,6 +5,7 @@
 #include "../../../lib/std.mi"
 #include "IsWACUP.m"
 
+Global GuiObject WAPLC;
 Global Group frameGroup, frameGroupPL, frameGroupShade, frameGroupVideo;
 
 Global Layer wacupmain, wacuptitlebar, wacupshade;
@@ -36,6 +37,7 @@ System.onScriptLoaded(){
 	wacuppl9 = frameGroupPL.findObject("wa2.pl9");
 	wacupplcenter = frameGroupPL.findObject("pl.center.logo");
 	wacupplvis = frameGroupPL.findObject("pl.vis.area");
+	WAPLC = frameGroupPL.findObject("wasabi.list");
 
 	wacupvideo1 = frameGroupVideo.findObject("video.topleft");
 	wacupvideo2 = frameGroupVideo.findObject("video.stretchybit");
@@ -67,6 +69,8 @@ System.onScriptLoaded(){
 		wacupplcenter.setXmlParam("image", "wacup.pl.2.center");
 		wacupplcenter.setXmlParam("inactiveimage", "wacup.pl.2.center.disabled");
 		wacupplvis.setXmlParam("image", "wacup.pl.8.vis");
+		WAPLC.setXmlParam("x", "12");
+		WAPLC.setXmlParam("w", "-31");
 		wacupvideo1.setXmlParam("image", "wacup.video.topleft.active");
 		wacupvideo1.setXmlParam("inactiveimage", "wacup.video.topleft.inactive");
 		wacupvideo2.setXmlParam("image", "wacup.video.top.stretchybit.active");
@@ -100,6 +104,8 @@ System.onScriptLoaded(){
 		wacupplcenter.setXmlParam("image", "wa2.pl.2.center");
 		wacupplcenter.setXmlParam("inactiveimage", "wa2.pl.2.center.disabled");
 		wacupplvis.setXmlParam("image", "wa2.pl.8.vis");
+		WAPLC.setXmlParam("x", "10");
+		WAPLC.setXmlParam("w", "-15");
 		wacupvideo1.setXmlParam("image", "video.topleft.active");
 		wacupvideo1.setXmlParam("inactiveimage", "video.topleft.inactive");
 		wacupvideo2.setXmlParam("image", "video.top.stretchybit.active");
