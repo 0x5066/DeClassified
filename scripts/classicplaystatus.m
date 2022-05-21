@@ -21,7 +21,7 @@ System.onScriptLoaded(){
     playstatus = player.findObject("playbackstatus");
 
     setPlaysymbol = new Timer;
-	setPlaysymbol.setDelay(250);
+	setPlaysymbol.setDelay(15);
 
     setState();
     setState2();
@@ -140,7 +140,7 @@ setState(){
 }
 
 setState2(){
-    if(getPosition() < getPlayItemLength()-1000){
+    if(getPosition() < getPlayItemLength()-1093){ //1093 was eyeballed
         playstatus.setXmlParam("image", "wa.play.green");
         setState();
     }else if(getPlayItemLength() <= 0){

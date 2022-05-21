@@ -154,7 +154,7 @@ setState(){
 }
 
 setState2(){
-    if(getPosition() < getPlayItemLength()-1000){
+    if(getPosition() < getPlayItemLength()-1093){ //1093 was eyeballed
         if(getStatus() == -1){
             PLAYING = initText+"Paused";
             playstatus.setXmlParam("text", PLAYING);
