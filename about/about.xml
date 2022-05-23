@@ -5,6 +5,11 @@
 
 <groupdef id="aboutplayer">
     <group id="mainwindow" ghost="1"/>
+    <sendparams target="songticker" visible="0"/>
+    <text id="andcredits" text="" x="110" y="27" offsetx="-1" offsety="-1"
+	w="155" h="9" font="wasabi.font.default" fontsize="13" ghost="0"/>
+
+    <script file="about/loveletter.maki"/>
 </groupdef>
 
 <groupdef id="cooldebuginfo" w="380">
