@@ -74,8 +74,8 @@
 	<bitmap id="close" file="skin/titlebar.bmp" x="18" y="0" w="9" h="9"/>
 	<bitmap id="closep" file="skin/titlebar.bmp" x="18" y="9" w="9" h="9"/>
 
-	<bitmap id="switch" file="skin/titlebar.bmp"  x="0" y="18" h="9" w="9"/>
-	<bitmap id="switchp" file="skin/titlebar.bmp"  x="9" y="18" h="9" w="9"/>
+	<bitmap id="switch" file="skin/titlebar.bmp" x="0" y="18" h="9" w="9"/>
+	<bitmap id="switchp" file="skin/titlebar.bmp" x="9" y="18" h="9" w="9"/>
 
 	<!-- titlebar.png to titlebar.png -->
 	<bitmap id="wa2.player.title.quit" file="skin/titlebar.bmp" x="18" y="0" h="9" w="9"/>
@@ -99,6 +99,17 @@
 	<bitmap id="wa2.player.shade.menu.pressed" file="skin/titlebar.bmp" x="0" y="9" h="9" w="9"/>
 
 	<bitmap id="clutterbar" file="skin/titlebar.bmp" x="304" y="0" w="8" h="43"/>
+
+	<bitmap id="CLBO" file="skin/titlebar.bmp" x="305" y="2" w="7" h="8"/>
+	<bitmap id="CLBOp" file="skin/titlebar.bmp" x="305" y="46" w="7" h="8"/>
+	<bitmap id="CLBA" file="skin/titlebar.bmp" x="305" y="10" w="7" h="8"/>
+	<bitmap id="CLBAp" file="skin/titlebar.bmp" x="313" y="54" w="7" h="8"/>
+	<bitmap id="CLBI" file="skin/titlebar.bmp" x="305" y="18" w="7" h="8"/>
+	<bitmap id="CLBIp" file="skin/titlebar.bmp" x="321" y="62" w="7" h="8"/>
+	<bitmap id="CLBD" file="skin/titlebar.bmp" x="305" y="26" w="7" h="8"/>
+	<bitmap id="CLBDp" file="skin/titlebar.bmp" x="329" y="70" w="7" h="8"/>
+	<bitmap id="CLBV" file="skin/titlebar.bmp" x="305" y="34" w="7" h="8"/>
+	<bitmap id="CLBVp" file="skin/titlebar.bmp" x="337" y="78" w="7" h="8"/>
 
 	<bitmap id="volume" file="skin/volume.bmp" x="0" y="0" w="68" h="420"/>
 	<bitmap id="volbtnd" file="skin/volume.bmp" x="0" y="422" w="14" h="11"/>

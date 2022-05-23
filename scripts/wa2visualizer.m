@@ -24,8 +24,10 @@ Function ProcessMenuResult (int a);
 Function LegacyOptions(int legacy);
 
 Global Group scriptGroup;
+Global Group frameGroup, MainWindow;
 Global Vis visualizer;
 
+Global Button CLBV1, CLBV2, CLBV3;
 
 Global PopUpMenu visMenu;
 Global PopUpMenu pksmenu;
@@ -49,6 +51,12 @@ System.onScriptLoaded()
 	visualizer = scriptGroup.findObject("wa.vis");
 
 	trigger = scriptGroup.findObject("main.vis.trigger");
+
+	frameGroup = getContainer("Main").getLayout("Normal");
+	MainWindow = frameGroup.getObject("mainwindow");
+	CLBV1 = MainWindow.getObject("CLB.V1");
+	CLBV2 = MainWindow.getObject("CLB.V2");
+	CLBV3 = MainWindow.getObject("CLB.V3");
 
 	visualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	visualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
@@ -266,6 +274,11 @@ trigger.onRightButtonUp (int x, int y)
 	oscsettings.addCommand("Line scope", 601, osc_render == 1, 0);
 	oscsettings.addCommand("Solid scope", 602, osc_render == 2, 0);
 
+	visMenu.addSeparator();
+	visMenu.addcommand(translate("Start/Stop plug-in")+"\tCtrl+Shift+K", 404, 0,0);
+	visMenu.addcommand(translate("Configure plug-in...")+"\tAlt+K", 405, 0,0);
+	visMenu.addcommand(translate("Select plug-in...")+"\tCtrl+K", 406, 0,0);
+
 	ProcessMenuResult (visMenu.popAtMouse());
 
 	delete visMenu;
@@ -337,6 +350,19 @@ else if (a >= 400 && a <= 403)
 			visualizer.setXmlParam("coloring", "Line");
 		}
 		setPrivateInt(getSkinName(), "Visualizer analyzer coloring", a_coloring);
+	}
+
+	else if (a == 404)
+	{
+		CLBV1.Leftclick();
+	}
+	else if (a == 405)
+	{
+		CLBV2.Leftclick();
+	}
+	else if (a == 406)
+	{
+		CLBV3.Leftclick();
 	}
 
 	else if (a >= 600 && a <= 603)

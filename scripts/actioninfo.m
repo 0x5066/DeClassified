@@ -6,8 +6,10 @@
 #include "../../../lib/std.mi"
 #include "..\..\..\lib/winampconfig.mi"
 
-Global Group frameGroup, frameGroupEQ, frameGroupEQShade;
-Global Togglebutton ShuffleBtn, RepeatBtn/*, CLBA*/;
+Global Group frameGroup, frameGroupEQ, frameGroupEQShade, MainWindow;
+Global Togglebutton ShuffleBtn, RepeatBtn, CLBA, CLBD;
+Global Button CLBO, CLBI;
+Global Button CLBV, CLBV1, CLBV2, CLBV3;
 Global Timer SongTickerTimer;
 Global Text InfoTicker;
 Global GuiObject SongTicker;
@@ -16,7 +18,7 @@ Global Layout Normal, ShadeEQ, NormalEQ;
 
 Global Slider Seeker;
 Global Int Seeking;
-Global Boolean manual_set;
+Global Boolean manual_set, CLBDon;
 
 #define ISOBANDS "31.5 Hz,63 Hz,125 Hz,250 Hz,500 Hz,1 KHz,2 KHz,4 KHz,8 KHz,16 KHz"
 #define WINAMPBANDS "70 Hz,180 Hz,320 Hz,600 Hz,1 KHz,3 KHz,6 KHz,12 KHz,14 KHz,16 KHz"
@@ -46,7 +48,15 @@ System.onScriptLoaded(){
 
 	RepeatBtn = frameGroup.findObject("Repeat");
 	ShuffleBtn = frameGroup.findObject("Shuffle");
-    //CLBA = frameGroup.findObject("CLB.A");
+	CLBO = frameGroup.findObject("CLB.O");
+    CLBA = frameGroup.findObject("CLB.A");
+	CLBI = frameGroup.findObject("CLB.I");
+	CLBD = frameGroup.findObject("CLB.D");
+	CLBV = frameGroup.findObject("CLB.V");
+	MainWindow = frameGroup.getObject("mainwindow");
+	CLBV1 = MainWindow.getObject("CLB.V1");
+	CLBV2 = MainWindow.getObject("CLB.V2");
+	CLBV3 = MainWindow.getObject("CLB.V3");
 
 	Seeker = frameGroup.findObject("player.slider.seek");
 	SongTicker = frameGroup.findObject("songticker");
@@ -130,13 +140,77 @@ ShuffleBtn.onToggle(boolean on) {
 	InfoTicker.show();
 	if (on) InfoTicker.setText("Shuffle: ON"); else InfoTicker.setText("Shuffle: OFF");
 }
-/*
+
+CLBO.onLeftButtonDown(int x, int y){
+	SongTickerTimer.start();
+	SongTicker.hide();
+	InfoTicker.show();
+	InfoTicker.setText("Options Menu (nonfunctional)");
+}
+
 CLBA.onToggle(boolean on) {
 	SongTickerTimer.start();
 	SongTicker.hide();
 	InfoTicker.show();
 	if (on) InfoTicker.setText("Enable Always-on-Top"); else InfoTicker.setText("Disable Always-on-Top");
-}*/
+}
+
+CLBI.onLeftButtonDown(int x, int y) {
+	SongTickerTimer.start();
+	SongTicker.hide();
+	InfoTicker.show();
+	InfoTicker.setText("File info box");
+}
+
+CLBD.onToggle(boolean on) {
+	if (on) CLBDon = 1; else CLBDon = 0;
+}
+
+CLBD.onLeftButtonDown(int x, int y){
+	SongTickerTimer.start();
+	SongTicker.hide();
+	InfoTicker.show();
+	if (CLBDon == 0) InfoTicker.setText("Enable doublesize mode"); else InfoTicker.setText("Disable doublesize mode"); //no idea why this works but it works
+}
+
+CLBV.onLeftButtonDown(int x, int y){
+	SongTickerTimer.start();
+	SongTicker.hide();
+	InfoTicker.show();
+	InfoTicker.setText("Visualization Menu");
+}
+
+CLBV.onLeftButtonUp(int x, int y)
+{
+	popupmenu CLBVmenu = new popupmenu;
+
+	CLBVmenu.addcommand(translate("Visualization options...")+"\tAlt+O", 4, 0,0);
+	CLBVmenu.addSeparator();
+	CLBVmenu.addcommand(translate("Start/Stop plug-in")+"\tCtrl+Shift+K", 1, 0,0);
+	CLBVmenu.addcommand(translate("Configure plug-in...")+"\tAlt+K", 2, 0,0);
+	CLBVmenu.addcommand(translate("Select plug-in...")+"\tCtrl+K", 3, 0,0);
+
+	int result = CLBVmenu.popAtMouse();
+
+	if (result == 1)
+	{
+		CLBV1.Leftclick();
+	}
+	else if (result == 2)
+	{
+		CLBV2.Leftclick();
+	}
+	else if (result == 3)
+	{
+		CLBV3.Leftclick();
+	}
+	else if (result == 4)
+	{
+		CLBV3.Leftclick();
+	}
+
+	complete;
+}
 
 shadeEQ.onAction (String action, String param, Int x, int y, int p1, int p2, GuiObject source)
 {
