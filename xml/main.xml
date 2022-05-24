@@ -15,7 +15,7 @@
 	<button id="CLB.O" x="11" y="24" image="CLBO" downimage="CLBOp"/>
 	<Togglebutton id="CLB.A" x="11" y="32" image="CLBA" downimage="CLBAp" activeimage="CLBAp" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1"/>
 	<button id="CLB.I" x="11" y="40" image="CLBI" downimage="CLBIp" action="trackinfo"/>
-	<Togglebutton id="CLB.D" x="11" y="48" image="CLBD" downimage="CLBDp" activeimage="CLBDp"/>
+	<button id="CLB.D" x="11" y="48" image="CLBD" downimage="CLBDp"/>
 
 	<button id="CLB.V1" x="11" y="56" h="0" w="0" action="TOGGLE" param="guid:avs"/>
 	<button id="CLB.V2" x="11" y="56" h="0" w="0" action="Vis_Cfg"/>
