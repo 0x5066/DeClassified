@@ -8,11 +8,11 @@
 
 Global Group frameGroup, frameGroupEQ, frameGroupEQShade, MainWindow;
 Global Togglebutton ShuffleBtn, RepeatBtn, CLBA;
-Global Button CLBO, CLBI, CLBD;
+Global Button CLBI, CLBD;
 Global Button CLBV, CLBV1, CLBV2, CLBV3;
 Global Timer SongTickerTimer;
 Global Text InfoTicker;
-Global GuiObject SongTicker;
+Global GuiObject CLBO, SongTicker;
 Global Slider Balance, BalanceEQ;
 Global Layout Normal, ShadeEQ, NormalEQ, NormalPL;
 
@@ -156,7 +156,7 @@ CLBO.onLeftButtonDown(int x, int y){
 	SongTickerTimer.start();
 	SongTicker.hide();
 	InfoTicker.show();
-	InfoTicker.setText("Options Menu (nonfunctional)");
+	InfoTicker.setText("Options Menu");
 }
 
 CLBA.onToggle(boolean on) {
