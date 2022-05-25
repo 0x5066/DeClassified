@@ -10,15 +10,8 @@ Global String wacuptest;
 initDetector(){
 
     myCheckerDoc = new File;
-    wacuptest = (Application.GetSettingsPath()+"/Plugins/dsp_wc.ini");
+    wacuptest = (Application.GetSettingsPath()+"/patreons.rtf");
     myCheckerDoc.load (wacuptest);
 
-    if(myCheckerDoc.exists())
-    {
-        IsWACUP = 1;
-    }
-    else
-    {
-        IsWACUP = 0;
-    }
+    IsWACUP = myCheckerDoc.exists();
 }
