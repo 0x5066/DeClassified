@@ -14,20 +14,20 @@
 
 <groupdef id="cooldebuginfo" w="380">
 
-    <text id="status" text="Playback Status: " x="-2" w="380" font="wasabi.font.default" align="left" valign="top"/>
-    <text id="channel" text="Channel: " x="-2" y="7" w="380" font="wasabi.font.default" align="left" valign="top"/>
-    <text id="kbps" text="kbps: " x="-2" y="14" w="380" font="wasabi.font.default" align="left" valign="top"/> 
-    <text id="khz" text="khz: " x="-2" y="21" w="380" font="wasabi.font.default" align="left" valign="top"/>
-    <text id="displayvolume" text="Volume: " x="-2" y="28" w="380" font="wasabi.font.default" align="left" valign="top"/>
-    <text id="freqbands" text="Frequency Bands: " x="-2" y="35" w="380" font="wasabi.font.default" align="left" valign="top"/>
-    <text id="timer" text="Time: " x="-2" y="42" font="wasabi.font.default" align="left" valign="top"/>
-    <text id="isthiswacup" text="Is this WACUP?: " x="-2" y="49" font="wasabi.font.default" align="left" valign="top"/>
-    <text id="VUL" text="VU LEFT : " x="-2" y="56" font="wasabi.font.default" align="left" valign="top" alpha="0"/>
-    <text id="VUR" text="VU RIGHT: " x="-2" y="63" font="wasabi.font.default" align="left" valign="top" alpha="0"/>
+    <text id="status" text="Playback Status: " x="-2" w="380" font="wasabi.font.default" align="left" valign="top" cursor="cur.normal"/>
+    <text id="channel" text="Channel: " x="-2" y="7" w="380" font="wasabi.font.default" align="left" valign="top" cursor="cur.normal"/>
+    <text id="kbps" text="kbps: " x="-2" y="14" w="380" font="wasabi.font.default" align="left" valign="top" cursor="cur.normal"/> 
+    <text id="khz" text="khz: " x="-2" y="21" w="380" font="wasabi.font.default" align="left" valign="top" cursor="cur.normal"/>
+    <text id="displayvolume" text="Volume: " x="-2" y="28" w="380" font="wasabi.font.default" align="left" valign="top" cursor="cur.normal"/>
+    <text id="freqbands" text="Frequency Bands: " x="-2" y="35" w="380" font="wasabi.font.default" align="left" valign="top" cursor="cur.normal"/>
+    <text id="timer" text="Time: " x="-2" y="42" font="wasabi.font.default" align="left" valign="top" cursor="cur.normal"/>
+    <text id="isthiswacup" text="Is this WACUP?: " x="-2" y="49" font="wasabi.font.default" align="left" valign="top" cursor="cur.normal"/>
+    <text id="VUL" text="VU LEFT : " x="-2" y="56" font="wasabi.font.default" align="left" valign="top" alpha="0" cursor="cur.normal"/>
+    <text id="VUR" text="VU RIGHT: " x="-2" y="63" font="wasabi.font.default" align="left" valign="top" alpha="0" cursor="cur.normal"/>
 
-    <text text="DECLASSIFIED" x="0" y="53" w="380" font="Winamp" align="center" fontsize="43" valign="top"/>
-    <text text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title" align="left" fontsize="14" valign="top" antialias="0"/>
-    <text id="blurrytext" text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title.blur" align="left" fontsize="14" valign="top" antialias="0"/>
+    <text text="DECLASSIFIED" x="0" y="53" w="380" font="Winamp" align="center" fontsize="43" valign="top" cursor="cur.normal"/>
+    <text text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title" align="left" fontsize="14" valign="top" antialias="0" cursor="cur.normal"/>
+    <text id="blurrytext" text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title.blur" align="left" fontsize="14" valign="top" antialias="0" cursor="cur.normal"/>
 
 <script file="about/wa2songtimer_about.maki"/>
 <script file="about/classicplaystatus_about.maki"/>
@@ -42,16 +42,16 @@
 
 <groupdef id="skin.about.group" w="0" h="0" relatw="1" relath="1" rectrgn="1">
 
-    <rect w="380" h="321" color="x52" filled="1"/> <!-- using the window background pixel/color from classic-genex, use a different color if it doesnt look good -->
+    <rect w="380" h="321" color="x52" filled="1" cursor="cur.normal"/> <!-- using the window background pixel/color from classic-genex, use a different color if it doesnt look good -->
     <group id="aboutplayer" x="52" y="100"/>
 
-    <rect y="313" w="380" h="11" color="0,0,0" filled="1"/>
+    <rect y="313" w="380" h="11" color="0,0,0" filled="1" cursor="cur.normal"/>
     <Songticker
 		id="songticker" ticker="1"
 		x="0" y="314"
 		w="380" h="9"
 		font="wasabi.font.default" altfont="arial" fontsize="13"
-		altvalign="center"
+		altvalign="center" cursor="cur.normal"
 	/>
     <group id="cooldebuginfo" y="-55" alpha="0"/>
 
