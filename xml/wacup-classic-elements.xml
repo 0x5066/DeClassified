@@ -2,8 +2,8 @@
     <bitmap id="wacup.main" file="skin/main_wacup.bmp"/>
 
     <!-- Title bar, on and off respectively -->
-	<bitmap id="wacup.titlebar.on" file="skin/titlebar_wacup.bmp"  x="27" y="0" h="13" w="275"/>
-	<bitmap id="wacup.titlebar.off" file="skin/titlebar_wacup.bmp"  x="27" y="15" h="13" w="275"/>
+	<bitmap id="wacup.titlebar.on" file="skin/titlebar_wacup.bmp"  x="54" y="0" h="26" w="550"/>
+	<bitmap id="wacup.titlebar.off" file="skin/titlebar_wacup.bmp"  x="54" y="30" h="26" w="550"/>
 
     <!-- Main Window shade mode, on and off respectively -->
 	<bitmap id="wacup.player.shade.enabled" file="skin/titlebar_wacup.bmp" x="27" y="29" h="14" w="275"/>
