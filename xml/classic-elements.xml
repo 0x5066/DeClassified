@@ -7,9 +7,9 @@
 	<bitmap id="posbar" file="skin/posbar.bmp" x="496" y="0" w="58" h="20"/>
 	<bitmap id="posbarp" file="skin/posbar.bmp" x="556" y="0" w="58" h="20"/>
 
-	<bitmap id="posbarsl" file="skin/titlebar.bmp" x="17" y="36" w="3" h="7"/>
-	<bitmap id="posbarsm" file="skin/titlebar.bmp" x="20" y="36" w="3" h="7"/>
-	<bitmap id="posbarsr" file="skin/titlebar.bmp" x="23" y="36" w="3" h="7"/>
+	<bitmap id="posbarsl" file="skin/titlebar.bmp" x="34" y="72" w="6" h="14"/>
+	<bitmap id="posbarsm" file="skin/titlebar.bmp" x="40" y="72" w="6" h="14"/>
+	<bitmap id="posbarsr" file="skin/titlebar.bmp" x="46" y="72" w="6" h="14"/>
 
 	<!-- Cursors -->
 	<cursor id="cur.normal" bitmap="cursors/normal.png" hotspot_x="0" hotspot_y="0"/>
@@ -93,20 +93,20 @@
 	<bitmap id="wa2.player.title.shade" file="skin/titlebar.bmp" 			x="0" y="36" h="18" w="18"/>
 	<bitmap id="wa2.player.title.shade.pressed" file="skin/titlebar.bmp" 	x="18" y="36" h="18" w="18"/>
 
-	<bitmap id="wa2.player.title.shademode" file="skin/titlebar.bmp" x="0" y="27" h="9" w="9"/>
-	<bitmap id="wa2.player.title.shademode.pressed" file="skin/titlebar.bmp" x="9" y="27" h="9" w="9"/>
+	<bitmap id="wa2.player.title.shademode" file="skin/titlebar.bmp" x="0" y="54" h="18" w="18"/>
+	<bitmap id="wa2.player.title.shademode.pressed" file="skin/titlebar.bmp" x="18" y="54" h="18" w="18"/>
 
-	<bitmap id="wa2.player.title.min" file="skin/titlebar.bmp" x="9" y="0" h="9" w="9"/>
-	<bitmap id="wa2.player.title.min.pressed" file="skin/titlebar.bmp" x="9" y="9" h="9" w="9"/>
-	<bitmap id="wa2.player.title.menu" file="skin/titlebar.bmp" x="0" y="0" h="9" w="9"/>
-	<bitmap id="wa2.player.title.menu.pressed" file="skin/titlebar.bmp" x="0" y="9" h="9" w="9"/>
+	<bitmap id="wa2.player.title.min" file="skin/titlebar.bmp" x="18" y="0" h="18" w="18"/>
+	<bitmap id="wa2.player.title.min.pressed" file="skin/titlebar.bmp" x="18" y="18" h="18" w="18"/>
+	<bitmap id="wa2.player.title.menu" file="skin/titlebar.bmp" x="0" y="0" h="18" w="18"/>
+	<bitmap id="wa2.player.title.menu.pressed" file="skin/titlebar.bmp" x="0" y="18" h="18" w="18"/>
 
 	<!-- Winshade Stuff -->
-	<bitmap id="wa2.player.shade.enabled" file="skin/titlebar.bmp" x="27" y="29" h="14" w="275"/>
-	<bitmap id="wa2.player.shade.disabled" file="skin/titlebar.bmp" x="27" y="42" h="14" w="275"/>
+	<bitmap id="wa2.player.shade.enabled" file="skin/titlebar.bmp" x="54" y="58" h="28" w="550"/>
+	<bitmap id="wa2.player.shade.disabled" file="skin/titlebar.bmp" x="54" y="84" h="28" w="550"/>
 
-	<bitmap id="wa2.player.shade.menu" file="skin/titlebar.bmp" x="0" y="0" h="9" w="9"/>
-	<bitmap id="wa2.player.shade.menu.pressed" file="skin/titlebar.bmp" x="0" y="9" h="9" w="9"/>
+	<bitmap id="wa2.player.shade.menu" file="skin/titlebar.bmp" x="0" y="0" h="18" w="18"/>
+	<bitmap id="wa2.player.shade.menu.pressed" file="skin/titlebar.bmp" x="0" y="18" h="18" w="18"/>
 
 	<bitmap id="clutterbar" file="skin/titlebar.bmp" x="608" y="0" w="16" h="86"/>
 
