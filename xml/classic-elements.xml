@@ -11,6 +11,16 @@
 	<bitmap id="posbarsm" file="skin/titlebar.bmp" x="20" y="36" w="3" h="7"/>
 	<bitmap id="posbarsr" file="skin/titlebar.bmp" x="23" y="36" w="3" h="7"/>
 
+	<!-- Cursors -->
+	<cursor id="cur.normal" bitmap="cursors/normal.png" hotspot_x="0" hotspot_y="0"/>
+	<cursor id="cur.minimise" bitmap="cursors/min.png" hotspot_x="0" hotspot_y="0"/>
+	<cursor id="cur.close" bitmap="cursors/close.png" hotspot_x="0" hotspot_y="0"/>
+	<cursor id="cur.mainmenu" bitmap="cursors/mainmenu.png" hotspot_x="0" hotspot_y="0"/>
+	<cursor id="cur.move" bitmap="cursors/titlebar.png" hotspot_x="0" hotspot_y="0"/>
+	<cursor id="cur.horizslider" bitmap="cursors/posbar.png" hotspot_x="0" hotspot_y="0"/>
+	<cursor id="cur.vertislider" bitmap="cursors/eqslid.png" hotspot_x="0" hotspot_y="0"/>
+	<cursor id="cur.resize" bitmap="cursors/psize.png" hotspot_x="0" hotspot_y="0"/>
+
 	<!-- NUMFONT -->
 	<bitmapfont id="player.BIGNUM" file="skin/numfont.png" charwidth="9" charheight="13" hspacing="3" vspacing="1"/>
 	<bitmap id="disabled.dash" file="skin/nums_ex.bmp" x="90" y="0" w="9" h="13"/>

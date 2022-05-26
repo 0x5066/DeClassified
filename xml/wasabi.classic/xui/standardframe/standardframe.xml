@@ -32,6 +32,7 @@
     x="0" y="0"
     image="wasabi.frame.top.left"
     inactivealpha="0"
+	cursor="cur.move"
   />
   <layer
     id="window.top"
@@ -40,6 +41,7 @@
     relatw="1"
     image="wasabi.frame.top"
     inactivealpha="0" tile="1"
+	cursor="cur.move"
   />
   <layer
     id="window.top.right"
@@ -47,6 +49,7 @@
     relatx="1"
     image="wasabi.frame.top.right"
     inactivealpha="0"
+	cursor="cur.move"
   />
 
 <!-- active ends here -->
@@ -57,6 +60,7 @@
     x="0" y="0"
     image="wasabi.frame.top.left.inactive"
     activealpha="0"
+	cursor="cur.move"
   />
   <layer
     id="window.top"
@@ -65,6 +69,7 @@
     relatw="1"
     image="wasabi.frame.top.inactive"
     activealpha="0" tile="1"
+	cursor="cur.move"
   />
   <layer
     id="window.top.right"
@@ -72,6 +77,7 @@
     relatx="1"
     image="wasabi.frame.top.right.inactive"
     activealpha="0"
+	cursor="cur.move"
   />
 
 <!-- inactive ends here -->
@@ -83,12 +89,14 @@
     relath="1"
     image="wasabi.frame.left"
     tile="1"
+	cursor="cur.normal"
   />
   <layer
     id="window.left"
     x="0" y="-33"
     relaty="1" 
     image="wasabi.frame.left2"
+	cursor="cur.normal"
   />
   <layer
     id="window.right"
@@ -97,6 +105,7 @@
     relatx="1" relath="1"
     image="wasabi.frame.right"
     tile="1"
+	cursor="cur.normal"
   />
 
   <layer
@@ -104,9 +113,10 @@
   x="-8" y="-33"
   relatx="1" relaty="1" 
   image="wasabi.frame.right2"
+  cursor="cur.normal"
   />
 
-  <layer id="window.resize.disabler" x="5" y="5" w="-10" h="-10" relatw="1" relath="1"/>
+  <layer id="window.resize.disabler" x="5" y="5" w="-10" h="-10" relatw="1" relath="1" cursor="cur.normal"/>
 
   <LayoutStatus id="sysmenu.status" bg="0" x="5" y="3" w="14" h="9" includeonly="{system}" />
   <hideobject target="sysmenu.status"/>
@@ -118,12 +128,14 @@
       image="wasabi.button.close"
       downImage="wasabi.button.close.pressed"
       inactiveAlpha="0"
+	cursor="cur.close"
   />
   <Wasabi:TitleBar
     id="wasabi.titlebar"
     x="15" y="0"
     w="-32" h="20"
     relatw="1"
+	cursor="cur.move"
   />
 
 </groupdef>
@@ -144,6 +156,7 @@
     x="0" y="-14"
     relaty="1"
     image="wasabi.frame.bottom.left"
+	cursor="cur.normal"
   />
 
   <layer
@@ -152,6 +165,7 @@
     w="-250"
     relatw="1" relaty="1"
     image="wasabi.frame.bottom"
+	cursor="cur.normal"
     tile="1"
   />
 
@@ -160,12 +174,14 @@
     x="-125" y="-14"
     relatx="1" relaty="1"
     image="wasabi.frame.bottom.right"
+	cursor="cur.normal"
   />
 
   <layer
     x="-20" y="-14"
     relatx="1" relaty="1" w="19" h="13"
     resize="bottomright" rectrgn="1"
+	cursor="cur.resize"
   />
 
   <LayoutStatus id="standardframe.layoutstatus" x="11" y="-29" relaty="1" w="-19" relatw="1" h="15" exclude="{system}" />
@@ -182,13 +198,14 @@
 
 <groupdef id="wasabi.standardframe.nostatusbar" background="wasabi.frame.basetexture" sysregion="1" xuitag="Wasabi:StandardFrame:NoStatus">
 
-  <group id="wasabi.frame.layout" x="0" y="0" w="0" h="-5" relatw="1" relath="1"/>
+  <group id="wasabi.frame.layout" x="0" y="0" w="0" h="-5" relatw="1" relath="1" cursor="cur.normal"/>
 
   <layer
     id="window.bottom.left"
     x="0" y="-14"
     relaty="1"
     image="wasabi.frame.bottom.left"
+	cursor="cur.normal"
   />
 
   <layer
@@ -198,6 +215,7 @@
     relatw="1" relaty="1"
     image="wasabi.frame.bottom"
     tile="1"
+	cursor="cur.normal"
   />
 
   <layer
@@ -205,12 +223,14 @@
     x="-125" y="-14"
     relatx="1" relaty="1"
     image="wasabi.frame.bottom.right"
+	cursor="cur.normal"
   />
 
   <layer
     x="-20" y="-14"
     relatx="1" relaty="1" w="19" h="13"
     resize="bottomright" rectrgn="1"
+	cursor="cur.resize"
   />
 
   <script id="standardframe.script" file="scripts/standardframe.maki" param="11,20,-19,-34,0,0,1,1" />
