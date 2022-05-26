@@ -49,12 +49,12 @@
 		w="154" h="9"
 		font="wasabi.font.default" altfont="arial" fontsize="13"
 		altvalign="center" dblclickaction="trackinfo" 
-	rightclickaction="trackmenu"
+	rightclickaction="trackmenu" cursor="cur.horizslider"
 	/>
 
 	<text id="infoticker" x="110" y="27" offsetx="-1" offsety="-1"
 		w="155" h="9" font="wasabi.font.default" fontsize="13" dblclickaction="trackinfo" 
-		rightclickaction="trackmenu" ghost="0" cursor="cur.normal"/>		<!-- should be cursor="cur.horizslider" but the text cant be moved so its set to the normal cursor -->
+		rightclickaction="trackmenu" ghost="1"/>
 
 	<!--text
 		id="debugticker"
