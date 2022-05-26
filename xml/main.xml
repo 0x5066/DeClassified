@@ -15,7 +15,7 @@
 	<!--Menu id="OAIDU.buttons.O.m" menu="WA5:Options" x="11" y="24" normal="CLBO" down="CLBOp"/-->
 	<layer id="CLB.Op" x="11" y="24" w="7" h="8" image="CLBOp" cursor="cur.normal"/>
 	<layer id="CLB.O1" x="11" y="24" w="7" h="8" image="CLBO" cursor="cur.normal"/>
-	<Menu id="CLB.O" x="11" y="24" w="7" h="8" menu="WA5:Options" normal="CLB.O1" down="CLB.Op"/>
+	<Menu id="CLB.O" x="11" y="24" w="7" h="8" menu="WA5:Options" normal="CLB.O1" down="CLB.Op" cursor="cur.normal"/>
 	<Togglebutton id="CLB.A" x="11" y="32" image="CLBA" downimage="CLBAp" activeimage="CLBAp" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1" cursor="cur.normal"/>
 	<button id="CLB.I" x="11" y="40" image="CLBI" downimage="CLBIp" action="trackinfo" cursor="cur.normal"/>
 	<button id="CLB.D" x="11" y="48" image="CLBD" downimage="CLBDp" cursor="cur.normal"/>
