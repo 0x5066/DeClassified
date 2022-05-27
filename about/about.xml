@@ -51,7 +51,7 @@
 		x="0" y="314"
 		w="380" h="9"
 		font="wasabi.font.default" altfont="arial" fontsize="13"
-		altvalign="center" cursor="cur.normal"
+		altvalign="center" cursor="cur.horizslider"
 	/>
     <group id="cooldebuginfo" y="-55" alpha="0"/>
 
