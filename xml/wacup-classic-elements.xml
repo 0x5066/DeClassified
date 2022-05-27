@@ -27,21 +27,21 @@
 	<bitmap id="wacup.video.bottomright" file="skin/video_wacup.bmp" x="0" y="81" h="38" w="125"/>
 
     <!-- Playlist Editor -->
-    <bitmap id="wacup.pl.1" file="skin/pledit_wacup.bmp"  x="0" y="0" h="20" w="25"/>
-    <bitmap id="wacup.pl.2" file="skin/pledit_wacup.bmp"  x="127" y="0" h="20" w="25"/>
-    <bitmap id="wacup.pl.2.center" file="skin/pledit_wacup.bmp"  x="26" y="0" h="20" w="100"/>
-    <bitmap id="wacup.pl.3" file="skin/pledit_wacup.bmp"  x="153" y="0" h="20" w="25"/>
-    <bitmap id="wacup.pl.4" file="skin/pledit_wacup.bmp"  x="0" y="42" h="29" w="25"/>
-    <bitmap id="wacup.pl.6" file="skin/pledit_wacup.bmp"  x="26" y="42" h="29" w="25"/>
-    <bitmap id="wacup.pl.7" file="skin/pledit_wacup.bmp"  x="0" y="72" h="38" w="125"/>
-    <bitmap id="wacup.pl.8" file="skin/pledit_wacup.bmp"  x="179" y="0" h="38" w="25"/>
-    <bitmap id="wacup.pl.8.vis" file="skin/pledit_wacup.bmp"  x="205" y="0" h="38" w="75"/>
-    <bitmap id="wacup.pl.9" file="skin/pledit_wacup.bmp"  x="126" y="72" h="38" w="150"/>
+    <bitmap id="wacup.pl.1" file="skin/pledit_wacup.bmp" x="0" y="0" h="40" w="50"/>
+    <bitmap id="wacup.pl.2" file="skin/pledit_wacup.bmp" x="254" y="0" h="40" w="50"/>
+    <bitmap id="wacup.pl.2.center" file="skin/pledit_wacup.bmp" x="52" y="0" h="40" w="200"/>
+    <bitmap id="wacup.pl.3" file="skin/pledit_wacup.bmp" x="306" y="0" h="40" w="50"/>
+    <bitmap id="wacup.pl.4" file="skin/pledit_wacup.bmp" x="0" y="84" h="58" w="50"/>
+    <bitmap id="wacup.pl.6" file="skin/pledit_wacup.bmp" x="52" y="84" h="58" w="50"/>
+    <bitmap id="wacup.pl.7" file="skin/pledit_wacup.bmp" x="0" y="144" h="76" w="250"/>
+    <bitmap id="wacup.pl.8" file="skin/pledit_wacup.bmp" x="358" y="0" h="76" w="50"/>
+    <bitmap id="wacup.pl.8.vis" file="skin/pledit_wacup.bmp" x="410" y="0" h="76" w="150"/>
+    <bitmap id="wacup.pl.9" file="skin/pledit_wacup.bmp" x="252" y="144" h="76" w="300"/>
 
-    <bitmap id="wacup.pl.1.disabled" file="skin/pledit_wacup.bmp" x="0" y="21" h="20" w="25"/>
-    <bitmap id="wacup.pl.2.disabled" file="skin/pledit_wacup.bmp"  x="127" y="21" h="20" w="25"/>
-    <bitmap id="wacup.pl.2.center.disabled" file="skin/pledit_wacup.bmp"  x="26" y="21" h="20" w="100"/>
-    <bitmap id="wacup.pl.3.disabled" file="skin/pledit_wacup.bmp"  x="153" y="21" h="20" w="25"/>
+    <bitmap id="wacup.pl.1.disabled" file="skin/pledit_wacup.bmp" x="0" y="42" h="40" w="50"/>
+    <bitmap id="wacup.pl.2.disabled" file="skin/pledit_wacup.bmp" x="254" y="42" h="40" w="50"/>
+    <bitmap id="wacup.pl.2.center.disabled" file="skin/pledit_wacup.bmp" x="52" y="42" h="40" w="200"/>
+    <bitmap id="wacup.pl.3.disabled" file="skin/pledit_wacup.bmp" x="306" y="42" h="40" w="50"/>
 
     <!-- Equalizer, Winamp Frequencies -->
     <bitmap id="wacup.eq" file="skin/eqmain_wacup.bmp" x="0" y="0" w="550" h="232"/>

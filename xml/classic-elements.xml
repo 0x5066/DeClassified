@@ -164,39 +164,39 @@
 	<!-- playlist editor -->
 
     <!-- pledit shade elements -->
-    <bitmap id="wa2.plshade.right.active" file="skin/pledit.bmp" x="99" y="42" h="14" w="50"/>
-    <bitmap id="wa2.plshade.right.inactive" file="skin/pledit.bmp" x="99" y="57" h="14" w="50"/>
+    <bitmap id="wa2.plshade.right.active" file="skin/pledit.bmp" x="198" y="84" h="28" w="100"/>
+    <bitmap id="wa2.plshade.right.inactive" file="skin/pledit.bmp" x="198" y="114" h="28" w="100"/>
 
-    <bitmap id="wa2.plshade.left" file="skin/pledit.bmp" x="72" y="42" h="14" w="25"/>
+    <bitmap id="wa2.plshade.left" file="skin/pledit.bmp" x="144" y="84" h="28" w="50"/>
 
-    <bitmap id="wa2.plshade.middle" file="skin/pledit.bmp" x="72" y="57" h="14" w="25"/>
+    <bitmap id="wa2.plshade.middle" file="skin/pledit.bmp" x="144" y="114" h="28" w="50"/>
 
-    <bitmap id="wa2.plshade.close" file="skin/pledit.bmp" x="138" y="45" h="9" w="9"/>
-    <bitmap id="wa2.plshade.shade" file="skin/pledit.bmp" x="128" y="45" h="9" w="9"/>
-    <bitmap id="wa2.plshade.shadep" file="skin/pledit.bmp" x="150" y="42" h="9" w="9"/>
+    <bitmap id="wa2.plshade.close" file="skin/pledit.bmp" x="276" y="90" h="18" w="18"/>
+    <bitmap id="wa2.plshade.shade" file="skin/pledit.bmp" x="256" y="90" h="18" w="18"/>
+    <bitmap id="wa2.plshade.shadep" file="skin/pledit.bmp" x="300" y="84" h="18" w="18"/>
 
     <!--Playlist Grid Elements-->
-    <bitmap id="wa2.pl.1" file="skin/pledit.bmp"  x="0" y="0" h="20" w="25"/>
-    <bitmap id="wa2.pl.2" file="skin/pledit.bmp"  x="127" y="0" h="20" w="25"/>
-    <bitmap id="wa2.pl.2.center" file="skin/pledit.bmp"  x="26" y="0" h="20" w="100"/>
-    <bitmap id="wa2.pl.3" file="skin/pledit.bmp"  x="153" y="0" h="20" w="25"/>
-    <bitmap id="wa2.pl.4" file="skin/pledit.bmp"  x="0" y="42" h="29" w="25"/>
-    <bitmap id="wa2.pl.5" file="$solid" h="64" w="64" color="0,0,0"/>
-    <bitmap id="wa2.pl.6" file="skin/pledit.bmp"  x="26" y="42" h="29" w="25"/>
-    <bitmap id="wa2.pl.7" file="skin/pledit.bmp"  x="0" y="72" h="38" w="125"/>
-    <bitmap id="wa2.pl.8" file="skin/pledit.bmp"  x="179" y="0" h="38" w="25"/>
-    <bitmap id="wa2.pl.8.vis" file="skin/pledit.bmp"  x="205" y="0" h="38" w="75"/>
-    <bitmap id="wa2.pl.9" file="skin/pledit.bmp"  x="126" y="72" h="38" w="150"/>
+    <bitmap id="wa2.pl.1" file="skin/pledit.bmp" x="0" y="0" h="40" w="50"/>
+    <bitmap id="wa2.pl.2" file="skin/pledit.bmp" x="254" y="0" h="40" w="50"/>
+    <bitmap id="wa2.pl.2.center" file="skin/pledit.bmp" x="52" y="0" h="40" w="200"/>
+    <bitmap id="wa2.pl.3" file="skin/pledit.bmp" x="306" y="0" h="40" w="50"/>
+    <bitmap id="wa2.pl.4" file="skin/pledit.bmp" x="0" y="84" h="58" w="50"/>
+	<bitmap id="wa2.pl.5" file="$solid" h="64" w="64" color="0,0,0"/>
+    <bitmap id="wa2.pl.6" file="skin/pledit.bmp" x="52" y="84" h="58" w="50"/>
+    <bitmap id="wa2.pl.7" file="skin/pledit.bmp" x="0" y="144" h="76" w="250"/>
+    <bitmap id="wa2.pl.8" file="skin/pledit.bmp" x="358" y="0" h="76" w="50"/>
+    <bitmap id="wa2.pl.8.vis" file="skin/pledit.bmp" x="410" y="0" h="76" w="150"/>
+    <bitmap id="wa2.pl.9" file="skin/pledit.bmp" x="252" y="144" h="76" w="300"/>
 
-    <bitmap id="wa2.pl.1.disabled" file="skin/pledit.bmp" x="0" y="21" h="20" w="25"/>
-    <bitmap id="wa2.pl.2.disabled" file="skin/pledit.bmp"  x="127" y="21" h="20" w="25"/>
-    <bitmap id="wa2.pl.2.center.disabled" file="skin/pledit.bmp"  x="26" y="21" h="20" w="100"/>
-    <bitmap id="wa2.pl.3.disabled" file="skin/pledit.bmp"  x="153" y="21" h="20" w="25"/>
+    <bitmap id="wa2.pl.1.disabled" file="skin/pledit.bmp" x="0" y="42" h="40" w="50"/>
+    <bitmap id="wa2.pl.2.disabled" file="skin/pledit.bmp" x="254" y="42" h="40" w="50"/>
+    <bitmap id="wa2.pl.2.center.disabled" file="skin/pledit.bmp" x="52" y="42" h="40" w="200"/>
+    <bitmap id="wa2.pl.3.disabled" file="skin/pledit.bmp" x="306" y="42" h="40" w="50"/>
 
-    <bitmap id="wa2.pl.close" file="skin/pledit.bmp" x="167" y="3" h="9" w="9"/>
-    <bitmap id="wa2.pl.closep" file="skin/pledit.bmp" x="52" y="42" h="9" w="9"/>
-    <bitmap id="wa2.pl.shade" file="skin/pledit.bmp" x="157" y="3" h="9" w="9"/>
-    <bitmap id="wa2.pl.shadep" file="skin/pledit.bmp" x="62" y="42" h="9" w="9"/>
+    <bitmap id="wa2.pl.close" file="skin/pledit.bmp" x="334" y="6" h="18" w="18"/>
+    <bitmap id="wa2.pl.closep" file="skin/pledit.bmp" x="104" y="84" h="18" w="18"/>
+    <bitmap id="wa2.pl.shade" file="skin/pledit.bmp" x="314" y="6" h="18" w="18"/>
+    <bitmap id="wa2.pl.shadep" file="skin/pledit.bmp" x="124" y="84" h="18" w="18"/>
 
 	<!-- Equalizer -->
 	<bitmap id="wa.eq" file="skin/eqmain.bmp" x="0" y="0" w="550" h="232"/>
