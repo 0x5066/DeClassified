@@ -44,13 +44,13 @@
     <bitmap id="wacup.pl.3.disabled" file="skin/pledit_wacup.bmp"  x="153" y="21" h="20" w="25"/>
 
     <!-- Equalizer, Winamp Frequencies -->
-    <bitmap id="wacup.eq" file="skin/eqmain_wacup.bmp" x="0" y="0" w="275" h="116"/>
+    <bitmap id="wacup.eq" file="skin/eqmain_wacup.bmp" x="0" y="0" w="550" h="232"/>
 	<bitmap id="wacup.eqvis.bg" file="skin/eqmain_wacup.bmp" x="0" y="294" w="113" h="19"/>
-	<bitmap id="wacupeq.titlebar.on" file="skin/eqmain_wacup.bmp" x="0" y="134" w="275" h="14"/>
-	<bitmap id="wacupeq.titlebar.off" file="skin/eqmain_wacup.bmp" x="0" y="149" w="275" h="14"/>
+	<bitmap id="wacupeq.titlebar.on" file="skin/eqmain_wacup.bmp" x="0" y="268" w="550" h="28"/>
+	<bitmap id="wacupeq.titlebar.off" file="skin/eqmain_wacup.bmp" x="0" y="298" w="550" h="28"/>
 
     <!-- Equalizer, ISO Frquencies -->
-	<bitmap id="wacup.iso.eq" file="skin/eqmain_iso_wacup.bmp" x="0" y="0" w="275" h="116"/>
+	<bitmap id="wacup.iso.eq" file="skin/eqmain_iso_wacup.bmp" x="0" y="0" w="550" h="232"/>
 	<bitmap id="wacup.iso.eqvis.bg" file="skin/eqmain_iso_wacup.bmp" x="0" y="294" w="113" h="19"/>
-	<bitmap id="wacupisoeq.titlebar.on" file="skin/eqmain_iso_wacup.bmp" x="0" y="134" w="275" h="14"/>
-	<bitmap id="wacupisoeq.titlebar.off" file="skin/eqmain_iso_wacup.bmp" x="0" y="149" w="275" h="14"/>
+	<bitmap id="wacupisoeq.titlebar.on" file="skin/eqmain_iso_wacup.bmp" x="0" y="268" w="550" h="28"/>
+	<bitmap id="wacupisoeq.titlebar.off" file="skin/eqmain_iso_wacup.bmp" x="0" y="298" w="550" h="28"/>
