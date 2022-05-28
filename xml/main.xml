@@ -183,7 +183,7 @@
     <button id="Eject" action="EJECT" x="432" y="6" w="18" h="18" tooltip="Eject" rectrgn="1" cursor="cur.normal"/>
 
     <vis id="wa.vis" x="158" y="10" w="72" h="10" fps="60"/>
-	<layer id="main.vis.trigger" x="79" y="5" w="38" h="5" cursor="cur.normal"/>
+	<layer id="main.vis.trigger" x="158" y="10" w="72" h="10" cursor="cur.normal"/>
 
     <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="508" y="6" image="wa2.player.title.shademode" downImage="wa2.player.title.shademode.pressed" tooltip="Toggle Windowshade Mode" cursor="cur.normal"/>
     <button id="Close" inactivealpha="0" action="close" x="528" y="6" image="wa2.player.title.quit" downImage="wa2.player.title.quit.pressed" tooltip="Close" cursor="cur.close"/>
