@@ -10,7 +10,7 @@
 		<layer id="wa2.pl7" image="wa2.pl.7" x="0" y="-76" relaty="1" regionop="1" cursor="cur.normal"/>
 		<layer id="wa2.pl8" image="wa2.pl.8" x="250" y="-76" w="-550" relaty="1" relatw="1" regionop="1" cursor="cur.normal"/>
 		<layer id="wa2.pl9" image="wa2.pl.9" x="-300" y="-76" relatx="1" relaty="1" regionop="1" cursor="cur.normal"/>
-		<layer x="-19" y="-19" w="19" h="19" relatx="1" relaty="1" resize="bottomright" move="0" cursor="cur.resize"/>
+		<layer x="-38" y="-38" w="38" h="38" relatx="1" relaty="1" resize="bottomright" move="0" cursor="cur.resize"/>
 
 		<!-- Layers that needs to be hidden or centered -->
 		<layer id="pl.center.logo" image="wa2.pl.2.center" x="-200" y="0" inactiveimage="wa2.pl.2.center.disabled"/>
@@ -30,11 +30,11 @@
         <script file="scripts/wa2songtimer.maki"/>
 
 		<!-- Add Playlist Entry (List) -->
-		<button action="PE_ADD"	x="11" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_REM"	x="40" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_SEL"	x="69" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_MISC" x="98" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_LIST" x="-47" y="-30" w="25" h="18" relatx="1" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_ADD"	x="22" y="-60" w="50" h="36" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_REM"	x="80" y="-60" w="50" h="36" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_SEL"	x="138" y="-60" w="50" h="36" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_MISC" x="196" y="-60" w="50" h="36" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_LIST" x="-94" y="-60" w="50" h="36" relatx="1" relaty="1" rectrgn="1" cursor="cur.normal"/>
 		<!-- End Playlist Entries -->
 
 		<!-- Since Winamp 5.0 the component xml object was renamed to windowholder -->
@@ -45,12 +45,12 @@
 		/> <!-- change w to -20 for the editor to take up the whole space -->
 
 		<!-- Playback buttons - No images so must use rectrgn="1" -->
-		<button x="-145" y="-16" w="8" h="9" relatx="1" relaty="1" action="Prev" rectrgn="1" cursor="cur.normal"/>
-		<button x="-137" y="-16" w="10" h="9" relatx="1" relaty="1" action="Play" rectrgn="1" cursor="cur.normal"/>
-		<button x="-127" y="-16" w="10" h="9" relatx="1" relaty="1" action="Pause" rectrgn="1" cursor="cur.normal"/>
-		<button x="-117" y="-16" w="9" h="9" relatx="1" relaty="1" action="Stop" rectrgn="1" cursor="cur.normal"/>
-		<button x="-108" y="-16" w="8" h="9" relatx="1" relaty="1" action="Next" rectrgn="1" cursor="cur.normal"/>
-		<button x="-100" y="-16" w="10" h="9" relatx="1" relaty="1" action="Eject" rectrgn="1" cursor="cur.normal"/>
+		<button x="-290" y="-32" w="16" h="18" relatx="1" relaty="1" action="Prev" rectrgn="1" cursor="cur.normal"/>
+		<button x="-274" y="-32" w="20" h="18" relatx="1" relaty="1" action="Play" rectrgn="1" cursor="cur.normal"/>
+		<button x="-254" y="-32" w="20" h="18" relatx="1" relaty="1" action="Pause" rectrgn="1" cursor="cur.normal"/>
+		<button x="-234" y="-32" w="18" h="18" relatx="1" relaty="1" action="Stop" rectrgn="1" cursor="cur.normal"/>
+		<button x="-216" y="-32" w="16" h="18" relatx="1" relaty="1" action="Next" rectrgn="1" cursor="cur.normal"/>
+		<button x="-200" y="-32" w="20" h="18" relatx="1" relaty="1" action="Eject" rectrgn="1" cursor="cur.normal"/>
 		<!-- Close Button -->
 		<button image="wa2.pl.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-22" y="6" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close"
 		/>
