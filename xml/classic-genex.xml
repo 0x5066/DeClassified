@@ -1,28 +1,28 @@
     <!-- This is loosely based on genex.bmp, this won't take the color pixels from genex.bmp itself,
     so you have to do the fun of typing all those color values yourself, enjoy! -->
 
-    <color id="x48" value="0,0,0"/>			<!-- item background (background to edits, listviews etc) -->
-    <color id="x50" value="0,255,0"/>		<!-- item foreground (text color of edit/listview, etc) -->
-    <color id="x52" value="56,55,87"/>		<!-- window background (used to set the bg color for the dialog) -->
-    <color id="x54" value="57,57,66"/>		<!-- button text color -->
-    <color id="x56" value="255,255,255"/> 	<!-- window text color -->
-    <color id="x58" value="132,148,165"/> 	<!-- color of dividers and sunken borders -->
-    <color id="x60" value="0,0,198"/>		<!-- selection color for listviews/playlists/etc -->
-    <color id="x62" value="72,72,120"/>		<!-- listview header background color -->
-    <color id="x64" value="255,255,255"/> 	<!-- listview header text color -->
-    <color id="x66" value="108,108,180"/> 	<!-- listview header frame top color -->
-    <color id="x68" value="36,36,60"/>		<!-- listview header frame middle color -->
-    <color id="x70" value="18,18,30"/>		<!-- listview header frame bottom color -->
-    <color id="x72" value="36,36,60"/>		<!-- listview header empty color -->
-    <color id="x74" value="36,36,60"/>		<!-- scrollbar foreground color -->
-    <color id="x76" value="36,36,60"/>		<!-- scrollbar background color -->
+    <color id="x48" value="244,217,169"/>			<!-- item background (background to edits, listviews etc) -->
+    <color id="x50" value="86,57,29"/>		<!-- item foreground (text color of edit/listview, etc) -->
+    <color id="x52" value="244,217,169"/>		<!-- window background (used to set the bg color for the dialog) -->
+    <color id="x54" value="79,69,53"/>		<!-- button text color -->
+    <color id="x56" value="162,135,87"/> 	<!-- window text color -->
+    <color id="x58" value="162,135,87"/> 	<!-- color of dividers and sunken borders -->
+    <color id="x60" value="229,199,146"/>		<!-- selection color for listviews/playlists/etc -->
+    <color id="x62" value="187,181,170"/>		<!-- listview header background color -->
+    <color id="x64" value="79,69,53"/> 	<!-- listview header text color -->
+    <color id="x66" value="255,255,255"/> 	<!-- listview header frame top color -->
+    <color id="x68" value="154,148,137"/>		<!-- listview header frame middle color -->
+    <color id="x70" value="100,93,83"/>		<!-- listview header frame bottom color -->
+    <color id="x72" value="244,217,169"/>		<!-- listview header empty color -->
+    <color id="x74" value="244,217,169"/>		<!-- scrollbar foreground color -->
+    <color id="x76" value="244,217,169"/>		<!-- scrollbar background color -->
     <color id="x78" value="121,130,150"/>	<!-- inverse scrollbar foreground color -->
-    <color id="x80" value="78,88,110"/> 	<!-- inverse scrollbar background color -->
-    <color id="x82" value="36,36,60"/> 		<!-- scrollbar dead area color, seemingly unused... -->	
-	<color id="x84" value="255,255,255"/>	<!-- listview/treeview selection bar textcolor -->
-	<color id="x86" value="0,0,180"/>		<!-- listview/treeview selectionbar back color -->
-	<color id="x88" value="0,255,0"/>		<!-- listview/treeview selection bar textcolor (inactive) -->
-	<color id="x90" value="0,0,128"/>		<!-- listview/treeview selectionbar back color (inactive) -->
+    <color id="x80" value="244,217,169"/> 	<!-- inverse scrollbar background color -->
+    <color id="x82" value="244,217,169"/> 		<!-- scrollbar dead area color, seemingly unused... -->	
+	<color id="x84" value="79,69,53"/>	<!-- listview/treeview selection bar textcolor -->
+	<color id="x86" value="229,199,146"/>		<!-- listview/treeview selectionbar back color -->
+	<color id="x88" value="x58"/>		<!-- listview/treeview selection bar textcolor (inactive) -->
+	<color id="x90" value="236,207,157"/>		<!-- listview/treeview selectionbar back color (inactive) -->
 
 <!-- Generic Button -->
 

@@ -26,6 +26,7 @@ Function LegacyOptions(int legacy);
 Global Group scriptGroup;
 Global Group frameGroup, MainWindow;
 Global Vis visualizer;
+Global GuiObject visbg;
 
 Global Button CLBV1, CLBV2, CLBV3;
 
@@ -51,6 +52,7 @@ System.onScriptLoaded()
 	visualizer = scriptGroup.findObject("wa.vis");
 
 	trigger = scriptGroup.findObject("main.vis.trigger");
+	visbg = scriptGroup.findObject("wa.visbg");
 
 	frameGroup = getContainer("Main").getLayout("Normal");
 	MainWindow = frameGroup.getObject("mainwindow");
@@ -455,13 +457,17 @@ LegacyOptions(int legacy){
 	if(legacy == 1){
 		if(getStatus() == -1){
 			visualizer.setXmlParam("visible", "1");
+			visbg.setXmlParam("visible", "1");
 		}else if(getStatus() == 0){
 			visualizer.setXmlParam("visible", "0");
+			visbg.setXmlParam("visible", "0");
 		}else if(getStatus() == 1){
 			visualizer.setXmlParam("visible", "1");
+			visbg.setXmlParam("visible", "1");
 		}
 	}else{
 		visualizer.setXmlParam("visible", "1");
+		visbg.setXmlParam("visible", "1");
 	}
 }
 

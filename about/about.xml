@@ -25,9 +25,9 @@
     <text id="VUL" text="VU LEFT : " x="-2" y="56" font="wasabi.font.default" align="left" valign="top" alpha="0" cursor="cur.normal"/>
     <text id="VUR" text="VU RIGHT: " x="-2" y="63" font="wasabi.font.default" align="left" valign="top" alpha="0" cursor="cur.normal"/>
 
-    <text text="DECLASSIFIED" x="0" y="53" w="380" font="Winamp" align="center" fontsize="43" valign="top" cursor="cur.normal"/>
-    <text text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title" align="left" fontsize="14" valign="top" antialias="0" cursor="cur.normal"/>
-    <text id="blurrytext" text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title.blur" align="left" fontsize="14" valign="top" antialias="0" cursor="cur.normal"/>
+    <text text="NUCLEO DECLASSIFIED" x="0" y="66" w="380" font="Winamp" align="center" color="x56" fontsize="30" valign="top" cursor="cur.normal"/>
+    <text text="Nucleo N-Log is finally DeClassified. Enjoy." x="0" y="91" w="380" font="wasabi.font.default" align="center" fontsize="14" valign="top" antialias="0" cursor="cur.normal"/>
+    <!--text id="blurrytext" text="Using the Winamp 2.9beta base skin for reference." x="43" y="89" w="380" font="studio.component.title.blur" align="left" fontsize="14" valign="top" antialias="0" cursor="cur.normal"/-->
 
 <script file="about/wa2songtimer_about.maki"/>
 <script file="about/classicplaystatus_about.maki"/>
@@ -35,7 +35,7 @@
 <script file="about/actioninfo_about.maki"/>
 <script file="about/monoster_about.maki"/>
 <script file="about/WACUPDetect_about.maki"/>
-<script file="about/blurrytextanim.maki"/>
+<!--script file="about/blurrytextanim.maki"/-->
 <script file="about/quakeconsole2.maki"/>
 
 </groupdef>
@@ -45,7 +45,7 @@
     <rect w="380" h="321" color="x52" filled="1" cursor="cur.normal"/> <!-- using the window background pixel/color from classic-genex, use a different color if it doesnt look good -->
     <group id="aboutplayer" x="52" y="100"/>
 
-    <rect y="313" w="380" h="11" color="0,0,0" filled="1" cursor="cur.normal"/>
+    <rect y="313" w="380" h="11" color="x48" filled="1" cursor="cur.normal"/>
     <Songticker
 		id="songticker" ticker="1"
 		x="0" y="314"

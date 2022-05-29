@@ -20,6 +20,6 @@
 <bitmap id="wasabi.button.close" file="skin/gen.bmp" x="144" y="3" w="9" h="9"/>
 <bitmap id="wasabi.button.close.pressed" file="skin/gen.bmp" x="148" y="42" w="9" h="9"/>
 
-<bitmap id="wasabi.frame.basetexture" file="$solid" h="64" w="64" color="33,33,57"/>
+<bitmap id="wasabi.frame.basetexture" file="$solid" h="64" w="64" color="244,217,169"/>
 
 </elements>

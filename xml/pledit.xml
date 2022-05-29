@@ -19,7 +19,7 @@
         <layer dblClickAction="SWITCH;shadepl" x="0" y="0" w="0" h="14" relatw="1" move="1" cursor="cur.move"/>
 
 		<layer id="pl.vis.area" image="wa2.pl.8.vis" x="-225" y="-38" relatx="1" relaty="1" cursor="cur.normal"/>
-        <group id="waclassicvis" x="-223" y="-26" w="76" h="16" relatx="1" relaty="1"/>
+        <group id="waclassicvis" x="-223" y="-26" w="72" h="16" relatx="1" relaty="1"/>
         <!--script file="scripts/hideplvis.maki"/-->
 		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;350;0;0;0;0;0"/>
         <script file="scripts/_wa2-easylayout.maki" param="waclassicvis;350;0;0;0;0;0"/>
@@ -39,7 +39,7 @@
 
 		<!-- Since Winamp 5.0 the component xml object was renamed to windowholder -->
 		<windowholder id="wasabi.list" component="guid:{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D}"  fitparent="1"
-			x="12" y="20" w="-31" h="-58" relatw="1" relath="1"
+			x="12" y="20" w="-20" h="-58" relatw="1" relath="1"
 			noshowcmdbar="1" autoopen="1" autoclose="1" opacity="120"
 			param="guid:pl"
 		/> <!-- change w to -20 for the editor to take up the whole space -->
