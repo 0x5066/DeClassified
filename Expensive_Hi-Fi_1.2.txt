@@ -1,0 +1,80 @@
+© 2002-2003 By Will Mooney
+
+Expensive Hi-Fi
+
+
+Version: 1.2
+Date Completed: December 1st, 2003
+Contact: wsmooney@hotmail.com
+Programs: Corel Photopaint 8
+
+Position bar can be disabled. If you're not sure how to do it then download it here - http://www.winamp.com/components/detail.jhtml?componentId=122459
+
+Added:
+- 2.9x windows (library and video)
+
+Changed:
+- Adjusted colours of text on playlist, video and minibrowser to suit most monitors.
+- Flipped spectrum analyser colours.
+
+
+
+Previous Versions:
+
+----
+
+1.1
+
+Date Completed: February 9th, 2003
+Programs: Corel Photopaint 8, Microangelo 5.5
+Skinning tools: Winamp Vis Toolkit, CursorMultiply
+
+
+Added:
+- Rotating cursor
+- Dented area above main volume
+- Dolby digital, DTS, Digital cinema sound logos
+- Dented area around eject button
+- Slight reflection on beveled area on eq
+- Sony logo on playlist (when enlarged) and eq
+- Shine on plain horizontal lines (on main window and eq)
+
+Changed:
+- Indented Sony logo
+- Position of headphone jack
+- Audio controls on playlist
+- Main controls, eject button, volume, balance and dented area around eq power button (all same design with improved anti-aliasing, shadows and shine)
+- Larger power button on eq.
+- Darker edges (on entire skin)
+- Softer colour on playlist text
+- Dented area bottom right on playlist
+
+
+1.0
+
+Date Completed: September 30, 2002
+Programs: Corel Photopaint 8
+
+----
+
+
+
+FAQs:
+
+Q: The balance is working fine both ways, but why does the dial only swing to the right?
+A: Because the animation is repeated either way you turn it (that's just how winamp was programmed) this doesn't occur on skins with sliders. 
+
+Q: Why does the position bar float over the skin?
+A: The size and position of the position bar cannot be changed; it's the same on all winamp 2 skins. (There would be no room on it for a separate one anyway)
+
+Q: Why aren't there any screws on the playlist like the rest of the skin?
+A: The playlist has very limited design space and is made up of repeated squares (because it can be resized) There isn't any room.
+
+Q: When I load the skin on winamp 3 the top half of the volume and balance knobs appear slightly out of place.
+A: This is a bug in winamp 3. It will do this to all Winamp 2 skins you load on it  (it's just more noticeable on mine). The bug will probably be fixed in a future release of Winamp 3.
+
+Q: The font size in the playlist does not match the size in the main window.
+A: It cannot be changed.
+
+
+Thanks for downloading my skin!

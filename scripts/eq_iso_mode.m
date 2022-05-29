@@ -1,6 +1,5 @@
 #include "..\..\..\lib/std.mi"
 #include "..\..\..\lib/winampconfig.mi"
-#include "IsWACUP.m"
 
 Global Group frameGroup;
 Global GuiObject EQBG, eqtitlebar, viseq, eqswitch, eqclose, eqon, eqauto, eqpresets;
@@ -10,7 +9,6 @@ Global WinampConfigGroup eqwcg;
 #define WINAMPBANDS "70 Hz,180 Hz,320 Hz,600 Hz,1 KHz,3 KHz,6 KHz,12 KHz,14 KHz,16 KHz"
 
 System.onScriptLoaded() {
-    initDetector();
 	eqwcg = WinampConfig.getGroup("{72409F84-BAF1-4448-8211-D84A30A1591A}");
 	int freqmode = eqwcg.getInt("frequencies"); // returns 0 for classical winamp levels, 1 for ISO levels
 
@@ -31,15 +29,9 @@ System.onEqFreqChanged(boolean isoonoff)
 {
 	if (isoonoff == 1)
 	{
-        if(IsWACUP == 1){
-            EQBG.setXmlParam("image", "wacup.iso.eq");
-            eqtitlebar.setXmlParam("image", "wacupisoeq.titlebar.on");
-            eqtitlebar.setXmlParam("inactiveimage", "wacupisoeq.titlebar.off");
-        }else{
-            EQBG.setXmlParam("image", "wa.iso.eq");
-            eqtitlebar.setXmlParam("image", "waisoeq.titlebar.on");
-            eqtitlebar.setXmlParam("inactiveimage", "waisoeq.titlebar.off");
-        }
+        EQBG.setXmlParam("image", "wa.iso.eq");
+        eqtitlebar.setXmlParam("image", "waisoeq.titlebar.on");
+        eqtitlebar.setXmlParam("inactiveimage", "waisoeq.titlebar.off");
         viseq.setXmlParam("image", "wa.iso.eqvis.bg");
         eqswitch.setXmlParam("image", "iso.eq.switch");
         eqclose.setXmlParam("image", "iso.eq.close");
@@ -55,15 +47,9 @@ System.onEqFreqChanged(boolean isoonoff)
 	}
 	else
 	{
-        if(IsWACUP != 0){
-            EQBG.setXmlParam("image", "wacup.eq");
-            eqtitlebar.setXmlParam("image", "wacupeq.titlebar.on");
-            eqtitlebar.setXmlParam("inactiveimage", "wacupeq.titlebar.off");
-        }else{
-            EQBG.setXmlParam("image", "wa.eq");
-            eqtitlebar.setXmlParam("image", "waeq.titlebar.on");
-            eqtitlebar.setXmlParam("inactiveimage", "waeq.titlebar.off");
-        }
+        EQBG.setXmlParam("image", "wa.eq");
+        eqtitlebar.setXmlParam("image", "waeq.titlebar.on");
+        eqtitlebar.setXmlParam("inactiveimage", "waeq.titlebar.off");
         viseq.setXmlParam("image", "wa.eqvis.bg");
         eqswitch.setXmlParam("image", "eq.switch");
         eqclose.setXmlParam("image", "eq.close");

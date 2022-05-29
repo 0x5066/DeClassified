@@ -32,7 +32,7 @@
     w="50" h="11" 
     default=":componentname"
     font="studio.component.title"
-    inactiveAlpha="128"
+    Alpha="0"
   cursor="cur.move"/>
 
   <group 

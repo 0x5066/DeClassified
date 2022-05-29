@@ -32,7 +32,7 @@
 	<include file="xml/medialibrary.xml"/>
 
 	<!-- detect wacup -->
-	<script file="scripts/WACUPDetect.maki"/>
+	<!--script file="scripts/WACUPDetect.maki"/-->
 
 	<!-- needs to exist for testing -->
 	<include file="xml/themes.xml"/>

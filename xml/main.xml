@@ -128,38 +128,38 @@
 <groupdef id="sliders">
 
 	<images id="volume.anim" source="volume" w="68" h="14" images="volume" imagesspacing="15" cursor="cur.horizslider"/>
-	<Slider id="volume" action="volume" orientation="horizontal" x="0" y="-1" w="65" h="15" thumb="volbtn" downThumb="volbtnd" cursor="cur.horizslider"/>
+	<Slider id="volume" action="volume" orientation="horizontal" alpha="0" x="0" y="-1" w="65" h="15" thumb="volbtn" downThumb="volbtnd" cursor="cur.horizslider"/>
 	<!-- <script file="scripts/volume.maki"/> -->
 	<images id="balance.anim" source="balance" x="70" w="38" h="15" images="balance" imagesspacing="15" ghost="1" cursor="cur.horizslider"/>
-	<Slider id="balance" action="PAN" orientation="horizontal" x="70" y="-1" w="38" h="15" thumb="panbtn" downThumb="panbtnd" cursor="cur.horizslider"/>
+	<Slider id="balance" action="PAN" orientation="horizontal" alpha="0" x="70" y="-1" w="38" h="15" thumb="panbtn" downThumb="panbtnd" cursor="cur.horizslider"/>
 	<!-- <script file="scripts/balance.maki"/> -->
 </groupdef>
 
 <groupdef id="waclassicvis">
 	<vis id="wa.vis" y="0" w="72" h="16" fps="60"
-	ColorBand1="24,132,8"
-    ColorBand2="41,148,0"
-    ColorBand3="49,156,8"
-    ColorBand4="57,181,16"
-    ColorBand5="50,190,16"
-    ColorBand6="41,206,16"
-    ColorBand7="148,222,33"
-    ColorBand8="189,222,41"
-    ColorBand9="214,181,33"
-    ColorBand10="222,165,24"
-    ColorBand11="198,123,8"
-    ColorBand12="214,115,0"
-    ColorBand13="214,102,0"
-    ColorBand14="214,90,0"
-    ColorBand15="206,41,16"
-    ColorBand16="239,49,16"
-	colorbandpeak="150,150,150"
+	ColorBand1="210,210,255"
+    ColorBand2="0,0,100"
+    ColorBand3="180,180,255"
+    ColorBand4="0,0,100"
+    ColorBand5="150,150,255"
+    ColorBand6="0,0,100"
+    ColorBand7="120,120,255"
+    ColorBand8="0,0,100"
+    ColorBand9="90,90,255"
+    ColorBand10="0,0,100"
+    ColorBand11="60,60,255"
+    ColorBand12="0,0,100"
+    ColorBand13="0,0,255"
+    ColorBand14="0,0,100"
+    ColorBand15="0,0,150"
+    ColorBand16="0,0,100"
+	colorbandpeak="210,210,255"
 
-    colorosc1="255,255,255"
-    colorosc2="214,214,222"
-    colorosc3="181,189,189"
-    colorosc4="160,170,175"
-    colorosc5="148,156,165"/>
+    colorosc1="200,200,255"
+    colorosc2="150,150,255"
+    colorosc3="100,100,200"
+    colorosc4="50,50,130"
+    colorosc5="0,0,50"/>
 	<layer id="main.vis.trigger" w="72" h="16" cursor="cur.normal"/>
 	<script file="scripts/wa2visualizer.maki"/>
 </groupdef>
