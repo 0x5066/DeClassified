@@ -197,7 +197,7 @@
 </groupdef>
 
 <container id="main" name="Main Window" default_y="0" default_visible="1" minimum_w="275" minimum_h="116" maximum_w="275" maximum_h="116">
-	<layout id="normal" background="mainwnd_fallback" droptarget="pldr">
+	<layout id="normal" background="mainwnd_fallback" minimum_w="275" minimum_h="116" maximum_w="275" maximum_h="116" droptarget="pldr">
 		<group id="mainwindow" w="275" h="116"/>
 	</layout>
 	<layout id="shade" background="shade_fallback" minimum_h="14" minimum_w="275">
