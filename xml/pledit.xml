@@ -39,7 +39,7 @@
 
 		<!-- Since Winamp 5.0 the component xml object was renamed to windowholder -->
 		<windowholder id="wasabi.list" component="guid:{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D}"  fitparent="1"
-			x="12" y="20" w="-31" h="-58" relatw="1" relath="1"
+			x="12" y="20" w="-24" h="-61" relatw="1" relath="1"
 			noshowcmdbar="1" autoopen="1" autoclose="1" opacity="120"
 			param="guid:pl"
 		/> <!-- change w to -20 for the editor to take up the whole space -->
