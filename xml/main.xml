@@ -67,9 +67,9 @@
 
 <!--script file="scripts/getSongInfoText.maki"/-->
 
-<layer id="posbarbg" x="16" y="72" image="posbarbg" ghost="1" visible="0"/>
+<layer id="posbarbg" x="21" y="71" image="posbarbg" ghost="1" visible="0"/>
 
-	<slider id="player.slider.seek" action="SEEK" x="16" y="72" w="248" h="10" orientation="horizontal" thumb="posbar" downthumb="posbarp" rectrgn="1" cursor="cur.horizslider"/>	
+	<slider id="player.slider.seek" action="SEEK" x="20" y="71" w="86" h="7" orientation="horizontal" thumb="posbar" downthumb="posbarp" rectrgn="1" cursor="cur.horizslider"/>	
 	<!--button id="player.slider.seek" x="16" y="72" image="posbar" downimage="posbarp" rectrgn="1"/>
 	<script file="scripts/seeker.maki"/-->
 

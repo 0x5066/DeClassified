@@ -20,6 +20,7 @@
 	<include file="xml/wasabi.classic/titlebox/titlebox.xml"/>
 	<include file="xml/wasabi.classic/statusbar/statusbar.xml"/>
 	<include file="xml/wasabi.classic/tooltips/tooltips.xml"/>
+	<include file="xml/wasabi.classic/components.xml"/>
 
 	<!-- the very building blocks to get our 4 main windows rendered -->
 	<include file="xml/classic-elements.xml"/>
