@@ -130,9 +130,8 @@
 	<images id="volume.anim" source="volume" w="68" h="14" images="volume" imagesspacing="15" cursor="cur.horizslider"/>
 	<Slider id="volume" action="volume" orientation="horizontal" alpha="0" x="0" y="-1" w="65" h="15" thumb="volbtn" downThumb="volbtnd" cursor="cur.horizslider"/>
 	<!-- <script file="scripts/volume.maki"/> -->
-	<images id="balance.anim" source="balance" x="70" w="38" h="15" images="balance" imagesspacing="15" ghost="1" cursor="cur.horizslider"/>
+	<animatedlayer id="balanceanim" x="70" w="38" h="15" image="balance" start="0" end="27" frameheight="15" cursor="cur.horizslider"/>
 	<Slider id="balance" action="PAN" orientation="horizontal" alpha="0" x="70" y="-1" w="38" h="15" thumb="panbtn" downThumb="panbtnd" cursor="cur.horizslider"/>
-	<!-- <script file="scripts/balance.maki"/> -->
 </groupdef>
 
 <groupdef id="waclassicvis">

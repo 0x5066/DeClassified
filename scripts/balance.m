@@ -3,31 +3,52 @@
 
 #include "..\..\..\lib/std.mi"
 
-Global AnimatedLayer anlBalance;
-Global Slider Balance;
+Global Group player, slidersgroup, slidersgroup2, frameGroupEQShade;
+
+Global AnimatedLayer aniBalance;
+Global Slider Balance, BalanceEQ;
 
 System.onScriptLoaded() {
-	Group player = getScriptGroup();
+	player = getContainer("Main").getLayout("Normal");
+	SlidersGroup = player.findObject("sliders");
 
-	anlBalance = player.getObject("balancewa2");
-	Balance = player.getObject("balance");
+	aniBalance = SlidersGroup.getObject("balanceanim");
+	Balance = SlidersGroup.getObject("balance");
 
-  int v = Balance.GetPosition();
-  
-	if (v==127) anlBalance.gotoFrame(15);
-	if (v<127) v = (27-(v/127)*27); 
-	if (v>127) v = ((v-127)/127)*27;
+	frameGroupEQShade = getContainer("eq").getLayout("shadeeq");
+	SlidersGroup2 = frameGroupEQShade.findObject("shade.eq");
+
+    BalanceEQ = SlidersGroup2.getObject("Balance");
+
+	int v = BalanceEQ.GetPosition();
 	
-  anlBalance.gotoFrame(v);
+		if (v==127) aniBalance.gotoFrame(15);
+		if (v<127) v = (27-(v/127)*27); 
+		if (v>127) v = ((v-127)/127)*27;
+	
+	aniBalance.gotoFrame(v);
+
+	messagebox(integertostring(Balance.GetPosition()), "", 1, "");
 }
 
 Balance.onSetPosition(int newpos)
 {
-  int v = newpos;
-  
-	if (newpos==127) anlBalance.gotoFrame(15);
-	if (newpos<127) v = (27-(newpos/127)*27); 
-	if (newpos>127) v = ((newpos-127)/127)*27;
+	int v = newpos;
 	
-  anlBalance.gotoFrame(v);
+		if (newpos==127) aniBalance.gotoFrame(15);
+		if (newpos<127) v = (27-(newpos/127)*27); 
+		if (newpos>127) v = ((newpos-127)/127)*27;
+	
+	aniBalance.gotoFrame(v);
+}
+
+BalanceEQ.onSetPosition(int newpos)
+{
+	int v = newpos;
+	
+		if (newpos==127) aniBalance.gotoFrame(15);
+		if (newpos<127) v = (27-(newpos/127)*27); 
+		if (newpos>127) v = ((newpos-127)/127)*27;
+	
+	aniBalance.gotoFrame(v);
 }

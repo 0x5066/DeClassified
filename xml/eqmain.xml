@@ -52,7 +52,7 @@
 
     </groupdef>
 
-    <groupdef id="shadeeq">
+    <groupdef id="shade.eq">
     
         <layer id="blah" dblClickAction="SWITCH;eq" x="0" y="0" h="14" w="275" image="eq.shade.on" inactiveimage="eq.shade.off" move="1" cursor="cur.move"/>
 
@@ -69,7 +69,7 @@
         <group id="eq"/>
     </layout>
     <layout id="shadeeq" background="eq.shade.on" minimum_h="14" minimum_w="275">
-		<group id="shadeeq" x="0" y="0" sysregion="1"/>
+		<group id="shade.eq" x="0" y="0" sysregion="1"/>
 	</layout>
 
 </container>
