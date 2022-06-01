@@ -1,7 +1,7 @@
 //Taken from Victhor's Winamp Classic Modern, which was
 //deeply nested inside it's mainplayer.m script.
 
-#include "..\..\..\lib/std.mi"
+#include "compiler/lib/std.mi"
 
 Global Group player, slidersgroup, slidersgroup2, frameGroupEQShade;
 
@@ -22,33 +22,19 @@ System.onScriptLoaded() {
 
 	int v = BalanceEQ.GetPosition();
 	
-		if (v==127) aniBalance.gotoFrame(15);
-		if (v<127) v = (27-(v/127)*27); 
-		if (v>127) v = ((v-127)/127)*27;
-	
-	aniBalance.gotoFrame(v);
-
-	messagebox(integertostring(Balance.GetPosition()), "", 1, "");
-}
-
-Balance.onSetPosition(int newpos)
-{
-	int v = newpos;
-	
-		if (newpos==127) aniBalance.gotoFrame(15);
-		if (newpos<127) v = (27-(newpos/127)*27); 
-		if (newpos>127) v = ((newpos-127)/127)*27;
+	v = v * 27 / 256;
 	
 	aniBalance.gotoFrame(v);
 }
 
-BalanceEQ.onSetPosition(int newpos)
-{
-	int v = newpos;
+Balance.onSetPosition(int newpos) {
+	int v = newPos * 27 / 256;
 	
-		if (newpos==127) aniBalance.gotoFrame(15);
-		if (newpos<127) v = (27-(newpos/127)*27); 
-		if (newpos>127) v = ((newpos-127)/127)*27;
+	aniBalance.gotoFrame(v);
+}
+
+BalanceEQ.onSetPosition(int newpos) {
+	int v = newPos * 27 / 256;
 	
 	aniBalance.gotoFrame(v);
 }
