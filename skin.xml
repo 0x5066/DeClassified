@@ -46,6 +46,9 @@
 	<!-- Modern Skin Album Art window -->
 	<include file="xml/albumart.xml"/> 
 
+	<!-- Minibrowser window -->
+	<include file="xml/wasabi.classic/browser/minibrowser.xml"/> 
+
 	<!-- About the skin -->
 	<include file="about/about.xml"/> 
 
