@@ -19,11 +19,11 @@
 			param="guid:{F0816D7B-FFFC-4343-80F2-E8199AA15CC3}"
 		/>
 
-   <button x="9" y="-29" action="VID_FS" relaty="1" rectrgn="1" image="video.fullscreen" downImage="video.fullscreenp" tooltip="Fullscreen" cursor="cur.normal"/>
-    <button x="24" y="-29" action="VID_1X" relaty="1" rectrgn="1" image="video.1x" downImage="video.1xp" tooltip="Normal Size" cursor="cur.normal"/>
-    <button x="39" y="-29" action="VID_2X" relaty="1" rectrgn="1" image="video.2x" downImage="video.2xp" tooltip="Double Size" cursor="cur.normal"/>
-	<button x="54" y="-29" action="VID_TV" relaty="1" rectrgn="1" image="video.tv" downImage="video.tvp" tooltip="Internet TV" cursor="cur.normal"/>
-    <button x="69" y="-29" action="VID_Misc" relaty="1" rectrgn="1" image="video.misc" downImage="video.miscp" tooltip="Options" cursor="cur.normal"/>
+	<button x="9" y="-29" action="VID_FS" relaty="1" rectrgn="1" image="video.fullscreen" downImage="video.fullscreenp" cursor="cur.normal"/>
+    <button x="24" y="-29" action="VID_1X" relaty="1" rectrgn="1" image="video.1x" downImage="video.1xp" cursor="cur.normal"/>
+    <button x="39" y="-29" action="VID_2X" relaty="1" rectrgn="1" image="video.2x" downImage="video.2xp" cursor="cur.normal"/>
+	<button x="54" y="-29" action="VID_TV" relaty="1" rectrgn="1" image="video.tv" downImage="video.tvp" cursor="cur.normal"/>
+    <button x="69" y="-29" action="VID_Misc" relaty="1" rectrgn="1" image="video.misc" downImage="video.miscp" cursor="cur.normal"/>
 
     <text id="wasabi.statusbar.text" display="VID_INFO" x="94" y="-28" w="-119" h="14" valign="top" relatw="1" relaty="1" font="Tahoma" color="x50" fontsize="14" wrap="0" ghost="1" antialias="0" cursor="cur.normal"/>
 		<!-- Close Button -->
