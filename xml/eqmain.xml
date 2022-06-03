@@ -3,6 +3,7 @@
 
         <layer id="blah" dblClickAction="SWITCH;shadeeq" x="0" y="0" h="28" w="550" move="1" cursor="cur.move"/>
         <layer id="eq.bg" image="wa.eq" ghost="1"/>
+        <layer x="0" y="0" w="10" h="10" resize="topleft"/>
 
         <layer id="waeq.titlebar" x="0" y="0" image="waeq.titlebar.on" inactiveimage="waeq.titlebar.off" ghost="1"/>
         <layer id="waeq.eqvis" x="172" y="34" image="wa.eqvis.bg" ghost="1"/>
@@ -55,7 +56,7 @@
     <groupdef id="shadeeq" w="550" h="28">
     
         <layer id="blah" dblClickAction="SWITCH;eq" x="0" y="0" h="28" w="550" image="eq.shade.on" inactiveimage="eq.shade.off" move="1" cursor="cur.move"/>
-
+        <layer x="0" y="0" w="10" h="10" resize="topleft"/>
         <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="508" y="6" image="eqshade.shade" downImage="eqshade.shadep" cursor="cur.minimise"/>
         <button id="Close" inactivealpha="0" action="close" x="528" y="6" image="eqshade.close" downImage="eqshade.closep" cursor="cur.close"/>
 
