@@ -1,5 +1,5 @@
 <container id="minibrowser" name="Minibrowser" default_x="0" default_y="232" default_visible="0">
-	<layout id="normal" background="wasabi.frame.basetexture" minimum_h="116" minimum_w="275">
+	<layout id="normal" background="wasabi.frame.basetexture" minimum_h="116" minimum_w="275" default_w="350" default_h="348">
 		<layer id="minibrowser.topleft" image="mb.topleft.active" x="0" y="0" inactiveimage="mb.topleft.inactive" regionop="1" cursor="cur.move"/>
 		<layer id="minibrowser.stretchybit" image="mb.top.stretchybit.active" x="25" y="0" w="-50" relatw="1" inactiveimage="mb.top.stretchybit.inactive" regionop="1" cursor="cur.move"/>
         <layer id="minibrowser.center" x="-100" y="0" image="mb.top.center.active" inactiveimage="mb.top.center.inactive" cursor="cur.move"/>
