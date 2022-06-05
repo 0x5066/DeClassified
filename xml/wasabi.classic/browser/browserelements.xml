@@ -1,0 +1,84 @@
+<elements>
+
+	<bitmap id="browser.editframe.left" file="xml/wasabi.classic/browser/browser.png" x="0" y="78" h="22" w="4" gammagroup="ComponentFrame"/>
+	<bitmap id="browser.editframe.center" file="xml/wasabi.classic/browser/browser.png" x="4" y="78" h="22" w="2" gammagroup="ComponentFrame"/>
+	<bitmap id="browser.editframe.right" file="xml/wasabi.classic/browser/browser.png" x="6" y="78" h="22" w="4" gammagroup="ComponentFrame"/>
+
+	<bitmap id="browser.button.back.normal" file="xml/wasabi.classic/browser/browser.png" x="8" y="0" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.back.hover" file="xml/wasabi.classic/browser/browser.png" x="8" y="26" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.back.down" file="xml/wasabi.classic/browser/browser.png" x="8" y="52" h="26" w="21" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.forth.normal" file="xml/wasabi.classic/browser/browser.png" x="29" y="0" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.forth.hover" file="xml/wasabi.classic/browser/browser.png" x="29" y="26" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.forth.down" file="xml/wasabi.classic/browser/browser.png" x="29" y="52" h="26" w="21" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.reload.normal" file="xml/wasabi.classic/browser/browser.png" x="50" y="0" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.reload.hover" file="xml/wasabi.classic/browser/browser.png" x="50" y="26" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.reload.down" file="xml/wasabi.classic/browser/browser.png" x="50" y="52" h="26" w="21" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.stop.normal" file="xml/wasabi.classic/browser/browser.png" x="71" y="0" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.stop.hover" file="xml/wasabi.classic/browser/browser.png" x="71" y="26" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.stop.down" file="xml/wasabi.classic/browser/browser.png" x="71" y="52" h="26" w="21" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.home.normal" file="xml/wasabi.classic/browser/browser.png" x="92" y="0" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.home.hover" file="xml/wasabi.classic/browser/browser.png" x="92" y="26" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.home.down" file="xml/wasabi.classic/browser/browser.png" x="92" y="52" h="26" w="21" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.links.normal" file="xml/wasabi.classic/browser/browser.png" x="113" y="0" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.links.hover" file="xml/wasabi.classic/browser/browser.png" x="113" y="26" h="26" w="21" gammagroup="WindowText"/>
+	<bitmap id="browser.button.links.down" file="xml/wasabi.classic/browser/browser.png" x="113" y="52" h="26" w="21" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.go.normal" file="xml/wasabi.classic/browser/browser.png" x="145" y="78" h="16" w="11" gammagroup="PlayerButton"/>
+	<bitmap id="browser.button.search.normal" file="xml/wasabi.classic/browser/browser.png" x="108" y="152" h="16" w="31" gammagroup="PlayerButton"/>
+
+	<bitmap id="browser.button.search.winamp.normal" file="xml/wasabi.classic/browser/browser.png" x="45" y="78" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.google.normal" file="xml/wasabi.classic/browser/browser.png" x="20" y="78" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.aol.normal" file="xml/wasabi.classic/browser/browser.png" x="70" y="78" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.eventful.normal" file="xml/wasabi.classic/browser/browser.png" x="95" y="78" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.pollstar.normal" file="xml/wasabi.classic/browser/browser.png" x="0" y="180" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.wiki.normal" file="xml/wasabi.classic/browser/browser.png" x="25" y="180" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.bit.normal" file="xml/wasabi.classic/browser/browser.png" x="50" y="180" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.jambase.normal" file="xml/wasabi.classic/browser/browser.png" x="75" y="180" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.ln.normal" file="xml/wasabi.classic/browser/browser.png" x="100" y="180" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.ontour.normal" file="xml/wasabi.classic/browser/browser.png" x="125" y="180" h="16" w="25" gammagroup="none"/>
+	<bitmap id="browser.button.search.truveo.normal" file="xml/wasabi.classic/browser/browser.png" x="120" y="78" h="16" w="25" gammagroup="none"/>
+
+	<bitmap id="browser.button.scraper.hide.normal" file="xml/wasabi.classic/browser/browser2.png" x="17" y="0" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.hide.hover" file="xml/wasabi.classic/browser/browser2.png" x="17" y="13" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.hide.down" file="xml/wasabi.classic/browser/browser2.png" x="17" y="26" h="13" w="17" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.scraper.show.normal" file="xml/wasabi.classic/browser/browser2.png" x="0" y="0" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.show.hover" file="xml/wasabi.classic/browser/browser2.png" x="0" y="13" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.show.down" file="xml/wasabi.classic/browser/browser2.png" x="0" y="26" h="13" w="17" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.scraper.play.normal" file="xml/wasabi.classic/browser/browser2.png" x="34" y="0" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.play.hover" file="xml/wasabi.classic/browser/browser2.png" x="34" y="13" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.play.down" file="xml/wasabi.classic/browser/browser2.png" x="34" y="26" h="13" w="17" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.scraper.download.normal" file="xml/wasabi.classic/browser/browser2.png" x="51" y="0" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.download.hover" file="xml/wasabi.classic/browser/browser2.png" x="51" y="13" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.download.down" file="xml/wasabi.classic/browser/browser2.png" x="51" y="26" h="13" w="17" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.scraper.rescan.normal" file="xml/wasabi.classic/browser/browser2.png" x="68" y="0" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.rescan.hover" file="xml/wasabi.classic/browser/browser2.png" x="68" y="13" h="13" w="17" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.rescan.down" file="xml/wasabi.classic/browser/browser2.png" x="68" y="26" h="13" w="17" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.scraper.normal" file="xml/wasabi.classic/browser/browser2.png" x="0" y="39" h="18" w="20" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.hover" file="xml/wasabi.classic/browser/browser2.png" x="0" y="57" h="18" w="20" gammagroup="WindowText"/>
+	<bitmap id="browser.button.scraper.down" file="xml/wasabi.classic/browser/browser2.png" x="0" y="76" h="18" w="20" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.dlds.normal" file="xml/wasabi.classic/browser/browser2.png" x="20" y="39" h="18" w="20" gammagroup="WindowText"/>
+	<bitmap id="browser.button.dlds.hover" file="xml/wasabi.classic/browser/browser2.png" x="20" y="57" h="18" w="20" gammagroup="WindowText"/>
+	<bitmap id="browser.button.dlds.down" file="xml/wasabi.classic/browser/browser2.png" x="20" y="76" h="18" w="20" gammagroup="WindowText"/>
+
+	<bitmap id="browser.button.settings.normal" file="xml/wasabi.classic/browser/browser2.png" x="40" y="39" h="18" w="20" gammagroup="WindowText"/>
+	<bitmap id="browser.button.settings.hover" file="xml/wasabi.classic/browser/browser2.png" x="40" y="57" h="18" w="20" gammagroup="WindowText"/>
+	<bitmap id="browser.button.settings.down" file="xml/wasabi.classic/browser/browser2.png" x="40" y="76" h="18" w="20" gammagroup="WindowText"/>
+
+	<bitmap id="browser.list.label" file="xml/wasabi.classic/browser/browser2.png" x="0" y="93" w="32" h="12" gammagroup="DisplayText"/>
+	<bitmap id="browser.list.label2" file="xml/wasabi.classic/browser/browser2.png" x="0" y="93" w="16" h="12" gammagroup="DisplayText"/>
+
+	<color id="browser.text" value="172,172,172" gammagroup="WindowText" />
+	<color id="browser.text.active" value="238,238,238" gammagroup="WindowText" />
+
+</elements>

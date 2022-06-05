@@ -12,17 +12,17 @@
 		<layer id="minibrowser.bottomright" image="mb.bottomright" x="-125" y="-38" relatx="1" relaty="1" regionop="1" cursor="cur.normal"/>
 		<layer x="-19" y="-19" w="19" h="19" relatx="1" relaty="1" resize="bottomright" move="0" cursor="cur.resize"/>
 
-	<browser fitparent="1"
+	<winamp:browser fitparent="1"
 	x="11" y="20" w="-19" h="-58" relatw="1" relath="1"
-	url="xml/wasabi.classic/browser/winampmb.htm"
+	home="https://getwacup.com/browser.html"
 	wantfocus="0" mainmb="0"
 	/>
 	
-    <button x="9" y="-29" action="MB_BACK" relaty="1" rectrgn="1" image="mb.back" downImage="mb.backp" tooltip="Go Back" cursor="cur.normal"/>
-    <button x="24" y="-29" action="MB_FORWARD" relaty="1" rectrgn="1" image="mb.forward" downImage="mb.forwardp" tooltip="Go Forward" cursor="cur.normal"/>
-    <button x="39" y="-29" action="MB_STOP" relaty="1" rectrgn="1" image="mb.stop" downImage="mb.stopp" tooltip="Cancel Loading" cursor="cur.normal"/>
-	<button x="54" y="-29" action="MB_REFRESH" relaty="1" rectrgn="1" image="mb.refresh" downImage="mb.refreshp" tooltip="Reload Page" cursor="cur.normal"/>
-	<button x="69" y="-29" action="MB_HOME" relaty="1" rectrgn="1" image="mb.misc" downImage="mb.miscp" tooltip="Home" cursor="cur.normal"/>	<!-- This is supposed to open a submenu with links but theres no action for that??? -->
+    <button x="9" y="-29" id="browser.back" relaty="1" rectrgn="1" image="mb.back" downImage="mb.backp" tooltip="Go Back" cursor="cur.normal"/>
+    <button x="24" y="-29" id="browser.fwd" relaty="1" rectrgn="1" image="mb.forward" downImage="mb.forwardp" tooltip="Go Forward" cursor="cur.normal"/>
+    <button x="39" y="-29" id="browser.stop" relaty="1" rectrgn="1" image="mb.stop" downImage="mb.stopp" tooltip="Cancel Loading" cursor="cur.normal"/>
+	<button x="54" y="-29" id="browser.refresh" relaty="1" rectrgn="1" image="mb.refresh" downImage="mb.refreshp" tooltip="Reload Page" cursor="cur.normal"/>
+	<button x="69" y="-29" id="browser.links" relaty="1" rectrgn="1" image="mb.misc" downImage="mb.miscp" tooltip="Home" cursor="cur.normal"/>	<!-- This is supposed to open a submenu with links but theres no action for that??? -->
 
 	<group id="browser.navurl" x="94" y="-28" w="-119" h="14" relatw="1"/>
 
