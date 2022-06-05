@@ -16,7 +16,7 @@
 
 =============================================================== -->
 
-<include file="browserelements.xml"/>
+<include file="xml/classic-elements.xml"/>
 <include file="stringtable.xml"/>
 <include file="icontextbutton.xml"/>
 
@@ -72,28 +72,5 @@
 <groupdef id="browser.navurl">
 
 	<Wasabi:HistoryEditBox id="browser.hedit" x="-53" h="18" w="46" relatw="1" y="2" text="http://www.winamp.com" navbuttons="0" wantfocus="0" antialias="0"/>
-
-</groupdef>
-
-<groupdef id="browser.search">
-
-	<grid x="0" y="0" h="22" w="0" relatw="1"
-		left="browser.editframe.left"
-		middle="browser.editframe.center"
-		right="browser.editframe.right"
-	/>
-
-	<Wasabi:Button id="search.choose" x="4" y="2" w="31" h="18"
-		tooltip="Choose Your Search Engine"
-		image="browser.button.search.winamp.normal" center_image="1" 
-		action="search" param="choose" action_target="webbrowser"
-	/>
-
-	<Wasabi:EditBox id="search.edit" x="35" y="2" relatw="1" w="-83" h="18" text=""/>
-	<Wasabi:Button id="search.go" x="-45" relatx="1" h="18" w="41" y="2"
-		image="browser.button.search.normal"
-		tooltip="Go Search"
-		center_image="1" action="search" param="go" action_target="webbrowser"
-	/>
 
 </groupdef>
