@@ -49,7 +49,7 @@
 		tooltip="Cancel Loading" relaty="1"
 	/>
 	<Button id="browser.links"
-		x="58" y="-20" rectrgn="1"
+		x="59" y="-20" rectrgn="1"
 		image="mb.misc"
 		downImage="mb.miscp"
 		tooltip="Quick Links" relaty="1"
