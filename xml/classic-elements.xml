@@ -184,21 +184,6 @@
 	<bitmap id="mb.close" file="skin/mb.bmp" x="167" y="3" h="9" w="9"/>
 	<bitmap id="mb.closep" file="skin/mb.bmp" x="148" y="42" h="9" w="9"/>
 
-	<bitmap id="mb.back" file="skin/mb.bmp" x="9" y="51" h="18" w="15"/>
-	<bitmap id="mb.backp" file="skin/mb.bmp" x="158" y="42" h="18" w="15"/>
-
-	<bitmap id="mb.forward" file="skin/mb.bmp" x="24" y="51" h="18" w="15"/>
-	<bitmap id="mb.forwardp" file="skin/mb.bmp" x="173" y="42" h="18" w="15"/>
-
-	<bitmap id="mb.stop" file="skin/mb.bmp" x="39" y="51" h="18" w="15"/>
-	<bitmap id="mb.stopp" file="skin/mb.bmp" x="188" y="42" h="18" w="15"/>
-
-	<bitmap id="mb.refresh" file="skin/mb.bmp" x="54" y="51" h="18" w="15"/>
-	<bitmap id="mb.refreshp" file="skin/mb.bmp" x="203" y="42" h="18" w="15"/>
-
-	<bitmap id="mb.misc" file="skin/mb.bmp" x="69" y="51" h="18" w="15"/>
-	<bitmap id="mb.miscp" file="skin/mb.bmp" x="218" y="42" h="18" w="15"/>
-
 	<!-- playlist editor -->
 
     <!-- pledit shade elements -->
