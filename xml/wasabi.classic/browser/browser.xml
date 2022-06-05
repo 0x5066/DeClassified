@@ -1,0 +1,99 @@
+<!-- ==============================================================
+	<Winamp:Browser/>
+
+	@author:	Martin Poehlmann
+	@version:	1.1
+
+	sendActions:	openurl, search
+
+	usage:		1) include init_browser.m in your loadattribs.m
+				2) paste a <winamp:browser/> object somewhere in your skin
+				3) alter the default images if you like
+
+	note:		Design and gammagroups are aligned to fit with
+				Bento. So overide the bitmaps in your skin in
+				order to change them.
+
+=============================================================== -->
+
+<include file="browserelements.xml"/>
+<include file="stringtable.xml"/>
+<include file="icontextbutton.xml"/>
+
+<groupdef id="winamp.xui.browser" embed_xui="webbrowser" xuitag="Winamp:Browser">
+
+	<Wasabi:Frame id="browser.dualwnd" x="0" y="-1" w="1" h="-28" relath="1" relatw="1" from="bottom" orientation="h" maxheight="null" left="browser.itself" right="" minheight="55" height="100" jump="0"/>
+
+	<Button id="browser.back"
+		x="-1" y="-20" rectrgn="1"
+		image="mb.back"
+		downImage="mb.backp"
+		tooltip="Go Back" relaty="1"
+	/>
+	<Button id="browser.fwd"
+		x="14" y="-20" rectrgn="1"
+		image="mb.forward"
+		downImage="mb.forwardp"
+		tooltip="Go Forward" relaty="1"
+	/>
+	<Button id="browser.refresh"
+		x="44" y="-20" rectrgn="1"
+		image="mb.refresh"
+		downImage="mb.refreshp"
+		tooltip="Reload Page" relaty="1"
+	/>
+	<Button id="browser.stop"
+		x="29" y="-20" rectrgn="1"
+		image="mb.stop"
+		downImage="mb.stopp"
+		tooltip="Cancel Loading" relaty="1"
+	/>
+	<Button id="browser.links"
+		x="58" y="-20" rectrgn="1"
+		image="mb.misc"
+		downImage="mb.miscp"
+		tooltip="Quick Links" relaty="1"
+	/>
+	
+	<group id="browser.navurl" x="50" y="-22" h="22" w="-303" relatw="1" relaty="1" />
+
+	<group id="browser.search" x="-167" y="-22" h="22" w="163" relatx="1" relaty="1" />
+
+	<script file="xml/wasabi.classic/browser/browser.maki" param="\"/>
+
+</groupdef>
+
+<groupdef id="browser.itself">
+
+	<browser id="webbrowser" fitparent="1" url="http://www.winamp.com" wantfocus="0"/>
+
+</groupdef>
+
+<groupdef id="browser.navurl">
+
+	<Wasabi:HistoryEditBox id="browser.hedit" x="-53" h="18" w="46" relatw="1" y="2" text="http://www.winamp.com" navbuttons="0" wantfocus="0" antialias="0"/>
+
+</groupdef>
+
+<groupdef id="browser.search">
+
+	<grid x="0" y="0" h="22" w="0" relatw="1"
+		left="browser.editframe.left"
+		middle="browser.editframe.center"
+		right="browser.editframe.right"
+	/>
+
+	<Wasabi:Button id="search.choose" x="4" y="2" w="31" h="18"
+		tooltip="Choose Your Search Engine"
+		image="browser.button.search.winamp.normal" center_image="1" 
+		action="search" param="choose" action_target="webbrowser"
+	/>
+
+	<Wasabi:EditBox id="search.edit" x="35" y="2" relatw="1" w="-83" h="18" text=""/>
+	<Wasabi:Button id="search.go" x="-45" relatx="1" h="18" w="41" y="2"
+		image="browser.button.search.normal"
+		tooltip="Go Search"
+		center_image="1" action="search" param="go" action_target="webbrowser"
+	/>
+
+</groupdef>
