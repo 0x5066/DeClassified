@@ -9,7 +9,8 @@
 <elements>
 
 <!-- Fonts -->
-  <bitmapfont id="studio.component.title" file="xml/wasabi.classic/xui/titlebar/titlebar_font.png" hspacing="0" vspacing="0" charwidth="6" charheight="8" gammagroup="Titlebar Font"/>
+  <bitmapfont id="studio.component.title" file="xml/wasabi.classic/xui/titlebar/titlebar_font.png" hspacing="0" vspacing="0" charwidth="7" charheight="9" gammagroup="Titlebar Font"/>
+  <bitmapfont id="studio.component.title.old" file="xml/wasabi.classic/xui/titlebar/titlebar_font_old.png" hspacing="0" vspacing="0" charwidth="6" charheight="8" gammagroup="Titlebar Font"/> <!--Old font based off Winamp's/-->
   <!--bitmapfont id="wasabi.font.button.small" file="fonts/button-font-small.png" hspacing="-1" vspacing="0" charwidth="5" charheight="5"  gammagroup="Button Fonts"/>
   <bitmapfont id="wasabi.font.button.normal" file="fonts/button-font-normal.png" charwidth="5" charheight="6" hspacing="0" vspacing="0" gammagroup="Button Fonts"/>
   <bitmapfont id="wasabi.font.default" file="fonts/default-font.png" charwidth="5" charheight="6" hspacing="0" vspacing="0" gammagroup="Display Fonts"/>

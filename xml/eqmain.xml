@@ -7,45 +7,45 @@
         <layer id="waeq.titlebar" x="0" y="0" image="waeq.titlebar.on" inactiveimage="waeq.titlebar.off" ghost="1"/>
         <layer id="waeq.eqvis" x="86" y="17" image="wa.eqvis.bg" ghost="1"/>
 
-        <button id="eq.switch" x="254" y="3" action="SWITCH" param="shadeeq" image="eq.switch" downimage="eq.switchp" activealpha="255" inactivealpha="0" cursor="cur.normal"/>
-        <button id="eq.close" x="264" y="3" action="CLOSE" image="eq.close" downimage="eq.closep" activealpha="255" inactivealpha="0" cursor="cur.close"/>
+        <button id="eq.switch" x="254" y="3" action="SWITCH" param="shadeeq" image="eq.switch" downimage="eq.switchp" activealpha="255" inactivealpha="0" cursor="cur.normal" tooltip="Toggle Windowshade Mode"/>
+        <button id="eq.close" x="264" y="3" action="CLOSE" image="eq.close" downimage="eq.closep" activealpha="255" inactivealpha="0" cursor="cur.close" tooltip="Close"/>
 
-        <Button id="eq.on" action="EQ_TOGGLE" x="14" y="18" image="eq.off" downimage="eq.offp" activeImage="eq.on" cursor="cur.normal"/>
-        <Button id="eq.auto" visible="1" action="EQ_AUTO" x="39" y="18" image="eq.auto" downimage="eq.autop" activeImage="eq.autoon" cursor="cur.normal"/>
+        <Button id="eq.on" action="EQ_TOGGLE" x="14" y="18" image="eq.off" downimage="eq.offp" activeImage="eq.on" cursor="cur.normal" tooltip="EQ On/Off"/>
+        <Button id="eq.auto" visible="1" action="EQ_AUTO" x="39" y="18" image="eq.auto" downimage="eq.autop" activeImage="eq.autoon" cursor="cur.normal" tooltip="EQ Auto"/>
 
-        <togglebutton id="eq.presets" x="217" y="18" image="eq.presets" downimage="eq.presetsp" action="MENU" param="PRESETS" cursor="cur.normal"/>
+        <togglebutton id="eq.presets" x="217" y="18" image="eq.presets" downimage="eq.presetsp" action="MENU" param="PRESETS" cursor="cur.normal" tooltip="Open Presets"/>
 
         <button id="12db" x="44" y="36" w="22" h="7" rectrgn="1" cursor="cur.normal"/>
         <button id="0db" x="45" y="65" w="20" h="7" rectrgn="1" cursor="cur.normal"/>
         <button id="-12db" x="44" y="95" w="22" h="7" rectrgn="1" cursor="cur.normal"/>
 
-        <eqvis x="88" y="17" w="109" h="19" colortop="239,24,16" colormiddle="239,231,49" colorbottom="24,156,8" colorpreamp="156,181,206" cursor="cur.normal"/>
-			<layer id="preamp_layer" x="21" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq1back" x="78" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq2back" x="96" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq3back" x="114" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq4back" x="132" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq5back" x="150" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq6back" x="168" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq7back" x="186" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq8back" x="204" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq9back" x="222" y="38" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq10back" x="240" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+        <eqvis x="88" y="17" w="109" h="19" colortop="0,61,123" colormiddle="0,83,165" colorbottom="0,113,226" colorpreamp="3,54,108"/>
+			<layer id="preamp_layer" x="21" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip="Preamp"/>
+			<layer id="eq1back" x="78" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq2back" x="96" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq3back" x="114" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq4back" x="132" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq5back" x="150" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq6back" x="168" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq7back" x="186" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq8back" x="204" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq9back" x="222" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
+			<layer id="eq10back" x="240" y="38" image="eq.slider0" cursor="cur.vertislider" tooltip=""/>
 
             <script file="scripts/eqmain_dbs.maki"/>
             <!-- append "_noiso" to eqmain_dbs if you're not providing eqmain_iso.bmp -->
 
-			<slider id="preamp" action="EQ_PREAMP" x="22" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq1" action="EQ_BAND" param="1" x="79" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq2" action="EQ_BAND" param="2" x="97" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq3" action="EQ_BAND" param="3" x="115" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq4" action="EQ_BAND" param="4" x="133" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq5" action="EQ_BAND" param="5" x="151" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq6" action="EQ_BAND" param="6" x="169" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq7" action="EQ_BAND" param="7" x="187" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq8" action="EQ_BAND" param="8" x="205" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq9" action="EQ_BAND" param="9" x="223" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq10" action="EQ_BAND" param="10" x="241" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="preamp" action="EQ_PREAMP" x="22" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip="Preamp"/>
+			<slider id="eq1" action="EQ_BAND" param="1" x="79" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq2" action="EQ_BAND" param="2" x="97" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq3" action="EQ_BAND" param="3" x="115" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq4" action="EQ_BAND" param="4" x="133" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq5" action="EQ_BAND" param="5" x="151" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq6" action="EQ_BAND" param="6" x="169" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq7" action="EQ_BAND" param="7" x="187" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq8" action="EQ_BAND" param="8" x="205" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq9" action="EQ_BAND" param="9" x="223" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
+			<slider id="eq10" action="EQ_BAND" param="10" x="241" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider" tooltip=""/>
 
         <script file="scripts/eq_layers.maki"/>
         <!-- append "_noiso" to eq_layers if you're not providing eqmain_iso.bmp -->
@@ -58,13 +58,13 @@
 
     <groupdef id="shadeeq">
     
-        <layer id="blah" dblClickAction="SWITCH;eq" x="0" y="0" h="14" w="275" image="eq.shade.on" inactiveimage="eq.shade.off" move="1" cursor="cur.move"/>
+        <layer id="blah" dblClickAction="SWITCH;eq" x="0" y="0" h="14" w="275" image="eq.shade.on" inactiveimage="eq.shade.off" move="1" cursor="cur.move" />
 
-        <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="eqshade.shade" downImage="eqshade.shadep" cursor="cur.minimise"/>
-        <button id="Close" inactivealpha="0" action="close" x="264" y="3" image="eqshade.close" downImage="eqshade.closep" cursor="cur.close"/>
+        <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="eqshade.shade" downImage="eqshade.shadep" cursor="cur.minimise" tooltip="Toggle Windowshade Mode"/>
+        <button id="Close" inactivealpha="0" action="close" x="264" y="3" image="eqshade.close" downImage="eqshade.closep" cursor="cur.close" tooltip="Close"/>
 
-        <slider id="volume" action="volume" x="61" y="4" h="7" w="97" thumb="eqshade.vol.seekm" cursor="cur.normal"/>
-        <slider id="balance" action="pan" x="164" y="4" h="7" w="43" thumb="eqshade.vol.seekm" cursor="cur.normal"/>
+        <slider id="volume" action="volume" x="61" y="4" h="7" w="97" thumb="eqshade.vol.seekm" cursor="cur.horizslider" tooltip="Volume Bar"/>
+        <slider id="balance" action="pan" x="164" y="4" h="7" w="43" thumb="eqshade.vol.seekm" cursor="cur.horizslider" tooltip="Panning Bar"/>
         <script file="scripts/setShadeEQPosbar.maki"/>
 
     </groupdef>

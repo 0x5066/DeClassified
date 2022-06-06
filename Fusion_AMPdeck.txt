@@ -1,0 +1,124 @@
+*****************************************************************
+THIS IS NOT SHAREWARE. FEEL FREE TO PASS IT ON TO YOUR FRIENDS,
+BUT AS A FAVOR, PLEASE DISTRIBUTE IT *WITH* THIS README.TXT FILE.
+THANK YOU.  - Blayde
+*****************************************************************
+
+
+FUSION AMPdeck - A WinAmp "Skins" Interface
+===========================================
+
+*** Fusion homepage: http://members.tripod.com/~Blayde/
+*** Also available: Fusion AMPman
+                    Fusion AMPman LCD
+
+Note: If it ain't on the homepage, it ain't mine. <G>
+
+
+Version notes
+-------------
+4/3/98: Version 1.1 Customized Ray Waldin's  WinAmp speakers
+and Henrik Drewelow's Analyzer for the AMPdeck. Includes
+Jason Crawford's Visualization Mux to enable the user to run
+both plug-ins simultaneously.
+
+[N.B. Sorry folks, but I won't be answering any questions about
+how to install or run these plug-ins. I just get too many of
+these types of questions. I *have* included, though, the
+authors' readme.txt files. Do spend some time reading them.]
+
+[13:43] 3/20/98: Version 1.0a. Overall luminosity adjusted
+upwards to cater to standard monitors. Amber backlight adjusted
+for a more realistic glow. "Non-active" LCD areas darkened.
+GeeZ... I hope this is right. Wonder what normal low-end
+monitors look like... hehehe... *SLAP!* SHUT YER TRAP, SHOWOFF!
+
+[04:30] 3/20/98: Version 1.0 final. No prior versions released.
+
+Designer's notes
+----------------
+Like its predecessor, the interface *is* familiar... This time
+I based it on my car stereo... "Hit the road, Jack..." hehehe.
+Take your music wherever you go!
+
+You might realize by now I'm using the name Fusion to identify
+my work. Why "Fusion"? Well, besides the fact that I think
+jazz/fusion is absolutely kewl, these designs put a real-world
+(and very familiar, I might add...) face to an abstract concept:
+software. You might say its a "fusion" of sorts... :)
+
+Okay... enough bullshit. I just plucked the word out of thin
+air and decided I liked it. <EG>
+
+
+Display notes
+-------------
+Again, a note to people with wimpy video cards: Sorry 'bout
+this, but the AMPdeck *will* look crappy in anything less than
+16-bit color. The interface is designed with very subtle
+shadings to convey realism and looks best on a true-color (24-
+or 32-bit) display.
+
+
+Installation notes
+------------------
+Unzip the file into your \WINAMP folder. It *should* unzip
+everything into the appropriate sub-folders.
+
+Launch WinAmp, hit ALT+S to access your "skins" listing,
+select "FUSION AMPDECK", and voila! Your WinAmp has a new face!
+
+If this isn't too clear, you can find it explained a little
+differently at:
+
+  http://www.layer3.org/software/winampmangled.html
+
+Please *don't* e-mail me with questions about how to install
+these "skins". I won't answer them.
+
+NB: "Skins" work ONLY with WinAmp 1.80 or higher and NOT
+previous versions. If you're using an earlier version, visit
+http://www.winamp.com and download the latest version.
+
+
+Acknowledgements
+----------------
+To Mike (a.k.a. "wick") of Layer3.org: Thanks once more for
+your enthusiasm, support, *and* website, without which the
+AMPdeck would have been just a fading idea... (Yeeehaaawww!!!
+*One* more "skin" for people to rip-off...!)
+
+To "Marcel" of MP3.com: You believed the AMPman design held
+potential. I hope the AMPdeck lives up to your expectations...
+Thanks again for your "smileys." :)
+
+To the guys at All for WinAmp: 6 lightning bolts? WOW! Bet this
+enhanced release should knock your socks off!
+
+To Justin and the rest of the WinAmp crew: Your incredible
+player is the single most devastating distraction I have on
+my computer... and I LOVE IT!!! Great work, chaps!
+
+To everyone out there in E-mail land: Thanks for the countless
+accolades. There WILL be more Fusion "skins" on the way... In
+the meanwhile, ROCK ON with the AMPdeck! :)
+
+And to my dearest Kity: Thanks for your patience, encouragement
+and love. Here's yet another opportunity for you to spend your
+days and nights watching Mike's download stats! I love you.
+
+***
+
+You know how it's said that sequels can never be as good as the
+original... I *do* hope the AMPdeck proves 'em wrong, but even
+if it doesn't, I had fun!
+
+Thanks for going FUSION!
+
+Cheers!
+
+
+- Blayde
+
+Blayde@BitSmart.com
+http://members.tripod.com/~Blayde/

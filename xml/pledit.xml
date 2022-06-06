@@ -19,10 +19,10 @@
         <layer dblClickAction="SWITCH;shadepl" x="0" y="0" w="0" h="14" relatw="1" move="1" cursor="cur.move"/>
 
 		<layer id="pl.vis.area" image="wa2.pl.8.vis" x="-225" y="-38" relatx="1" relaty="1" cursor="cur.normal"/>
-        <group id="waclassicvis" x="-223" y="-26" w="76" h="16" relatx="1" relaty="1"/>
+        <group id="waclassicvis2" x="-223" y="-26" w="76" h="16" relatx="1" relaty="1"/>
         <!--script file="scripts/hideplvis.maki"/-->
 		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;350;0;0;0;0;0"/>
-        <script file="scripts/_wa2-easylayout.maki" param="waclassicvis;350;0;0;0;0;0"/>
+        <script file="scripts/_wa2-easylayout.maki" param="waclassicvis2;350;0;0;0;0;0"/>
 		<!-- Small Ticker/Timer -->
 		<text id="pe.info" display="PE_INFO" x="-145" y="-28" w="91" h="6" font="wasabi.font.default" relatx="1" relaty="1" cursor="cur.normal"/>
 		<text id="timer" display="time" x="-83" y="-15" w="31" h="6" timeroffstyle="2" align="right" font="wasabi.font.default" relatx="1" relaty="1"  timecolonwidth="5" cursor="cur.normal"/>
@@ -30,32 +30,32 @@
         <script file="scripts/wa2songtimer.maki"/>
 
 		<!-- Add Playlist Entry (List) -->
-		<button action="PE_ADD"	x="11" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_REM"	x="40" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_SEL"	x="69" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_MISC" x="98" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_LIST" x="-47" y="-30" w="25" h="18" relatx="1" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_ADD"	x="11" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal" tooltip="Add Files to Playlist"/>
+		<button action="PE_REM"	x="40" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal" tooltip="Remove Files from Playlist"/>
+		<button action="PE_SEL"	x="69" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal" tooltip="Select Files in Playlist"/>
+		<button action="PE_MISC" x="98" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal" tooltip="Misc Actions"/>
+		<button action="PE_LIST" x="-47" y="-30" w="25" h="18" relatx="1" relaty="1" rectrgn="1" cursor="cur.normal" tooltip="Manage Playlist"/>
 		<!-- End Playlist Entries -->
 
 		<!-- Since Winamp 5.0 the component xml object was renamed to windowholder -->
 		<windowholder id="wasabi.list" component="guid:{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D}"  fitparent="1"
-			x="12" y="20" w="-31" h="-58" relatw="1" relath="1"
+			x="12" y="20" w="-23" h="-58" relatw="1" relath="1"
 			noshowcmdbar="1" autoopen="1" autoclose="1" opacity="120"
 			param="guid:pl"
 		/> <!-- change w to -20 for the editor to take up the whole space -->
 
 		<!-- Playback buttons - No images so must use rectrgn="1" -->
-		<button x="-145" y="-16" w="8" h="9" relatx="1" relaty="1" action="Prev" rectrgn="1" cursor="cur.normal"/>
-		<button x="-137" y="-16" w="10" h="9" relatx="1" relaty="1" action="Play" rectrgn="1" cursor="cur.normal"/>
-		<button x="-127" y="-16" w="10" h="9" relatx="1" relaty="1" action="Pause" rectrgn="1" cursor="cur.normal"/>
-		<button x="-117" y="-16" w="9" h="9" relatx="1" relaty="1" action="Stop" rectrgn="1" cursor="cur.normal"/>
-		<button x="-108" y="-16" w="8" h="9" relatx="1" relaty="1" action="Next" rectrgn="1" cursor="cur.normal"/>
-		<button x="-100" y="-16" w="10" h="9" relatx="1" relaty="1" action="Eject" rectrgn="1" cursor="cur.normal"/>
+		<button x="-145" y="-16" w="8" h="9" relatx="1" relaty="1" action="Prev" rectrgn="1" cursor="cur.normal" tooltip="Previous Track"/>
+		<button x="-137" y="-16" w="10" h="9" relatx="1" relaty="1" action="Play" rectrgn="1" cursor="cur.normal" tooltip="Play"/>
+		<button x="-127" y="-16" w="10" h="9" relatx="1" relaty="1" action="Pause" rectrgn="1" cursor="cur.normal" tooltip="Pause"/>
+		<button x="-117" y="-16" w="9" h="9" relatx="1" relaty="1" action="Stop" rectrgn="1" cursor="cur.normal" tooltip="Stop"/>
+		<button x="-108" y="-16" w="8" h="9" relatx="1" relaty="1" action="Next" rectrgn="1" cursor="cur.normal" tooltip="Next Track"/>
+		<button x="-100" y="-16" w="10" h="9" relatx="1" relaty="1" action="Eject" rectrgn="1" cursor="cur.normal" tooltip="Open File(s)"/>
 		<!-- Close Button -->
-		<button image="wa2.pl.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close"
+		<button image="wa2.pl.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close" tooltip="Close"
 		/>
 		<!-- Playlist Shade -->
-		<button id="winshade" action="SWITCH" param="shadepl" x="-21" y="3" relatx="1" relaty="0" image="wa2.pl.shade" downImage="wa2.pl.shadep" inactiveAlpha="0" cursor="cur.normal"/>
+		<button id="winshade" action="SWITCH" param="shadepl" x="-21" y="3" relatx="1" relaty="0" image="wa2.pl.shade" downImage="wa2.pl.shadep" inactiveAlpha="0" cursor="cur.normal" tooltip="Toggle Windowshade Mode"/>
 	</layout>
     <layout id="shadepl" background="wasabi.frame.basetexture" minimum_h="14" maximum_h="14" minimum_w="275" linkwidth="normal">
 
@@ -72,12 +72,12 @@
 
         <layer dblClickAction="SWITCH;normal" x="0" y="0" w="0" h="14" relatw="1" move="1" cursor="cur.normal"/>
 
-        <layer x="-29" y="3" relatx="1" w="9" h="10" resize="right" cursor="cur.horizslider"/>
+        <layer x="-29" y="3" relatx="1" w="9" h="10" resize="right" cursor="cur.horizslider" tooltip="Adjust Horizontal Size"/>
 
         <!-- Close Button -->
-		<button image="wa2.plshade.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close"/>
+		<button image="wa2.plshade.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close" tooltip="Close"/>
 		<!-- Playlist Shade -->
-		<button id="winshade" action="SWITCH" param="normal" x="-21" y="3" relatx="1" relaty="0" image="wa2.plshade.shade" downImage="wa2.plshade.shadep" inactiveAlpha="0" cursor="cur.normal"/>
+		<button id="winshade" action="SWITCH" param="normal" x="-21" y="3" relatx="1" relaty="0" image="wa2.plshade.shade" downImage="wa2.plshade.shadep" inactiveAlpha="0" cursor="cur.normal" tooltip="Toggle Windowshade Mode"/>
 
 		<!--group id="shadepl" x="0" y="0"/-->
 	</layout>
