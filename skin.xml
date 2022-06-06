@@ -34,7 +34,7 @@
 	<include file="xml/medialibrary.xml"/>
 
 	<!-- uncomment if you're not providing wacup specific assets -->
-	<script file="scripts/WACUPDetect.maki"/>
+	<!--script file="scripts/WACUPDetect.maki"/-->
 
 	<!-- needs to exist for testing -->
 	<include file="xml/themes.xml"/>

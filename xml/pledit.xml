@@ -19,10 +19,8 @@
         <layer dblClickAction="SWITCH;shadepl" x="0" y="0" w="0" h="14" relatw="1" move="1" cursor="cur.move"/>
 
 		<layer id="pl.vis.area" image="wa2.pl.8.vis" x="-225" y="-38" relatx="1" relaty="1" cursor="cur.normal"/>
-        <group id="waclassicvis" x="-223" y="-26" w="76" h="16" relatx="1" relaty="1"/>
         <!--script file="scripts/hideplvis.maki"/-->
 		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;350;0;0;0;0;0"/>
-        <script file="scripts/_wa2-easylayout.maki" param="waclassicvis;350;0;0;0;0;0"/>
 		<!-- Small Ticker/Timer -->
 		<text id="pe.info" display="PE_INFO" x="-145" y="-28" w="91" h="6" font="wasabi.font.default" relatx="1" relaty="1" cursor="cur.normal"/>
 		<text id="timer" display="time" x="-83" y="-15" w="31" h="6" timeroffstyle="2" align="right" font="wasabi.font.default" relatx="1" relaty="1"  timecolonwidth="5" cursor="cur.normal"/>

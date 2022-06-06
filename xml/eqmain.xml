@@ -50,9 +50,7 @@
         <script file="scripts/eq_layers.maki"/>
         <!-- append "_noiso" to eq_layers if you're not providing eqmain_iso.bmp -->
 
-    <script file="scripts/eq_iso_mode.maki"/>
-    <!-- append "_nowacup" to eq_iso_mode if you're not providing wacup specific assets -->
-    <!-- uncomment if you're not providing eqmain_iso.bmp -->
+    <!--script file="scripts/eq_iso_mode.maki"/-->
 
     </groupdef>
 
