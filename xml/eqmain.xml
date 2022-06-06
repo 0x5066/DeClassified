@@ -33,6 +33,7 @@
 			<layer id="eq10back" x="240" y="38" image="eq.slider0" cursor="cur.vertislider"/>
 
             <script file="scripts/eqmain_dbs.maki"/>
+            <!-- append "_noiso" to eqmain_dbs if you're not providing eqmain_iso.bmp -->
 
 			<slider id="preamp" action="EQ_PREAMP" x="22" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
 			<slider id="eq1" action="EQ_BAND" param="1" x="79" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
@@ -47,8 +48,11 @@
 			<slider id="eq10" action="EQ_BAND" param="10" x="241" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
 
         <script file="scripts/eq_layers.maki"/>
+        <!-- append "_noiso" to eq_layers if you're not providing eqmain_iso.bmp -->
 
-    <!--script file="scripts/eq_iso_mode.maki"/-->
+    <script file="scripts/eq_iso_mode.maki"/>
+    <!-- append "_nowacup" to eq_iso_mode if you're not providing wacup specific assets -->
+    <!-- uncomment if you're not providing eqmain_iso.bmp -->
 
     </groupdef>
 

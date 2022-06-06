@@ -14,7 +14,7 @@ Global Timer SongTickerTimer;
 Global Text InfoTicker;
 Global GuiObject CLBO, SongTicker;
 Global Slider Balance, BalanceEQ;
-Global Layout Normal, ShadeEQ, NormalEQ, NormalPL;
+Global Layout Normal, ShadeEQ, NormalEQ, NormalPL, ShadePL;
 
 Global Slider Seeker;
 Global Int Seeking;
@@ -46,6 +46,7 @@ System.onScriptLoaded(){
     shadeeq = getContainer("eq").getlayout("shadeeq");
     normalEQ = getContainer("eq").getlayout("eq");
 	normalPL = getContainer("PL").getlayout("normal");
+	ShadePL = getContainer("PL").getlayout("shadepl");
 
 	SongTickerTimer = new Timer;
 	SongTickerTimer.setDelay(1000);
@@ -213,11 +214,15 @@ setScaling(int dbsizemode){
 		Normal.setScale(2);
 		NormalEQ.setScale(2);
 		NormalPL.setScale(2);
+		ShadePL.setScale(2);
+		shadeeq.setScale(2);
 		CLBD.setXmlParam("image", "CLBDp");
 	}else{
 		Normal.setScale(1);
 		NormalEQ.setScale(1);
 		NormalPL.setScale(1);
+		ShadePL.setScale(1);
+		shadeeq.setScale(1);
 		CLBD.setXmlParam("image", "CLBD");
 	}
     setPrivateInt(getSkinName(), "DeClassified Doublesize mode", dbsizemode);

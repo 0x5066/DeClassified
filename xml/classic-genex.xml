@@ -56,6 +56,11 @@
     <bitmap id="wasabi.button.pressed.bottom" file="skin/genex.bmp" x="70" y="163" h="4" w="25" gammagroup="greybuttons"/>
     <bitmap id="wasabi.button.pressed.bottom.right" file="skin/genex.bmp" x="95" y="163" h="4" w="4" gammagroup="greybuttons"/-->
 
+    <bitmap id="wasabi.button.label.arrow.up" file="skin/wasabi/window-elements.png" x="137" y="75" h="4" w="7"/>
+    <bitmap id="wasabi.button.label.arrow.down" file="skin/wasabi/window-elements.png" x="137" y="86" h="4" w="7"/>
+    <bitmap id="wasabi.button.label.arrow.left" file="skin/wasabi/window-elements.png" x="133" y="79" h="7" w="4"/>
+    <bitmap id="wasabi.button.label.arrow.right" file="skin/wasabi/window-elements.png" x="144" y="79" h="7" w="4"/>
+
     <bitmap id="studio.button.upperLeft"            file="skin/genex.bmp" x="0" y="0" h="3" w="3"/>
     <bitmap id="studio.button.top"                  file="skin/genex.bmp" x="3" y="0" h="3" w="41"/>
     <bitmap id="studio.button.upperRight"           file="skin/genex.bmp" x="44" y="0" h="3" w="3"/>

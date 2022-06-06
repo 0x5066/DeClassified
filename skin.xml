@@ -21,6 +21,7 @@
 	<include file="xml/wasabi.classic/statusbar/statusbar.xml"/>
 	<include file="xml/wasabi.classic/tooltips/tooltips.xml"/>
 	<include file="xml/wasabi.classic/components.xml"/>
+	<include file="xml/wasabi.classic/browser/browser.xml"/>
 
 	<!-- the very building blocks to get our 4 main windows rendered -->
 	<include file="xml/classic-elements.xml"/>
@@ -32,8 +33,8 @@
 	<include file="xml/video.xml"/>
 	<include file="xml/medialibrary.xml"/>
 
-	<!-- detect wacup -->
-	<!--script file="scripts/WACUPDetect.maki"/-->
+	<!-- uncomment if you're not providing wacup specific assets -->
+	<script file="scripts/WACUPDetect.maki"/>
 
 	<!-- needs to exist for testing -->
 	<include file="xml/themes.xml"/>
@@ -47,6 +48,9 @@
 
 	<!-- Modern Skin Album Art window -->
 	<include file="xml/albumart.xml"/> 
+
+	<!-- Minibrowser window -->
+	<include file="xml/minibrowser.xml"/> 
 
 	<!-- About the skin -->
 	<include file="about/about.xml"/> 
