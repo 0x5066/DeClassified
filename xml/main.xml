@@ -9,6 +9,10 @@
 	
 	<layer id="mainwnd" image="wa.main" cursor="cur.normal"/>
 	<layer id="blah" dblClickAction="SWITCH;shade" x="0" y="0" h="14" w="275" move="1" cursor="cur.move"/>
+	<layer image="wa.main.bg1" x="21" y="22" ghost="1"/>
+	<layer image="wa.main.bg2" x="108" y="23" ghost="1"/>
+	<layer image="wa.main.colon" x="71" y="29" ghost="1"/>
+	<layer image="wa.main.vis" x="23" y="43" ghost="1"/>
 
 	<layer image="clutterbar" x="10" y="22" cursor="cur.normal"/>
 	<!--Togglebutton id="CLB.O" x="11" y="24" w="8" h="9" action="CONTROLMENU" rectrgn="1"/-->
@@ -161,7 +165,7 @@
     colorosc2="109,127,187"
     colorosc3="150,150,150"
     colorosc4="109,122,165"
-    colorosc5="10,75,164"/>
+    colorosc5="10,75,164" gammagroup="Display"/>
 	<layer id="main.vis.trigger" w="75" h="16" cursor="cur.normal"/>
 	<script file="scripts/wa2visualizer.maki"/>
 </groupdef>

@@ -1,5 +1,5 @@
     <!-- Main Window -->
-    <bitmap id="wacup.main" file="skin/main_wacup.png"/>
+    <bitmap id="wacup.main" file="skin/main_wacup.png" gammagroup="Background"/>
 
     <!-- Title bar, on and off respectively -->
 	<bitmap id="wacup.titlebar.on" file="skin/titlebar_wacup.png"  x="27" y="0" h="13" w="275"/>

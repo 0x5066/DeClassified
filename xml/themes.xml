@@ -1,5 +1,8 @@
 <gammaset id="test theme">
 
 <gammagroup id="Background" value="0,0,0" gray="0" boost="0"/>
+<gammagroup id="Display" value="0,0,0" gray="0" boost="0"/>
+<gammagroup id="Display Font" value="0,0,0" gray="0" boost="0"/>
+<gammagroup id="Display Background" value="0,0,0" gray="0" boost="0"/>
 
 </gammaset>
