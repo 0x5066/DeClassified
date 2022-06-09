@@ -25,7 +25,6 @@
 		<text id="pe.info" display="PE_INFO" x="-145" y="-28" w="91" h="6" font="wasabi.font.default" relatx="1" relaty="1" cursor="cur.normal"/>
 		<text id="timer" display="time" x="-83" y="-15" w="31" h="6" timeroffstyle="2" align="right" font="wasabi.font.default" relatx="1" relaty="1"  timecolonwidth="5" cursor="cur.normal"/>
         <layer id="TimerTrigger" x="-83" y="-15" w="31" h="6" relatx="1" relaty="1" cursor="cur.normal"/>
-        <script file="scripts/wa2songtimer.maki"/>
 
 		<!-- Add Playlist Entry (List) -->
 		<button action="PE_ADD"	x="11" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>

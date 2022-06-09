@@ -42,7 +42,6 @@
 		w="70" h="18"
 		cursor="cur.normal"/>
 
-<script file="scripts/wa2songtimer.maki"/>
 	<Songticker
 		id="songticker" ticker="1"
 		x="111" y="27"
@@ -160,7 +159,6 @@
     colorosc4="50,50,130"
     colorosc5="0,0,50"/>
 	<layer id="main.vis.trigger" w="72" h="16" cursor="cur.normal"/>
-	<script file="scripts/wa2visualizer.maki"/>
 </groupdef>
 
 <groupdef id="shademain">
@@ -170,8 +168,6 @@
 
     <text id="timer" display="time" x="128" y="2" w="31" h="10" font="wasabi.font.default" align="right" timecolonwidth="5" cursor="cur.normal"/>
 	<layer id="TimerTrigger" x="128" y="2" w="31" h="10" cursor="cur.normal"/>
-
-	<script file="scripts/wa2songtimer.maki"/>
 
     <button id="Previous" action="PREV" x="166" y="3" w="8" h="9" tooltip="Previous" rectrgn="1" cursor="cur.normal"/>
     <button id="Play" action="PLAY" x="176" y="3" w="10" h="9" tooltip="Play" rectrgn="1" cursor="cur.normal"/>
@@ -190,8 +186,6 @@
     <button id="sysbutton" inactivealpha="0" action="SYSMENU" x="6" y="3" image="wa2.player.shade.menu" downImage="wa2.player.shade.menu.pressed" cursor="cur.mainmenu"/>
     <slider id="seeker" action="seek" x="227" y="4" h="7" w="15" thumb="posbarsm" cursor="cur.horizslider"/>
 	<script file="scripts/setShadePosbar.maki"/>
-
-<script file="scripts/wa2visualizer.maki"/>
 
 </groupdef>
 

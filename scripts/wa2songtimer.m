@@ -14,8 +14,8 @@
 #include "..\..\..\lib/std.mi"
 
 Global String currentpos, strremainder, currentpos_rev;
-Global GuiObject DisplayTime/*DisplayTimeShade*/;
-Global GuiObject TimerTrigger;
+Global GuiObject DisplayTime, DisplayTimeShade, DisplayTimePL;
+Global GuiObject TimerTrigger, TimerTriggerShade, TimerTriggerPL;
 Global Timer timerSongTimer;
 Global Timer timerSongTimerReverse;
 Global Timer PauseBlinkPaused, PauseBlink, Clock;
@@ -45,16 +45,25 @@ Function playing();
 Function playing_rev();
 Function ItsBeenMuchTooLong();
 
+Function setTimerModeLBD();
+Function setTimerModeRBD();
+
 System.onScriptLoaded() 
 {
-    //Group mainshade = getContainer("main").getLayout("shade");
+    Group mainshade = getContainer("main").getLayout("shade");
     /* Replace "timer" with "shade.time" for Winamp Classic Modern */
-    //DisplayTimeShade = mainshade.findObject("timer");
+    DisplayTimeShade = mainshade.findObject("timer");
+    TimerTriggerShade = mainshade.findObject("TimerTrigger");
 
-    Group mainnormal = getScriptGroup();
+    //Group mainnormal = getScriptGroup();
     /* Replace "timer" with "display.time" for Winamp Classic Modern */
-    DisplayTime = mainnormal.findObject("timer");
-    TimerTrigger = mainnormal.findObject("TimerTrigger");
+    Group mainwindow = getContainer("main").getLayout("normal");
+    DisplayTime = mainwindow.findObject("timer");
+    TimerTrigger = mainwindow.findObject("TimerTrigger");
+
+    Group plwindow = getContainer("pl").getLayout("normal");
+    DisplayTimePL = plwindow.findObject("timer");
+    TimerTriggerPL = plwindow.findObject("TimerTrigger");
     //The above was taken from Ariszló's updated oldtimer.maki script
     //Allows it to be included in the skin.xml file of the skin
 
@@ -83,6 +92,33 @@ System.onScriptLoaded()
 
     setTimer(getPrivateInt(getSkinName(), "TimerElapsedRemaining", 1));
     TimeElapsedOrRemaining();
+}
+
+setTimerModeLBD(){
+    int timermode = getPrivateInt(getSkinName(), "TimerElapsedRemaining", 1);
+
+    timermode++;
+
+    if (timermode == 3){
+        timermode = 1;
+    }
+    setTimer(timermode);
+    complete;
+}
+
+setTimerModeRBD(){
+    int timermode = getPrivateInt(getSkinName(), "TimerElapsedRemaining", 1);
+
+    clockMenu = new PopUpMenu;
+
+	clockMenu.addcommand("Time elapsed", 1, timermode == 1,0);
+	clockMenu.addcommand("Time remaining", 2, timermode == 2,0);
+
+	timermode = clockMenu.popAtMouse();
+
+
+	setTimer(timermode);
+	complete;
 }
 
 TimeElapsedOrRemaining()
@@ -117,7 +153,6 @@ TimeElapsedOrRemaining()
     }
 }
 
-
 Clock.onTimer(){
     if(i >= 1){
         i = 0;
@@ -147,59 +182,27 @@ PauseBlink.onTimer(){ //Elapsed
 }
 
 TimerTrigger.onRightButtonUp (int x, int y){
-    int timermode = getPrivateInt(getSkinName(), "TimerElapsedRemaining", 1);
-
-    clockMenu = new PopUpMenu;
-
-	clockMenu.addcommand("Time elapsed", 1, timermode == 1,0);
-	clockMenu.addcommand("Time remaining", 2, timermode == 2,0);
-
-	timermode = clockMenu.popAtMouse();
-
-
-	setTimer(timermode);
-	complete;
+    setTimerModeRBD();
 }
-/*
-DisplayTimeShade.onRightButtonUp (int x, int y){
-    int timermode = getPrivateInt(getSkinName(), "TimerElapsedRemaining", 1);
 
-    clockMenu = new PopUpMenu;
-
-	clockMenu.addcommand("Time elapsed", 1, timermode == 1,0);
-	clockMenu.addcommand("Time remaining", 2, timermode == 2,0);
-
-	timermode = clockMenu.popAtMouse();
-
-	setTimer(timermode);
-	complete;
+TimerTriggerShade.onRightButtonUp (int x, int y){
+    setTimerModeRBD();
 }
-*/
+
 TimerTrigger.onLeftButtonDown(int x, int y)
 {
-    int timermode = getPrivateInt(getSkinName(), "TimerElapsedRemaining", 1);
-
-    timermode++;
-
-    if (timermode == 3){
-        timermode = 1;
-    }
-    setTimer(timermode);
-    complete;
+    setTimerModeLBD();
 }
 
-//DisplayTimeShade.onLeftButtonDown(int x, int y)
-//{
-//    int timermode = getPrivateInt(getSkinName(), "TimerElapsedRemaining", 1);
-//
-//    timermode++;
-//
-//    if (timermode == 3){
-//        timermode = 1;
-//    }
-//    setTimer(timermode);
-//    complete;
-//}
+TimerTriggerShade.onLeftButtonDown(int x, int y)
+{
+    setTimerModeLBD();
+}
+
+TimerTriggerPL.onLeftButtonDown(int x, int y)
+{
+    setTimerModeLBD();
+}
 
 //Here we run these checks every time a playback related action happens
 //It's not enough to check on title change
@@ -422,7 +425,8 @@ stopped(){
     PauseBlink.stop();
     PauseBlinkPaused.stop();
     DisplayTime.setXmlParam("text", "  :  ");
-    //DisplayTimeShade.setXmlParam("text", "00:00");
+    DisplayTimeShade.setXmlParam("text", "  :  ");
+    DisplayTimePL.setXmlParam("text", "  :  ");
 }
 
 playing(){
@@ -431,11 +435,13 @@ playing(){
 
     if(milliseconds < 600000){
         DisplayTime.setXmlParam("text", "0"+currentpos);
-        //DisplayTimeShade.setXmlParam("text", "0"+currentpos);
+        DisplayTimeShade.setXmlParam("text", "0"+currentpos);
+        DisplayTimePL.setXmlParam("text", "0"+currentpos);
     }
     else{
         DisplayTime.setXmlParam("text", currentpos);
-        //DisplayTimeShade.setXmlParam("text", currentpos);
+        DisplayTimeShade.setXmlParam("text", currentpos);
+        DisplayTimePL.setXmlParam("text", currentpos);
     }
 }
 
@@ -449,11 +455,13 @@ playing_rev(){
 
     if(remainder < 600000){
         DisplayTime.setXmlParam("text", "-0"+strremainder);
-        //DisplayTimeShade.setXmlParam("text", "-0"+strremainder);
+        DisplayTimeShade.setXmlParam("text", "-0"+strremainder);
+        DisplayTimePL.setXmlParam("text", "-0"+strremainder);
     }
     else{
         DisplayTime.setXmlParam("text", "-"+strremainder);
-        //DisplayTimeShade.setXmlParam("text", "-"+strremainder);
+        DisplayTimeShade.setXmlParam("text", "-"+strremainder);
+        DisplayTimePL.setXmlParam("text", "-"+strremainder);
     }
 }
 
@@ -464,11 +472,13 @@ ItsBeenMuchTooLong(){ //I feel it coming on, the feeling's gettin' strong
 
     if(milliseconds_rev < 600000){
         DisplayTime.setXmlParam("text", "-0"+currentpos_rev);
-        //DisplayTimeShade.setXmlParam("text", "-0"+currentpos_rev);
+        DisplayTimeShade.setXmlParam("text", "-0"+currentpos_rev);
+        DisplayTimePL.setXmlParam("text", "-0"+currentpos_rev);
     }
     else{
         DisplayTime.setXmlParam("text", "-"+currentpos_rev);
-        //DisplayTimeShade.setXmlParam("text", "-"+currentpos_rev);
+        DisplayTimeShade.setXmlParam("text", "-"+currentpos_rev);
+        DisplayTimePL.setXmlParam("text", "-"+currentpos_rev);
     }
 }
 

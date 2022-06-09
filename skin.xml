@@ -39,9 +39,11 @@
 	<!-- needs to exist for testing -->
 	<include file="xml/themes.xml"/>
 
-	<!-- needs to exist here to hook into the main window and equalizer -->
+	<!-- needs to exist here to hook into the main window and equalizer/playlist editor -->
 	<script file="scripts/actioninfo.maki"/>
 	<script file="scripts/balance.maki"/>
+	<script file="scripts/wa2songtimer.maki"/>
+	<script file="scripts/wa2visualizer.maki"/>
 
 	<!-- prevent loading for 5.8 users -->
 	<script file="scripts/NoWinamp58.maki"/>
