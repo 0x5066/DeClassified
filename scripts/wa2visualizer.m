@@ -611,3 +611,11 @@ WinampMainWindow.onScale(Double newscalevalue){
 		PLVisualizer.setXmlParam("y", "0");
 	}
 }
+
+WinampMainWindow.onSetVisible(Boolean onoff){
+	if(onoff == 1){
+		PLVisualizer.setXmlParam("alpha", "0");
+	}else{
+		PLVisualizer.setXmlParam("alpha", "255");
+	}
+}
