@@ -19,10 +19,10 @@
         <layer dblClickAction="SWITCH;shadepl" x="0" y="0" w="0" h="14" relatw="1" move="1" cursor="cur.move"/>
 
 		<layer id="pl.vis.area" image="wa2.pl.8.vis" x="-225" y="-38" relatx="1" relaty="1" cursor="cur.normal"/>
-        <group id="waclassicvis" x="-223" y="-26" w="72" h="16" relatx="1" relaty="1"/>
+        <group id="waclassicplvis" x="-223" y="-26" w="72" h="16" relatx="1" relaty="1"/>
         <!--script file="scripts/hideplvis.maki"/-->
 		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;350;0;0;0;0;0"/>
-        <script file="scripts/_wa2-easylayout.maki" param="waclassicvis;350;0;0;0;0;0"/>
+        <script file="scripts/_wa2-easylayout.maki" param="waclassicplvis;350;0;0;0;0;0"/>
 		<!-- Small Ticker/Timer -->
 		<text id="pe.info" display="PE_INFO" x="-145" y="-28" w="91" h="6" font="wasabi.font.default" relatx="1" relaty="1" cursor="cur.normal"/>
 		<text id="timer" display="time" x="-83" y="-15" w="31" h="6" timeroffstyle="2" align="right" font="wasabi.font.default" relatx="1" relaty="1"  timecolonwidth="5" cursor="cur.normal"/>
@@ -56,6 +56,34 @@
 		/>
 		<!-- Playlist Shade -->
 		<button id="winshade" action="SWITCH" param="shadepl" x="-21" y="3" relatx="1" relaty="0" image="wa2.pl.shade" downImage="wa2.pl.shadep" inactiveAlpha="0" cursor="cur.normal"/>
+	<groupdef id="waclassicplvis">
+		<vis id="wa.vis" y="0" w="72" h="16" fps="60"
+		ColorBand1="162,135,87"
+		ColorBand2="162,135,87"
+		ColorBand3="162,135,87"
+		ColorBand4="162,135,87"
+		ColorBand5="162,135,87"
+		ColorBand6="162,135,87"
+		ColorBand7="162,135,87"
+		ColorBand8="162,135,87"
+		ColorBand9="162,135,87"
+		ColorBand10="162,135,87"
+		ColorBand11="162,135,87"
+		ColorBand12="162,135,87"
+		ColorBand13="162,135,87"
+		ColorBand14="162,135,87"
+		ColorBand15="162,135,87"
+		ColorBand16="162,135,87"
+		colorbandpeak="190,163,115"
+
+		colorosc1="218,192,144"
+		colorosc2="208,181,133"
+		colorosc3="195,168,120"
+		colorosc4="175,149,101"
+		colorosc5="162,135,87"/>
+		<layer id="main.vis.trigger" w="72" h="16" cursor="cur.normal"/>
+	</groupdef>
+	
 	</layout>
     <layout id="shadepl" background="wasabi.frame.basetexture" minimum_h="14" maximum_h="14" minimum_w="275" linkwidth="normal">
 

@@ -42,7 +42,6 @@
 		w="70" h="18"
 		cursor="cur.normal"/>
 
-<script file="scripts/wa2songtimer.maki"/>
 	<Songticker
 		id="songticker" ticker="1"
 		x="111" y="27"
@@ -162,7 +161,6 @@
     colorosc4="175,149,101"
     colorosc5="162,135,87"/>
 	<layer id="main.vis.trigger" w="72" h="16" cursor="cur.normal"/>
-	<script file="scripts/wa2visualizer.maki"/>
 </groupdef>
 
 <groupdef id="shademain">
@@ -173,8 +171,6 @@
     <text id="timer" display="time" x="128" y="2" w="31" h="10" font="wasabi.font.default" align="right" timecolonwidth="5" cursor="cur.normal"/>
 	<layer id="TimerTrigger" x="128" y="2" w="31" h="10" cursor="cur.normal"/>
 
-	<script file="scripts/wa2songtimer.maki"/>
-
     <button id="Previous" action="PREV" x="166" y="3" w="8" h="9" tooltip="Previous" rectrgn="1" cursor="cur.normal"/>
     <button id="Play" action="PLAY" x="176" y="3" w="10" h="9" tooltip="Play" rectrgn="1" cursor="cur.normal"/>
     <button id="Pause" action="PAUSE" x="186" y="3" w="10" h="9" tooltip="Pause" rectrgn="1" cursor="cur.normal"/>
@@ -183,9 +179,31 @@
 
     <button id="Eject" action="EJECT" x="216" y="3" w="9" h="9" tooltip="Eject" rectrgn="1" cursor="cur.normal"/>
 
-    <vis id="wa.vis" x="79" y="5" w="38" h="5" fps="60"/>
-	<layer id="main.vis.trigger" x="79" y="5" w="38" h="5" cursor="cur.normal"/>
 	<rect id="wa.visbg" x="79" y="5" w="38" h="5" filled="1" color="244,217,169"/>
+    <vis id="wa.vis" x="79" y="5" w="38" h="5" fps="60" ColorBand1="162,135,87"
+    ColorBand2="162,135,87"
+    ColorBand3="162,135,87"
+    ColorBand4="162,135,87"
+    ColorBand5="162,135,87"
+    ColorBand6="162,135,87"
+    ColorBand7="162,135,87"
+    ColorBand8="162,135,87"
+    ColorBand9="162,135,87"
+    ColorBand10="162,135,87"
+    ColorBand11="162,135,87"
+    ColorBand12="162,135,87"
+    ColorBand13="162,135,87"
+    ColorBand14="162,135,87"
+    ColorBand15="162,135,87"
+    ColorBand16="162,135,87"
+	colorbandpeak="190,163,115"
+
+    colorosc1="218,192,144"
+    colorosc2="208,181,133"
+    colorosc3="195,168,120"
+    colorosc4="175,149,101"
+    colorosc5="162,135,87"/>
+	<layer id="main.vis.trigger" x="79" y="5" w="38" h="5" cursor="cur.normal"/>
 
     <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="wa2.player.title.shademode" downImage="wa2.player.title.shademode.pressed" cursor="cur.normal"/>
     <button id="Close" inactivealpha="0" action="close" x="264" y="3" image="wa2.player.title.quit" downImage="wa2.player.title.quit.pressed" tooltip="Close" cursor="cur.close"/>
@@ -193,8 +211,6 @@
     <button id="sysbutton" inactivealpha="0" action="SYSMENU" x="6" y="3" image="wa2.player.shade.menu" downImage="wa2.player.shade.menu.pressed" cursor="cur.mainmenu"/>
     <slider id="seeker" action="seek" x="227" y="4" h="7" w="15" thumb="posbarsm" cursor="cur.horizslider"/>
 	<script file="scripts/setShadePosbar.maki"/>
-
-<script file="scripts/wa2visualizer.maki"/>
 
 </groupdef>
 

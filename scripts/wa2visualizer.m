@@ -11,8 +11,10 @@ Internet:	www.skinconsortium.com
 			www.martin.deimos.de.vu
 
 Note:		Ripped from Winamp Modern, removed the VU Meter section
-			as it's not relevant just yet, this also includes
-			the option to set the Spectrum Analyzer coloring.
+			this also includes the option to set the Spectrum 
+			Analyzer coloring.
+			Now resides in skin.xml to hook into the Main Window and
+			Playlist Editor.
 -----------------------------------------------------
 ---------------------------------------------------*/
 
@@ -22,11 +24,16 @@ Function refreshVisSettings();
 Function setVis (int mode);
 Function ProcessMenuResult (int a);
 Function LegacyOptions(int legacy);
+Function setVisModeLBD();
+Function setVisModeRBD();
 
-Global Group scriptGroup;
-Global Group frameGroup, MainWindow;
-Global Vis visualizer;
-Global GuiObject visbg;
+Global Group MainWindow, MainClassicVis, Clutterbar;
+Global Group MainShadeWindow, PLVis;
+Global Group PLWindow;
+
+Global GuiObject visbg, visbgshade;
+
+Global Vis MainVisualizer, MainShadeVisualizer, PLVisualizer;
 
 Global Button CLBV1, CLBV2, CLBV3;
 
@@ -40,166 +47,55 @@ Global PopUpMenu fpsmenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps;
 Global Boolean show_peaks, isShade, compatibility;
-Global layer trigger;
+Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
-Global Layout thislayout;
-Global Container main;
+Global Layout WinampMainWindow;
 
 System.onScriptLoaded()
-{ 
-	scriptGroup = getScriptGroup();
+{
+	WinampMainWindow = getContainer("Main").getLayout("Normal");
 
-	visualizer = scriptGroup.findObject("wa.vis");
+	MainWindow = getContainer("Main").getLayout("Normal");
+	Clutterbar = MainWindow.findObject("mainwindow");
+	CLBV1 = Clutterbar.getObject("CLB.V1");
+	CLBV2 = Clutterbar.getObject("CLB.V2");
+	CLBV3 = Clutterbar.getObject("CLB.V3");
+	MainClassicVis = MainWindow.findObject("waclassicvis");
+	MainVisualizer = MainClassicVis.getObject("wa.vis");
+	MainTrigger = MainClassicVis.getObject("main.vis.trigger");
+	visbg = MainClassicVis.findObject("wa.visbg");
 
-	trigger = scriptGroup.findObject("main.vis.trigger");
-	visbg = scriptGroup.findObject("wa.visbg");
+	MainShadeWindow = getContainer("Main").getLayout("shade");
+	MainShadeVisualizer = MainShadeWindow.findObject("wa.vis");
+	MainShadeTrigger = MainShadeWindow.findObject("main.vis.trigger");
+	visbgshade = MainShadeWindow.findObject("wa.visbg");
 
-	frameGroup = getContainer("Main").getLayout("Normal");
-	MainWindow = frameGroup.getObject("mainwindow");
-	CLBV1 = MainWindow.getObject("CLB.V1");
-	CLBV2 = MainWindow.getObject("CLB.V2");
-	CLBV3 = MainWindow.getObject("CLB.V3");
+	PLWindow = getContainer("pl").getLayout("normal");
+	PLVis = PLWindow.findObject("waclassicplvis");
+	PLVisualizer = PLVis.getObject("wa.vis");
+	PLTrigger = PLVis.getObject("main.vis.trigger");
 
-	visualizer.setXmlParam("Peaks", integerToString(show_peaks));
-	visualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
-	visualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
-	visualizer.setXmlParam("oscstyle", integerToString(osc_render));
-	visualizer.setXmlParam("bandwidth", integerToString(ana_render));
+	MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
+	MainVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+	MainVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+	MainVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
+	MainVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
+
+	MainShadeVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
+	MainShadeVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+	MainShadeVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+	MainShadeVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
+	MainShadeVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
+
+	PLVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
+	PLVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+	PLVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+	PLVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
+	PLVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
 	refreshVisSettings();
 }
 
-refreshVisSettings ()
-{
-	currentMode = getPrivateInt(getSkinName(), "Visualizer Mode", 1);
-	show_peaks = getPrivateInt(getSkinName(), "Visualizer show Peaks", 1);
-	compatibility = getPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", 1);
-	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
-	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer Peaks falloff", 2);
-	osc_render = getPrivateInt(getSkinName(), "Oscilloscope Settings", 1);
-	ana_render = getPrivateInt(getSkinName(), "Spectrum Analyzer Settings", 2);
-	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
-	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
-
-	visualizer.setXmlParam("Peaks", integerToString(show_peaks));
-	visualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
-	visualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
-	visualizer.setXmlParam("oscstyle", integerToString(osc_render));
-	visualizer.setXmlParam("bandwidth", integerToString(ana_render));
-
-	if (a_coloring == 0)
-	{
-		visualizer.setXmlParam("coloring", "Normal");
-	}
-	else if (a_coloring == 1)
-	{
-		visualizer.setXmlParam("coloring", "Normal");
-	}
-	else if (a_coloring == 2)
-	{
-		visualizer.setXmlParam("coloring", "Fire");
-	}
-	else if (a_coloring == 3)
-	{
-		visualizer.setXmlParam("coloring", "Line");
-	}
-
-	if (osc_render == 0)
-		{
-			visualizer.setXmlParam("oscstyle", "Lines");
-		}
-		else if (osc_render == 2)
-		{
-			visualizer.setXmlParam("oscstyle", "Lines");
-		}
-		else if (osc_render == 1)
-		{
-			visualizer.setXmlParam("oscstyle", "Solid");
-		}
-		else if (osc_render == 3)
-		{
-			visualizer.setXmlParam("oscstyle", "Dots");
-		}
-	setPrivateInt(getSkinName(), "Oscilloscope Settings", osc_render);
-    
-	if (ana_render == 0)
-		{
-			visualizer.setXmlParam("bandwidth", "Thin");
-		}
-		else if (ana_render == 1)
-		{
-			visualizer.setXmlParam("bandwidth", "Thin");
-		}
-		else if (ana_render == 2)
-		{
-			visualizer.setXmlParam("bandwidth", "wide");
-		}
-	setPrivateInt(getSkinName(), "Spectrum Analyzer Settings", ana_render);
-	if (v_fps == 0)
-		{
-			visualizer.setXmlParam("fps", "9");
-		}
-		else if (v_fps == 1)
-		{
-			visualizer.setXmlParam("fps", "9");
-		}
-		else if (v_fps == 2)
-		{
-			visualizer.setXmlParam("fps", "18");
-		}
-		else if (v_fps == 3)
-		{
-			visualizer.setXmlParam("fps", "35");
-		}
-		else if (v_fps == 4)
-		{
-			visualizer.setXmlParam("fps", "70");
-		}
-
-	setVis (currentMode);
-	LegacyOptions(compatibility);
-}
-
-System.onStop(){
-	LegacyOptions(compatibility);
-}
-
-System.onPlay(){
-	LegacyOptions(compatibility);
-}
-
-System.onResume(){
-	LegacyOptions(compatibility);
-}
-
-trigger.onLeftButtonDown (int x, int y)
-{
-	if (isKeyDown(VK_ALT) && isKeyDown(VK_SHIFT) && isKeyDown(VK_CONTROL))
-	{
-		if (visualizer.getXmlParam("fliph") == "1")
-		{
-			visualizer.setXmlParam("fliph", "0");
-		}
-		else
-		{
-			visualizer.setXmlParam("fliph", "1");
-		}
-		return;
-	}
-
-	if (isKeyDown(4) && isKeyDown(VK_SHIFT) && isKeyDown(VK_CONTROL))
-	{
-		if (visualizer.getXmlParam("flipv") == "1")
-		{
-			visualizer.setXmlParam("flipv", "0");
-		}
-		else
-		{
-			visualizer.setXmlParam("flipv", "1");
-		}
-		return;
-	}
-
-
+setVisModeLBD(){
 	currentMode++;
 
 	if (currentMode == 3)
@@ -211,8 +107,7 @@ trigger.onLeftButtonDown (int x, int y)
 	complete;
 }
 
-trigger.onRightButtonUp (int x, int y)
-{
+setVisModeRBD(){
 	visMenu = new PopUpMenu;
 	pksmenu = new PopUpMenu;
 	anamenu = new PopUpMenu;
@@ -229,7 +124,7 @@ trigger.onRightButtonUp (int x, int y)
 	
 	visMenu.addSeparator();
 	visMenu.addCommand("Modern Visualizer Settings", 998, 0, 1);
-	visMenu.addCommand("Modern Visualizer stays invisible", 102, compatibility == 1, 0);
+	visMenu.addCommand("Classic Skin Compatibility", 102, compatibility == 1, 0);
 	visMenu.addSeparator();
 	visMenu.addSubmenu(fpsmenu, "Refresh rate");
 	fpsmenu.addCommand("9fps", 800, v_fps == 0, 0);
@@ -272,9 +167,9 @@ trigger.onRightButtonUp (int x, int y)
 	visMenu.addSubmenu(oscsettings, "Oscilliscope Options");
 	//oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
 	//oscsettings.addSeparator();
-	oscsettings.addCommand("Dot scope", 603, osc_render == 3, 0);
-	oscsettings.addCommand("Line scope", 601, osc_render == 1, 0);
-	oscsettings.addCommand("Solid scope", 602, osc_render == 2, 0);
+	oscsettings.addCommand("Dot scope", 601, osc_render == 1, 0);
+	oscsettings.addCommand("Line scope", 602, osc_render == 2, 0);
+	oscsettings.addCommand("Solid scope", 603, osc_render == 3, 0);
 
 	visMenu.addSeparator();
 	visMenu.addcommand(translate("Start/Stop plug-in")+"\tCtrl+Shift+K", 404, 0,0);
@@ -294,6 +189,183 @@ trigger.onRightButtonUp (int x, int y)
 	complete;	
 }
 
+refreshVisSettings ()
+{
+	currentMode = getPrivateInt(getSkinName(), "Visualizer Mode", 1);
+	show_peaks = getPrivateInt(getSkinName(), "Visualizer show Peaks", 1);
+	compatibility = getPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", 1);
+	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
+	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer Peaks falloff", 2);
+	osc_render = getPrivateInt(getSkinName(), "Oscilloscope Settings", 2);
+	ana_render = getPrivateInt(getSkinName(), "Spectrum Analyzer Settings", 2);
+	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
+	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
+
+	MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
+	MainVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+	MainVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+	MainVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
+	MainVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
+
+	MainShadeVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
+	MainShadeVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+	MainShadeVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+	MainShadeVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
+	MainShadeVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
+
+	PLVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
+	PLVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+	PLVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+	PLVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
+	PLVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
+
+	if (a_coloring == 0)
+	{
+		MainVisualizer.setXmlParam("coloring", "Normal");
+		MainShadeVisualizer.setXmlParam("coloring", "Normal");
+		PLVisualizer.setXmlParam("coloring", "Normal");
+	}
+	else if (a_coloring == 1)
+	{
+		MainVisualizer.setXmlParam("coloring", "Normal");
+		MainShadeVisualizer.setXmlParam("coloring", "Normal");
+		PLVisualizer.setXmlParam("coloring", "Normal");
+	}
+	else if (a_coloring == 2)
+	{
+		MainVisualizer.setXmlParam("coloring", "Fire");
+		MainShadeVisualizer.setXmlParam("coloring", "Fire");
+		PLVisualizer.setXmlParam("coloring", "Fire");
+	}
+	else if (a_coloring == 3)
+	{
+		MainVisualizer.setXmlParam("coloring", "Line");
+		MainShadeVisualizer.setXmlParam("coloring", "Line");
+		PLVisualizer.setXmlParam("coloring", "Line");
+	}
+
+	if (osc_render == 0)
+		{
+			MainVisualizer.setXmlParam("oscstyle", "Dots");
+			MainShadeVisualizer.setXmlParam("oscstyle", "Dots");
+			PLVisualizer.setXmlParam("oscstyle", "Dots");
+		}
+		else if (osc_render == 1)
+		{
+			MainVisualizer.setXmlParam("oscstyle", "Dots");
+			MainShadeVisualizer.setXmlParam("oscstyle", "Dots");
+			PLVisualizer.setXmlParam("oscstyle", "Dots");
+		}
+		else if (osc_render == 2)
+		{
+			MainVisualizer.setXmlParam("oscstyle", "Solid");
+			MainShadeVisualizer.setXmlParam("oscstyle", "Solid");
+			PLVisualizer.setXmlParam("oscstyle", "Solid");
+		}
+		else if (osc_render == 3)
+		{
+			MainVisualizer.setXmlParam("oscstyle", "Lines");
+			MainShadeVisualizer.setXmlParam("oscstyle", "Lines");
+			PLVisualizer.setXmlParam("oscstyle", "Lines");
+		}
+	setPrivateInt(getSkinName(), "Oscilloscope Settings", osc_render);
+    
+	if (ana_render == 0)
+		{
+			MainVisualizer.setXmlParam("bandwidth", "Thin");
+			MainShadeVisualizer.setXmlParam("bandwidth", "Thin");
+			PLVisualizer.setXmlParam("bandwidth", "Thin");
+		}
+		else if (ana_render == 1)
+		{
+			MainVisualizer.setXmlParam("bandwidth", "Thin");
+			MainShadeVisualizer.setXmlParam("bandwidth", "Thin");
+			PLVisualizer.setXmlParam("bandwidth", "Thin");
+		}
+		else if (ana_render == 2)
+		{
+			MainVisualizer.setXmlParam("bandwidth", "wide");
+			MainShadeVisualizer.setXmlParam("bandwidth", "wide");
+			PLVisualizer.setXmlParam("bandwidth", "wide");
+		}
+	setPrivateInt(getSkinName(), "Spectrum Analyzer Settings", ana_render);
+	if (v_fps == 0)
+		{
+			MainVisualizer.setXmlParam("fps", "9");
+			MainShadeVisualizer.setXmlParam("fps", "9");
+			PLVisualizer.setXmlParam("fps", "9");
+		}
+		else if (v_fps == 1)
+		{
+			MainVisualizer.setXmlParam("fps", "9");
+			MainShadeVisualizer.setXmlParam("fps", "9");
+			PLVisualizer.setXmlParam("fps", "9");
+		}
+		else if (v_fps == 2)
+		{
+			MainVisualizer.setXmlParam("fps", "18");
+			MainShadeVisualizer.setXmlParam("fps", "18");
+			PLVisualizer.setXmlParam("fps", "18");
+		}
+		else if (v_fps == 3)
+		{
+			MainVisualizer.setXmlParam("fps", "35");
+			MainShadeVisualizer.setXmlParam("fps", "35");
+			PLVisualizer.setXmlParam("fps", "35");
+		}
+		else if (v_fps == 4)
+		{
+			MainVisualizer.setXmlParam("fps", "70");
+			MainShadeVisualizer.setXmlParam("fps", "70");
+			PLVisualizer.setXmlParam("fps", "70");
+		}
+
+	setVis (currentMode);
+	LegacyOptions(compatibility);
+}
+
+System.onStop(){
+	LegacyOptions(compatibility);
+}
+
+System.onPlay(){
+	LegacyOptions(compatibility);
+}
+
+System.onResume(){
+	LegacyOptions(compatibility);
+}
+
+MainTrigger.onLeftButtonDown (int x, int y)
+{
+	setVisModeLBD();
+}
+
+MainShadeTrigger.onLeftButtonDown (int x, int y)
+{
+	setVisModeLBD();
+}
+
+PLTrigger.onLeftButtonDown (int x, int y)
+{
+	setVisModeLBD();
+}
+
+MainTrigger.onRightButtonUp (int x, int y)
+{
+	setVisModeRBD();
+}
+
+MainShadeTrigger.onRightButtonUp (int x, int y)
+{
+	setVisModeRBD();
+}
+
+PLTrigger.onRightButtonUp (int x, int y)
+{
+	setVisModeRBD();
+}
+
 ProcessMenuResult (int a)
 {
 	if (a < 1) return;
@@ -307,7 +379,9 @@ ProcessMenuResult (int a)
 	else if (a == 101)
 	{
 		show_peaks = (show_peaks - 1) * (-1);
-		visualizer.setXmlParam("Peaks", integerToString(show_peaks));
+		MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
+		MainShadeVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
+		PLVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 		setPrivateInt(getSkinName(), "Visualizer show Peaks", show_peaks);
 	}
 
@@ -321,14 +395,18 @@ ProcessMenuResult (int a)
 	else if (a >= 200 && a <= 204)
 	{
 		p_falloffspeed = a - 200;
-		visualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+		MainVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+		MainShadeVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
+		PLVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
 		setPrivateInt(getSkinName(), "Visualizer Peaks falloff", p_falloffspeed);
 	}
 
 	else if (a >= 300 && a <= 304)
 	{
 		a_falloffspeed = a - 300;
-		visualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+		MainVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+		MainShadeVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
+		PLVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
 		setPrivateInt(getSkinName(), "Visualizer analyzer falloff", a_falloffspeed);
 	}
 
@@ -337,19 +415,27 @@ else if (a >= 400 && a <= 403)
 		a_coloring = a - 400;
 		if (a_coloring == 0)
 		{
-			visualizer.setXmlParam("coloring", "Normal");
+			MainVisualizer.setXmlParam("coloring", "Normal");
+			MainShadeVisualizer.setXmlParam("coloring", "Normal");
+			PLVisualizer.setXmlParam("coloring", "Normal");
 		}
 		else if (a_coloring == 1)
 		{
-			visualizer.setXmlParam("coloring", "Normal");
+			MainVisualizer.setXmlParam("coloring", "Normal");
+			MainShadeVisualizer.setXmlParam("coloring", "Normal");
+			PLVisualizer.setXmlParam("coloring", "Normal");
 		}
 		else if (a_coloring == 2)
 		{
-			visualizer.setXmlParam("coloring", "Fire");
+			MainVisualizer.setXmlParam("coloring", "Fire");
+			MainShadeVisualizer.setXmlParam("coloring", "Fire");
+			PLVisualizer.setXmlParam("coloring", "Fire");
 		}
 		else if (a_coloring == 3)
 		{
-			visualizer.setXmlParam("coloring", "Line");
+			MainVisualizer.setXmlParam("coloring", "Line");
+			MainShadeVisualizer.setXmlParam("coloring", "Line");
+			PLVisualizer.setXmlParam("coloring", "Line");
 		}
 		setPrivateInt(getSkinName(), "Visualizer analyzer coloring", a_coloring);
 	}
@@ -372,39 +458,53 @@ else if (a >= 400 && a <= 403)
 		osc_render = a - 600;
 		if (osc_render == 0)
 		{
-			visualizer.setXmlParam("oscstyle", "lines");
-		}
-		else if (osc_render == 2)
-		{
-			visualizer.setXmlParam("oscstyle", "lines");
+			MainVisualizer.setXmlParam("oscstyle", "Dots");
+			MainShadeVisualizer.setXmlParam("oscstyle", "Dots");
+			PLVisualizer.setXmlParam("oscstyle", "Dots");
 		}
 		else if (osc_render == 1)
 		{
-			visualizer.setXmlParam("oscstyle", "solid");
+			MainVisualizer.setXmlParam("oscstyle", "Dots");
+			MainShadeVisualizer.setXmlParam("oscstyle", "Dots");
+			PLVisualizer.setXmlParam("oscstyle", "Dots");
+		}
+		else if (osc_render == 2)
+		{
+			MainVisualizer.setXmlParam("oscstyle", "Solid");
+			MainShadeVisualizer.setXmlParam("oscstyle", "Solid");
+			PLVisualizer.setXmlParam("oscstyle", "Solid");
 		}
 		else if (osc_render == 3)
 		{
-			visualizer.setXmlParam("oscstyle", "dots");
+			MainVisualizer.setXmlParam("oscstyle", "Lines");
+			MainShadeVisualizer.setXmlParam("oscstyle", "Lines");
+			PLVisualizer.setXmlParam("oscstyle", "Lines");
 		}
-		setPrivateInt(getSkinName(), "Oscilloscope Settings", osc_render);
+	setPrivateInt(getSkinName(), "Oscilloscope Settings", osc_render);
 	}
 
-	else if (a >= 700 && a <= 702)
+    else if (a >= 700 && a <= 702)
 	{
 		ana_render = a - 700;
 		if (ana_render == 0)
 		{
-			visualizer.setXmlParam("bandwidth", "thin");
+			MainVisualizer.setXmlParam("bandwidth", "Thin");
+			MainShadeVisualizer.setXmlParam("bandwidth", "Thin");
+			PLVisualizer.setXmlParam("bandwidth", "Thin");
 		}
 		else if (ana_render == 1)
 		{
-			visualizer.setXmlParam("bandwidth", "thin");
+			MainVisualizer.setXmlParam("bandwidth", "Thin");
+			MainShadeVisualizer.setXmlParam("bandwidth", "Thin");
+			PLVisualizer.setXmlParam("bandwidth", "Thin");
 		}
 		else if (ana_render == 2)
 		{
-			visualizer.setXmlParam("bandwidth", "wide");
+			MainVisualizer.setXmlParam("bandwidth", "wide");
+			MainShadeVisualizer.setXmlParam("bandwidth", "wide");
+			PLVisualizer.setXmlParam("bandwidth", "wide");
 		}
-		setPrivateInt(getSkinName(), "Spectrum Analyzer Settings", ana_render);
+	setPrivateInt(getSkinName(), "Spectrum Analyzer Settings", ana_render);
 	}
 
 	else if (a >= 800 && a <= 804)
@@ -412,23 +512,33 @@ else if (a >= 400 && a <= 403)
 		v_fps = a - 800;
 		if (v_fps == 0)
 		{
-			visualizer.setXmlParam("fps", "9");
+			MainVisualizer.setXmlParam("fps", "9");
+			MainShadeVisualizer.setXmlParam("fps", "9");
+			PLVisualizer.setXmlParam("fps", "9");
 		}
 		else if (v_fps == 1)
 		{
-			visualizer.setXmlParam("fps", "9");
+			MainVisualizer.setXmlParam("fps", "9");
+			MainShadeVisualizer.setXmlParam("fps", "9");
+			PLVisualizer.setXmlParam("fps", "9");
 		}
 		else if (v_fps == 2)
 		{
-			visualizer.setXmlParam("fps", "18");
+			MainVisualizer.setXmlParam("fps", "18");
+			MainShadeVisualizer.setXmlParam("fps", "18");
+			PLVisualizer.setXmlParam("fps", "18");
 		}
 		else if (v_fps == 3)
 		{
-			visualizer.setXmlParam("fps", "35");
+			MainVisualizer.setXmlParam("fps", "35");
+			MainShadeVisualizer.setXmlParam("fps", "35");
+			PLVisualizer.setXmlParam("fps", "35");
 		}
 		else if (v_fps == 4)
 		{
-			visualizer.setXmlParam("fps", "70");
+			MainVisualizer.setXmlParam("fps", "70");
+			MainShadeVisualizer.setXmlParam("fps", "70");
+			PLVisualizer.setXmlParam("fps", "70");
 		}
 		setPrivateInt(getSkinName(), "Visualizer Refresh rate", v_fps);
 	}
@@ -439,15 +549,21 @@ setVis (int mode)
 	setPrivateInt(getSkinName(), "Visualizer Mode", mode);
 	if (mode == 0)
 	{
-		visualizer.setMode(0);
+		MainVisualizer.setMode(0);
+		MainShadeVisualizer.setMode(0);
+		PLVisualizer.setMode(0);
 	}
 	else if (mode == 1)
 	{
-		visualizer.setMode(1);
+		MainVisualizer.setMode(1);
+		MainShadeVisualizer.setMode(1);
+		PLVisualizer.setMode(1);
 	}
 	else if (mode == 2)
 	{
-		visualizer.setMode(2);
+		MainVisualizer.setMode(2);
+		MainShadeVisualizer.setMode(2);
+		PLVisualizer.setMode(2);
 	}
 	currentMode = mode;
 }
@@ -456,29 +572,54 @@ LegacyOptions(int legacy){
 	//messageBox(integertoString(legacy), "", 1, "");
 	if(legacy == 1){
 		if(getStatus() == -1){
-			visualizer.setXmlParam("visible", "1");
+			MainVisualizer.setXmlParam("visible", "1");
+			MainShadeVisualizer.setXmlParam("visible", "1");
+			PLVisualizer.setXmlParam("visible", "1");
 			visbg.setXmlParam("visible", "1");
+			visbgshade.setXmlParam("visible", "1");
 		}else if(getStatus() == 0){
-			visualizer.setXmlParam("visible", "0");
+			MainVisualizer.setXmlParam("visible", "0");
+			MainShadeVisualizer.setXmlParam("visible", "0");
+			PLVisualizer.setXmlParam("visible", "0");
 			visbg.setXmlParam("visible", "0");
+			visbgshade.setXmlParam("visible", "0");
 		}else if(getStatus() == 1){
-			visualizer.setXmlParam("visible", "1");
+			MainVisualizer.setXmlParam("visible", "1");
+			MainShadeVisualizer.setXmlParam("visible", "1");
+			PLVisualizer.setXmlParam("visible", "1");
 			visbg.setXmlParam("visible", "1");
+			visbgshade.setXmlParam("visible", "1");
+		}
+		if(WinampMainWindow.getScale() != 2){
+		MainVisualizer.setXmlParam("y", "2");
+		PLVisualizer.setXmlParam("y", "2");
+		}else{
+		MainVisualizer.setXmlParam("y", "0");
+		PLVisualizer.setXmlParam("y", "0");
 		}
 	}else{
-		visualizer.setXmlParam("visible", "1");
+		MainVisualizer.setXmlParam("visible", "1");
+		MainShadeVisualizer.setXmlParam("visible", "1");
+		PLVisualizer.setXmlParam("visible", "1");
+		MainVisualizer.setXmlParam("y", "0");
+		PLVisualizer.setXmlParam("y", "0");
 		visbg.setXmlParam("visible", "1");
+		visbgshade.setXmlParam("visible", "1");
 	}
 }
 
-// Sync Normal and Shade Layout
-
-main.onBeforeSwitchToLayout(Layout oldlayout, Layout newlayout)
-{
-	if (newlayout != thislayout)
-	{
-		return;
+WinampMainWindow.onScale(Double newscalevalue){
+	LegacyOptions(compatibility);
+	if(legacy == 1){
+		if(newscalevalue != 2){
+			MainVisualizer.setXmlParam("y", "2");
+			PLVisualizer.setXmlParam("y", "2");
+		}else{
+			MainVisualizer.setXmlParam("y", "0");
+			PLVisualizer.setXmlParam("y", "0");
+		}
+	}else{
+		MainVisualizer.setXmlParam("y", "0");
+		PLVisualizer.setXmlParam("y", "0");
 	}
-	
-	refreshVisSettings();
 }
