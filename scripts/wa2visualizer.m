@@ -192,7 +192,7 @@ refreshVisSettings ()
 	compatibility = getPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", 1);
 	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
 	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer Peaks falloff", 2);
-	osc_render = getPrivateInt(getSkinName(), "Oscilloscope Settings", 1);
+	osc_render = getPrivateInt(getSkinName(), "Oscilloscope Settings", 2);
 	ana_render = getPrivateInt(getSkinName(), "Spectrum Analyzer Settings", 2);
 	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
 	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
