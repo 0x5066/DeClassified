@@ -47,8 +47,12 @@ Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, 
 Global Boolean show_peaks, isShade, compatibility;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
+Global Layout WinampMainWindow;
+
 System.onScriptLoaded()
-{ 
+{
+	WinampMainWindow = getContainer("Main").getLayout("Normal");
+
 	MainWindow = getContainer("Main").getLayout("Normal");
 	Clutterbar = MainWindow.findObject("mainwindow");
 	CLBV1 = Clutterbar.getObject("CLB.V1");
@@ -576,12 +580,33 @@ LegacyOptions(int legacy){
 			MainShadeVisualizer.setXmlParam("visible", "1");
 			PLVisualizer.setXmlParam("visible", "1");
 		}
+		if(WinampMainWindow.getScale() != 2){
 		MainVisualizer.setXmlParam("y", "2");
 		PLVisualizer.setXmlParam("y", "2");
+		}else{
+		MainVisualizer.setXmlParam("y", "0");
+		PLVisualizer.setXmlParam("y", "0");
+		}
 	}else{
 		MainVisualizer.setXmlParam("visible", "1");
 		MainShadeVisualizer.setXmlParam("visible", "1");
 		PLVisualizer.setXmlParam("visible", "1");
+		MainVisualizer.setXmlParam("y", "0");
+		PLVisualizer.setXmlParam("y", "0");
+	}
+}
+
+WinampMainWindow.onScale(Double newscalevalue){
+	LegacyOptions(compatibility);
+	if(legacy == 1){
+		if(newscalevalue != 2){
+			MainVisualizer.setXmlParam("y", "2");
+			PLVisualizer.setXmlParam("y", "2");
+		}else{
+			MainVisualizer.setXmlParam("y", "0");
+			PLVisualizer.setXmlParam("y", "0");
+		}
+	}else{
 		MainVisualizer.setXmlParam("y", "0");
 		PLVisualizer.setXmlParam("y", "0");
 	}
