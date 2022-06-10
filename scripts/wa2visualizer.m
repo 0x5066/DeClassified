@@ -567,6 +567,7 @@ setVis (int mode)
 LegacyOptions(int legacy){
 	//messageBox(integertoString(legacy), "", 1, "");
 	if(legacy == 1){
+		WinampMainWindow.onSetVisible(WinampMainWindow.isVisible());
 		if(getStatus() == -1){
 			MainVisualizer.setXmlParam("visible", "1");
 			MainShadeVisualizer.setXmlParam("visible", "1");
@@ -593,6 +594,7 @@ LegacyOptions(int legacy){
 		PLVisualizer.setXmlParam("visible", "1");
 		MainVisualizer.setXmlParam("y", "0");
 		PLVisualizer.setXmlParam("y", "0");
+		WinampMainWindow.onSetVisible(0);
 	}
 }
 
@@ -616,6 +618,9 @@ WinampMainWindow.onSetVisible(Boolean onoff){
 	if(onoff == 1){
 		PLVisualizer.setXmlParam("alpha", "0");
 	}else{
+		PLVisualizer.setXmlParam("alpha", "255");
+	}
+	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");
 	}
 }
