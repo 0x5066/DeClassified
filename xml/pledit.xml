@@ -6,9 +6,9 @@
 		<layer id="wa2.pl1" image="wa2.pl.1" x="0" y="0" inactiveimage="wa2.pl.1.disabled" regionop="1" cursor="cur.normal"/>
 		<layer id="wa2.pl2" image="wa2.pl.2" x="25" y="0" w="-50" relatw="1" inactiveimage="wa2.pl.2.disabled" regionop="1" cursor="cur.normal"/>
 		<layer id="wa2.pl3" image="wa2.pl.3" x="-25" y="0" relatx="1" inactiveimage="wa2.pl.3.disabled" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl4" image="wa2.pl.4" x="0" y="20" h="-58" relath="1" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl4" image="wa2.pl.4" tile="1" x="0" y="20" h="-58" relath="1" regionop="1" cursor="cur.normal"/>
 		<layer id="wa2.pl5" image="wa2.pl.5" x="25" y="20" w="-50" h="-58" relatw="1" relath="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl6" image="wa2.pl.6" x="-25" y="20" h="-58" relatx="1" relath="1" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl6" image="wa2.pl.6" tile="1" x="-25" y="20" h="-58" relatx="1" relath="1" regionop="1" cursor="cur.normal"/>
 		<layer id="wa2.pl7" image="wa2.pl.7" x="0" y="-38" relaty="1" regionop="1" cursor="cur.normal"/>
 		<layer id="wa2.pl8" image="wa2.pl.8" x="125" y="-38" w="-275" relaty="1" relatw="1" regionop="1" cursor="cur.normal"/>
 		<layer id="wa2.pl9" image="wa2.pl.9" x="-150" y="-38" relatx="1" relaty="1" regionop="1" cursor="cur.normal"/>
