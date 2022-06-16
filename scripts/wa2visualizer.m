@@ -27,6 +27,8 @@ Function LegacyOptions(int legacy);
 Function setVisModeLBD();
 Function setVisModeRBD();
 
+Global GuiObject PlayIndicator;
+
 Global Group MainWindow, MainClassicVis, Clutterbar;
 Global Group MainShadeWindow, PLVis;
 Global Group PLWindow;
@@ -44,7 +46,7 @@ Global PopUpMenu stylemenu;
 Global PopUpMenu fpsmenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps;
-Global Boolean show_peaks, isShade, compatibility;
+Global Boolean show_peaks, isShade, compatibility, playLED;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
 Global Layout WinampMainWindow;
@@ -54,6 +56,7 @@ System.onScriptLoaded()
 	WinampMainWindow = getContainer("Main").getLayout("Normal");
 
 	MainWindow = getContainer("Main").getLayout("Normal");
+	PlayIndicator = MainWindow.findObject("playbackstatus");
 	Clutterbar = MainWindow.findObject("mainwindow");
 	CLBV1 = Clutterbar.getObject("CLB.V1");
 	CLBV2 = Clutterbar.getObject("CLB.V2");
@@ -119,7 +122,8 @@ setVisModeRBD(){
 	visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
 	
 	visMenu.addSeparator();
-	visMenu.addCommand("Modern Visualizer Settings", 998, 0, 1);
+	visMenu.addCommand("Main Window Settings", 998, 0, 1);
+	visMenu.addCommand("Playback Indicator", 103, playLED == 1, 0);
 	visMenu.addCommand("Classic Skin Compatibility", 102, compatibility == 1, 0);
 	visMenu.addSeparator();
 	visMenu.addSubmenu(fpsmenu, "Refresh rate");
@@ -196,6 +200,9 @@ refreshVisSettings ()
 	ana_render = getPrivateInt(getSkinName(), "Spectrum Analyzer Settings", 2);
 	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
 	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
+	playLED = getPrivateInt(getSkinName(), "DeClassified Play LED", 1);
+
+	PlayIndicator.setXmlParam("visible", integerToString(playLED));
 
 	MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	MainVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
@@ -387,6 +394,13 @@ ProcessMenuResult (int a)
 		LegacyOptions(compatibility);
 		setPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", compatibility);
 	}
+
+	else if (a == 103)
+		{
+			playLED = (playLED - 1) * (-1);
+			PlayIndicator.setXmlParam("visible", integerToString(playLED));
+			setPrivateInt(getSkinName(), "DeClassified Play LED", playLED);
+		}
 
 	else if (a >= 200 && a <= 204)
 	{
