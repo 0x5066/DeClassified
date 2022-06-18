@@ -5,8 +5,8 @@
         <layer id="minibrowser.center" x="-100" y="0" image="mb.top.center.active" inactiveimage="mb.top.center.inactive" cursor="cur.move"/>
         <script file="scripts/_wa2-easylayout.maki" param="minibrowser.center;0;0;1;0;0;0"/>
 		<layer id="minibrowser.topright" image="mb.topright.active" x="-25" y="0" relatx="1" inactiveimage="mb.topright.inactive" regionop="1" cursor="cur.move"/>
-		<layer id="minibrowser.left" image="mb.left" x="0" y="20" h="-58" relath="1" regionop="1" cursor="cur.normal"/>
-		<layer id="minibrowser.right" image="mb.right" x="-8" y="20" h="-58" relatx="1" relath="1" regionop="1" cursor="cur.normal"/>
+		<layer id="minibrowser.left" tile="1" image="mb.left" x="0" y="20" h="-58" relath="1" regionop="1" cursor="cur.normal"/>
+		<layer id="minibrowser.right" tile="1" image="mb.right" x="-8" y="20" h="-58" relatx="1" relath="1" regionop="1" cursor="cur.normal"/>
 		<layer id="minibrowser.bottomleft" image="mb.bottomleft" x="0" y="-38" relaty="1" regionop="1" cursor="cur.normal"/>
 		<layer id="minibrowser.bottom.stretchybit" image="mb.bottom.stretchybit" x="125" y="-38" w="-250" relaty="1" relatw="1" regionop="1" cursor="cur.normal"/>
 		<layer id="minibrowser.bottomright" image="mb.bottomright" x="-125" y="-38" relatx="1" relaty="1" regionop="1" cursor="cur.normal"/>
