@@ -52,17 +52,22 @@
 	<bitmap id="rep" file="skin/shufrep.bmp" x="0" y="0" w="28" h="15"/>
 	<bitmap id="repp" file="skin/shufrep.bmp" x="0" y="15" w="28" h="15"/>
 	<bitmap id="repa" file="skin/shufrep.bmp" x="0" y="30" w="28" h="15"/>
+	<bitmap id="reppa" 	file="skin/shufrep.bmp" x="0" y="45" w="28" h="15"/>
 
 	<bitmap id="shuf" file="skin/shufrep.bmp" x="28" y="0" h="15" w="47"/>
 	<bitmap id="shufp" file="skin/shufrep.bmp" x="28" y="15" h="15" w="47"/>
 	<bitmap id="shufa" file="skin/shufrep.bmp" x="28" y="30" h="15" w="47"/>
+	<bitmap id="shufpa" file="skin/shufrep.bmp" x="28" y="45" h="15" w="47"/>
 
 	<bitmap id="player.toggler.eq.disabled" file="skin/shufrep.bmp" x="0" y="61" h="12" w="23"/>
-	<bitmap id="player.toggler.eq.pressed" file="skin/shufrep.bmp" x="46" y="73" h="12" w="23"/>
+	<bitmap id="player.toggler.eq.pressed" file="skin/shufrep.bmp" x="46" y="61" h="12" w="23"/>
 	<bitmap id="player.toggler.eq.enabled" file="skin/shufrep.bmp" x="0" y="73" h="12" w="23"/>
+	<bitmap id="player.toggler.eq.pressed.enabled" file="skin/shufrep.bmp" x="46" y="73" h="12" w="23"/>
+
 	<bitmap id="player.toggler.pl.disabled" file="skin/shufrep.bmp" x="23" y="61" h="12" w="23"/>
-	<bitmap id="player.toggler.pl.pressed" file="skin/shufrep.bmp" x="69" y="73" h="12" w="23"/>
+	<bitmap id="player.toggler.pl.pressed" file="skin/shufrep.bmp" x="69" y="61" h="12" w="23"/>
 	<bitmap id="player.toggler.pl.enabled" file="skin/shufrep.bmp" x="23" y="73" h="12" w="23"/>
+	<bitmap id="player.toggler.pl.pressed.enabled" file="skin/shufrep.bmp" x="69" y="73" h="12" w="23"/>
 
 	<bitmap id="player.status.mono.active" file="skin/monoster.bmp" x="29" y="0" h="12" w="27"/>
 	<bitmap id="player.status.mono.inactive" file="skin/monoster.bmp" x="29" y="12" h="12" w="27"/>

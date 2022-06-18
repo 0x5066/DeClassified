@@ -8,8 +8,8 @@
 
 Global Group frameGroup, frameGroupEQ, frameGroupEQShade, MainWindow;
 Global Togglebutton ShuffleBtn, RepeatBtn, CLBA;
-Global Button CLBI, CLBD;
-Global Button CLBV, CLBV1, CLBV2, CLBV3;
+Global Button CLBI, CLBD,CLBV, CLBV1, CLBV2, CLBV3;
+Global Button PLbtn, EQbtn;
 Global Timer SongTickerTimer;
 Global Text InfoTicker;
 Global GuiObject CLBO, SongTicker;
@@ -53,6 +53,8 @@ System.onScriptLoaded(){
 
 	RepeatBtn = frameGroup.findObject("Repeat");
 	ShuffleBtn = frameGroup.findObject("Shuffle");
+	PLbtn = frameGroup.findObject("pl");
+	EQbtn = frameGroup.findObject("eq");
 	CLBO = frameGroup.findObject("CLB.O");
     CLBA = frameGroup.findObject("CLB.A");
 	CLBI = frameGroup.findObject("CLB.I");
@@ -143,14 +145,44 @@ RepeatBtn.onToggle(boolean on) {
 	int v = getCurCfgVal();
 	SongTicker.hide();
 	InfoTicker.show();
-    if (on) InfoTicker.setText("Repeat: ON"); else InfoTicker.setText("Repeat: OFF");
+    if (on){
+		InfoTicker.setText("Repeat: ON");
+		RepeatBtn.setXmlParam("downImage", "reppa");
+		}
+	else{
+		InfoTicker.setText("Repeat: OFF");
+		RepeatBtn.setXmlParam("downImage", "repp");
+	}
 }
 
 ShuffleBtn.onToggle(boolean on) {
 	SongTickerTimer.start();
 	SongTicker.hide();
 	InfoTicker.show();
-	if (on) InfoTicker.setText("Shuffle: ON"); else InfoTicker.setText("Shuffle: OFF");
+	if (on){
+		InfoTicker.setText("Shuffle: ON");
+		ShuffleBtn.setXmlParam("downImage", "shufpa");
+		}
+	else{
+		InfoTicker.setText("Shuffle: OFF");
+		ShuffleBtn.setXmlParam("downImage", "shufp");
+	}
+}
+
+PLbtn.onLeftButtonDown(int x, int y) {
+	if(normalPL.isVisible() != 1){
+		PLbtn.setXmlParam("downimage", "player.toggler.pl.pressed");
+	}else{
+		PLbtn.setXmlParam("downimage", "player.toggler.pl.pressed.enabled");
+	}
+}
+
+EQbtn.onLeftButtonDown(int x, int y) {
+	if(normalEQ.isVisible() != 1){
+		EQbtn.setXmlParam("downimage", "player.toggler.eq.pressed");
+	}else{
+		EQbtn.setXmlParam("downimage", "player.toggler.eq.pressed.enabled");
+	}
 }
 
 CLBO.onLeftButtonDown(int x, int y){
