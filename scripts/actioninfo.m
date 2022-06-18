@@ -8,7 +8,7 @@
 
 Global Group frameGroup, frameGroupEQ, frameGroupEQShade, MainWindow;
 Global Togglebutton ShuffleBtn, RepeatBtn, CLBA;
-Global Button CLBI, CLBD,CLBV, CLBV1, CLBV2, CLBV3;
+Global Button CLBI, CLBD,CLBV, CLBV1, CLBV2, CLBV3, EQONbtn, EQAUTObtn;
 Global Button PLbtn, EQbtn;
 Global Timer SongTickerTimer;
 Global Text InfoTicker;
@@ -41,6 +41,9 @@ System.onScriptLoaded(){
     BalanceEQ = frameGroupEQShade.findObject("Balance");
 
     frameGroupEQ = getContainer("eq").getLayout("eq");
+
+	EQONbtn = frameGroupEQ.findObject("eq.on");
+	EQAUTObtn = frameGroupEQ.findObject("eq.auto");
 
 	normal = getContainer("main").getlayout("normal");
     shadeeq = getContainer("eq").getlayout("shadeeq");
@@ -182,6 +185,24 @@ EQbtn.onLeftButtonDown(int x, int y) {
 		EQbtn.setXmlParam("downimage", "player.toggler.eq.pressed");
 	}else{
 		EQbtn.setXmlParam("downimage", "player.toggler.eq.pressed.enabled");
+	}
+}
+
+EQONbtn.onActivate(boolean on){
+	if (on){
+		EQONbtn.setXmlParam("downImage", "eq.onp");
+		}
+	else{
+		EQONbtn.setXmlParam("downImage", "eq.offp");
+	}
+}
+
+EQAUTObtn.onActivate(boolean on){
+	if (on){
+		EQAUTObtn.setXmlParam("downImage", "eq.autoonp");
+		}
+	else{
+		EQAUTObtn.setXmlParam("downImage", "eq.autop");
 	}
 }
 

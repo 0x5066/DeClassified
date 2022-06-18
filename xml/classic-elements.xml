@@ -264,10 +264,12 @@
 	<bitmap id="eq.off" file="skin/eqmain.bmp"  x="10" y="119" w="25" h="12"/>
 	<bitmap id="eq.offp" file="skin/eqmain.bmp" x="128" y="119" w="25" h="12"/>
 	<bitmap id="eq.on" file="skin/eqmain.bmp"  x="69" y="119" w="25" h="12"/>
+	<bitmap id="eq.onp" file="skin/eqmain.bmp"  x="187" y="119" w="25" h="12"/>
 
 	<bitmap id="eq.auto" file="skin/eqmain.bmp"   x="35" y="119" w="33" h="12"/>
 	<bitmap id="eq.autop" file="skin/eqmain.bmp"  x="153" y="119" w="33" h="12"/>
 	<bitmap id="eq.autoon" file="skin/eqmain.bmp" x="94" y="119" w="33" h="12"/>
+	<bitmap id="eq.autoonp" file="skin/eqmain.bmp" x="212" y="119" w="33" h="12"/>
 
 	<bitmap id="eq.slider0" file="skin/eqmain.bmp" x="13" y="229" h="63" w="14"/>
 	<bitmap id="eq.slider1" file="skin/eqmain.bmp" x="13" y="229" h="63" w="14"/>

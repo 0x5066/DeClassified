@@ -10,8 +10,8 @@
         <button id="eq.switch" x="254" y="3" action="SWITCH" param="shadeeq" image="eq.switch" downimage="eq.switchp" activealpha="255" inactivealpha="0" cursor="cur.normal"/>
         <button id="eq.close" x="264" y="3" action="CLOSE" image="eq.close" downimage="eq.closep" activealpha="255" inactivealpha="0" cursor="cur.close"/>
 
-        <Button id="eq.on" action="EQ_TOGGLE" x="14" y="18" image="eq.off" downimage="eq.offp" activeImage="eq.on" cursor="cur.normal"/>
-        <Button id="eq.auto" visible="1" action="EQ_AUTO" x="39" y="18" image="eq.auto" downimage="eq.autop" activeImage="eq.autoon" cursor="cur.normal"/>
+        <ToggleButton id="eq.on" action="EQ_TOGGLE" x="14" y="18" image="eq.off" downimage="eq.offp" activeImage="eq.on" cursor="cur.normal" rectrgn="1" ghost="0"/>
+        <ToggleButton id="eq.auto" visible="1" action="EQ_AUTO" x="39" y="18" image="eq.auto" downimage="eq.autop" activeImage="eq.autoon" cursor="cur.normal" rectrgn="1" ghost="0"/>
 
         <togglebutton id="eq.presets" x="217" y="18" image="eq.presets" downimage="eq.presetsp" action="MENU" param="PRESETS" cursor="cur.normal"/>
 
