@@ -178,7 +178,30 @@
 
     <button id="Eject" action="EJECT" x="216" y="3" w="9" h="9" tooltip="Eject" rectrgn="1" cursor="cur.normal"/>
 
-    <vis id="wa.vis" x="79" y="5" w="38" h="5" fps="60"/>
+    <vis id="wa.vis" x="79" y="5" w="38" h="5" fps="60"
+	ColorBand1="24,132,8"
+    ColorBand2="41,148,0"
+    ColorBand3="49,156,8"
+    ColorBand4="57,181,16"
+    ColorBand5="50,190,16"
+    ColorBand6="41,206,16"
+    ColorBand7="148,222,33"
+    ColorBand8="189,222,41"
+    ColorBand9="214,181,33"
+    ColorBand10="222,165,24"
+    ColorBand11="198,123,8"
+    ColorBand12="214,115,0"
+    ColorBand13="214,102,0"
+    ColorBand14="214,90,0"
+    ColorBand15="206,41,16"
+    ColorBand16="239,49,16"
+	colorbandpeak="150,150,150"
+
+    colorosc1="255,255,255"
+    colorosc2="214,214,222"
+    colorosc3="181,189,189"
+    colorosc4="160,170,175"
+    colorosc5="148,156,165"/>
 	<layer id="main.vis.trigger" x="79" y="5" w="38" h="5" cursor="cur.normal"/>
 
     <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="wa2.player.title.shademode" downImage="wa2.player.title.shademode.pressed" cursor="cur.normal"/>
