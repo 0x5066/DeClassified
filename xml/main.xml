@@ -118,6 +118,8 @@
 
 	<script file="scripts/monoster.maki"/>
 
+	<group id="infoline_drawer" x="107" y="36"/>
+
 	<group id="sliders" x="107" y="57" h="13"/>
 
 	<togglebutton id="AboutWinamp" x="251" y="91" w="14" h="16" rectrgn="1" action="TOGGLE" param="guid:{D6201408-476A-4308-BF1B-7BACA1124B12}" cursor="cur.normal"/>
@@ -132,6 +134,19 @@
 	<images id="balance.anim" source="balance" x="70" w="38" h="15" images="balance" imagesspacing="15" ghost="1" cursor="cur.horizslider"/>
 	<Slider id="balance" action="PAN" orientation="horizontal" x="70" y="-1" w="38" h="15" thumb="panbtn" downThumb="panbtnd" cursor="cur.horizslider"/>
 	<!-- <script file="scripts/balance.maki"/> -->
+</groupdef>
+
+<groupdef id="infoline_drawer">
+
+	<layer id="infoline.stuff" y="-16" image="infoline.dropdown" ghost="1"/>
+	<text id="infoline.text" x="2" y="-16" w="156" h="14" offsety="6" valign="top" font="wasabi.font.default" display="songinfo"/>
+
+	<layer id="infoline.trigger" w="160" h="16" rectrgn="1"/>
+
+	<group id="infoline.vu" y="-16"/>
+
+	<script file="scripts/infolinedrawer.maki"/>
+
 </groupdef>
 
 <groupdef id="waclassicvis">
@@ -210,6 +225,16 @@
     <button id="sysbutton" inactivealpha="0" action="SYSMENU" x="6" y="3" image="wa2.player.shade.menu" downImage="wa2.player.shade.menu.pressed" cursor="cur.mainmenu"/>
     <slider id="seeker" action="seek" x="227" y="4" h="7" w="15" thumb="posbarsm" cursor="cur.horizslider"/>
 	<script file="scripts/setShadePosbar.maki"/>
+
+</groupdef>
+
+<groupdef id="infoline.vu">
+
+	<rect id="leftbar" x="4" y="0" w="154" h="1" color="x50" ghost="1"/>
+	<rect id="rightbar" x="4" y="2" w="154" h="1" color="x50" ghost="1"/>
+
+	<rect id="leftpeak" x="4" y="0" w="1" h="1" color="x50" ghost="1"/>
+	<rect id="rightpeak" x="4" y="2" w="1" h="1" color="x50" ghost="1"/>
 
 </groupdef>
 
