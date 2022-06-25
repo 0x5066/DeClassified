@@ -142,7 +142,7 @@ VU.onTimer(){
 	
 		else{
 			if(smoothvu == 1){
-				peak1 -= vu_falloffspeed*4;
+				peak1 -= vu_falloffspeed*2.65;
 			}else{
 				peak1 -= vu_falloffspeed*16;
 			}
@@ -155,7 +155,7 @@ VU.onTimer(){
 		}
 		else{
 			if(smoothvu == 1){
-				peak2 -= vu_falloffspeed*4;
+				peak2 -= vu_falloffspeed*2.65;
 			}else{
 				peak2 -= vu_falloffspeed*16;
 			}
