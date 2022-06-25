@@ -26,6 +26,7 @@ Function ProcessMenuResult (int a);
 Function LegacyOptions(int legacy);
 Function setVisModeLBD();
 Function setVisModeRBD();
+Function setWA265Mode(int wa_mode);
 
 Global GuiObject PlayIndicator;
 
@@ -34,6 +35,9 @@ Global Group MainShadeWindow, PLVis;
 Global Group PLWindow;
 
 Global Vis MainVisualizer, MainShadeVisualizer, PLVisualizer;
+Global AnimatedLayer MainShadeVULeft, MainShadeVURight;
+Global timer VU;
+Global float level1, level2, peak1, peak2, pgrav1, pgrav2, vu_falloffspeed;
 
 Global Button CLBV1, CLBV2, CLBV3;
 
@@ -44,9 +48,10 @@ Global PopUpMenu anasettings;
 Global PopUpMenu oscsettings;
 Global PopUpMenu stylemenu;
 Global PopUpMenu fpsmenu;
+Global PopUpMenu vumenu;
 
-Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps;
-Global Boolean show_peaks, isShade, compatibility, playLED;
+Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps, smoothvu;
+Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
 Global Layout WinampMainWindow;
@@ -67,7 +72,19 @@ System.onScriptLoaded()
 
 	MainShadeWindow = getContainer("Main").getLayout("shade");
 	MainShadeVisualizer = MainShadeWindow.findObject("wa.vis");
+	MainShadeVULeft = MainShadeWindow.findObject("wa.shade.vu.left");
+	MainShadeVURight = MainShadeWindow.findObject("wa.shade.vu.right");
 	MainShadeTrigger = MainShadeWindow.findObject("main.vis.trigger");
+
+	pgrav1 = 0;
+	pgrav2 = 0;
+
+	VU = new Timer;
+	VU.setdelay(16);
+    VU.start();
+    VU.onTimer();
+
+	vu_falloffspeed = (2/100)+0.02;
 
 	PLWindow = getContainer("pl").getLayout("normal");
 	PLVis = PLWindow.findObject("waclassicplvis");
@@ -94,6 +111,60 @@ System.onScriptLoaded()
 	refreshVisSettings();
 }
 
+setWA265Mode(int wa_mode){
+	if(currentMode == 1){
+		if(wa_mode == 1){
+			MainShadeVisualizer.setXmlParam("alpha", "0");
+			MainShadeVULeft.setXmlParam("alpha", "255");
+			MainShadeVURight.setXmlParam("alpha", "255");
+		}else{
+			MainShadeVisualizer.setXmlParam("alpha", "255");
+			MainShadeVULeft.setXmlParam("alpha", "0");
+			MainShadeVURight.setXmlParam("alpha", "0");
+		}
+	}else{
+		MainShadeVisualizer.setXmlParam("alpha", "255");
+		MainShadeVULeft.setXmlParam("alpha", "0");
+		MainShadeVURight.setXmlParam("alpha", "0");
+	}
+}
+
+VU.onTimer(){
+    level1 = (getLeftVuMeter()*MainShadeVULeft.getLength()/256);
+    level2 = (getRightVuMeter()*MainShadeVURight.getLength()/256);
+
+	if (level1 >= peak1){
+			peak1 = level1;
+		}
+	/*if(peak1 >= MainShadeVULeft.getLength()){ was supposed to not allow the meter to go out of bounds, doesnt work yet
+		peak1 = MainShadeVULeft.getLength();
+	}*/
+		else{
+			if(smoothvu == 1){
+				peak1 -= vu_falloffspeed*10;
+			}else{
+				peak1 -= vu_falloffspeed*20;
+			}
+		}
+	if (level2 >= peak2){
+			peak2 = level2;
+		}
+	/*if(peak2 >= MainShadeVURight.getLength()){
+		peak2 = MainShadeVURight.getLength();
+	}*/
+		else{
+			if(smoothvu == 1){
+				peak2 -= vu_falloffspeed*10;
+			}else{
+				peak2 -= vu_falloffspeed*20;
+			}
+		}
+
+
+    MainShadeVULeft.gotoFrame(peak1);
+    MainShadeVURight.gotoFrame(peak2);
+}
+
 setVisModeLBD(){
 	currentMode++;
 
@@ -103,6 +174,7 @@ setVisModeLBD(){
 	}
 
 	setVis (currentMode);
+	setWA265Mode(WA265MODE);
 	complete;
 }
 
@@ -114,17 +186,23 @@ setVisModeRBD(){
 	anasettings = new PopUpMenu;
 	oscsettings = new PopUpMenu;
 	fpsmenu = new PopUpMenu;
+	vumenu = new PopUpMenu;
 
 	visMenu.addCommand("Visualization mode:", 999, 0, 1);
 	visMenu.addSeparator();
 	visMenu.addCommand("Off", 100, currentMode == 0, 0);
-	visMenu.addCommand("Spectrum analyzer", 1, currentMode == 1, 0);
+	if(WA265MODE == 1){
+		visMenu.addCommand("Spectrum analyzer / Winshade VU", 1, currentMode == 1, 0);
+	}else{
+		visMenu.addCommand("Spectrum analyzer", 1, currentMode == 1, 0);
+	}
 	visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
 	
 	visMenu.addSeparator();
 	visMenu.addCommand("Main Window Settings", 998, 0, 1);
-	visMenu.addCommand("Playback Indicator", 103, playLED == 1, 0);
 	visMenu.addCommand("Classic Skin Compatibility", 102, compatibility == 1, 0);
+	visMenu.addCommand("Playback Indicator", 103, playLED == 1, 0);
+	visMenu.addCommand("Winamp 2.65 mode (winshade)", 104, WA265MODE == 1, 0);
 	visMenu.addSeparator();
 	visMenu.addSubmenu(fpsmenu, "Refresh rate");
 	fpsmenu.addCommand("9fps", 800, v_fps == 0, 0);
@@ -171,6 +249,12 @@ setVisModeRBD(){
 	oscsettings.addCommand("Line scope", 602, osc_render == 2, 0);
 	oscsettings.addCommand("Solid scope", 603, osc_render == 3, 0);
 
+	if(WA265MODE == 1){
+		visMenu.addSubmenu(vumenu, "Winshade VU options");
+		vumenu.addCommand("Normal VU", 901, smoothvu == 1, 0);
+		vumenu.addCommand("Smooth VU", 902, smoothvu == 2, 0);
+	}
+
 	visMenu.addSeparator();
 	visMenu.addcommand(translate("Start/Stop plug-in")+"\tCtrl+Shift+K", 404, 0,0);
 	visMenu.addcommand(translate("Configure plug-in...")+"\tAlt+K", 405, 0,0);
@@ -201,6 +285,8 @@ refreshVisSettings ()
 	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
 	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
 	playLED = getPrivateInt(getSkinName(), "DeClassified Play LED", 1);
+	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 0);
+	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 0);
 
 	PlayIndicator.setXmlParam("visible", integerToString(playLED));
 
@@ -292,6 +378,7 @@ refreshVisSettings ()
 			PLVisualizer.setXmlParam("bandwidth", "wide");
 		}
 	setPrivateInt(getSkinName(), "Spectrum Analyzer Settings", ana_render);
+
 	if (v_fps == 0)
 		{
 			MainVisualizer.setXmlParam("fps", "9");
@@ -322,9 +409,28 @@ refreshVisSettings ()
 			MainShadeVisualizer.setXmlParam("fps", "70");
 			PLVisualizer.setXmlParam("fps", "70");
 		}
+	setPrivateInt(getSkinName(), "Visualizer Refresh rate", v_fps);
+
+	if (smoothvu == 0)
+		{
+			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
+			MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
+		}
+		else if (smoothvu == 1)
+		{
+			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
+			MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
+		}
+		else if (smoothvu == 2)
+		{
+			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.smooth.vu");
+			MainShadeVURight.setXmlParam("image", "wa2.player.shade.smooth.vu");
+		}
+	//setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", smoothvu);
 
 	setVis (currentMode);
 	LegacyOptions(compatibility);
+	setWA265Mode(WA265MODE);
 }
 
 System.onStop(){
@@ -400,6 +506,13 @@ ProcessMenuResult (int a)
 			playLED = (playLED - 1) * (-1);
 			PlayIndicator.setXmlParam("visible", integerToString(playLED));
 			setPrivateInt(getSkinName(), "DeClassified Play LED", playLED);
+		}
+
+	else if (a == 104)
+		{
+			WA265MODE = (WA265MODE - 1) * (-1);
+			setWA265Mode(WA265MODE);
+			setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", WA265MODE);
 		}
 
 	else if (a >= 200 && a <= 204)
@@ -552,6 +665,27 @@ else if (a >= 400 && a <= 403)
 		}
 		setPrivateInt(getSkinName(), "Visualizer Refresh rate", v_fps);
 	}
+
+	else if (a >= 900 && a <= 902)
+	{
+		smoothvu = a - 900;
+		if (smoothvu == 0)
+		{
+			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
+			MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
+		}
+		else if (smoothvu == 1)
+		{
+			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
+			MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
+		}
+		else if (smoothvu == 2)
+		{
+			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.smooth.vu");
+			MainShadeVURight.setXmlParam("image", "wa2.player.shade.smooth.vu");
+		}
+		setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", smoothvu);
+	}
 }
 
 setVis (int mode)
@@ -562,18 +696,21 @@ setVis (int mode)
 		MainVisualizer.setMode(0);
 		MainShadeVisualizer.setMode(0);
 		PLVisualizer.setMode(0);
+		setWA265Mode(WA265MODE);
 	}
 	else if (mode == 1)
 	{
 		MainVisualizer.setMode(1);
 		MainShadeVisualizer.setMode(1);
 		PLVisualizer.setMode(1);
+		setWA265Mode(WA265MODE);
 	}
 	else if (mode == 2)
 	{
 		MainVisualizer.setMode(2);
 		MainShadeVisualizer.setMode(2);
 		PLVisualizer.setMode(2);
+		setWA265Mode(WA265MODE);
 	}
 	currentMode = mode;
 }

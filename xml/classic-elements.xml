@@ -113,6 +113,9 @@
 	<bitmap id="wa2.player.shade.menu" file="skin/titlebar.bmp" x="0" y="0" h="9" w="9"/>
 	<bitmap id="wa2.player.shade.menu.pressed" file="skin/titlebar.bmp" x="0" y="9" h="9" w="9"/>
 
+	<bitmap id="wa2.player.shade.normal.vu" file="skin/265vu/normalvu.png" h="16" w="38"/>
+	<bitmap id="wa2.player.shade.smooth.vu" file="skin/265vu/smoothvu.png" h="39" w="38"/>
+
 	<bitmap id="clutterbar" file="skin/titlebar.bmp" x="304" y="0" w="8" h="43"/>
 
 	<bitmap id="CLBO" file="skin/titlebar.bmp" x="305" y="2" w="7" h="8"/>
