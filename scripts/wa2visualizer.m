@@ -133,36 +133,61 @@ VU.onTimer(){
     level1 = (getLeftVuMeter()*MainShadeVULeft.getLength()/256);
     level2 = (getRightVuMeter()*MainShadeVURight.getLength()/256);
 
+	if(peak1 >= MainShadeVULeft.getLength()){
+		peak1 = MainShadeVULeft.getLength();
+	}
 	if (level1 >= peak1){
 			peak1 = level1;
 		}
-	/*if(peak1 >= MainShadeVULeft.getLength()){ was supposed to not allow the meter to go out of bounds, doesnt work yet
-		peak1 = MainShadeVULeft.getLength();
-	}*/
+	
 		else{
 			if(smoothvu == 1){
-				peak1 -= vu_falloffspeed*10;
+				peak1 -= vu_falloffspeed*4;
 			}else{
-				peak1 -= vu_falloffspeed*20;
+				peak1 -= vu_falloffspeed*16;
 			}
 		}
+	if(peak2 >= MainShadeVURight.getLength()){
+		peak2 = MainShadeVURight.getLength();
+	}
 	if (level2 >= peak2){
 			peak2 = level2;
 		}
-	/*if(peak2 >= MainShadeVURight.getLength()){
-		peak2 = MainShadeVURight.getLength();
-	}*/
 		else{
 			if(smoothvu == 1){
-				peak2 -= vu_falloffspeed*10;
+				peak2 -= vu_falloffspeed*4;
 			}else{
-				peak2 -= vu_falloffspeed*20;
+				peak2 -= vu_falloffspeed*16;
 			}
 		}
 
 
     MainShadeVULeft.gotoFrame(peak1);
     MainShadeVURight.gotoFrame(peak2);
+}
+
+System.onStop(){
+	VU.start();
+	peak1 = 0;
+	peak2 = 0;
+}
+
+System.onPause(){
+	if(currentMode == 1){
+		VU.stop();
+	}
+}
+
+System.onResume(){
+	if(currentMode == 1){
+		VU.start();
+	}
+}
+
+System.onPlay(){
+	if(currentMode == 1){
+		VU.start();
+	}
 }
 
 setVisModeLBD(){
@@ -285,8 +310,8 @@ refreshVisSettings ()
 	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
 	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
 	playLED = getPrivateInt(getSkinName(), "DeClassified Play LED", 1);
-	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 0);
-	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 0);
+	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 1);
+	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 1);
 
 	PlayIndicator.setXmlParam("visible", integerToString(playLED));
 
@@ -414,19 +439,25 @@ refreshVisSettings ()
 	if (smoothvu == 0)
 		{
 			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
+			MainShadeVULeft.setXmlParam("frameheight", "2");
 			MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
+			MainShadeVURight.setXmlParam("frameheight", "2");
 		}
 		else if (smoothvu == 1)
 		{
 			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
+			MainShadeVULeft.setXmlParam("frameheight", "2");
 			MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
+			MainShadeVURight.setXmlParam("frameheight", "2");
 		}
 		else if (smoothvu == 2)
 		{
 			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.smooth.vu");
+			MainShadeVULeft.setXmlParam("frameheight", "1");
 			MainShadeVURight.setXmlParam("image", "wa2.player.shade.smooth.vu");
+			MainShadeVURight.setXmlParam("frameheight", "1");
 		}
-	//setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", smoothvu);
+	setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", smoothvu);
 
 	setVis (currentMode);
 	LegacyOptions(compatibility);
@@ -670,20 +701,26 @@ else if (a >= 400 && a <= 403)
 	{
 		smoothvu = a - 900;
 		if (smoothvu == 0)
-		{
-			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
-			MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
-		}
-		else if (smoothvu == 1)
-		{
-			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
-			MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
-		}
-		else if (smoothvu == 2)
-		{
-			MainShadeVULeft.setXmlParam("image", "wa2.player.shade.smooth.vu");
-			MainShadeVURight.setXmlParam("image", "wa2.player.shade.smooth.vu");
-		}
+			{
+				MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
+				MainShadeVULeft.setXmlParam("frameheight", "2");
+				MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
+				MainShadeVURight.setXmlParam("frameheight", "2");
+			}
+			else if (smoothvu == 1)
+			{
+				MainShadeVULeft.setXmlParam("image", "wa2.player.shade.normal.vu");
+				MainShadeVULeft.setXmlParam("frameheight", "2");
+				MainShadeVURight.setXmlParam("image", "wa2.player.shade.normal.vu");
+				MainShadeVURight.setXmlParam("frameheight", "2");
+			}
+			else if (smoothvu == 2)
+			{
+				MainShadeVULeft.setXmlParam("image", "wa2.player.shade.smooth.vu");
+				MainShadeVULeft.setXmlParam("frameheight", "1");
+				MainShadeVURight.setXmlParam("image", "wa2.player.shade.smooth.vu");
+				MainShadeVURight.setXmlParam("frameheight", "1");
+			}
 		setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", smoothvu);
 	}
 }
@@ -697,6 +734,7 @@ setVis (int mode)
 		MainShadeVisualizer.setMode(0);
 		PLVisualizer.setMode(0);
 		setWA265Mode(WA265MODE);
+		VU.stop();
 	}
 	else if (mode == 1)
 	{
@@ -704,6 +742,7 @@ setVis (int mode)
 		MainShadeVisualizer.setMode(1);
 		PLVisualizer.setMode(1);
 		setWA265Mode(WA265MODE);
+		VU.start();
 	}
 	else if (mode == 2)
 	{
@@ -711,6 +750,7 @@ setVis (int mode)
 		MainShadeVisualizer.setMode(2);
 		PLVisualizer.setMode(2);
 		setWA265Mode(WA265MODE);
+		VU.stop();
 	}
 	currentMode = mode;
 }
