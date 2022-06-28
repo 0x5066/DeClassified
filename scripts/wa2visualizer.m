@@ -51,7 +51,7 @@ Global PopUpMenu fpsmenu;
 Global PopUpMenu vumenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps, smoothvu;
-Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE;
+Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE, WA5MODE;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
 Global Layout WinampMainWindow;
@@ -112,20 +112,26 @@ System.onScriptLoaded()
 }
 
 setWA265Mode(int wa_mode){
-	if(currentMode == 1){
-		if(wa_mode == 1){
-			MainShadeVisualizer.setXmlParam("alpha", "0");
-			MainShadeVULeft.setXmlParam("alpha", "255");
-			MainShadeVURight.setXmlParam("alpha", "255");
+	if(WA5MODE){
+			MainShadeVisualizer.setXmlParam("alpha", "255");
+			MainShadeVULeft.setXmlParam("alpha", "0");
+			MainShadeVURight.setXmlParam("alpha", "0");
+		}else{
+			if(currentMode == 1){
+			if(wa_mode == 1){
+				MainShadeVisualizer.setXmlParam("alpha", "0");
+				MainShadeVULeft.setXmlParam("alpha", "255");
+				MainShadeVURight.setXmlParam("alpha", "255");
+			}else{
+				MainShadeVisualizer.setXmlParam("alpha", "255");
+				MainShadeVULeft.setXmlParam("alpha", "0");
+				MainShadeVURight.setXmlParam("alpha", "0");
+			}
 		}else{
 			MainShadeVisualizer.setXmlParam("alpha", "255");
 			MainShadeVULeft.setXmlParam("alpha", "0");
 			MainShadeVURight.setXmlParam("alpha", "0");
 		}
-	}else{
-		MainShadeVisualizer.setXmlParam("alpha", "255");
-		MainShadeVULeft.setXmlParam("alpha", "0");
-		MainShadeVURight.setXmlParam("alpha", "0");
 	}
 }
 
@@ -213,71 +219,116 @@ setVisModeRBD(){
 	fpsmenu = new PopUpMenu;
 	vumenu = new PopUpMenu;
 
-	visMenu.addCommand("Visualization mode:", 999, 0, 1);
-	visMenu.addSeparator();
-	visMenu.addCommand("Off", 100, currentMode == 0, 0);
-	if(WA265MODE == 1){
-		visMenu.addCommand("Spectrum analyzer / Winshade VU", 1, currentMode == 1, 0);
+	if(WA5MODE){
+		visMenu.addCommand("Modes:", 999, 0, 1);
+		visMenu.addSeparator();
+		visMenu.addCommand("Disabled", 100, currentMode == 0, 0);
+		visMenu.addCommand("Spectrum Analyzer", 1, currentMode == 1, 0);
+		visMenu.addCommand("Oscilloscope", 2, currentMode == 2, 0);
 	}else{
-		visMenu.addCommand("Spectrum analyzer", 1, currentMode == 1, 0);
-	}
+		visMenu.addCommand("Visualization mode:", 999, 0, 1);
+		visMenu.addSeparator();
+		visMenu.addCommand("Off", 100, currentMode == 0, 0);
+		if(WA265MODE == 1){
+			visMenu.addCommand("Spectrum analyzer / Winshade VU", 1, currentMode == 1, 0);
+		}else{
+			visMenu.addCommand("Spectrum analyzer", 1, currentMode == 1, 0);
+		}
 	visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
-	
+	}
+
 	visMenu.addSeparator();
 	visMenu.addCommand("Main Window Settings", 998, 0, 1);
 	visMenu.addCommand("Classic Skin Compatibility", 102, compatibility == 1, 0);
 	visMenu.addCommand("Playback Indicator", 103, playLED == 1, 0);
-	visMenu.addCommand("Winamp 2.65 mode (winshade)", 104, WA265MODE == 1, 0);
+	if(WA5MODE){
+		//SORRY NOTHING
+	}else{
+		visMenu.addCommand("Winamp 2.65 mode (winshade)", 104, WA265MODE == 1, 0);
+	}
+	visMenu.addCommand("Winamp 5.x mode", 105, WA5MODE == 1, 0);
 	visMenu.addSeparator();
 	visMenu.addSubmenu(fpsmenu, "Refresh rate");
 	fpsmenu.addCommand("9fps", 800, v_fps == 0, 0);
 	fpsmenu.addCommand("18fps", 802, v_fps == 2, 0);
 	fpsmenu.addCommand("35fps", 803, v_fps == 3, 0);
 	fpsmenu.addCommand("70fps", 804, v_fps == 4, 0);
-	visMenu.addSubmenu(anasettings, "Spectrum analyzer options");
-	//anasettings.addCommand("Band line width:", 997, 0, 1);
-	//anasettings.addSeparator();
 
-	anasettings.addCommand("Normal style", 400, a_coloring == 0, 0);
-	anasettings.addCommand("Fire style", 402, a_coloring == 2, 0);
-	anasettings.addCommand("Line style", 403, a_coloring == 3, 0);
-	anasettings.addSeparator();
-	anasettings.addCommand("Peaks", 101, show_peaks == 1, 0);
-	anasettings.addSeparator();
-	anasettings.addCommand("Thin bands", 701, ana_render == 1, 0);
-	if(getDateDay(getDate()) == 1 && getDateMonth(getDate()) == 3){
-		anasettings.addCommand("乇乂丅尺卂 丅卄工匚匚", 702, ana_render == 2, 0);
+	if(WA5MODE){
+		visMenu.addSubmenu(anasettings, "Spectrum Analyzer Options");
+		anasettings.addCommand("Band line width:", 997, 0, 1);
+		anasettings.addSeparator();
+		anasettings.addCommand("Thin", 701, ana_render == 1, 0);
+		if(getDateDay(getDate()) == 1 && getDateMonth(getDate()) == 3){
+			anasettings.addCommand("乇乂丅尺卂 丅卄工匚匚", 702, ana_render == 2, 0);
+		}else{
+			anasettings.addCommand("Thick", 702, ana_render == 2, 0);
+		}
+		anasettings.addSeparator();
+		anasettings.addCommand("Show Peaks", 101, show_peaks == 1, 0);
+		anasettings.addSeparator();
+		pksmenu.addCommand("Slower", 200, p_falloffspeed == 0, 0);
+		pksmenu.addCommand("Slow", 201, p_falloffspeed == 1, 0);
+		pksmenu.addCommand("Moderate", 202, p_falloffspeed == 2, 0);
+		pksmenu.addCommand("Fast", 203, p_falloffspeed == 3, 0);
+		pksmenu.addCommand("Faster", 204, p_falloffspeed == 4, 0);
+		anasettings.addSubMenu(pksmenu, "Peak falloff Speed");
+		anamenu.addCommand("Slower", 300, a_falloffspeed == 0, 0);
+		anamenu.addCommand("Slow", 301, a_falloffspeed == 1, 0);
+		anamenu.addCommand("Moderate", 302, a_falloffspeed == 2, 0);
+		anamenu.addCommand("Fast", 303, a_falloffspeed == 3, 0);
+		anamenu.addCommand("Faster", 304, a_falloffspeed == 4, 0);
+		anasettings.addSubMenu(anamenu, "Analyzer falloff Speed");
+		visMenu.addSubmenu(oscsettings, "Oscilloscope Options");
+		oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
+		oscsettings.addSeparator();
+		oscsettings.addCommand("Dots", 603, osc_render == 3, 0);
+		oscsettings.addCommand("Lines", 601, osc_render == 1, 0);
+		oscsettings.addCommand("Solid", 602, osc_render == 2, 0);
 	}else{
-		anasettings.addCommand("Thick bands", 702, ana_render == 2, 0);
+		visMenu.addSubmenu(anasettings, "Spectrum analyzer options");
+
+		anasettings.addCommand("Normal style", 400, a_coloring == 0, 0);
+		anasettings.addCommand("Fire style", 402, a_coloring == 2, 0);
+		anasettings.addCommand("Line style", 403, a_coloring == 3, 0);
+		anasettings.addSeparator();
+		anasettings.addCommand("Peaks", 101, show_peaks == 1, 0);
+		anasettings.addSeparator();
+		anasettings.addCommand("Thin bands", 701, ana_render == 1, 0);
+		if(getDateDay(getDate()) == 1 && getDateMonth(getDate()) == 3){
+			anasettings.addCommand("乇乂丅尺卂 丅卄工匚匚", 702, ana_render == 2, 0);
+		}else{
+			anasettings.addCommand("Thick bands", 702, ana_render == 2, 0);
+		}
+		anasettings.addSeparator();
+
+		anasettings.addSubMenu(anamenu, "Analyzer falloff");
+		anamenu.addCommand("Slower", 300, a_falloffspeed == 0, 0);
+		anamenu.addCommand("Slow", 301, a_falloffspeed == 1, 0);
+		anamenu.addCommand("Moderate", 302, a_falloffspeed == 2, 0);
+		anamenu.addCommand("Fast", 303, a_falloffspeed == 3, 0);
+		anamenu.addCommand("Faster", 304, a_falloffspeed == 4, 0);
+		anasettings.addSubMenu(pksmenu, "Peaks falloff");
+		pksmenu.addCommand("Slower", 200, p_falloffspeed == 0, 0);
+		pksmenu.addCommand("Slow", 201, p_falloffspeed == 1, 0);
+		pksmenu.addCommand("Moderate", 202, p_falloffspeed == 2, 0);
+		pksmenu.addCommand("Fast", 203, p_falloffspeed == 3, 0);
+		pksmenu.addCommand("Faster", 204, p_falloffspeed == 4, 0);
+
+		visMenu.addSubmenu(oscsettings, "Oscilliscope Options");
+		oscsettings.addCommand("Dot scope", 601, osc_render == 1, 0);
+		oscsettings.addCommand("Line scope", 602, osc_render == 2, 0);
+		oscsettings.addCommand("Solid scope", 603, osc_render == 3, 0);
 	}
-	anasettings.addSeparator();
 
-	anasettings.addSubMenu(anamenu, "Analyzer falloff");
-	anamenu.addCommand("Slower", 300, a_falloffspeed == 0, 0);
-	anamenu.addCommand("Slow", 301, a_falloffspeed == 1, 0);
-	anamenu.addCommand("Moderate", 302, a_falloffspeed == 2, 0);
-	anamenu.addCommand("Fast", 303, a_falloffspeed == 3, 0);
-	anamenu.addCommand("Faster", 304, a_falloffspeed == 4, 0);
-	anasettings.addSubMenu(pksmenu, "Peaks falloff");
-	pksmenu.addCommand("Slower", 200, p_falloffspeed == 0, 0);
-	pksmenu.addCommand("Slow", 201, p_falloffspeed == 1, 0);
-	pksmenu.addCommand("Moderate", 202, p_falloffspeed == 2, 0);
-	pksmenu.addCommand("Fast", 203, p_falloffspeed == 3, 0);
-	pksmenu.addCommand("Faster", 204, p_falloffspeed == 4, 0);
-
-	//anasettings.addSubMenu(stylemenu, "Analyzer Coloring");
-
-	visMenu.addSubmenu(oscsettings, "Oscilliscope Options");
-	//oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
-	//oscsettings.addSeparator();
-	oscsettings.addCommand("Dot scope", 601, osc_render == 1, 0);
-	oscsettings.addCommand("Line scope", 602, osc_render == 2, 0);
-	oscsettings.addCommand("Solid scope", 603, osc_render == 3, 0);
-
-	if(WA265MODE == 1){
-		visMenu.addSubmenu(vumenu, "Winshade VU options");
-		vumenu.addCommand("Normal VU", 901, smoothvu == 1, 0);
-		vumenu.addCommand("Smooth VU", 902, smoothvu == 2, 0);
+	if(WA5MODE){
+		//SORRY NOTHING
+	}else{
+		if(WA265MODE == 1){
+			visMenu.addSubmenu(vumenu, "Winshade VU options");
+			vumenu.addCommand("Normal VU", 901, smoothvu == 1, 0);
+			vumenu.addCommand("Smooth VU", 902, smoothvu == 2, 0);
+		}
 	}
 
 	visMenu.addSeparator();
@@ -286,6 +337,8 @@ setVisModeRBD(){
 	visMenu.addcommand(translate("Select plug-in...")+"\tCtrl+K", 406, 0,0);
 
 	ProcessMenuResult (visMenu.popAtMouse());
+
+	setWA265Mode(WA265Mode);
 
 	delete visMenu;
 	delete pksmenu;
@@ -312,6 +365,7 @@ refreshVisSettings ()
 	playLED = getPrivateInt(getSkinName(), "DeClassified Play LED", 1);
 	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 1);
 	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 1);
+	WA5MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", 0);
 
 	PlayIndicator.setXmlParam("visible", integerToString(playLED));
 
@@ -544,6 +598,12 @@ ProcessMenuResult (int a)
 			WA265MODE = (WA265MODE - 1) * (-1);
 			setWA265Mode(WA265MODE);
 			setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", WA265MODE);
+		}
+
+	else if (a == 105)
+		{
+			WA5MODE = (WA5MODE - 1) * (-1);
+			setPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", WA5MODE);
 		}
 
 	else if (a >= 200 && a <= 204)
