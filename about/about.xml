@@ -34,7 +34,7 @@
 <script file="about/winamp2kbps_about.maki"/>
 <script file="about/actioninfo_about.maki"/>
 <script file="about/monoster_about.maki"/>
-<script file="about/WACUPDetect_about.maki"/>
+<script file="about/WACUPDetect_about.maki"/> <!-- uncomment if you dont provide wacup assets -->
 <script file="about/blurrytextanim.maki"/>
 <script file="about/quakeconsole2.maki"/>
 
