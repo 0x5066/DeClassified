@@ -1,6 +1,6 @@
 <elements>
-	<bitmap id="shade_fallback" file="skin/wasabi/shade_fallback.png"/> <!-- DO NOT TOUCH -->
-	<bitmap id="mainwnd_fallback" file="skin/wasabi/main_fallback.png"/> <!-- DO NOT TOUCH -->
+	<bitmap id="shade_fallback" file="xml\wasabi.classic\wasabi/shade_fallback.png"/> <!-- DO NOT TOUCH -->
+	<bitmap id="mainwnd_fallback" file="xml\wasabi.classic\wasabi/main_fallback.png"/> <!-- DO NOT TOUCH -->
 	<bitmap id="wa.main" file="skin/main.bmp"/>
 
 	<bitmap id="posbarbg" file="skin/posbar.bmp" x="0" y="0" w="248" h="10"/>

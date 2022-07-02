@@ -27,8 +27,9 @@ Function LegacyOptions(int legacy);
 Function setVisModeLBD();
 Function setVisModeRBD();
 Function setWA265Mode(int wa_mode);
+Function setFont(int font);
 
-Global GuiObject PlayIndicator;
+Global GuiObject PlayIndicator, Songticker, Infoticker;
 
 Global Group MainWindow, MainClassicVis, Clutterbar;
 Global Group MainShadeWindow, PLVis;
@@ -51,7 +52,7 @@ Global PopUpMenu fpsmenu;
 Global PopUpMenu vumenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps, smoothvu;
-Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE, WA5MODE;
+Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, SKINNEDFONT;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
 Global Layout WinampMainWindow;
@@ -62,6 +63,8 @@ System.onScriptLoaded()
 
 	MainWindow = getContainer("Main").getLayout("Normal");
 	PlayIndicator = MainWindow.findObject("playbackstatus");
+	Songticker = MainWindow.findObject("Songticker");
+	Infoticker = MainWindow.findObject("Infoticker");
 	Clutterbar = MainWindow.findObject("mainwindow");
 	CLBV1 = Clutterbar.getObject("CLB.V1");
 	CLBV2 = Clutterbar.getObject("CLB.V2");
@@ -109,6 +112,28 @@ System.onScriptLoaded()
 	PLVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
 	PLVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
 	refreshVisSettings();
+}
+
+setFont(int font){
+	if(font){
+		Songticker.setXmlParam("font", "wasabi.font.default");
+		Songticker.setXmlParam("y", "27");
+		Songticker.setXmlParam("h", "9");
+
+		Infoticker.setXmlParam("font", "wasabi.font.default");
+		Infoticker.setXmlParam("y", "27");
+		Infoticker.setXmlParam("offsety", "-1");
+		Infoticker.setXmlParam("h", "9");
+	}else{
+		Songticker.setXmlParam("font", "arial");
+		Songticker.setXmlParam("y", "22");
+		Songticker.setXmlParam("h", "14");
+
+		Infoticker.setXmlParam("font", "arial");
+		Infoticker.setXmlParam("y", "24");
+		Infoticker.setXmlParam("offsety", "-2");
+		Infoticker.setXmlParam("h", "14");
+	}
 }
 
 setWA265Mode(int wa_mode){
@@ -240,7 +265,12 @@ setVisModeRBD(){
 	visMenu.addSeparator();
 	visMenu.addCommand("Main Window Settings", 998, 0, 1);
 	visMenu.addCommand("Classic Skin Compatibility", 102, compatibility == 1, 0);
-	visMenu.addCommand("Playback Indicator", 103, playLED == 1, 0);
+	visMenu.addCommand("Use bitmap font for main title display (no int. support)", 106, SKINNEDFONT == 1, 0);
+	if(compatibility){
+		//SORRY NOTHING
+	}else{
+		visMenu.addCommand("Playback Indicator", 103, playLED == 1, 0);
+	}
 	if(WA5MODE){
 		//SORRY NOTHING
 	}else{
@@ -248,7 +278,11 @@ setVisModeRBD(){
 	}
 	visMenu.addCommand("Winamp 5.x mode", 105, WA5MODE == 1, 0);
 	visMenu.addSeparator();
+	if(WA5MODE){
+		visMenu.addSubmenu(fpsmenu, "Visualization refresh rate");
+	}else{
 	visMenu.addSubmenu(fpsmenu, "Refresh rate");
+	}
 	fpsmenu.addCommand("9fps", 800, v_fps == 0, 0);
 	fpsmenu.addCommand("18fps", 802, v_fps == 2, 0);
 	fpsmenu.addCommand("35fps", 803, v_fps == 3, 0);
@@ -338,7 +372,12 @@ setVisModeRBD(){
 
 	ProcessMenuResult (visMenu.popAtMouse());
 
-	setWA265Mode(WA265Mode);
+	setWA265Mode(WA265Mode); 
+	if(compatibility){
+		PlayIndicator.setXmlParam("visible", "1");
+	}else{
+		PlayIndicator.setXmlParam("visible", integerToString(playLED));
+	}
 
 	delete visMenu;
 	delete pksmenu;
@@ -366,8 +405,13 @@ refreshVisSettings ()
 	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 1);
 	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 1);
 	WA5MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", 0);
+	SKINNEDFONT = getPrivateInt(getSkinName(), "DeClassified Skinned Font", 1);
 
-	PlayIndicator.setXmlParam("visible", integerToString(playLED));
+	if(compatibility){
+		PlayIndicator.setXmlParam("visible", "1");
+	}else{
+		PlayIndicator.setXmlParam("visible", integerToString(playLED));
+	}
 
 	MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	MainVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
@@ -516,6 +560,7 @@ refreshVisSettings ()
 	setVis (currentMode);
 	LegacyOptions(compatibility);
 	setWA265Mode(WA265MODE);
+	setFont(SKINNEDFONT);
 }
 
 System.onStop(){
@@ -589,7 +634,11 @@ ProcessMenuResult (int a)
 	else if (a == 103)
 		{
 			playLED = (playLED - 1) * (-1);
-			PlayIndicator.setXmlParam("visible", integerToString(playLED));
+			if(compatibility){
+				PlayIndicator.setXmlParam("visible", "1");
+			}else{
+				PlayIndicator.setXmlParam("visible", integerToString(playLED));
+			}
 			setPrivateInt(getSkinName(), "DeClassified Play LED", playLED);
 		}
 
@@ -604,6 +653,13 @@ ProcessMenuResult (int a)
 		{
 			WA5MODE = (WA5MODE - 1) * (-1);
 			setPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", WA5MODE);
+		}
+
+	else if (a == 106)
+		{
+			SKINNEDFONT = (SKINNEDFONT - 1) * (-1);
+			setFont(SKINNEDFONT);
+			setPrivateInt(getSkinName(), "DeClassified Skinned Font", SKINNEDFONT);
 		}
 
 	else if (a >= 200 && a <= 204)
