@@ -63,6 +63,7 @@ System.onResume()
 
 System.onPlay()
 {
+    getSonginfo(getSongInfoText());
     String sit = getSongInfoText();
 	if (sit != "") getSonginfo(sit);
 	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
