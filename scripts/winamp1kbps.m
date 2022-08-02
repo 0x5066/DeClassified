@@ -40,6 +40,7 @@ System.onPlay(){
 	if (sit != "") getSonginfo(sit);
 	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
 	songInfoTimer.start();
+	getSonginfo(getSongInfoText());
 }
 
 System.onTitleChange(String newtitle){
