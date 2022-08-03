@@ -47,13 +47,13 @@
 		x="111" y="27"
 		w="154" h="9"
 		font="wasabi.font.default" altfont="arial" fontsize="13"
-		altvalign="center" dblclickaction="trackinfo" color="x50"
-	rightclickaction="trackmenu" cursor="cur.horizslider"
+		altvalign="center" dblclickaction="trackinfo" color="0,198,0"
+	rightclickaction="trackmenu" cursor="cur.horizslider" antialias="0"
 	/>
 
 	<text id="infoticker" x="110" y="27" offsetx="-1" offsety="-1"
 		w="155" h="9" font="wasabi.font.default" fontsize="13" dblclickaction="trackinfo" 
-		rightclickaction="trackmenu" ghost="1" color="x50"/>
+		rightclickaction="trackmenu" ghost="1" color="0,198,0" antialias="0"/>
 
 	<!--text
 		id="debugticker"
@@ -217,6 +217,8 @@
     colorosc3="181,189,189"
     colorosc4="160,170,175"
     colorosc5="148,156,165"/>
+	<animatedlayer id="wa.shade.vu.left"  x="79" y="5" h="2" w="38" image="wa2.player.shade.normal.vu" frameheight="2"/>
+	<animatedlayer id="wa.shade.vu.right" x="79" y="8" h="2" w="38" image="wa2.player.shade.normal.vu" frameheight="2"/>
 	<layer id="main.vis.trigger" x="79" y="5" w="38" h="5" cursor="cur.normal"/>
 
     <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="wa2.player.title.shademode" downImage="wa2.player.title.shademode.pressed" cursor="cur.normal"/>
