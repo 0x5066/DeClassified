@@ -141,7 +141,7 @@
 	<layer id="infoline.stuff" y="-16" image="infoline.dropdown" ghost="1"/>
 	<text id="infoline.text" x="2" y="-16" w="156" h="14" offsety="6" valign="top" font="wasabi.font.default" display="songinfo"/>
 
-	<layer id="infoline.trigger" w="160" h="16" rectrgn="1"/>
+	<layer id="infoline.trigger" w="160" h="16" rectrgn="1" tooltip="Double click me for a surprise!"/>
 
 	<group id="infoline.vu" y="-16"/>
 
