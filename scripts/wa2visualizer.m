@@ -198,24 +198,28 @@ VU.onTimer(){
 }
 
 System.onStop(){
+	LegacyOptions(compatibility);
 	VU.start();
 	peak1 = 0;
 	peak2 = 0;
 }
 
 System.onPause(){
+	LegacyOptions(compatibility);
 	if(currentMode == 1){
 		VU.stop();
 	}
 }
 
 System.onResume(){
+	LegacyOptions(compatibility);
 	if(currentMode == 1){
 		VU.start();
 	}
 }
 
 System.onPlay(){
+	LegacyOptions(compatibility);
 	if(currentMode == 1){
 		VU.start();
 	}
@@ -396,7 +400,7 @@ refreshVisSettings ()
 	show_peaks = getPrivateInt(getSkinName(), "Visualizer show Peaks", 1);
 	compatibility = getPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", 1);
 	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
-	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer Peaks falloff", 2);
+	p_falloffspeed = getPrivateInt(getSkinName(), "Visualizer Peaks falloff", 1);
 	osc_render = getPrivateInt(getSkinName(), "Oscilloscope Settings", 2);
 	ana_render = getPrivateInt(getSkinName(), "Spectrum Analyzer Settings", 2);
 	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
@@ -561,18 +565,6 @@ refreshVisSettings ()
 	LegacyOptions(compatibility);
 	setWA265Mode(WA265MODE);
 	setFont(SKINNEDFONT);
-}
-
-System.onStop(){
-	LegacyOptions(compatibility);
-}
-
-System.onPlay(){
-	LegacyOptions(compatibility);
-}
-
-System.onResume(){
-	LegacyOptions(compatibility);
 }
 
 MainTrigger.onLeftButtonDown (int x, int y)
