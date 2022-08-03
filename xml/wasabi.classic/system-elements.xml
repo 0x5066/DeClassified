@@ -98,7 +98,7 @@
   <bitmap id="wasabi.dropdownlist.list.bottom" file="xml\wasabi.classic\wasabi/window-elements.png" x="41" y="133" h="1" w="10"/>
   <bitmap id="wasabi.dropdownlist.list.bottom.right" file="xml\wasabi.classic\wasabi/window-elements.png" x="51" y="133" h="1" w="1"/>
 
-  <bitmap id="infoline.dropdown" file="skin/wasabi/infoline.png"/>
+  <bitmap id="infoline.dropdown" file="xml/wasabi.classic/wasabi/infoline.png"/>
 
 <!-- Embedded Window -->
   <bitmap id="wasabi.window.top.left"               file="xml\wasabi.classic\wasabi/objectframe.png" x="0" y="0" h="2" w="2" gammagroup="Backgrounds"/>
