@@ -70,7 +70,7 @@ System.onScriptLoaded(){
 		wacupplcenter.setXmlParam("inactiveimage", "wacup.pl.2.center.disabled");
 		wacupplvis.setXmlParam("image", "wacup.pl.8.vis");
 		WAPLC.setXmlParam("x", "12");
-		WAPLC.setXmlParam("w", "-31");
+		WAPLC.setXmlParam("w", "-20");
 		wacupvideo1.setXmlParam("image", "wacup.video.topleft.active");
 		wacupvideo1.setXmlParam("inactiveimage", "wacup.video.topleft.inactive");
 		wacupvideo2.setXmlParam("image", "wacup.video.top.stretchybit.active");
