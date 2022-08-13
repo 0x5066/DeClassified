@@ -2,6 +2,9 @@
 
 This is the fourth incarnation of loading Classic Skin assets into the Modern Skin engine.
 
+The name "DeClassified" is a pun on the "Classified" series of skins that took a Modern Skin and turned it into a Classic Skin.
+DeClassified turns the tables by throwing Classic Skins into the Modern Skin realm.
+
 DeClassified provides a base (xml and scripts folder) that supports the Classic Skin layout, and emulates most of it's quirks to achieve the most accurate and authentic representation of Classic Skins possible, which is it's number one goal to achieve.
 
 The idea of this project is to allow end-users/skin developers to mostly easily make ports of their own Classic Skins (or any Classic Skin) to the Modern Skin platform, so that they can enjoy the advanced features the Classic Skin layout simply cannot allow, with possible feature extensions through MAKI.
