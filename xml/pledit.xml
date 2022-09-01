@@ -1,83 +1,111 @@
 <container id="PL" name="Playlist Editor" default_y="232" default_visible="1">
-	<layout id="normal" image="wasabi.frame.basetexture" minimum_h="232" minimum_w="550" default_h="232" linkwidth="shadepl" cursor="cur.normal">
+	<layout id="normal" image="wasabi.frame.basetexture" minimum_h="116" minimum_w="275" default_h="116" linkwidth="shadepl" cursor="cur.normal">
+		
+		
 		<!-- Can use the grid object here but then you won't have the inactive image option -->
 		<layer id="wa2.pl1" image="wa2.pl.1" x="0" y="0" inactiveimage="wa2.pl.1.disabled" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl2" image="wa2.pl.2" x="50" y="0" w="-100" relatw="1" inactiveimage="wa2.pl.2.disabled" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl3" image="wa2.pl.3" x="-50" y="0" relatx="1" inactiveimage="wa2.pl.3.disabled" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl4" image="wa2.pl.4" x="0" y="40" h="-116" relath="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl5" image="wa2.pl.5" x="50" y="40" w="-100" h="-116" relatw="1" relath="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl6" image="wa2.pl.6" x="-50" y="40" h="-116" relatx="1" relath="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl7" image="wa2.pl.7" x="0" y="-76" relaty="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl8" image="wa2.pl.8" x="250" y="-76" w="-550" relaty="1" relatw="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl9" image="wa2.pl.9" x="-300" y="-76" relatx="1" relaty="1" regionop="1" cursor="cur.normal"/>
-		<layer x="-38" y="-38" w="38" h="38" relatx="1" relaty="1" resize="bottomright" move="0" cursor="cur.resize"/>
+		<layer id="wa2.pl2" image="wa2.pl.2" x="25" y="0" w="-50" relatw="1" inactiveimage="wa2.pl.2.disabled" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl3" image="wa2.pl.3" x="-25" y="0" relatx="1" inactiveimage="wa2.pl.3.disabled" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl4" image="wa2.pl.4" tile="1" x="0" y="20" h="-58" relath="1" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl5" image="wa2.pl.5" x="25" y="20" w="-50" h="-58" relatw="1" relath="1" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl6" image="wa2.pl.6" tile="1" x="-25" y="20" h="-58" relatx="1" relath="1" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl7" image="wa2.pl.7" x="0" y="-38" relaty="1" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl8" image="wa2.pl.8" x="125" y="-38" w="-125" tile="1" relaty="1" relatw="1" regionop="1" cursor="cur.normal"/>
+		<layer id="wa2.pl9" image="wa2.pl.9" x="-150" y="-38" relatx="1" relaty="1" regionop="1" cursor="cur.normal"/>
+		<layer x="-19" y="-19" w="19" h="19" relatx="1" relaty="1" resize="bottomright" move="0" cursor="cur.resize"/>
 
 		<!-- Layers that needs to be hidden or centered -->
-		<layer id="pl.center.logo" image="wa2.pl.2.center" x="-200" y="0" inactiveimage="wa2.pl.2.center.disabled"/>
+		<layer id="pl.center.logo" image="wa2.pl.2.center" x="-100" y="0" inactiveimage="wa2.pl.2.center.disabled"/>
 		<script file="scripts/_wa2-easylayout.maki" param="pl.center.logo;0;0;1;0;0;0"/>
 
-        <layer dblClickAction="SWITCH;shadepl" x="0" y="0" w="0" h="28" relatw="1" move="1" cursor="cur.move"/>
+        <layer dblClickAction="SWITCH;shadepl" x="0" y="0" w="0" h="14" relatw="1" move="1" cursor="cur.move"/>
 
-		<layer id="pl.vis.area" image="wa2.pl.8.vis" x="-450" y="-76" relatx="1" relaty="1" cursor="cur.normal"/>
-        <group id="waclassicvis" x="-446" y="-52" w="152" h="32" relatx="1" relaty="1"/>
+		<layer id="pl.vis.area" image="wa2.pl.8.vis" x="-225" y="-38" relatx="1" relaty="1" cursor="cur.normal"/>
+        <group id="waclassicplvis" x="-223" y="-26" w="76" h="16" relatx="1" relaty="1"/>
         <!--script file="scripts/hideplvis.maki"/-->
-		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;700;0;0;0;0;0"/>
-        <script file="scripts/_wa2-easylayout.maki" param="waclassicvis;700;0;0;0;0;0"/>
+		<script file="scripts/_wa2-easylayout.maki" param="pl.vis.area;350;0;0;0;0;0"/>
+        <script file="scripts/_wa2-easylayout.maki" param="waclassicplvis;350;0;0;0;0;0"/>
 		<!-- Small Ticker/Timer -->
-		<text id="pe.info" display="PE_INFO" x="-288" y="-56" w="182" h="12" font="wasabi.font.default" relatx="1" relaty="1" cursor="cur.normal"/>
-		<text id="timer" display="time" x="-168" y="-30" w="62" h="12" timeroffstyle="2" align="right" font="wasabi.font.default" relatx="1" relaty="1"  timecolonwidth="10" cursor="cur.normal"/>
-        <layer id="TimerTrigger" x="-168" y="-30" w="62" h="12" relatx="1" relaty="1" cursor="cur.normal"/>
-        <script file="scripts/wa2songtimer.maki"/>
+		<text id="pe.info" display="PE_INFO" x="-145" y="-28" w="91" h="6" font="wasabi.font.default" relatx="1" relaty="1" cursor="cur.normal"/>
+		<text id="timer" display="time" x="-83" y="-15" w="31" h="6" timeroffstyle="2" align="right" font="wasabi.font.default" relatx="1" relaty="1"  timecolonwidth="5" cursor="cur.normal"/>
+        <layer id="TimerTrigger" x="-83" y="-15" w="31" h="6" relatx="1" relaty="1" cursor="cur.normal"/>
 
 		<!-- Add Playlist Entry (List) -->
-		<button action="PE_ADD"	x="22" y="-60" w="50" h="36" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_REM"	x="80" y="-60" w="50" h="36" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_SEL"	x="138" y="-60" w="50" h="36" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_MISC" x="196" y="-60" w="50" h="36" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
-		<button action="PE_LIST" x="-94" y="-60" w="50" h="36" relatx="1" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_ADD"	x="11" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_REM"	x="40" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_SEL"	x="69" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_MISC" x="98" y="-30" w="25" h="18" relatx="0" relaty="1" rectrgn="1" cursor="cur.normal"/>
+		<button action="PE_LIST" x="-47" y="-30" w="25" h="18" relatx="1" relaty="1" rectrgn="1" cursor="cur.normal"/>
 		<!-- End Playlist Entries -->
 
 		<!-- Since Winamp 5.0 the component xml object was renamed to windowholder -->
 		<windowholder id="wasabi.list" component="guid:{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D}"  fitparent="1"
-			x="24" y="40" w="-62" h="-116" relatw="1" relath="1"
+			x="12" y="20" w="-31" h="-58" relatw="1" relath="1"
 			noshowcmdbar="1" autoopen="1" autoclose="1" opacity="120"
 			param="guid:pl"
 		/> <!-- change w to -20 for the editor to take up the whole space -->
 
 		<!-- Playback buttons - No images so must use rectrgn="1" -->
-		<button x="-290" y="-32" w="16" h="18" relatx="1" relaty="1" action="Prev" rectrgn="1" cursor="cur.normal"/>
-		<button x="-274" y="-32" w="20" h="18" relatx="1" relaty="1" action="Play" rectrgn="1" cursor="cur.normal"/>
-		<button x="-254" y="-32" w="20" h="18" relatx="1" relaty="1" action="Pause" rectrgn="1" cursor="cur.normal"/>
-		<button x="-234" y="-32" w="18" h="18" relatx="1" relaty="1" action="Stop" rectrgn="1" cursor="cur.normal"/>
-		<button x="-216" y="-32" w="16" h="18" relatx="1" relaty="1" action="Next" rectrgn="1" cursor="cur.normal"/>
-		<button x="-200" y="-32" w="20" h="18" relatx="1" relaty="1" action="Eject" rectrgn="1" cursor="cur.normal"/>
+		<button x="-145" y="-16" w="8" h="9" relatx="1" relaty="1" action="Prev" rectrgn="1" cursor="cur.normal"/>
+		<button x="-137" y="-16" w="10" h="9" relatx="1" relaty="1" action="Play" rectrgn="1" cursor="cur.normal"/>
+		<button x="-127" y="-16" w="10" h="9" relatx="1" relaty="1" action="Pause" rectrgn="1" cursor="cur.normal"/>
+		<button x="-117" y="-16" w="9" h="9" relatx="1" relaty="1" action="Stop" rectrgn="1" cursor="cur.normal"/>
+		<button x="-108" y="-16" w="8" h="9" relatx="1" relaty="1" action="Next" rectrgn="1" cursor="cur.normal"/>
+		<button x="-100" y="-16" w="10" h="9" relatx="1" relaty="1" action="Eject" rectrgn="1" cursor="cur.normal"/>
 		<!-- Close Button -->
-		<button image="wa2.pl.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-22" y="6" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close"
+		<button image="wa2.pl.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close"
 		/>
 		<!-- Playlist Shade -->
-		<button id="winshade" action="SWITCH" param="shadepl" x="-42" y="6" relatx="1" relaty="0" image="wa2.pl.shade" downImage="wa2.pl.shadep" inactiveAlpha="0" cursor="cur.normal"/>
+		<button id="winshade" action="SWITCH" param="shadepl" x="-21" y="3" relatx="1" relaty="0" image="wa2.pl.shade" downImage="wa2.pl.shadep" inactiveAlpha="0" cursor="cur.normal"/>
+	<groupdef id="waclassicplvis">
+		<vis id="wa.vis" y="0" w="72" h="16" fps="60"
+		ColorBand1="24,132,8"
+		ColorBand2="41,148,0"
+		ColorBand3="49,156,8"
+		ColorBand4="57,181,16"
+		ColorBand5="50,190,16"
+		ColorBand6="41,206,16"
+		ColorBand7="148,222,33"
+		ColorBand8="189,222,41"
+		ColorBand9="214,181,33"
+		ColorBand10="222,165,24"
+		ColorBand11="198,123,8"
+		ColorBand12="214,115,0"
+		ColorBand13="214,102,0"
+		ColorBand14="214,90,0"
+		ColorBand15="206,41,16"
+		ColorBand16="239,49,16"
+		colorbandpeak="150,150,150"
+
+		colorosc1="255,255,255"
+		colorosc2="214,214,222"
+		colorosc3="181,189,189"
+		colorosc4="160,170,175"
+		colorosc5="148,156,165"/>
+		<layer id="main.vis.trigger" w="72" h="16" cursor="cur.normal"/>
+	</groupdef>
 	</layout>
-    <layout id="shadepl" background="wasabi.frame.basetexture" minimum_h="28" maximum_h="28" minimum_w="550" linkwidth="normal">
+    <layout id="shadepl" background="wasabi.frame.basetexture" minimum_h="14" maximum_h="14" minimum_w="275" linkwidth="normal">
 
         <layer image="wa2.plshade.left" ghost="1"/>
-        <layer image="wa2.plshade.middle" x="50" w="-150" relatw="1" tile="1" ghost="1"/>
-        <layer x="-100" relatx="1" image="wa2.plshade.right.active" inactiveimage="wa2.plshade.right.inactive" ghost="1"/>
+        <layer image="wa2.plshade.middle" x="25" w="-75" relatw="1" tile="1" ghost="1"/>
+        <layer x="-50" relatx="1" image="wa2.plshade.right.active" inactiveimage="wa2.plshade.right.inactive" ghost="1"/>
 
         <Songticker
 		id="songticker"
-		x="8" y="8"
-		w="-68" h="18" relatw="1"
+		x="4" y="4"
+		w="-34" h="9" relatw="1"
 		font="wasabi.font.default" altfont="arial" fontsize="13"
 		altvalign="center" ghost="1"/>
 
-        <layer dblClickAction="SWITCH;normal" x="0" y="0" w="0" h="28" relatw="1" move="1" cursor="cur.normal"/>
+        <layer dblClickAction="SWITCH;normal" x="0" y="0" w="0" h="14" relatw="1" move="1" cursor="cur.normal"/>
 
-        <layer x="-58" y="6" relatx="1" w="18" h="20" resize="right" cursor="cur.horizslider"/>
+        <layer x="-29" y="3" relatx="1" w="9" h="10" resize="right" cursor="cur.horizslider"/>
 
         <!-- Close Button -->
-		<button image="wa2.plshade.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-22" y="6" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close"/>
+		<button image="wa2.plshade.close" downImage="wa2.pl.closep" inactiveAlpha="0" x="-11" y="3" relatx="1" relaty="0" action="Close" rectrgn="1" cursor="cur.close"/>
 		<!-- Playlist Shade -->
-		<button id="winshade" action="SWITCH" param="normal" x="-42" y="6" relatx="1" relaty="0" image="wa2.plshade.shade" downImage="wa2.plshade.shadep" inactiveAlpha="0" cursor="cur.normal"/>
+		<button id="winshade" action="SWITCH" param="normal" x="-21" y="3" relatx="1" relaty="0" image="wa2.plshade.shade" downImage="wa2.plshade.shadep" inactiveAlpha="0" cursor="cur.normal"/>
 
 		<!--group id="shadepl" x="0" y="0"/-->
 	</layout>

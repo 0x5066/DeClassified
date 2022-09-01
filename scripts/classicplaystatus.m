@@ -27,11 +27,11 @@ System.onScriptLoaded(){
     setState2();
 
     if(getStatus() == 1){
-        playstatus.setXmlParam("visible", "1");
+        playstatus.setXmlParam("alpha", "255");
     }else if(getStatus() == -1){
-        playstatus.setXmlParam("visible", "0");
+        playstatus.setXmlParam("alpha", "0");
     }else if(getStatus() == 0){
-        playstatus.setXmlParam("visible", "0");
+        playstatus.setXmlParam("alpha", "0");
         playstatus.setXmlParam("image", "wa.play.green");
     }
 }
@@ -43,7 +43,7 @@ System.onScriptUnloading(){
 System.onPause(){
     songInfoTimer.stop();
 
-    playstatus.setXmlParam("visible", "0");
+    playstatus.setXmlParam("alpha", "0");
 }
 
 System.onResume()
@@ -57,12 +57,13 @@ System.onResume()
     setState2();
 
     //setPlaysymbol.start();
-    playstatus.setXmlParam("visible", "1");
+    playstatus.setXmlParam("alpha", "255");
     //messageBox(bitratestring, freqstring, 0, "");
 }
 
 System.onPlay()
 {
+    getSonginfo(getSongInfoText());
     String sit = getSongInfoText();
 	if (sit != "") getSonginfo(sit);
 	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
@@ -70,7 +71,7 @@ System.onPlay()
     setState2();
 
     //setPlaysymbol.start();
-    playstatus.setXmlParam("visible", "1");
+    playstatus.setXmlParam("alpha", "255");
 }
 
 System.onTitleChange(String newtitle)
@@ -82,14 +83,14 @@ System.onTitleChange(String newtitle)
     setState2();
 
     if(getStatus() == 1){
-        playstatus.setXmlParam("visible", "1");
+        playstatus.setXmlParam("alpha", "255");
         //setPlaysymbol.start();
     }else if(getStatus() == -1){
-        playstatus.setXmlParam("visible", "0");
+        playstatus.setXmlParam("alpha", "0");
         setPlaysymbol.stop();
     }else if(getStatus() == 0){
         setPlaysymbol.stop();
-        playstatus.setXmlParam("visible", "0");
+        playstatus.setXmlParam("alpha", "0");
         playstatus.setXmlParam("image", "wa.play.green");
     }
 }
@@ -97,7 +98,7 @@ System.onTitleChange(String newtitle)
 System.onStop(){
     songInfoTimer.stop();
 
-    playstatus.setXmlParam("visible", "0");
+    playstatus.setXmlParam("alpha", "0");
     playstatus.setXmlParam("image", "wa.play.green");
 }
 

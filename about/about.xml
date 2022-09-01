@@ -34,7 +34,7 @@
 <script file="about/winamp2kbps_about.maki"/>
 <script file="about/actioninfo_about.maki"/>
 <script file="about/monoster_about.maki"/>
-<script file="about/WACUPDetect_about.maki"/>
+<script file="about/WACUPDetect_about.maki"/> <!-- uncomment if you dont provide wacup assets -->
 <script file="about/blurrytextanim.maki"/>
 <script file="about/quakeconsole2.maki"/>
 
@@ -51,7 +51,7 @@
 		x="0" y="314"
 		w="380" h="9"
 		font="wasabi.font.default" altfont="arial" fontsize="13"
-		altvalign="center" cursor="cur.normal"
+		altvalign="center" cursor="cur.horizslider"
 	/>
     <group id="cooldebuginfo" y="-55" alpha="0"/>
 

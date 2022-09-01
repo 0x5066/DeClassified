@@ -1,75 +1,78 @@
 <container id="EQ" name="Equalizer" default_y="116">
-    <groupdef id="eq" w="550" h="232">
+    <groupdef id="eq">
 
-        <layer id="blah" dblClickAction="SWITCH;shadeeq" x="0" y="0" h="28" w="550" move="1" cursor="cur.move"/>
+        <layer id="blah" dblClickAction="SWITCH;shadeeq" x="0" y="0" h="14" w="275" move="1" cursor="cur.move"/>
         <layer id="eq.bg" image="wa.eq" ghost="1"/>
-        <layer x="0" y="0" w="10" h="10" resize="topleft"/>
 
         <layer id="waeq.titlebar" x="0" y="0" image="waeq.titlebar.on" inactiveimage="waeq.titlebar.off" ghost="1"/>
-        <layer id="waeq.eqvis" x="172" y="34" image="wa.eqvis.bg" ghost="1"/>
+        <layer id="waeq.eqvis" x="86" y="17" image="wa.eqvis.bg" ghost="1"/>
 
-        <button id="eq.switch" x="508" y="6" action="SWITCH" param="shadeeq" image="eq.switch" downimage="eq.switchp" activealpha="255" inactivealpha="0" cursor="cur.normal"/>
-        <button id="eq.close" x="528" y="6" action="CLOSE" image="eq.close" downimage="eq.closep" activealpha="255" inactivealpha="0" cursor="cur.close"/>
+        <button id="eq.switch" x="254" y="3" action="SWITCH" param="shadeeq" image="eq.switch" downimage="eq.switchp" activealpha="255" inactivealpha="0" cursor="cur.normal"/>
+        <button id="eq.close" x="264" y="3" action="CLOSE" image="eq.close" downimage="eq.closep" activealpha="255" inactivealpha="0" cursor="cur.close"/>
 
-        <Button id="eq.on" action="EQ_TOGGLE" x="28" y="36" image="eq.off" downimage="eq.offp" activeImage="eq.on" cursor="cur.normal"/>
-        <Button id="eq.auto" visible="1" action="EQ_AUTO" x="78" y="36" image="eq.auto" downimage="eq.autop" activeImage="eq.autoon" cursor="cur.normal"/>
+        <ToggleButton id="eq.on" action="EQ_TOGGLE" x="14" y="18" image="eq.off" downimage="eq.offp" activeImage="eq.on" cursor="cur.normal" rectrgn="1" ghost="0"/>
+        <ToggleButton id="eq.auto" visible="1" action="EQ_AUTO" x="39" y="18" image="eq.auto" downimage="eq.autop" activeImage="eq.autoon" cursor="cur.normal" rectrgn="1" ghost="0"/>
 
-        <togglebutton id="eq.presets" x="434" y="36" image="eq.presets" downimage="eq.presetsp" action="MENU" param="PRESETS" cursor="cur.normal"/>
+        <togglebutton id="eq.presets" x="217" y="18" image="eq.presets" downimage="eq.presetsp" action="MENU" param="PRESETS" cursor="cur.normal"/>
 
         <button id="12db" x="44" y="36" w="22" h="7" rectrgn="1" cursor="cur.normal"/>
         <button id="0db" x="45" y="65" w="20" h="7" rectrgn="1" cursor="cur.normal"/>
         <button id="-12db" x="44" y="95" w="22" h="7" rectrgn="1" cursor="cur.normal"/>
 
-        <eqvis x="176" y="34" w="218" h="38" colortop="239,24,16" colormiddle="239,231,49" colorbottom="24,156,8" colorpreamp="156,181,206" cursor="cur.normal"/>
-			<layer id="preamp_layer" x="42" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq1back" x="156" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq2back" x="192" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq3back" x="228" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq4back" x="264" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq5back" x="300" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq6back" x="336" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq7back" x="372" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq8back" x="408" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq9back" x="444" y="76" image="eq.slider0" cursor="cur.vertislider"/>
-			<layer id="eq10back" x="480" y="76" image="eq.slider0" cursor="cur.vertislider"/>
+        <eqvis x="88" y="17" w="109" h="19" colortop="239,24,16" colormiddle="239,231,49" colorbottom="24,156,8" colorpreamp="156,181,206" cursor="cur.normal"/>
+			<layer id="preamp_layer" x="21" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq1back" x="78" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq2back" x="96" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq3back" x="114" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq4back" x="132" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq5back" x="150" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq6back" x="168" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq7back" x="186" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq8back" x="204" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq9back" x="222" y="38" image="eq.slider0" cursor="cur.vertislider"/>
+			<layer id="eq10back" x="240" y="38" image="eq.slider0" cursor="cur.vertislider"/>
 
             <script file="scripts/eqmain_dbs.maki"/>
+            <!-- append "_noiso" to eqmain_dbs if you're not providing eqmain_iso.bmp -->
 
-			<slider id="preamp" action="EQ_PREAMP" x="44" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq1" action="EQ_BAND" param="1" x="158" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq2" action="EQ_BAND" param="2" x="194" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq3" action="EQ_BAND" param="3" x="230" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq4" action="EQ_BAND" param="4" x="266" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq5" action="EQ_BAND" param="5" x="302" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq6" action="EQ_BAND" param="6" x="338" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq7" action="EQ_BAND" param="7" x="374" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq8" action="EQ_BAND" param="8" x="410" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq9" action="EQ_BAND" param="9" x="446" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
-			<slider id="eq10" action="EQ_BAND" param="10" x="482" y="76" w="22" h="124" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="preamp" action="EQ_PREAMP" x="22" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq1" action="EQ_BAND" param="1" x="79" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq2" action="EQ_BAND" param="2" x="97" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq3" action="EQ_BAND" param="3" x="115" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq4" action="EQ_BAND" param="4" x="133" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq5" action="EQ_BAND" param="5" x="151" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq6" action="EQ_BAND" param="6" x="169" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq7" action="EQ_BAND" param="7" x="187" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq8" action="EQ_BAND" param="8" x="205" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq9" action="EQ_BAND" param="9" x="223" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
+			<slider id="eq10" action="EQ_BAND" param="10" x="241" y="38" w="11" h="62" orientation="vertical" thumb="eq.slider" downThumb="eq.sliderp" cursor="cur.vertislider"/>
 
         <script file="scripts/eq_layers.maki"/>
+        <!-- append "_noiso" to eq_layers if you're not providing eqmain_iso.bmp -->
 
     <script file="scripts/eq_iso_mode.maki"/>
+    <!-- append "_nowacup" to eq_iso_mode if you're not providing wacup specific assets -->
+    <!-- uncomment if you're not providing eqmain_iso.bmp -->
 
     </groupdef>
 
-    <groupdef id="shadeeq" w="550" h="28">
+    <groupdef id="shadeeq">
     
-        <layer id="blah" dblClickAction="SWITCH;eq" x="0" y="0" h="28" w="550" image="eq.shade.on" inactiveimage="eq.shade.off" move="1" cursor="cur.move"/>
-        <layer x="0" y="0" w="10" h="10" resize="topleft"/>
-        <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="508" y="6" image="eqshade.shade" downImage="eqshade.shadep" cursor="cur.minimise"/>
-        <button id="Close" inactivealpha="0" action="close" x="528" y="6" image="eqshade.close" downImage="eqshade.closep" cursor="cur.close"/>
+        <layer id="blah" dblClickAction="SWITCH;eq" x="0" y="0" h="14" w="275" image="eq.shade.on" inactiveimage="eq.shade.off" move="1" cursor="cur.move"/>
 
-        <slider id="volume" action="volume" x="122" y="8" h="14" w="194" thumb="eqshade.vol.seekm" cursor="cur.normal"/>
-        <slider id="balance" action="pan"   x="328" y="8" h="14" w="86" thumb="eqshade.vol.seekm" cursor="cur.normal"/>
+        <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="eqshade.shade" downImage="eqshade.shadep" cursor="cur.minimise"/>
+        <button id="Close" inactivealpha="0" action="close" x="264" y="3" image="eqshade.close" downImage="eqshade.closep" cursor="cur.close"/>
+
+        <slider id="volume" action="volume" x="61" y="4" h="7" w="97" thumb="eqshade.vol.seekm" cursor="cur.normal"/>
+        <slider id="balance" action="pan" x="164" y="4" h="7" w="43" thumb="eqshade.vol.seekm" cursor="cur.normal"/>
         <script file="scripts/setShadeEQPosbar.maki"/>
 
     </groupdef>
 
-    <layout id="EQ" background="wasabi.frame.basetexture" minimum_w="550" minimum_h="232" maximum_w="550" maximum_h="232" cursor="cur.normal">
-        <group id="eq" w="550" h="232"/>
+    <layout id="EQ" background="wasabi.frame.basetexture" minimum_w="275" minimum_h="116" maximum_w="275" maximum_h="116" cursor="cur.normal">
+        <group id="eq"/>
     </layout>
-    <layout id="shadeeq" background="eq.shade.on" minimum_h="28" minimum_w="550" maximum_h="28" maximum_w="550">
+    <layout id="shadeeq" background="eq.shade.on" minimum_h="14" minimum_w="275">
 		<group id="shadeeq" x="0" y="0" sysregion="1"/>
 	</layout>
 

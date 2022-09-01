@@ -8,13 +8,13 @@
 
 Global Group frameGroup, frameGroupEQ, frameGroupEQShade, MainWindow;
 Global Togglebutton ShuffleBtn, RepeatBtn, CLBA;
-Global Button CLBI, CLBD;
-Global Button CLBV, CLBV1, CLBV2, CLBV3;
+Global Button CLBI, CLBD,CLBV, CLBV1, CLBV2, CLBV3, EQONbtn, EQAUTObtn;
+Global Button PLbtn, EQbtn;
 Global Timer SongTickerTimer;
 Global Text InfoTicker;
 Global GuiObject CLBO, SongTicker;
 Global Slider Balance, BalanceEQ;
-Global Layout Normal, ShadeEQ, NormalEQ, NormalPL;
+Global Layout Normal, ShadeEQ, NormalEQ, NormalPL, ShadePL;
 
 Global Slider Seeker;
 Global Int Seeking;
@@ -42,16 +42,22 @@ System.onScriptLoaded(){
 
     frameGroupEQ = getContainer("eq").getLayout("eq");
 
+	EQONbtn = frameGroupEQ.findObject("eq.on");
+	EQAUTObtn = frameGroupEQ.findObject("eq.auto");
+
 	normal = getContainer("main").getlayout("normal");
     shadeeq = getContainer("eq").getlayout("shadeeq");
     normalEQ = getContainer("eq").getlayout("eq");
 	normalPL = getContainer("PL").getlayout("normal");
+	ShadePL = getContainer("PL").getlayout("shadepl");
 
 	SongTickerTimer = new Timer;
 	SongTickerTimer.setDelay(1000);
 
 	RepeatBtn = frameGroup.findObject("Repeat");
 	ShuffleBtn = frameGroup.findObject("Shuffle");
+	PLbtn = frameGroup.findObject("pl");
+	EQbtn = frameGroup.findObject("eq");
 	CLBO = frameGroup.findObject("CLB.O");
     CLBA = frameGroup.findObject("CLB.A");
 	CLBI = frameGroup.findObject("CLB.I");
@@ -142,14 +148,62 @@ RepeatBtn.onToggle(boolean on) {
 	int v = getCurCfgVal();
 	SongTicker.hide();
 	InfoTicker.show();
-    if (on) InfoTicker.setText("Repeat: ON"); else InfoTicker.setText("Repeat: OFF");
+    if (on){
+		InfoTicker.setText("Repeat: ON");
+		RepeatBtn.setXmlParam("downImage", "reppa");
+		}
+	else{
+		InfoTicker.setText("Repeat: OFF");
+		RepeatBtn.setXmlParam("downImage", "repp");
+	}
 }
 
 ShuffleBtn.onToggle(boolean on) {
 	SongTickerTimer.start();
 	SongTicker.hide();
 	InfoTicker.show();
-	if (on) InfoTicker.setText("Shuffle: ON"); else InfoTicker.setText("Shuffle: OFF");
+	if (on){
+		InfoTicker.setText("Shuffle: ON");
+		ShuffleBtn.setXmlParam("downImage", "shufpa");
+		}
+	else{
+		InfoTicker.setText("Shuffle: OFF");
+		ShuffleBtn.setXmlParam("downImage", "shufp");
+	}
+}
+
+PLbtn.onLeftButtonDown(int x, int y) {
+	if(normalPL.isVisible() != 1){
+		PLbtn.setXmlParam("downimage", "player.toggler.pl.pressed");
+	}else{
+		PLbtn.setXmlParam("downimage", "player.toggler.pl.pressed.enabled");
+	}
+}
+
+EQbtn.onLeftButtonDown(int x, int y) {
+	if(normalEQ.isVisible() != 1){
+		EQbtn.setXmlParam("downimage", "player.toggler.eq.pressed");
+	}else{
+		EQbtn.setXmlParam("downimage", "player.toggler.eq.pressed.enabled");
+	}
+}
+
+EQONbtn.onActivate(boolean on){
+	if (on){
+		EQONbtn.setXmlParam("downImage", "eq.onp");
+		}
+	else{
+		EQONbtn.setXmlParam("downImage", "eq.offp");
+	}
+}
+
+EQAUTObtn.onActivate(boolean on){
+	if (on){
+		EQAUTObtn.setXmlParam("downImage", "eq.autoonp");
+		}
+	else{
+		EQAUTObtn.setXmlParam("downImage", "eq.autop");
+	}
 }
 
 CLBO.onLeftButtonDown(int x, int y){
@@ -213,11 +267,15 @@ setScaling(int dbsizemode){
 		Normal.setScale(2);
 		NormalEQ.setScale(2);
 		NormalPL.setScale(2);
+		ShadePL.setScale(2);
+		shadeeq.setScale(2);
 		CLBD.setXmlParam("image", "CLBDp");
 	}else{
 		Normal.setScale(1);
 		NormalEQ.setScale(1);
 		NormalPL.setScale(1);
+		ShadePL.setScale(1);
+		shadeeq.setScale(1);
 		CLBD.setXmlParam("image", "CLBD");
 	}
     setPrivateInt(getSkinName(), "DeClassified Doublesize mode", dbsizemode);
