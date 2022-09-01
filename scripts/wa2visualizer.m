@@ -117,22 +117,22 @@ System.onScriptLoaded()
 setFont(int font){
 	if(font){
 		Songticker.setXmlParam("font", "wasabi.font.default");
-		Songticker.setXmlParam("y", "27");
-		Songticker.setXmlParam("h", "9");
+		Songticker.setXmlParam("y", "54");
+		Songticker.setXmlParam("h", "18");
 
 		Infoticker.setXmlParam("font", "wasabi.font.default");
-		Infoticker.setXmlParam("y", "27");
-		Infoticker.setXmlParam("offsety", "-1");
-		Infoticker.setXmlParam("h", "9");
+		Infoticker.setXmlParam("y", "54");
+		Infoticker.setXmlParam("offsety", "-3");
+		Infoticker.setXmlParam("h", "18");
 	}else{
 		Songticker.setXmlParam("font", "arial");
-		Songticker.setXmlParam("y", "22");
-		Songticker.setXmlParam("h", "14");
+		Songticker.setXmlParam("y", "44");
+		Songticker.setXmlParam("h", "28");
 
 		Infoticker.setXmlParam("font", "arial");
-		Infoticker.setXmlParam("y", "24");
+		Infoticker.setXmlParam("y", "48");
 		Infoticker.setXmlParam("offsety", "-2");
-		Infoticker.setXmlParam("h", "14");
+		Infoticker.setXmlParam("h", "28");
 	}
 }
 
