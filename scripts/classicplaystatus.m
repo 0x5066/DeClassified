@@ -2,23 +2,21 @@
 //aka the green and red LED's found in the Classic Skins.
 //Handles empty kbps and khz and streaming related things.
 
-#include "..\..\..\lib/std.mi"
 #include "songinfo.m"
 
-Global Group player;
+//Global Group player;
 Global layer playstatus;
 Global timer setPlaysymbol;
 
 Function setState();
 Function setState2();
+Function initPlayLED();
 
-System.onScriptLoaded(){
+initPlayLED(){
 
     initSongInfoGrabber();
 
-    Group player = getScriptGroup();
-
-    playstatus = player.findObject("playbackstatus");
+    playstatus = MainWindow.findObject("playbackstatus");
 
     setPlaysymbol = new Timer;
 	setPlaysymbol.setDelay(250); //needs to be 250 or gen_ff will hang
@@ -140,14 +138,24 @@ setState(){
     }
 }
 
+//surely there's ways to improve how this is handled
 setState2(){
-    if(getPosition() < getPlayItemLength()-1093){ //1093 was eyeballed
-        playstatus.setXmlParam("image", "wa.play.green");
-        setState();
-    }else if(getPlayItemLength() <= 0){
-        playstatus.setXmlParam("image", "wa.play.green");
-        setState();
+    if(!WA5MODE){
+        if(getPosition() < getPlayItemLength()-1093){ //1093 was eyeballed
+            playstatus.setXmlParam("image", "wa.play.green");
+            setState();
+        }else if(getPlayItemLength() <= 0){
+            playstatus.setXmlParam("image", "wa.play.green");
+            setState();
+        }else{
+            playstatus.setXmlParam("image", "wa.play.red"); //only ever occurs if the above conditions passed
+        }
     }else{
-        playstatus.setXmlParam("image", "wa.play.red");
+        if(getPlayItemLength() <= 0 && bitrateint == 0 || bitrateint == -1 && freqint == 0 || freqint == -1){
+            playstatus.setXmlParam("image", "wa.play.red"); //has to appear first, i think i'm getting the logic wrong...
+        }else{
+            playstatus.setXmlParam("image", "wa.play.green");
+            setState();
+        }
     }
 }

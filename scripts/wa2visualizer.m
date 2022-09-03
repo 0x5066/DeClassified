@@ -55,6 +55,8 @@ Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, 
 Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, SKINNEDFONT;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
+#include "classicplaystatus.m"
+
 Global Layout WinampMainWindow;
 
 System.onScriptLoaded()
@@ -62,6 +64,7 @@ System.onScriptLoaded()
 	WinampMainWindow = getContainer("Main").getLayout("Normal");
 
 	MainWindow = getContainer("Main").getLayout("Normal");
+	initPlayLED();
 	PlayIndicator = MainWindow.findObject("playbackstatus");
 	Songticker = MainWindow.findObject("Songticker");
 	Infoticker = MainWindow.findObject("Infoticker");
@@ -901,8 +904,8 @@ WinampMainWindow.onScale(Double newscalevalue){
 	LegacyOptions(compatibility);
 	if(legacy == 1){
 		if(newscalevalue != 2){
-			MainVisualizer.setXmlParam("y", "2");
-			PLVisualizer.setXmlParam("y", "2");
+			MainVisualizer.setXmlParam("y", "4");
+			PLVisualizer.setXmlParam("y", "4");
 		}else{
 			MainVisualizer.setXmlParam("y", "0");
 			PLVisualizer.setXmlParam("y", "0");

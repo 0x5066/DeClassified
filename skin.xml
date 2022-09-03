@@ -55,6 +55,6 @@
 
 	<!-- About the skin -->
 	<include file="about/about.xml"/> 
-	<include file="xml/beattime.xml"/>
+	<include file="external/beattime.xml"/>
 
 </WinampAbstractionLayer>
