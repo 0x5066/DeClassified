@@ -87,7 +87,7 @@
 	<status id="wastatus" x="26" y="28" stopBitmap="wa.stop" playBitmap="wa.play" pauseBitmap="wa.pause" ghost="1" cursor="cur.normal"/>
 	<layer id="playbackstatus" x="24" y="28" image="wa.play.green" ghost="1"/>
 
-	<script file="scripts/classicplaystatus.maki"/>
+	<!--script file="scripts/classicplaystatus.maki"/-->
 
 	<text id="mixrate" display="songsamplerate" x="154" y="43" w="12" h="9" font="wasabi.font.default" fontsize="13" align="left" valign="top" cursor="cur.normal" color="x50"/>	
 	<text id="bitrate" display="songbitrate" x="109" y="43" w="17" h="9" font="wasabi.font.default" fontsize="13" align="left" valign="top" cursor="cur.normal" color="x50"/>	
