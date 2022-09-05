@@ -12,6 +12,13 @@ Function setState();
 Function setState2();
 Function initPlayLED();
 
+Function DeleteStuff();
+Function PauseStuff();
+Function ResumeStuff();
+Function PlayStuff();
+Function ChangeTitle();
+Function StopStuff();
+
 initPlayLED(){
 
     initSongInfoGrabber();
@@ -34,17 +41,17 @@ initPlayLED(){
     }
 }
 
-System.onScriptUnloading(){
+DeleteStuff(){
     deleteSongInfoGrabber();
 }
 
-System.onPause(){
+PauseStuff(){
     songInfoTimer.stop();
 
     playstatus.setXmlParam("alpha", "0");
 }
 
-System.onResume()
+ResumeStuff()
 {
     String sit = getSongInfoText();
     String bitratestring = integerToString(bitrateint);
@@ -59,7 +66,7 @@ System.onResume()
     //messageBox(bitratestring, freqstring, 0, "");
 }
 
-System.onPlay()
+PlayStuff()
 {
     getSonginfo(getSongInfoText());
     String sit = getSongInfoText();
@@ -72,7 +79,7 @@ System.onPlay()
     playstatus.setXmlParam("alpha", "255");
 }
 
-System.onTitleChange(String newtitle)
+ChangeTitle()
 {
     String sit = getSongInfoText();
 	if (sit != "") getSonginfo(sit);
@@ -93,7 +100,7 @@ System.onTitleChange(String newtitle)
     }
 }
 
-System.onStop(){
+StopStuff(){
     songInfoTimer.stop();
 
     playstatus.setXmlParam("alpha", "0");
