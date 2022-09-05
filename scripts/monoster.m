@@ -24,6 +24,9 @@ System.onScriptLoaded(){
     }else if(c == 1){
         mono.setXmlParam("image", "player.status.mono.active");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
+    }else if(c >= 3){
+        mono.setXmlParam("image", "player.status.mono.inactive");
+        stereo.setXmlParam("image", "player.status.stereo.inactive");
     }else if(c == -1){
         mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
@@ -45,6 +48,9 @@ System.onPlay()
     }else if(c == 1){
         mono.setXmlParam("image", "player.status.mono.active");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
+    }else if(c >= 3){
+        mono.setXmlParam("image", "player.status.mono.inactive");
+        stereo.setXmlParam("image", "player.status.stereo.inactive");
     }else if(c == -1){
         mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
@@ -60,6 +66,9 @@ System.onTitleChange(String newtitle)
         stereo.setXmlParam("image", "player.status.stereo.active");
     }else if(c == 1){
         mono.setXmlParam("image", "player.status.mono.active");
+        stereo.setXmlParam("image", "player.status.stereo.inactive");
+    }else if(c >= 3){
+        mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
     }else if(c == -1){
         mono.setXmlParam("image", "player.status.mono.inactive");
@@ -81,6 +90,9 @@ getchanneltimer.onTimer ()
         stereo.setXmlParam("image", "player.status.stereo.active");
     }else if(c == 1){
         mono.setXmlParam("image", "player.status.mono.active");
+        stereo.setXmlParam("image", "player.status.stereo.inactive");
+    }else if(c >= 3){
+        mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
     }else if(c == -1){
         mono.setXmlParam("image", "player.status.mono.inactive");
