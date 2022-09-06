@@ -26,7 +26,7 @@ initPlayLED(){
     playstatus = MainWindow.findObject("playbackstatus");
 
     setPlaysymbol = new Timer;
-	setPlaysymbol.setDelay(250); //needs to be 250 or gen_ff will hang
+	setPlaysymbol.setDelay(16); //needs to be 250 or gen_ff will hang
 
     setState();
     setState2();
@@ -46,7 +46,7 @@ DeleteStuff(){
 }
 
 PauseStuff(){
-    songInfoTimer.stop();
+    //songInfoTimer.stop();
 
     playstatus.setXmlParam("alpha", "0");
 }
@@ -57,11 +57,11 @@ ResumeStuff()
     String bitratestring = integerToString(bitrateint);
     String freqstring = integerToString(freqint);
 	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	//else songInfoTimer.setDelay(250); // goes to 250ms once info is available
+	//songInfoTimer.start();
     setState2();
 
-    //setPlaysymbol.start();
+    setPlaysymbol.start();
     playstatus.setXmlParam("alpha", "255");
     //messageBox(bitratestring, freqstring, 0, "");
 }
@@ -71,11 +71,11 @@ PlayStuff()
     getSonginfo(getSongInfoText());
     String sit = getSongInfoText();
 	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	//else songInfoTimer.setDelay(250); // goes to 250ms once info is available
+	//songInfoTimer.start();
     setState2();
 
-    //setPlaysymbol.start();
+    setPlaysymbol.start();
     playstatus.setXmlParam("alpha", "255");
 }
 
@@ -83,13 +83,13 @@ ChangeTitle()
 {
     String sit = getSongInfoText();
 	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	//else songInfoTimer.setDelay(250); // goes to 250ms once info is available
+	//songInfoTimer.start();
     setState2();
 
     if(getStatus() == 1){
         playstatus.setXmlParam("alpha", "255");
-        //setPlaysymbol.start();
+        //setPlaysymbol.start();//
     }else if(getStatus() == -1){
         playstatus.setXmlParam("alpha", "0");
         setPlaysymbol.stop();
@@ -101,16 +101,16 @@ ChangeTitle()
 }
 
 StopStuff(){
-    songInfoTimer.stop();
+    //songInfoTimer.stop();
 
     playstatus.setXmlParam("alpha", "0");
     playstatus.setXmlParam("image", "wa.play.green");
 }
 
-songInfoTimer.onTimer(){
+System.onInfoChange(String info){
 	String sit = getSongInfoText();
 	if (sit == "") return;
-	songInfoTimer.setDelay(250);
+	//songInfoTimer.setDelay(250);
 	getSonginfo(sit);
 	setState2();
 }
@@ -139,7 +139,8 @@ setState(){
             playstatus.setXmlParam("image", "wa.play.red"); 
             setPlaysymbol.start();
         }
-        if(bitrateint > 0 && freqint > 0){setPlaysymbol.start(); 
+        if(bitrateint > 0 && freqint > 0){
+            setPlaysymbol.start(); 
             playstatus.setXmlParam("image", "wa.play.green");
         }
     }
@@ -158,8 +159,11 @@ setState2(){
             playstatus.setXmlParam("image", "wa.play.red"); //only ever occurs if the above conditions passed
         }
     }else{
+        //after the migration to using onInfoChange(..) exclusively,
+        //this does not work anymore when wacup is already playing.
+        //WHY????
         if(getPlayItemLength() <= 0 && bitrateint == 0 || bitrateint == -1 && freqint == 0 || freqint == -1){
-            playstatus.setXmlParam("image", "wa.play.red"); //has to appear first, i think i'm getting the logic wrong...
+            playstatus.setXmlParam("image", "wa.play.red");
         }else{
             playstatus.setXmlParam("image", "wa.play.green");
             setState();
