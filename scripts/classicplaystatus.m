@@ -12,6 +12,13 @@ Function setState();
 Function setState2();
 Function initPlayLED();
 
+Function DeleteStuff();
+Function PauseStuff();
+Function ResumeStuff();
+Function PlayStuff();
+Function ChangeTitle();
+Function StopStuff();
+
 initPlayLED(){
 
     initSongInfoGrabber();
@@ -19,7 +26,7 @@ initPlayLED(){
     playstatus = MainWindow.findObject("playbackstatus");
 
     setPlaysymbol = new Timer;
-	setPlaysymbol.setDelay(250); //needs to be 250 or gen_ff will hang
+	setPlaysymbol.setDelay(16); 
 
     setState();
     setState2();
@@ -34,24 +41,32 @@ initPlayLED(){
     }
 }
 
-System.onScriptUnloading(){
+DeleteStuff(){
     deleteSongInfoGrabber();
 }
 
-System.onPause(){
-    songInfoTimer.stop();
+PauseStuff(){
+    //songInfoTimer.stop();
 
     playstatus.setXmlParam("alpha", "0");
 }
 
-System.onResume()
+ResumeStuff()
 {
     String sit = getSongInfoText();
     String bitratestring = integerToString(bitrateint);
     String freqstring = integerToString(freqint);
-	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	if (sit == "")
+	{
+		getSonginfo(sit);
+		if(getStatus() == 1){
+			bitrateint == 0;
+			freqint == 0;
+		}
+	}if(sit != ""){
+        getSonginfo(sit);
+    }
+	//songInfoTimer.start();
     setState2();
 
     //setPlaysymbol.start();
@@ -59,25 +74,39 @@ System.onResume()
     //messageBox(bitratestring, freqstring, 0, "");
 }
 
-System.onPlay()
+PlayStuff()
 {
     getSonginfo(getSongInfoText());
     String sit = getSongInfoText();
-	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	if (sit == "")
+	{
+		getSonginfo(sit);
+		if(getStatus() == 1){
+			bitrateint == 0;
+			freqint == 0;
+		}
+	}if(sit != ""){
+        getSonginfo(sit);
+    }
     setState2();
 
     //setPlaysymbol.start();
     playstatus.setXmlParam("alpha", "255");
 }
 
-System.onTitleChange(String newtitle)
+ChangeTitle()
 {
     String sit = getSongInfoText();
-	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	if (sit == "")
+	{
+		getSonginfo(sit);
+		if(getStatus() == 1){
+			bitrateint == 0;
+			freqint == 0;
+		}
+	}if(sit != ""){
+        getSonginfo(sit);
+    }
     setState2();
 
     if(getStatus() == 1){
@@ -93,23 +122,44 @@ System.onTitleChange(String newtitle)
     }
 }
 
-System.onStop(){
-    songInfoTimer.stop();
+StopStuff(){
+    //songInfoTimer.stop();
 
     playstatus.setXmlParam("alpha", "0");
     playstatus.setXmlParam("image", "wa.play.green");
 }
 
-songInfoTimer.onTimer(){
+System.onInfoChange(String info){
 	String sit = getSongInfoText();
-	if (sit == "") return;
-	songInfoTimer.setDelay(250);
-	getSonginfo(sit);
+    String bitratetxt = integerToString(bitrateint);
+    String freqtxt = integerToString(freqint);
+	if (sit == "")
+	{
+		getSonginfo(sit);
+		if(getStatus() == 1){
+			bitrateint == 0;
+			freqint == 0;
+		}
+	}if(sit != ""){
+        getSonginfo(sit);
+    }
 	setState2();
 }
 
 setPlaysymbol.onTimer()
 {
+    String sit = getSongInfoText();
+    if (sit == "")
+	{
+		getSonginfo(sit);
+		if(getStatus() == 1){
+			bitrateint == 0;
+			freqint == 0;
+		}
+	}if(sit != ""){
+        getSonginfo(sit);
+    }
+	setState2();
     setState2();
 }
 

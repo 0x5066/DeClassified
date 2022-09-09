@@ -9,7 +9,7 @@ Function getSonginfo(String SongInfoString);
 
 Global Group player;
 Global Text bitrateText, FrequencyText;
-Global Timer songInfoTimer;
+//Global Timer songInfoTimer;
 Global String SongInfoString, freqstring, bitratestring;
 Global int bitrateint, freqint;
 Global AlbumArtLayer waaa;
@@ -22,40 +22,47 @@ System.onScriptLoaded(){
 	bitrateText = player.findObject("bitrate");
 	frequencyText = player.findObject("mixrate");
 
-	songInfoTimer = new Timer;
-	songInfoTimer.setDelay(250);
+	//songInfoTimer = new Timer;
+	//songInfoTimer.setDelay(250);
 
 	if (getStatus() == STATUS_PLAYING) {
 		String sit = getSongInfoText();
 		if (sit != "") getSonginfo(sit);
-		else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-		songInfoTimer.start();
+		//else songInfoTimer.setDelay(250); // goes to 250ms once info is available
+		//songInfoTimer.start();
 	} else if (getStatus() == STATUS_PAUSED) {
 		getSonginfo(getSongInfoText());
 	}
 }
 
 System.onScriptUnloading(){
-	delete songInfoTimer;
+	//delete songInfoTimer;
 }
 
 System.onPlay(){
 	String sit = getSongInfoText();
 	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	//else songInfoTimer.setDelay(250); // goes to 250ms once info is available
+	//songInfoTimer.start();
 	getSonginfo(getSongInfoText());
 }
 
 System.onTitleChange(String newtitle){
 	String sit = getSongInfoText();
-	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	if (sit == "")
+	{
+		getSonginfo(sit);
+		if(getStatus() == 1){
+			bitrateText.setText("  0");
+			frequencyText.setText(" 0");
+		}
+	}
+	//else songInfoTimer.setDelay(250); // goes to 250ms once info is available
+	//songInfoTimer.start();
 }
 
 System.onStop(){
-	songInfoTimer.stop();
+	//songInfoTimer.stop();
 	frequencyText.setText("");
 	bitrateText.setText("");
 }
@@ -63,18 +70,25 @@ System.onStop(){
 System.onResume(){
 	String sit = getSongInfoText();
 	if (sit != "") getSonginfo(sit);
-	else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-	songInfoTimer.start();
+	//else songInfoTimer.setDelay(250); // goes to 250ms once info is available
+	//songInfoTimer.start();
 }
 
 System.onPause(){
-	songInfoTimer.stop();
+	//songInfoTimer.stop();
 }
 
-songInfoTimer.onTimer(){
+System.onInfoChange(String info){
 	String sit = getSongInfoText();
-	if (sit == "") return;
-	songInfoTimer.setDelay(250);
+	if (sit == "")
+	{
+		getSonginfo(sit);
+		if(getStatus() == 1){
+			bitrateText.setText("  0");
+			frequencyText.setText(" 0");
+		}
+	}
+	//songInfoTimer.setDelay(250);
 	getSonginfo(sit);
 }
 
@@ -154,7 +168,7 @@ bitratetext.onEnterArea(){
 
 frequencyText.onEnterArea(){
 	if(IsWACUP == 1){
-		if(freqint > 100) frequencyText.setXmlParam("tooltip", "Current Sample Rate: "+freqstring+" khz");
+		if(freqint > 100) frequencyText.setXmlParam("tooltip", "Current samplerate: "+freqstring+" khz");
 		if(freqint < 100) frequencyText.setXmlParam("tooltip", "");
 	}
 }

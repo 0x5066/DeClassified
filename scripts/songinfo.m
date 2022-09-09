@@ -8,25 +8,25 @@ Function deleteSongInfoGrabber();
 Global Timer songInfoTimer;
 Global String SongInfoString;
 
-Global int bitrateint, freqint;
+Global int bitrateint, freqint, TIMERMS;
 
 initSongInfoGrabber(){
 
-	songInfoTimer = new Timer;
-	songInfoTimer.setDelay(250);
+	//songInfoTimer = new Timer;
+	//songInfoTimer.setDelay(16);
 
 	if (getStatus() == STATUS_PLAYING) {
 		String sit = getSongInfoText();
 		if (sit != "") getSonginfo(sit);
-		else songInfoTimer.setDelay(250); // goes to 250ms once info is available
-		songInfoTimer.start();
+		else {} //songInfoTimer.setDelay(16); // goes to 250ms once info is available
+		//songInfoTimer.start();
 	} else if (getStatus() == STATUS_PAUSED) {
 		getSonginfo(getSongInfoText());
 	}
 }
 
 deleteSongInfoGrabber(){
-	delete songInfoTimer;
+	//delete songInfoTimer;
 }
 
 String tokenizeSongInfo(String tkn, String sinfo){

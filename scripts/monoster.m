@@ -1,7 +1,7 @@
 #include "..\..\..\lib/std.mi"
 
 Global layer mono, stereo;
-Global timer getchanneltimer;
+//Global timer getchanneltimer;
 Global int c;
 
 Function int getChannels();
@@ -13,8 +13,8 @@ System.onScriptLoaded(){
     mono = player.findObject("mono");
     stereo = player.findObject("stereo");
 
-    getchanneltimer = new Timer;
-	getchanneltimer.setDelay(250);
+    //getchanneltimer = new Timer;
+	//getchanneltimer.setDelay(250);
 
     c = getChannels();
 
@@ -23,6 +23,9 @@ System.onScriptLoaded(){
         stereo.setXmlParam("image", "player.status.stereo.active");
     }else if(c == 1){
         mono.setXmlParam("image", "player.status.mono.active");
+        stereo.setXmlParam("image", "player.status.stereo.inactive");
+    }else if(c >= 3){
+        mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
     }else if(c == -1){
         mono.setXmlParam("image", "player.status.mono.inactive");
@@ -32,18 +35,21 @@ System.onScriptLoaded(){
 
 System.onResume()
 {
-	getchanneltimer.start();
+	//getchanneltimer.start();
 }
 
 System.onPlay()
 {
-	getchanneltimer.start();
+	//getchanneltimer.start();
     c = getChannels();
     if(c == 2){
         mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.active");
     }else if(c == 1){
         mono.setXmlParam("image", "player.status.mono.active");
+        stereo.setXmlParam("image", "player.status.stereo.inactive");
+    }else if(c >= 3){
+        mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
     }else if(c == -1){
         mono.setXmlParam("image", "player.status.mono.inactive");
@@ -53,13 +59,16 @@ System.onPlay()
 
 System.onTitleChange(String newtitle)
 {
-	getchanneltimer.start();
+	//getchanneltimer.start();
     c = getChannels();
     if(c == 2){
         mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.active");
     }else if(c == 1){
         mono.setXmlParam("image", "player.status.mono.active");
+        stereo.setXmlParam("image", "player.status.stereo.inactive");
+    }else if(c >= 3){
+        mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
     }else if(c == -1){
         mono.setXmlParam("image", "player.status.mono.inactive");
@@ -68,12 +77,12 @@ System.onTitleChange(String newtitle)
 }
 
 System.onStop(){
-    getchanneltimer.stop();
+    //getchanneltimer.stop();
     mono.setXmlParam("image", "player.status.mono.inactive");
     stereo.setXmlParam("image", "player.status.stereo.inactive");
 }
 
-getchanneltimer.onTimer ()
+System.onInfoChange(String info)
 {
     c = getChannels();
     if(c == 2){
@@ -81,6 +90,9 @@ getchanneltimer.onTimer ()
         stereo.setXmlParam("image", "player.status.stereo.active");
     }else if(c == 1){
         mono.setXmlParam("image", "player.status.mono.active");
+        stereo.setXmlParam("image", "player.status.stereo.inactive");
+    }else if(c >= 3){
+        mono.setXmlParam("image", "player.status.mono.inactive");
         stereo.setXmlParam("image", "player.status.stereo.inactive");
     }else if(c == -1){
         mono.setXmlParam("image", "player.status.mono.inactive");

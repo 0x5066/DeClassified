@@ -117,6 +117,10 @@ System.onScriptLoaded()
 	refreshVisSettings();
 }
 
+System.onScriptUnloading(){
+	DeleteStuff();
+}
+
 setFont(int font){
 	if(font){
 		Songticker.setXmlParam("font", "wasabi.font.default");
@@ -205,6 +209,7 @@ System.onStop(){
 	VU.start();
 	peak1 = 0;
 	peak2 = 0;
+	StopStuff();
 }
 
 System.onPause(){
@@ -212,6 +217,7 @@ System.onPause(){
 	if(currentMode == 1){
 		VU.stop();
 	}
+	PauseStuff();
 }
 
 System.onResume(){
@@ -219,6 +225,7 @@ System.onResume(){
 	if(currentMode == 1){
 		VU.start();
 	}
+	ResumeStuff();
 }
 
 System.onPlay(){
@@ -226,6 +233,11 @@ System.onPlay(){
 	if(currentMode == 1){
 		VU.start();
 	}
+	PlayStuff();
+}
+
+System.onTitleChange(String newtitle){
+	ChangeTitle();
 }
 
 setVisModeLBD(){
