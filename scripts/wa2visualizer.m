@@ -50,6 +50,7 @@ Global PopUpMenu oscsettings;
 Global PopUpMenu stylemenu;
 Global PopUpMenu fpsmenu;
 Global PopUpMenu vumenu;
+Global PopUpMenu firemenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps, smoothvu;
 Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, SKINNEDFONT;
@@ -262,6 +263,7 @@ setVisModeRBD(){
 	oscsettings = new PopUpMenu;
 	fpsmenu = new PopUpMenu;
 	vumenu = new PopUpMenu;
+	firemenu = new PopUpmenu;
 
 	if(WA5MODE){
 		visMenu.addCommand("Modes:", 999, 0, 1);
@@ -332,6 +334,10 @@ setVisModeRBD(){
 		anamenu.addCommand("Fast", 303, a_falloffspeed == 3, 0);
 		anamenu.addCommand("Faster", 304, a_falloffspeed == 4, 0);
 		anasettings.addSubMenu(anamenu, "Analyzer falloff Speed");
+		anasettings.addSubMenu(firemenu, "Coloring style");
+		firemenu.addCommand("Normal style", 400, a_coloring == 0, 0);
+		firemenu.addCommand("Fire style", 402, a_coloring == 2, 0);
+		firemenu.addCommand("Line style", 403, a_coloring == 3, 0);
 		visMenu.addSubmenu(oscsettings, "Oscilloscope Options");
 		oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
 		oscsettings.addSeparator();
@@ -405,6 +411,8 @@ setVisModeRBD(){
 	delete anasettings;
 	delete oscsettings;
 	delete fpsmenu;
+	delete vumenu;
+	delete firemenu;
 
 	complete;	
 }
