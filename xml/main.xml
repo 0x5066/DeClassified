@@ -159,7 +159,7 @@
     colorosc3="181,189,189"
     colorosc4="160,170,175"
     colorosc5="148,156,165"/>
-	<layer id="main.vis.trigger" w="72" h="16" cursor="cur.normal"/>
+	<layer id="main.vis.trigger" w="76" h="16" cursor="cur.normal"/>
 </groupdef>
 
 <groupdef id="shademain">
