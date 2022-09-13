@@ -217,14 +217,14 @@ CLBA.onToggle(boolean on) {
 	SongTickerTimer.start();
 	SongTicker.hide();
 	InfoTicker.show();
-	if (on) InfoTicker.setText("Enable Always-on-Top"); else InfoTicker.setText("Disable Always-on-Top");
+	if (on) InfoTicker.setText("Enable Always-On-Top"); else InfoTicker.setText("Disable Always-On-Top");
 }
 
 CLBI.onLeftButtonDown(int x, int y) {
 	SongTickerTimer.start();
 	SongTicker.hide();
 	InfoTicker.show();
-	InfoTicker.setText("File info box");
+	InfoTicker.setText("File Info Box");
 }
 
 /*CLBD.onToggle(boolean on) {
@@ -247,11 +247,11 @@ CLBD.onLeftButtonDown(int x, int y){
 	SongTicker.hide();
 	InfoTicker.show();
 	if(dbsize == 0){
-		InfoTicker.setText("Enable doublesize mode");
+		InfoTicker.setText("Enable Doublesize Mode");
 		dbsize = 1;
 		CLBD.setXmlParam("image", "CLBDp");
 	}else{
-		InfoTicker.setText("Disable doublesize mode"); //no idea why this works but it works
+		InfoTicker.setText("Disable Doublesize Mode"); //no idea why this works but it works
 		dbsize = 0;
 		CLBD.setXmlParam("image", "CLBD");
 	}
