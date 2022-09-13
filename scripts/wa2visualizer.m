@@ -284,7 +284,8 @@ setVisModeRBD(){
 	}
 
 	visMenu.addSeparator();
-	visMenu.addCommand("Main Window Settings", 998, 0, 1);
+	visMenu.addCommand("DeClassified Settings", 998, 0, 1);
+	visMenu.addSeparator();
 	visMenu.addCommand("Classic Skin Compatibility", 102, compatibility == 1, 0);
 	visMenu.addCommand("Use bitmap font for main title display (no int. support)", 106, SKINNEDFONT == 1, 0);
 	if(compatibility){
