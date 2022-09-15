@@ -906,8 +906,8 @@ LegacyOptions(int legacy){
 			PLVisualizer.setXmlParam("visible", "1");
 		}
 		if(WinampMainWindow.getScale() != 2){
-		MainVisualizer.setXmlParam("y", "2");
-		PLVisualizer.setXmlParam("y", "2");
+		MainVisualizer.setXmlParam("y", "4");
+		PLVisualizer.setXmlParam("y", "4");
 		}else{
 		MainVisualizer.setXmlParam("y", "0");
 		PLVisualizer.setXmlParam("y", "0");
