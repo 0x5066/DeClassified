@@ -50,6 +50,7 @@ Global PopUpMenu oscsettings;
 Global PopUpMenu stylemenu;
 Global PopUpMenu fpsmenu;
 Global PopUpMenu vumenu;
+Global PopUpMenu firemenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps, smoothvu;
 Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, SKINNEDFONT;
@@ -262,6 +263,7 @@ setVisModeRBD(){
 	oscsettings = new PopUpMenu;
 	fpsmenu = new PopUpMenu;
 	vumenu = new PopUpMenu;
+	firemenu = new PopUpmenu;
 
 	if(WA5MODE){
 		visMenu.addCommand("Modes:", 999, 0, 1);
@@ -282,7 +284,8 @@ setVisModeRBD(){
 	}
 
 	visMenu.addSeparator();
-	visMenu.addCommand("Main Window Settings", 998, 0, 1);
+	visMenu.addCommand("DeClassified Settings", 998, 0, 1);
+	visMenu.addSeparator();
 	visMenu.addCommand("Classic Skin Compatibility", 102, compatibility == 1, 0);
 	visMenu.addCommand("Use bitmap font for main title display (no int. support)", 106, SKINNEDFONT == 1, 0);
 	if(compatibility){
@@ -332,6 +335,10 @@ setVisModeRBD(){
 		anamenu.addCommand("Fast", 303, a_falloffspeed == 3, 0);
 		anamenu.addCommand("Faster", 304, a_falloffspeed == 4, 0);
 		anasettings.addSubMenu(anamenu, "Analyzer falloff Speed");
+		anasettings.addSubMenu(firemenu, "Coloring style");
+		firemenu.addCommand("Normal style", 400, a_coloring == 0, 0);
+		firemenu.addCommand("Fire style", 402, a_coloring == 2, 0);
+		firemenu.addCommand("Line style", 403, a_coloring == 3, 0);
 		visMenu.addSubmenu(oscsettings, "Oscilloscope Options");
 		oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
 		oscsettings.addSeparator();
@@ -405,6 +412,8 @@ setVisModeRBD(){
 	delete anasettings;
 	delete oscsettings;
 	delete fpsmenu;
+	delete vumenu;
+	delete firemenu;
 
 	complete;	
 }
@@ -882,6 +891,7 @@ LegacyOptions(int legacy){
 	//messageBox(integertoString(legacy), "", 1, "");
 	if(legacy == 1){
 		WinampMainWindow.onSetVisible(WinampMainWindow.isVisible());
+		MainShadeWindow.onSetVisible(MainShadeWindow.isVisible());
 		if(getStatus() == -1){
 			MainVisualizer.setXmlParam("visible", "1");
 			MainShadeVisualizer.setXmlParam("visible", "1");
@@ -909,6 +919,7 @@ LegacyOptions(int legacy){
 		MainVisualizer.setXmlParam("y", "0");
 		PLVisualizer.setXmlParam("y", "0");
 		WinampMainWindow.onSetVisible(0);
+		MainShadeWindow.onSetVisible(0);
 	}
 }
 
@@ -932,7 +943,27 @@ WinampMainWindow.onSetVisible(Boolean onoff){
 	if(onoff == 1){
 		PLVisualizer.setXmlParam("alpha", "0");
 	}else{
+		if(MainShadeWindow.isVisible() == 1 || WinampMainWindow.isVisible() == 1){
+			PLVisualizer.setXmlParam("alpha", "0");
+		}else{
+			PLVisualizer.setXmlParam("alpha", "255");
+		}
+	}
+	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");
+	}
+}
+
+//yeah, this works
+MainShadeWindow.onSetVisible(Boolean onoff){
+	if(onoff == 1){
+		PLVisualizer.setXmlParam("alpha", "0");
+	}else{
+		if(MainShadeWindow.isVisible() == 1 || WinampMainWindow.isVisible() == 1){
+			PLVisualizer.setXmlParam("alpha", "0");
+		}else{
+			PLVisualizer.setXmlParam("alpha", "255");
+		}
 	}
 	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");

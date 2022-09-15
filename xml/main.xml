@@ -5,55 +5,54 @@
 	although those too came from different sources and tweaked to
 	fit my own needs.-->
 
-<groupdef id="mainwindow" x="0" y="0" w="550" h="232">
+<groupdef id="mainwindow" x="0" y="0" w="275" h="116">
 	
 	<layer id="mainwnd" image="wa.main" cursor="cur.normal"/>
-	<layer id="blah" dblClickAction="SWITCH;shade" x="0" y="0" h="28" w="550" move="1" cursor="cur.move"/>
-	<layer x="0" y="0" w="10" h="10" resize="topleft"/>
+	<layer id="blah" dblClickAction="SWITCH;shade" x="0" y="0" h="14" w="275" move="1" cursor="cur.move"/>
 
-	<layer image="clutterbar" x="20" y="44" cursor="cur.normal"/>
+	<layer image="clutterbar" x="10" y="22" cursor="cur.normal"/>
 	<!--Togglebutton id="CLB.O" x="11" y="24" w="8" h="9" action="CONTROLMENU" rectrgn="1"/-->
 	<!--Menu id="OAIDU.buttons.O.m" menu="WA5:Options" x="11" y="24" normal="CLBO" down="CLBOp"/-->
-	<layer id="CLB.Op" x="22" y="48" w="14" h="16" image="CLBOp" cursor="cur.normal"/>
-	<layer id="CLB.O1" x="22" y="48" w="14" h="16" image="CLBO" cursor="cur.normal"/>
-	<Menu id="CLB.O" x="22" y="48" w="14" h="16" menu="WA5:Options" normal="CLB.O1" down="CLB.Op" cursor="cur.normal"/>
-	<Togglebutton id="CLB.A" x="22" y="64" image="CLBA" downimage="CLBAp" activeimage="CLBAp" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1" cursor="cur.normal"/>
-	<button id="CLB.I" x="22" y="80" image="CLBI" downimage="CLBIp" action="trackinfo" cursor="cur.normal"/>
-	<button id="CLB.D" x="22" y="96" image="CLBD" downimage="CLBDp" cursor="cur.normal"/>
+	<layer id="CLB.Op" x="11" y="24" w="7" h="8" image="CLBOp" cursor="cur.normal"/>
+	<layer id="CLB.O1" x="11" y="24" w="7" h="8" image="CLBO" cursor="cur.normal"/>
+	<Menu id="CLB.O" x="11" y="24" w="7" h="8" menu="WA5:Options" normal="CLB.O1" down="CLB.Op" cursor="cur.normal"/>
+	<Togglebutton id="CLB.A" x="11" y="32" image="CLBA" downimage="CLBAp" activeimage="CLBAp" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1" cursor="cur.normal"/>
+	<button id="CLB.I" x="11" y="40" image="CLBI" downimage="CLBIp" action="trackinfo" cursor="cur.normal"/>
+	<button id="CLB.D" x="11" y="48" image="CLBD" downimage="CLBDp" cursor="cur.normal"/>
 
-	<button id="CLB.V1" x="22" y="112" h="0" w="0" action="TOGGLE" param="guid:avs" cursor="cur.normal"/>
-	<button id="CLB.V2" x="22" y="112" h="0" w="0" action="Vis_Cfg" cursor="cur.normal"/>
-	<button id="CLB.V3" x="22" y="112" h="0" w="0" action="WA5:Prefs" param="33" cursor="cur.normal"/>
+	<button id="CLB.V1" x="11" y="56" h="0" w="0" action="TOGGLE" param="guid:avs" cursor="cur.normal"/>
+	<button id="CLB.V2" x="11" y="56" h="0" w="0" action="Vis_Cfg" cursor="cur.normal"/>
+	<button id="CLB.V3" x="11" y="56" h="0" w="0" action="WA5:Prefs" param="33" cursor="cur.normal"/>
 
-	<button id="CLB.V" x="22" y="112" image="CLBV" downimage="CLBVp" cursor="cur.normal"/>
+	<button id="CLB.V" x="11" y="56" image="CLBV" downimage="CLBVp" cursor="cur.normal"/>
 
-	<group id="waclassicvis" x="48" y="86" w="152" h="32"/>	
+	<group id="waclassicvis" x="24" y="43" w="76" h="16"/>	
 	<!-- Timer -->
 	<layer id="nums_ex_disabled_dash" x="36" y="26" image="disabled.dash" ghost="1" visible="0" cursor="cur.normal"/>
 	<text
 		id="timer"
 		display="time"
-		x="63" y="47"
-		w="140" h="36"
+		x="33" y="24"
+		w="70" h="18"
 		font="player.BIGNUM" fontsize="21" align="right"
-		timecolonwidth="12"
+		timecolonwidth="6" color="x50"
 	/>
 
-	<layer id="TimerTrigger" x="66" y="48"
-		w="140" h="36"
+	<layer id="TimerTrigger" x="33" y="24"
+		w="70" h="18"
 		cursor="cur.normal"/>
 
 	<Songticker
 		id="songticker" ticker="1"
-		x="222" y="54"
-		w="308" h="18"
-		font="wasabi.font.default" altfont="arial" fontsize="26"
+		x="111" y="27"
+		w="154" h="9"
+		font="wasabi.font.default" altfont="arial" fontsize="13"
 		altvalign="center" dblclickaction="trackinfo" color="0,198,0"
 	rightclickaction="trackmenu" cursor="cur.horizslider" antialias="0"
 	/>
 
-	<text id="infoticker" x="220" y="54" offsetx="-0" offsety="-6"
-		w="310" h="18" font="wasabi.font.default" fontsize="26" dblclickaction="trackinfo" 
+	<text id="infoticker" x="110" y="27" offsetx="-1" offsety="-1"
+		w="155" h="9" font="wasabi.font.default" fontsize="13" dblclickaction="trackinfo" 
 		rightclickaction="trackmenu" ghost="1" color="0,198,0" antialias="0"/>
 
 	<!--text
@@ -67,59 +66,59 @@
 
 <!--script file="scripts/getSongInfoText.maki"/-->
 
-<layer id="posbarbg" x="32" y="144" image="posbarbg" ghost="1" visible="0"/>
+<layer id="posbarbg" x="16" y="72" image="posbarbg" ghost="1" visible="0"/>
 
-	<slider id="player.slider.seek" action="SEEK" x="32" y="144" w="496" h="20" orientation="horizontal" thumb="posbar" downthumb="posbarp" rectrgn="1" cursor="cur.horizslider"/>	
+	<slider id="player.slider.seek" action="SEEK" x="16" y="72" w="248" h="10" orientation="horizontal" thumb="posbar" downthumb="posbarp" rectrgn="1" cursor="cur.horizslider"/>	
 	<!--button id="player.slider.seek" x="16" y="72" image="posbar" downimage="posbarp" rectrgn="1"/>
 	<script file="scripts/seeker.maki"/-->
 
 <script file="scripts/setposbarvisibility.maki"/>
 
-	<togglebutton id="Repeat" x="420" y="178" image="rep"
+	<togglebutton id="Repeat" x="210" y="89" image="rep"
 		downImage="repp" activeImage="repa"
 		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Repeat" cfgvals="0;1;-1"
 		cursor="cur.normal"/>
 	
-	<togglebutton id="Shuffle" x="328" y="178" image="shuf"
+	<togglebutton id="Shuffle" x="164" y="89" image="shuf"
 		downImage="shufp" activeImage="shufa"
 		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Shuffle"
 		cursor="cur.normal"/>
 
-	<status id="wastatus" x="52" y="56" stopBitmap="wa.stop" playBitmap="wa.play" pauseBitmap="wa.pause" ghost="1" cursor="cur.normal"/>
-	<layer id="playbackstatus" x="48" y="56" image="wa.play.green" ghost="1"/>
+	<status id="wastatus" x="26" y="28" stopBitmap="wa.stop" playBitmap="wa.play" pauseBitmap="wa.pause" ghost="1" cursor="cur.normal"/>
+	<layer id="playbackstatus" x="24" y="28" image="wa.play.green" ghost="1"/>
 
 	<!--script file="scripts/classicplaystatus.maki"/-->
 
-	<text id="mixrate" display="songsamplerate" x="310" y="86" w="24" h="18" font="wasabi.font.default" fontsize="13" align="left" valign="top" cursor="cur.normal"/>	
-	<text id="bitrate" display="songbitrate" x="220" y="86" w="34" h="18" font="wasabi.font.default" fontsize="13" align="left" valign="top" cursor="cur.normal"/>	
+	<text id="mixrate" display="songsamplerate" x="154" y="43" w="12" h="9" font="wasabi.font.default" fontsize="13" align="left" valign="top" cursor="cur.normal" color="x50"/>	
+	<text id="bitrate" display="songbitrate" x="109" y="43" w="17" h="9" font="wasabi.font.default" fontsize="13" align="left" valign="top" cursor="cur.normal" color="x50"/>	
 
 	<script file="scripts/winamp1kbps.maki"/>
 
-	<button id="wabtn.previous" action="PREV" 	x="32" y="176" 	image="prev"	downimage="prevp"	tooltip="Previous Track" cursor="cur.normal"/>	
-	<button id="wabtn.play" action="PLAY" 		x="78" y="176" 	image="play"	downimage="playp"	tooltip="Play"			cursor="cur.normal"/>	
-	<button id="wabtn.pause" action="PAUSE" 	x="124" y="176"	image="pause"	downimage="pausep"	tooltip="Pause"			cursor="cur.normal"/>	
-	<button id="wabtn.stop" action="STOP" 		x="170" y="176"	image="stop"	downimage="stopp"	tooltip="Stop"			cursor="cur.normal"/>	
-	<button id="wabtn.next" action="NEXT" 		x="216" y="176"	image="next"	downimage="nextp"	tooltip="Next Track"	cursor="cur.normal"/>	
+	<button id="wabtn.previous" action="PREV" 	x="16" y="88" 	image="prev"	downimage="prevp"	tooltip="Previous Track" cursor="cur.normal"/>	
+	<button id="wabtn.play" action="PLAY" 		x="39" y="88" 	image="play"	downimage="playp"	tooltip="Play"			cursor="cur.normal"/>	
+	<button id="wabtn.pause" action="PAUSE" 	x="62" y="88"	image="pause"	downimage="pausep"	tooltip="Pause"			cursor="cur.normal"/>	
+	<button id="wabtn.stop" action="STOP" 		x="85" y="88"	image="stop"	downimage="stopp"	tooltip="Stop"			cursor="cur.normal"/>	
+	<button id="wabtn.next" action="NEXT" 		x="108" y="88"	image="next"	downimage="nextp"	tooltip="Next Track"	cursor="cur.normal"/>	
 
-	<button id="wabtn.open" action="EJECT" 		x="272" y="178" image="eject" downimage="ejectp" tooltip="Open File(s)" cursor="cur.normal"/>	
+	<button id="wabtn.open" action="EJECT" 		x="136" y="89" image="eject" downimage="ejectp" tooltip="Open File(s)" cursor="cur.normal"/>	
 
 	<layer id="wa.titlebar" x="0" y="0" image="wa.titlebar.on" inactiveimage="wa.titlebar.off" ghost="1"/>
 
-	<button id="wa.sysmenu" action="SYSMENU" x="12" y="6" image="menu" downimage="menup" activealpha="255" inactivealpha="0" tooltip="Winamp Menu" cursor="cur.mainmenu"/>	
+	<button id="wa.sysmenu" action="SYSMENU" x="6" y="3" image="menu" downimage="menup" activealpha="255" inactivealpha="0" tooltip="Winamp Menu" cursor="cur.mainmenu"/>	
 
-	<button id="wa.minimize" x="488" y="6" action="MINIMIZE" image="mini" downimage="minip" tooltip="Minimize" activealpha="255" inactivealpha="0" cursor="cur.minimise"/>
-	<button id="wa.switch" x="508" y="6" action="SWITCH" param="shade" image="switch" downimage="switchp" tooltip="Toggle Windowshade Mode" activealpha="255" inactivealpha="0" cursor="cur.normal"/>
-	<button id="wa.close" x="528" y="6" action="CLOSE" image="close" downimage="closep" tooltip="Close" activealpha="255" inactivealpha="0" cursor="cur.close"/>	
+	<button id="wa.minimize" x="244" y="3" action="MINIMIZE" image="mini" downimage="minip" tooltip="Minimize" activealpha="255" inactivealpha="0" cursor="cur.minimise"/>
+	<button id="wa.switch" x="254" y="3" action="SWITCH" param="shade" image="switch" downimage="switchp" tooltip="Toggle Windowshade Mode" activealpha="255" inactivealpha="0" cursor="cur.normal"/>
+	<button id="wa.close" x="264" y="3" action="CLOSE" image="close" downimage="closep" tooltip="Close" activealpha="255" inactivealpha="0" cursor="cur.close"/>	
 
-	<button id="eq" action="TOGGLE" param="eq" x="438" y="116" image="player.toggler.eq.disabled" downImage="player.toggler.eq.pressed" activeImage="player.toggler.eq.enabled" tooltip="Toggle Equalizer" cursor="cur.normal"/>
-	<button id="pl" action="TOGGLE" param="guid:pl" x="484" y="116" image="player.toggler.pl.disabled" downImage="player.toggler.pl.pressed" activeImage="player.toggler.pl.enabled" tooltip="Toggle Playlist Editor" cursor="cur.normal"/>
+	<button id="eq" action="TOGGLE" param="eq" x="219" y="58" image="player.toggler.eq.disabled" downImage="player.toggler.eq.pressed" activeImage="player.toggler.eq.enabled" tooltip="Toggle Equalizer" cursor="cur.normal"/>
+	<button id="pl" action="TOGGLE" param="guid:pl" x="242" y="58" image="player.toggler.pl.disabled" downImage="player.toggler.pl.pressed" activeImage="player.toggler.pl.enabled" tooltip="Toggle Playlist Editor" cursor="cur.normal"/>
 
-	<layer id="mono" x="424" y="82" w="54" h="24" image="player.status.mono.inactive" cursor="cur.normal"/>
-	<layer id="stereo" x="478" y="82" w="58" h="24" image="player.status.stereo.inactive" cursor="cur.normal"/>
+	<layer id="mono" x="212" y="41" w="27" h="12" image="player.status.mono.inactive" cursor="cur.normal"/>
+	<layer id="stereo" x="239" y="41" w="29" h="12" image="player.status.stereo.inactive" cursor="cur.normal"/>
 
 	<script file="scripts/monoster.maki"/>
 
-	<group id="sliders" x="214" y="114" h="26"/>
+	<group id="sliders" x="107" y="57" h="13"/>
 
 	<togglebutton id="AboutWinamp" x="251" y="91" w="14" h="16" rectrgn="1" action="TOGGLE" param="guid:{D6201408-476A-4308-BF1B-7BACA1124B12}" cursor="cur.normal"/>
 
@@ -127,16 +126,16 @@
 
 <groupdef id="sliders">
 
-	<images id="volume.anim" source="volume" w="136" h="28" images="volume" imagesspacing="30" cursor="cur.horizslider"/>
-	<Slider id="volume" action="volume" orientation="horizontal" x="0" y="-2" w="130" h="30" thumb="volbtn" downThumb="volbtnd" cursor="cur.horizslider"/>
+	<images id="volume.anim" source="volume" w="68" h="14" images="volume" imagesspacing="15" cursor="cur.horizslider"/>
+	<Slider id="volume" action="volume" orientation="horizontal" x="0" y="-1" w="65" h="15" thumb="volbtn" downThumb="volbtnd" cursor="cur.horizslider"/>
 	<!-- <script file="scripts/volume.maki"/> -->
-	<images id="balance.anim" source="balance" x="140" w="76" h="30" images="balance" imagesspacing="30" ghost="1" cursor="cur.horizslider"/>
-	<Slider id="balance" action="PAN" orientation="horizontal" x="140" y="-2" w="76" h="30" thumb="panbtn" downThumb="panbtnd" cursor="cur.horizslider"/>
+	<images id="balance.anim" source="balance" x="70" w="38" h="15" images="balance" imagesspacing="15" ghost="1" cursor="cur.horizslider"/>
+	<Slider id="balance" action="PAN" orientation="horizontal" x="70" y="-1" w="38" h="15" thumb="panbtn" downThumb="panbtnd" cursor="cur.horizslider"/>
 	<!-- <script file="scripts/balance.maki"/> -->
 </groupdef>
 
 <groupdef id="waclassicvis">
-	<vis id="wa.vis" y="0" w="144" h="32" fps="60"
+	<vis id="wa.vis" y="0" w="72" h="16" fps="60"
 	ColorBand1="24,132,8"
     ColorBand2="41,148,0"
     ColorBand3="49,156,8"
@@ -160,27 +159,26 @@
     colorosc3="181,189,189"
     colorosc4="160,170,175"
     colorosc5="148,156,165"/>
-	<layer id="main.vis.trigger" w="144" h="32" cursor="cur.normal"/>
+	<layer id="main.vis.trigger" w="76" h="16" cursor="cur.normal"/>
 </groupdef>
 
 <groupdef id="shademain">
 
 	<layer id="washade" image="wa2.player.shade.enabled" inactiveimage="wa2.player.shade.disabled" ghost="1"/>
-    <layer id="blah" dblClickAction="SWITCH;normal" x="0" y="0" h="28" w="550" move="1" cursor="cur.normal"/>
-	<layer x="0" y="0" w="10" h="10" resize="topleft"/>
+    <layer id="blah" dblClickAction="SWITCH;normal" x="0" y="0" h="14" w="275" move="1" cursor="cur.normal"/>
 
-    <text id="timer" display="time" x="256" y="4" w="62" h="20" font="wasabi.font.default" align="right" timecolonwidth="10" cursor="cur.normal"/>
-	<layer id="TimerTrigger" x="256" y="4" w="62" h="20" cursor="cur.normal"/>
+    <text id="timer" display="time" x="128" y="2" w="31" h="10" font="wasabi.font.default" align="right" timecolonwidth="5" cursor="cur.normal"/>
+	<layer id="TimerTrigger" x="128" y="2" w="31" h="10" cursor="cur.normal"/>
 
-    <button id="Previous" action="PREV" x="332" y="6" w="16" h="18" tooltip="Previous" rectrgn="1" cursor="cur.normal"/>
-    <button id="Play" action="PLAY" x="352" y="6" w="20" h="18" tooltip="Play" rectrgn="1" cursor="cur.normal"/>
-    <button id="Pause" action="PAUSE" x="372" y="6" w="20" h="18" tooltip="Pause" rectrgn="1" cursor="cur.normal"/>
-    <button id="Stop" action="STOP" x="392" y="6" w="18" h="18" tooltip="Stop" rectrgn="1" cursor="cur.normal"/>
-    <button id="Next" action="NEXT" x="412" y="6" w="16" h="18" tooltip="Next" rectrgn="1" cursor="cur.normal"/>
+    <button id="Previous" action="PREV" x="166" y="3" w="8" h="9" tooltip="Previous" rectrgn="1" cursor="cur.normal"/>
+    <button id="Play" action="PLAY" x="176" y="3" w="10" h="9" tooltip="Play" rectrgn="1" cursor="cur.normal"/>
+    <button id="Pause" action="PAUSE" x="186" y="3" w="10" h="9" tooltip="Pause" rectrgn="1" cursor="cur.normal"/>
+    <button id="Stop" action="STOP" x="196" y="3" w="9" h="9" tooltip="Stop" rectrgn="1" cursor="cur.normal"/>
+    <button id="Next" action="NEXT" x="206" y="3" w="8" h="9" tooltip="Next" rectrgn="1" cursor="cur.normal"/>
 
-    <button id="Eject" action="EJECT" x="432" y="6" w="18" h="18" tooltip="Eject" rectrgn="1" cursor="cur.normal"/>
+    <button id="Eject" action="EJECT" x="216" y="3" w="9" h="9" tooltip="Eject" rectrgn="1" cursor="cur.normal"/>
 
-    <vis id="wa.vis" x="158" y="10" w="72" h="10" fps="60"
+    <vis id="wa.vis" x="79" y="5" w="38" h="5" fps="60"
 	ColorBand1="24,132,8"
     ColorBand2="41,148,0"
     ColorBand3="49,156,8"
@@ -204,24 +202,24 @@
     colorosc3="181,189,189"
     colorosc4="160,170,175"
     colorosc5="148,156,165"/>
-	<animatedlayer id="wa.shade.vu.left"  x="158" y="10" h="4" w="76" image="wa2.player.shade.normal.vu" frameheight="2"/>
-	<animatedlayer id="wa.shade.vu.right" x="158" y="16" h="4" w="76" image="wa2.player.shade.normal.vu" frameheight="2"/>
-	<layer id="main.vis.trigger" x="158" y="10" w="72" h="10" cursor="cur.normal"/>
+	<animatedlayer id="wa.shade.vu.left"  x="79" y="5" h="2" w="38" image="wa2.player.shade.normal.vu" frameheight="2"/>
+	<animatedlayer id="wa.shade.vu.right" x="79" y="8" h="2" w="38" image="wa2.player.shade.normal.vu" frameheight="2"/>
+	<layer id="main.vis.trigger" x="79" y="5" w="38" h="5" cursor="cur.normal"/>
 
-    <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="508" y="6" image="wa2.player.title.shademode" downImage="wa2.player.title.shademode.pressed" tooltip="Toggle Windowshade Mode" cursor="cur.normal"/>
-    <button id="Close" inactivealpha="0" action="close" x="528" y="6" image="wa2.player.title.quit" downImage="wa2.player.title.quit.pressed" tooltip="Close" cursor="cur.close"/>
-    <button id="Minimize" inactivealpha="0" action="MINIMIZE" x="488" y="6" image="wa2.player.title.min" downImage="wa2.player.title.min.pressed" tooltip="Minimize Winamp" cursor="cur.minimise"/>
-    <button id="sysbutton" inactivealpha="0" action="SYSMENU" x="12" y="6" image="wa2.player.shade.menu" downImage="wa2.player.shade.menu.pressed" cursor="cur.mainmenu"/>
-    <slider id="seeker" action="seek" x="454" y="8" h="14" w="30" thumb="posbarsm" cursor="cur.horizslider"/>
+    <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="wa2.player.title.shademode" downImage="wa2.player.title.shademode.pressed" cursor="cur.normal"/>
+    <button id="Close" inactivealpha="0" action="close" x="264" y="3" image="wa2.player.title.quit" downImage="wa2.player.title.quit.pressed" tooltip="Close" cursor="cur.close"/>
+    <button id="Minimize" inactivealpha="0" action="MINIMIZE" x="244" y="3" image="wa2.player.title.min" downImage="wa2.player.title.min.pressed" tooltip="Minimize Winamp" cursor="cur.minimise"/>
+    <button id="sysbutton" inactivealpha="0" action="SYSMENU" x="6" y="3" image="wa2.player.shade.menu" downImage="wa2.player.shade.menu.pressed" cursor="cur.mainmenu"/>
+    <slider id="seeker" action="seek" x="227" y="4" h="7" w="15" thumb="posbarsm" cursor="cur.horizslider"/>
 	<script file="scripts/setShadePosbar.maki"/>
-	
+
 </groupdef>
 
-<container id="main" name="Main Window" default_y="0" default_visible="1" minimum_w="550" minimum_h="232" maximum_w="550" maximum_h="232">
-	<layout id="normal" background="mainwnd_fallback" droptarget="pldr" minimum_w="550" minimum_h="232" maximum_w="550" maximum_h="232">
-		<group id="mainwindow"/>
+<container id="main" name="Main Window" default_y="0" default_visible="1" minimum_w="275" minimum_h="116" maximum_w="275" maximum_h="116">
+	<layout id="normal" background="mainwnd_fallback" minimum_w="275" minimum_h="116" maximum_w="275" maximum_h="116" droptarget="pldr">
+		<group id="mainwindow" w="275" h="116"/>
 	</layout>
-	<layout id="shade" background="shade_fallback" minimum_h="28" minimum_w="550" maximum_h="28" maximum_w="550">
-		<group id="shademain" x="0" y="0" h="28" w="550" sysregion="1"/>
+	<layout id="shade" background="shade_fallback" minimum_h="14" minimum_w="275" maximum_h="14" maximum_w="275">
+		<group id="shademain" x="0" y="0" sysregion="1"/>
 	</layout>
 </container>
