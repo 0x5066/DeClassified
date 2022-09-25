@@ -169,40 +169,26 @@ setWA265Mode(int wa_mode){
 }
 
 VU.onTimer(){
-    level1 = (getLeftVuMeter()*MainShadeVULeft.getLength()/256);
-    level2 = (getRightVuMeter()*MainShadeVURight.getLength()/256);
+    level1 = getLeftVuMeter();
+    level2 = getRightVuMeter();
+	float falloffrate = 128;
 
-	if(peak1 >= MainShadeVULeft.getLength()){
-		peak1 = MainShadeVULeft.getLength();
-	}
 	if (level1 >= peak1){
-			peak1 = level1;
-		}
-	
-		else{
-			if(smoothvu == 1){
-				peak1 -= vu_falloffspeed*2.65;
-			}else{
-				peak1 -= vu_falloffspeed*16;
-			}
-		}
-	if(peak2 >= MainShadeVURight.getLength()){
-		peak2 = MainShadeVURight.getLength();
+		peak1 = level1;
 	}
+	else{
+		peak1 -= vu_falloffspeed*falloffrate;
+	}
+
 	if (level2 >= peak2){
-			peak2 = level2;
-		}
-		else{
-			if(smoothvu == 1){
-				peak2 -= vu_falloffspeed*2.65;
-			}else{
-				peak2 -= vu_falloffspeed*16;
-			}
-		}
+		peak2 = level2;
+	}
+	else{
+		peak2 -= vu_falloffspeed*falloffrate;
+	}
 
-
-    MainShadeVULeft.gotoFrame(peak1);
-    MainShadeVURight.gotoFrame(peak2);
+    MainShadeVULeft.gotoFrame(peak1*MainShadeVULeft.getLength()/256);
+    MainShadeVURight.gotoFrame(peak2*MainShadeVURight.getLength()/256);
 }
 
 System.onStop(){
