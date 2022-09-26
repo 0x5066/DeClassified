@@ -38,7 +38,7 @@ Global Group PLWindow;
 Global Vis MainVisualizer, MainShadeVisualizer, PLVisualizer;
 Global AnimatedLayer MainShadeVULeft, MainShadeVURight;
 Global timer VU;
-Global float level1, level2, peak1, peak2, pgrav1, pgrav2, vu_falloffspeed;
+Global float level1, level2, peak1, peak2, pgrav1, pgrav2, vu_falloffspeed, falloffrate;
 
 Global Button CLBV1, CLBV2, CLBV3;
 
@@ -92,6 +92,7 @@ System.onScriptLoaded()
     VU.onTimer();
 
 	vu_falloffspeed = (2/100)+0.02;
+	falloffrate = 128;
 
 	PLWindow = getContainer("pl").getLayout("normal");
 	PLVis = PLWindow.findObject("waclassicplvis");
@@ -171,7 +172,6 @@ setWA265Mode(int wa_mode){
 VU.onTimer(){
     level1 = getLeftVuMeter();
     level2 = getRightVuMeter();
-	float falloffrate = 128;
 
 	if (level1 >= peak1){
 		peak1 = level1;
