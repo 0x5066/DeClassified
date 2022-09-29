@@ -65,7 +65,6 @@ System.onScriptLoaded()
 	WinampMainWindow = getContainer("Main").getLayout("Normal");
 
 	MainWindow = getContainer("Main").getLayout("Normal");
-	initPlayLED();
 	PlayIndicator = MainWindow.findObject("playbackstatus");
 	Songticker = MainWindow.findObject("Songticker");
 	Infoticker = MainWindow.findObject("Infoticker");
@@ -575,6 +574,7 @@ refreshVisSettings ()
 	LegacyOptions(compatibility);
 	setWA265Mode(WA265MODE);
 	setFont(SKINNEDFONT);
+	initPlayLED();
 }
 
 MainTrigger.onLeftButtonDown (int x, int y)

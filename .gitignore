@@ -22,7 +22,4 @@ external/grid.png
 external/numfont.png
 scripts/wa2songtimerext.m
 scripts/wa2songtimerext.maki
-xml/beattime.xml
-external/beattime.xml
-external/wa2songtimerext.m
-external/wa2songtimerext.maki
+external/*.*

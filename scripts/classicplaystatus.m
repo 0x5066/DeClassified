@@ -23,6 +23,7 @@ Function StopStuff();
 initPlayLED(){
 
     initSongInfoGrabber();
+    initDetector();
 
     playstatus = MainWindow.findObject("playbackstatus");
 
