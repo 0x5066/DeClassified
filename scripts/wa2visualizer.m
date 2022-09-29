@@ -19,6 +19,7 @@ Note:		Ripped from Winamp Modern, removed the VU Meter section
 ---------------------------------------------------*/
 
 #include "..\..\..\lib/std.mi"
+#include "IsWACUP.m"
 
 Function refreshVisSettings();
 Function setVis (int mode);
@@ -62,6 +63,7 @@ Global Layout WinampMainWindow;
 
 System.onScriptLoaded()
 {
+	initDetector();
 	WinampMainWindow = getContainer("Main").getLayout("Normal");
 
 	MainWindow = getContainer("Main").getLayout("Normal");
@@ -896,7 +898,11 @@ LegacyOptions(int legacy){
 		PLVisualizer.setXmlParam("y", "2");
 		}else{
 		MainVisualizer.setXmlParam("y", "0");
-		PLVisualizer.setXmlParam("y", "0");
+		if(IsWACUP){
+			PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
+		}else{
+			PLVisualizer.setXmlParam("y", "2"); //despite winamp being in doublesize mode, the pl vis does not show it's full height... for some reason
+			}
 		}
 	}else{
 		MainVisualizer.setXmlParam("visible", "1");
@@ -917,7 +923,11 @@ WinampMainWindow.onScale(Double newscalevalue){
 			PLVisualizer.setXmlParam("y", "2");
 		}else{
 			MainVisualizer.setXmlParam("y", "0");
-			PLVisualizer.setXmlParam("y", "0");
+			if(IsWACUP){
+				PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
+			}else{
+			PLVisualizer.setXmlParam("y", "2"); //despite winamp being in doublesize mode, the pl vis does not show it's full height... for some reason
+			}
 		}
 	}else{
 		MainVisualizer.setXmlParam("y", "0");
