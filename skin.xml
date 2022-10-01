@@ -12,6 +12,7 @@
 	</skininfo>
 
 	<!-- wasabi replacement stuff, loads first -->
+	<include file="xml/wasabi.classic/components.xml"/>
 	<include file="xml/wasabi.classic/xui/slider/slider.xml"/>
 	<include file="xml/wasabi.classic/xui/standardframe/standardframe.xml"/>
 	<include file="xml/wasabi.classic/xui/titlebar/titlebar.xml"/>

@@ -25,42 +25,36 @@
 
 <groupdef id="wasabi.frame.layout">
 
-  <layer image="wasabi.frame.basewindow" 
-      x="8"
-      y="8"
-      w="-16"
-      relatw="1"
-      h="-16"
-      relath="1"/>
-
 <!-- active starts here -->
 
   <layer
     id="window.top.left"
     x="0" y="0"
-    image="wasabi.frame.top.left.vgui"
-	cursor="cur.move" sysregion="1"
+    image="wasabi.frame.top.left"
+    inactivealpha="0"
+	cursor="cur.move"
   />
   <layer
     id="window.top"
-    x="8" y="0"
-    w="-16"
+    x="25" y="0"
+    w="-50"
     relatw="1"
-    image="wasabi.frame.basewindow"
-    tile="0"
-	cursor="cur.move" sysregion="1"
+    image="wasabi.frame.top"
+    inactivealpha="0" tile="1"
+	cursor="cur.move"
   />
   <layer
     id="window.top.right"
-    x="-8" y="0"
+    x="-25" y="0"
     relatx="1"
-    image="wasabi.frame.top.right.vgui"
-	cursor="cur.move" sysregion="1"
+    image="wasabi.frame.top.right"
+    inactivealpha="0"
+	cursor="cur.move"
   />
 
 <!-- active ends here -->
 
-<!-- inactive starts here 
+<!-- inactive starts here -->
   <layer
     id="window.top.left"
     x="0" y="0"
@@ -86,41 +80,41 @@
 	cursor="cur.move"
   />
 
-inactive ends here -->
+<!-- inactive ends here -->
 
   <layer
     id="window.left"
-    x="0" y="8"
-    h="-16"
+    x="0" y="20"
+    h="-53"
     relath="1"
-    image="wasabi.frame.basewindow"
+    image="wasabi.frame.left"
     tile="1"
-	cursor="cur.normal" sysregion="1"
+	cursor="cur.normal"
   />
-  <!--layer
+  <layer
     id="window.left"
     x="0" y="-33"
     relaty="1" 
     image="wasabi.frame.left2"
 	cursor="cur.normal"
-  /-->
+  />
   <layer
     id="window.right"
-    x="-8" y="8"
-    h="-16"
+    x="-8" y="20"
+    h="-53"
     relatx="1" relath="1"
-    image="wasabi.frame.basewindow"
+    image="wasabi.frame.right"
     tile="1"
-	cursor="cur.normal" sysregion="1"
+	cursor="cur.normal"
   />
 
-  <!--layer
+  <layer
   id="window.right"
   x="-8" y="-33"
   relatx="1" relaty="1" 
   image="wasabi.frame.right2"
   cursor="cur.normal"
-  /-->
+  />
 
   <!--layer id="window.resize.disabler" x="5" y="5" w="-10" h="-10" relatw="1" relath="1" cursor="cur.move"/-->
 
@@ -140,7 +134,7 @@ inactive ends here -->
     id="wasabi.titlebar"
     x="15" y="0"
     w="-32" h="20"
-    relatw="1" sysregion="1"
+    relatw="1"
   />
 
 </groupdef>
@@ -154,43 +148,43 @@ inactive ends here -->
 
 <groupdef id="wasabi.standardframe.statusbar" background="wasabi.frame.basetexture" sysregion="1" xuitag="Wasabi:StandardFrame:Status">
 
-    <group id="wasabi.frame.layout" x="0" y="0" w="0" relatw="1" h="-8" relath="1" sysregion="1"/>
+    <group id="wasabi.frame.layout" x="0" y="0" w="0" relatw="1" h="-5" relath="1"/>
 
   <layer
     id="window.bottom.left"
-    x="0" y="-8"
+    x="0" y="-14"
     relaty="1"
-    image="wasabi.frame.bottom.left.vgui"
-	cursor="cur.normal" sysregion="1"
+    image="wasabi.frame.bottom.left"
+	cursor="cur.normal"
   />
 
   <layer
     id="window.bottom"
-    x="8" y="-8"
-    w="-18"
+    x="125" y="-14"
+    w="-250"
     relatw="1" relaty="1"
-    image="wasabi.frame.basewindow"
+    image="wasabi.frame.bottom"
 	cursor="cur.normal"
-    tile="1" sysregion="1"
+    tile="1"
   />
 
   <layer
     id="window.bottom.right"
-    x="-8" y="-8"
+    x="-125" y="-14"
     relatx="1" relaty="1"
-    image="wasabi.frame.bottom.right.vgui"
-	cursor="cur.normal" sysregion="1"
+    image="wasabi.frame.bottom.right"
+	cursor="cur.normal"
   />
 
   <layer
     x="-20" y="-14"
     relatx="1" relaty="1" w="19" h="13"
     resize="bottomright" rectrgn="1"
-	cursor="cur.resize" sysregion="1"
+	cursor="cur.resize"
   />
 
   <LayoutStatus id="standardframe.layoutstatus" x="11" y="-29" relaty="1" w="-19" relatw="1" h="15" exclude="{system}" />
-  <script id="standardframe.script" file="scripts/standardframe.maki" param="8,24,-16,-32,0,0,1,1" />
+  <script id="standardframe.script" file="scripts/standardframe.maki" param="11,20,-19,-49,0,0,1,1" />
 
 </groupdef>
 
@@ -203,42 +197,42 @@ inactive ends here -->
 
 <groupdef id="wasabi.standardframe.nostatusbar" background="wasabi.frame.basetexture" sysregion="1" xuitag="Wasabi:StandardFrame:NoStatus">
 
-  <group id="wasabi.frame.layout" x="0" y="0" w="0" h="-0" relatw="1" relath="1" cursor="cur.normal" sysregion="1"/>
+  <group id="wasabi.frame.layout" x="0" y="0" w="0" h="-5" relatw="1" relath="1" cursor="cur.normal"/>
 
   <layer
     id="window.bottom.left"
-    x="0" y="-8"
+    x="0" y="-14"
     relaty="1"
-    image="wasabi.frame.bottom.left.vgui"
-	cursor="cur.normal" sysregion="1"
+    image="wasabi.frame.bottom.left"
+	cursor="cur.normal"
   />
 
   <layer
     id="window.bottom"
-    x="8" y="-8"
-    w="-16"
+    x="125" y="-14"
+    w="-250"
     relatw="1" relaty="1"
-    image="wasabi.frame.basewindow"
+    image="wasabi.frame.bottom"
+    tile="1"
 	cursor="cur.normal"
-    tile="1" sysregion="1"
   />
 
   <layer
     id="window.bottom.right"
-    x="-8" y="-8"
+    x="-125" y="-14"
     relatx="1" relaty="1"
-    image="wasabi.frame.bottom.right.vgui"
-	cursor="cur.normal" sysregion="1"
+    image="wasabi.frame.bottom.right"
+	cursor="cur.normal"
   />
 
   <layer
     x="-20" y="-14"
     relatx="1" relaty="1" w="19" h="13"
     resize="bottomright" rectrgn="1"
-	cursor="cur.resize" sysregion="1"
+	cursor="cur.resize"
   />
 
-  <script id="standardframe.script" file="scripts/standardframe.maki" param="8,24,-16,-32,0,0,1,1" />
+  <script id="standardframe.script" file="scripts/standardframe.maki" param="11,20,-19,-34,0,0,1,1" />
 
 </groupdef>
 
