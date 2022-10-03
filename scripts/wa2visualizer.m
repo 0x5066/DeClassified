@@ -19,6 +19,7 @@ Note:		Ripped from Winamp Modern, removed the VU Meter section
 ---------------------------------------------------*/
 
 #include "..\..\..\lib/std.mi"
+#include "IsWACUP.m"
 
 Function refreshVisSettings();
 Function setVis (int mode);
@@ -38,7 +39,7 @@ Global Group PLWindow;
 Global Vis MainVisualizer, MainShadeVisualizer, PLVisualizer;
 Global AnimatedLayer MainShadeVULeft, MainShadeVURight;
 Global timer VU;
-Global float level1, level2, peak1, peak2, pgrav1, pgrav2, vu_falloffspeed;
+Global float level1, level2, peak1, peak2, pgrav1, pgrav2, vu_falloffspeed, falloffrate;
 
 Global Button CLBV1, CLBV2, CLBV3;
 
@@ -62,10 +63,10 @@ Global Layout WinampMainWindow;
 
 System.onScriptLoaded()
 {
+	initDetector();
 	WinampMainWindow = getContainer("Main").getLayout("Normal");
 
 	MainWindow = getContainer("Main").getLayout("Normal");
-	initPlayLED();
 	PlayIndicator = MainWindow.findObject("playbackstatus");
 	Songticker = MainWindow.findObject("Songticker");
 	Infoticker = MainWindow.findObject("Infoticker");
@@ -92,6 +93,7 @@ System.onScriptLoaded()
     VU.onTimer();
 
 	vu_falloffspeed = (2/100)+0.02;
+	falloffrate = 128;
 
 	PLWindow = getContainer("pl").getLayout("normal");
 	PLVis = PLWindow.findObject("waclassicplvis");
@@ -169,40 +171,25 @@ setWA265Mode(int wa_mode){
 }
 
 VU.onTimer(){
-    level1 = (getLeftVuMeter()*MainShadeVULeft.getLength()/256);
-    level2 = (getRightVuMeter()*MainShadeVURight.getLength()/256);
+    level1 = getLeftVuMeter();
+    level2 = getRightVuMeter();
 
-	if(peak1 >= MainShadeVULeft.getLength()){
-		peak1 = MainShadeVULeft.getLength();
-	}
 	if (level1 >= peak1){
-			peak1 = level1;
-		}
-	
-		else{
-			if(smoothvu == 1){
-				peak1 -= vu_falloffspeed*2.65;
-			}else{
-				peak1 -= vu_falloffspeed*16;
-			}
-		}
-	if(peak2 >= MainShadeVURight.getLength()){
-		peak2 = MainShadeVURight.getLength();
+		peak1 = level1;
 	}
+	else{
+		peak1 -= vu_falloffspeed*falloffrate;
+	}
+
 	if (level2 >= peak2){
-			peak2 = level2;
-		}
-		else{
-			if(smoothvu == 1){
-				peak2 -= vu_falloffspeed*2.65;
-			}else{
-				peak2 -= vu_falloffspeed*16;
-			}
-		}
+		peak2 = level2;
+	}
+	else{
+		peak2 -= vu_falloffspeed*falloffrate;
+	}
 
-
-    MainShadeVULeft.gotoFrame(peak1);
-    MainShadeVURight.gotoFrame(peak2);
+    MainShadeVULeft.gotoFrame(peak1*MainShadeVULeft.getLength()/256);
+    MainShadeVURight.gotoFrame(peak2*MainShadeVURight.getLength()/256);
 }
 
 System.onStop(){
@@ -589,6 +576,7 @@ refreshVisSettings ()
 	LegacyOptions(compatibility);
 	setWA265Mode(WA265MODE);
 	setFont(SKINNEDFONT);
+	initPlayLED();
 }
 
 MainTrigger.onLeftButtonDown (int x, int y)
@@ -910,7 +898,11 @@ LegacyOptions(int legacy){
 		PLVisualizer.setXmlParam("y", "4");
 		}else{
 		MainVisualizer.setXmlParam("y", "0");
-		PLVisualizer.setXmlParam("y", "0");
+		if(IsWACUP){
+			PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
+		}else{
+			PLVisualizer.setXmlParam("y", "2"); //despite winamp being in doublesize mode, the pl vis does not show it's full height... for some reason
+			}
 		}
 	}else{
 		MainVisualizer.setXmlParam("visible", "1");
@@ -931,7 +923,11 @@ WinampMainWindow.onScale(Double newscalevalue){
 			PLVisualizer.setXmlParam("y", "4");
 		}else{
 			MainVisualizer.setXmlParam("y", "0");
-			PLVisualizer.setXmlParam("y", "0");
+			if(IsWACUP){
+				PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
+			}else{
+			PLVisualizer.setXmlParam("y", "2"); //despite winamp being in doublesize mode, the pl vis does not show it's full height... for some reason
+			}
 		}
 	}else{
 		MainVisualizer.setXmlParam("y", "0");

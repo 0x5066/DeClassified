@@ -3,6 +3,7 @@
 //Handles empty kbps and khz and streaming related things.
 
 #include "songinfo.m"
+#include "IsWACUP.m"
 
 //Global Group player;
 Global layer playstatus;
@@ -22,12 +23,22 @@ Function StopStuff();
 initPlayLED(){
 
     initSongInfoGrabber();
+    initDetector();
 
     playstatus = MainWindow.findObject("playbackstatus");
 
     setPlaysymbol = new Timer;
-	setPlaysymbol.setDelay(16); 
-
+    if(IsWACUP)
+    {
+        if(IsPreview){
+            setPlaysymbol.setDelay(250); 
+        }else{
+            setPlaysymbol.setDelay(16);
+        }
+    }else{
+        setPlaysymbol.setDelay(250); //because i still want to support 5.666 users, this is needed
+    }
+	
     setState();
     setState2();
 

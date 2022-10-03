@@ -5,6 +5,7 @@
 
 #include "../../../lib/std.mi"
 #include "..\..\..\lib/winampconfig.mi"
+#include "IsWACUP.m"
 
 Global Group frameGroup, frameGroupEQ, frameGroupEQShade, MainWindow;
 Global Togglebutton ShuffleBtn, RepeatBtn, CLBA;
@@ -28,6 +29,7 @@ Function setScaling(Boolean dbsizemode);
 
 System.onScriptLoaded(){
 
+	initDetector();
     WinampConfigGroup eqwcg = WinampConfig.getGroup("{72409F84-BAF1-4448-8211-D84A30A1591A}");
 	int freqmode = eqwcg.getInt("frequencies"); // returns 0 for classical winamp levels, 1 for ISO levels
 
@@ -266,8 +268,13 @@ setScaling(int dbsizemode){
     if (dbsizemode){
 		Normal.setScale(2);
 		NormalEQ.setScale(2);
-		NormalPL.setScale(2);
-		ShadePL.setScale(2);
+		if(IsWACUP){
+			NormalPL.setScale(2);
+			ShadePL.setScale(2);
+		}else{
+			NormalPL.setScale(1);
+			ShadePL.setScale(1);
+		}
 		shadeeq.setScale(2);
 		CLBD.setXmlParam("image", "CLBDp");
 	}else{
