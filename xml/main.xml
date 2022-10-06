@@ -159,6 +159,10 @@
     colorosc3="181,189,189"
     colorosc4="160,170,175"
     colorosc5="148,156,165"/>
+	<animatedlayer id="wacup.vu.l" y="1" h="7" image="wacup.vu" frameheight="1" autoplay="0"/>
+	<animatedlayer id="wacup.vu.r" y="9" h="7" image="wacup.vu" frameheight="1" autoplay="0"/>
+	<animatedlayer id="wacup.vu.l.peak" y="1" h="7" image="wacup.vu.peak" frameheight="1" autoplay="0"/>
+	<animatedlayer id="wacup.vu.r.peak" y="9" h="7" image="wacup.vu.peak" frameheight="1" autoplay="0"/>
 	<layer id="main.vis.trigger" w="76" h="16" cursor="cur.normal"/>
 </groupdef>
 

@@ -10,9 +10,8 @@ E-Mail:		martin@skinconsortium.com
 Internet:	www.skinconsortium.com
 			www.martin.deimos.de.vu
 
-Note:		Ripped from Winamp Modern, removed the VU Meter section
-			this also includes the option to set the Spectrum 
-			Analyzer coloring.
+Note:		Ripped from Winamp Modern, this also includes the option 
+			to set the Spectrum Analyzer coloring, and more.
 			Now resides in skin.xml to hook into the Main Window and
 			Playlist Editor.
 -----------------------------------------------------
@@ -37,9 +36,10 @@ Global Group MainShadeWindow, PLVis;
 Global Group PLWindow;
 
 Global Vis MainVisualizer, MainShadeVisualizer, PLVisualizer;
-Global AnimatedLayer MainShadeVULeft, MainShadeVURight;
+Global AnimatedLayer MainShadeVULeft, MainShadeVURight, MainVULeft, MainVURight, MainVUPeakLeft, MainVUPeakRight;
+Global AnimatedLayer MainPLVULeft, MainPLVURight, MainPLVUPeakLeft, MainPLVUPeakRight;
 Global timer VU;
-Global float level1, level2, peak1, peak2, pgrav1, pgrav2, vu_falloffspeed, falloffrate;
+Global float level1, level2, peak1, peak2, pgrav1, pgrav2, level1_new, level2_new, vu_falloffspeed_bar, vu_falloffspeed_peak, vp_falloffspeed, falloffrate;
 
 Global Button CLBV1, CLBV2, CLBV3;
 
@@ -51,10 +51,12 @@ Global PopUpMenu oscsettings;
 Global PopUpMenu stylemenu;
 Global PopUpMenu fpsmenu;
 Global PopUpMenu vumenu;
+Global PopUpMenu vumenu2;
+Global PopUpMenu vusettings;
 Global PopUpMenu firemenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps, smoothvu;
-Global Boolean show_peaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, SKINNEDFONT;
+Global Boolean show_peaks, show_vupeaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, SKINNEDFONT;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
 #include "classicplaystatus.m"
@@ -83,6 +85,10 @@ System.onScriptLoaded()
 	MainShadeVULeft = MainShadeWindow.findObject("wa.shade.vu.left");
 	MainShadeVURight = MainShadeWindow.findObject("wa.shade.vu.right");
 	MainShadeTrigger = MainShadeWindow.findObject("main.vis.trigger");
+	MainVULeft = MainClassicVis.findObject("wacup.vu.l");
+	MainVURight = MainClassicVis.findObject("wacup.vu.r");
+	MainVUPeakLeft = MainClassicVis.findObject("wacup.vu.l.peak");
+	MainVUPeakRight = MainClassicVis.findObject("wacup.vu.r.peak");
 
 	pgrav1 = 0;
 	pgrav2 = 0;
@@ -90,15 +96,19 @@ System.onScriptLoaded()
 	VU = new Timer;
 	VU.setdelay(16);
     VU.start();
-    VU.onTimer();
-
-	vu_falloffspeed = (2/100)+0.02;
+	
+	vu_falloffspeed_bar = (2/100)+0.02;
 	falloffrate = 128;
 
 	PLWindow = getContainer("pl").getLayout("normal");
 	PLVis = PLWindow.findObject("waclassicplvis");
 	PLVisualizer = PLVis.getObject("wa.vis");
 	PLTrigger = PLVis.getObject("main.vis.trigger");
+	MainPLVULeft = PLVis.findObject("wacup.vu.l");
+	MainPLVURight = PLVis.findObject("wacup.vu.r");
+	MainPLVUPeakLeft = PLVis.findObject("wacup.vu.l.peak");
+	MainPLVUPeakRight = PLVis.findObject("wacup.vu.r.peak");
+	VU.onTimer();
 
 	MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	MainVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
@@ -162,7 +172,11 @@ setWA265Mode(int wa_mode){
 				MainShadeVULeft.setXmlParam("alpha", "0");
 				MainShadeVURight.setXmlParam("alpha", "0");
 			}
-		}else{
+		}else if(currentMode == 3){
+				MainShadeVisualizer.setXmlParam("alpha", "0");
+				MainShadeVULeft.setXmlParam("alpha", "255");
+				MainShadeVURight.setXmlParam("alpha", "255");
+			}else{
 			MainShadeVisualizer.setXmlParam("alpha", "255");
 			MainShadeVULeft.setXmlParam("alpha", "0");
 			MainShadeVURight.setXmlParam("alpha", "0");
@@ -174,22 +188,57 @@ VU.onTimer(){
     level1 = getLeftVuMeter();
     level2 = getRightVuMeter();
 
+	if (level1 >= level1_new){
+		level1_new = level1;
+	}
+	else{
+		level1_new -= vu_falloffspeed_bar*falloffrate;
+	}
+
+	if (level2 >= level2_new){
+		level2_new = level2;
+	}
+	else{
+		level2_new -= vu_falloffspeed_bar*falloffrate;
+	}
+
+    MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
+    MainShadeVURight.gotoFrame(level2_new*MainShadeVURight.getLength()/256);
+
+	if(IsWACUP){
+		MainVULeft.gotoFrame(level1_new*MainVULeft.getLength()/256);
+		MainVURight.gotoFrame(level2_new*MainVURight.getLength()/256);
+		MainPLVULeft.gotoFrame(level1_new*MainPLVULeft.getLength()/256);
+		MainPLVURight.gotoFrame(level2_new*MainPLVURight.getLength()/256);
+	}else{
+		MainVULeft.gotoFrame(level1*MainVULeft.getLength()/256);
+		MainVURight.gotoFrame(level2*MainVURight.getLength()/256);
+		MainPLVULeft.gotoFrame(level1*MainPLVULeft.getLength()/256);
+		MainPLVURight.gotoFrame(level2*MainPLVURight.getLength()/256);
+	}
+
 	if (level1 >= peak1){
 		peak1 = level1;
+		pgrav1 = 0;
 	}
 	else{
-		peak1 -= vu_falloffspeed*falloffrate;
+		peak1 += pgrav1;
+		pgrav1 -= vu_falloffspeed_peak;
 	}
-
 	if (level2 >= peak2){
 		peak2 = level2;
+		pgrav2 = 0;
 	}
 	else{
-		peak2 -= vu_falloffspeed*falloffrate;
+		peak2 += pgrav2;
+		pgrav2 -= vu_falloffspeed_peak;
 	}
 
-    MainShadeVULeft.gotoFrame(peak1*MainShadeVULeft.getLength()/256);
-    MainShadeVURight.gotoFrame(peak2*MainShadeVURight.getLength()/256);
+	MainVUPeakLeft.gotoFrame(peak1*MainVULeft.getLength()/256);
+	MainVUPeakRight.gotoFrame(peak2*MainVULeft.getLength()/256);
+	MainPLVUPeakLeft.gotoFrame(peak1*MainPLVULeft.getLength()/256);
+	MainPLVUPeakRight.gotoFrame(peak2*MainPLVULeft.getLength()/256);
+
 }
 
 System.onStop(){
@@ -231,9 +280,16 @@ System.onTitleChange(String newtitle){
 setVisModeLBD(){
 	currentMode++;
 
-	if (currentMode == 3)
-	{
-		currentMode = 0;
+	if(IsWACUP){
+		if (currentMode == 4)
+		{
+			currentMode = 0;
+		}
+	}else{
+		if (currentMode == 3)
+		{
+			currentMode = 0;
+		}
 	}
 
 	setVis (currentMode);
@@ -250,6 +306,8 @@ setVisModeRBD(){
 	oscsettings = new PopUpMenu;
 	fpsmenu = new PopUpMenu;
 	vumenu = new PopUpMenu;
+	vumenu2 = new PopUpMenu;
+	vusettings = new PopUpMenu;
 	firemenu = new PopUpmenu;
 
 	if(WA5MODE){
@@ -268,6 +326,9 @@ setVisModeRBD(){
 			visMenu.addCommand("Spectrum analyzer", 1, currentMode == 1, 0);
 		}
 	visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
+		if(IsWACUP){
+			visMenu.addCommand("VU meter", 3, currentMode == 3, 0);
+		}
 	}
 
 	visMenu.addSeparator();
@@ -378,6 +439,18 @@ setVisModeRBD(){
 		}
 	}
 
+	if(IsWACUP){
+		visMenu.addSubmenu(vusettings, "VU Meter Options");
+		vusettings.addCommand("Show VU Peaks", 107, show_vupeaks == 1, 0);
+		//vusettings.addCommand("Smooth VU Peak falloff", 105, vu_gravity == 1, 0);
+		vusettings.addSeparator();
+		vusettings.addSubmenu(vumenu2, "Peak falloff Speed");
+		vumenu2.addCommand("Slower", 500, vp_falloffspeed == 0, 0);
+		vumenu2.addCommand("Slow", 501, vp_falloffspeed == 1, 0);
+		vumenu2.addCommand("Moderate", 502, vp_falloffspeed == 2, 0);
+		vumenu2.addCommand("Fast", 503, vp_falloffspeed == 3, 0);
+		vumenu2.addCommand("Faster", 504, vp_falloffspeed == 4, 0);
+		}
 	visMenu.addSeparator();
 	visMenu.addcommand(translate("Start/Stop plug-in")+"\tCtrl+Shift+K", 404, 0,0);
 	visMenu.addcommand(translate("Configure plug-in...")+"\tAlt+K", 405, 0,0);
@@ -408,6 +481,7 @@ setVisModeRBD(){
 refreshVisSettings ()
 {
 	currentMode = getPrivateInt(getSkinName(), "Visualizer Mode", 1);
+	show_vupeaks = getPrivateInt(getSkinName(), "DeClassified show VU Peaks", 1);
 	show_peaks = getPrivateInt(getSkinName(), "Visualizer show Peaks", 1);
 	compatibility = getPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", 1);
 	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
@@ -421,6 +495,9 @@ refreshVisSettings ()
 	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 1);
 	WA5MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", 0);
 	SKINNEDFONT = getPrivateInt(getSkinName(), "DeClassified Skinned Font", 1);
+	vp_falloffspeed = getPrivateInt(getSkinName(), "DeClassified VU peaks falloff", 2);
+
+	vu_falloffspeed_peak = (vp_falloffspeed/100)+0.02;
 
 	if(compatibility){
 		PlayIndicator.setXmlParam("visible", "1");
@@ -439,6 +516,11 @@ refreshVisSettings ()
 	MainShadeVisualizer.setXmlParam("falloff", integerToString(a_falloffspeed));
 	MainShadeVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
 	MainShadeVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
+
+	MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+	MainVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
+	MainPLVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+	MainPLVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
 
 	PLVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	PLVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
@@ -666,6 +748,16 @@ ProcessMenuResult (int a)
 			setPrivateInt(getSkinName(), "DeClassified Skinned Font", SKINNEDFONT);
 		}
 
+	else if (a == 107)
+	{
+		show_vupeaks = (show_vupeaks - 1) * (-1);
+		MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+		MainVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
+		MainPLVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+		MainPLVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
+		setPrivateInt(getSkinName(), "DeClassified show VU Peaks", show_vupeaks);
+	}
+
 	else if (a >= 200 && a <= 204)
 	{
 		p_falloffspeed = a - 200;
@@ -725,6 +817,13 @@ else if (a >= 400 && a <= 403)
 	else if (a == 406)
 	{
 		CLBV3.Leftclick();
+	}
+
+	else if (a >= 500 && a <= 504)
+	{
+		vp_falloffspeed = a - 500;
+		vu_falloffspeed_peak = (vp_falloffspeed/100)+0.02;
+		setPrivateInt(getSkinName(), "DeClassified VU peaks falloff", vp_falloffspeed);
 	}
 
 	else if (a >= 600 && a <= 603)
@@ -853,7 +952,16 @@ setVis (int mode)
 		MainVisualizer.setMode(0);
 		MainShadeVisualizer.setMode(0);
 		PLVisualizer.setMode(0);
+		MainVULeft.setXmlParam("visible", "0");
+		MainVURight.setXmlParam("visible", "0");
+		MainPLVULeft.setXmlParam("visible", "0");
+		MainPLVURight.setXmlParam("visible", "0");
+		MainVUPeakLeft.setXmlParam("image", "");
+		MainVUPeakRight.setXmlParam("image", "");
+		MainPLVUPeakLeft.setXmlParam("image", "");
+		MainPLVUPeakRight.setXmlParam("image", "");
 		setWA265Mode(WA265MODE);
+		LegacyOptions(compatibility);
 		VU.stop();
 	}
 	else if (mode == 1)
@@ -861,7 +969,16 @@ setVis (int mode)
 		MainVisualizer.setMode(1);
 		MainShadeVisualizer.setMode(1);
 		PLVisualizer.setMode(1);
+		MainVULeft.setXmlParam("visible", "0");
+		MainVURight.setXmlParam("visible", "0");
+		MainPLVULeft.setXmlParam("visible", "0");
+		MainPLVURight.setXmlParam("visible", "0");
+		MainVUPeakLeft.setXmlParam("image", "");
+		MainVUPeakRight.setXmlParam("image", "");
+		MainPLVUPeakLeft.setXmlParam("image", "");
+		MainPLVUPeakRight.setXmlParam("image", "");
 		setWA265Mode(WA265MODE);
+		LegacyOptions(compatibility);
 		VU.start();
 	}
 	else if (mode == 2)
@@ -869,8 +986,33 @@ setVis (int mode)
 		MainVisualizer.setMode(2);
 		MainShadeVisualizer.setMode(2);
 		PLVisualizer.setMode(2);
+		MainVULeft.setXmlParam("visible", "0");
+		MainVURight.setXmlParam("visible", "0");
+		MainPLVULeft.setXmlParam("visible", "0");
+		MainPLVURight.setXmlParam("visible", "0");
+		MainVUPeakLeft.setXmlParam("image", "");
+		MainVUPeakRight.setXmlParam("image", "");
+		MainPLVUPeakLeft.setXmlParam("image", "");
+		MainPLVUPeakRight.setXmlParam("image", "");
 		setWA265Mode(WA265MODE);
+		LegacyOptions(compatibility);
 		VU.stop();
+	}
+	else if(mode == 3){
+		MainVisualizer.setMode(0);
+		MainShadeVisualizer.setMode(0);
+		PLVisualizer.setMode(0);
+		MainVULeft.setXmlParam("visible", "1");
+		MainVURight.setXmlParam("visible", "1");
+		MainPLVULeft.setXmlParam("visible", "1");
+		MainPLVURight.setXmlParam("visible", "1");
+		MainVUPeakLeft.setXmlParam("image", "wacup.vu.peak");
+		MainVUPeakRight.setXmlParam("image", "wacup.vu.peak");
+		MainPLVUPeakLeft.setXmlParam("image", "wacup.vu.peak.pl");
+		MainPLVUPeakRight.setXmlParam("image", "wacup.vu.peak.pl");
+		setWA265Mode(WA265MODE);
+		LegacyOptions(compatibility);
+		VU.start();
 	}
 	currentMode = mode;
 }
@@ -884,14 +1026,26 @@ LegacyOptions(int legacy){
 			MainVisualizer.setXmlParam("visible", "1");
 			MainShadeVisualizer.setXmlParam("visible", "1");
 			PLVisualizer.setXmlParam("visible", "1");
+			MainPLVULeft.setxmlparam("alpha", "255");
+			MainPLVURight.setxmlparam("alpha", "255");
+			MainPLVUPeakLeft.setxmlparam("alpha", "255");
+			MainPLVUPeakRight.setxmlparam("alpha", "255");
 		}else if(getStatus() == 0){
 			MainVisualizer.setXmlParam("visible", "0");
 			MainShadeVisualizer.setXmlParam("visible", "0");
 			PLVisualizer.setXmlParam("visible", "0");
+			MainPLVULeft.setxmlparam("alpha", "0");
+			MainPLVURight.setxmlparam("alpha", "0");
+			MainPLVUPeakLeft.setxmlparam("alpha", "0");
+			MainPLVUPeakRight.setxmlparam("alpha", "0");
 		}else if(getStatus() == 1){
 			MainVisualizer.setXmlParam("visible", "1");
 			MainShadeVisualizer.setXmlParam("visible", "1");
 			PLVisualizer.setXmlParam("visible", "1");
+			MainPLVULeft.setxmlparam("alpha", "255");
+			MainPLVURight.setxmlparam("alpha", "255");
+			MainPLVUPeakLeft.setxmlparam("alpha", "255");
+			MainPLVUPeakRight.setxmlparam("alpha", "255");
 		}
 		if(WinampMainWindow.getScale() != 2){
 		MainVisualizer.setXmlParam("y", "2");
@@ -908,6 +1062,10 @@ LegacyOptions(int legacy){
 		MainVisualizer.setXmlParam("visible", "1");
 		MainShadeVisualizer.setXmlParam("visible", "1");
 		PLVisualizer.setXmlParam("visible", "1");
+		MainPLVULeft.setxmlparam("alpha", "255");
+		MainPLVURight.setxmlparam("alpha", "255");
+		MainPLVUPeakLeft.setxmlparam("alpha", "255");
+		MainPLVUPeakRight.setxmlparam("alpha", "255");
 		MainVisualizer.setXmlParam("y", "0");
 		PLVisualizer.setXmlParam("y", "0");
 		WinampMainWindow.onSetVisible(0);
@@ -938,15 +1096,31 @@ WinampMainWindow.onScale(Double newscalevalue){
 WinampMainWindow.onSetVisible(Boolean onoff){
 	if(onoff == 1){
 		PLVisualizer.setXmlParam("alpha", "0");
+		MainPLVULeft.setxmlparam("alpha", "0");
+		MainPLVURight.setxmlparam("alpha", "0");
+		MainPLVUPeakLeft.setxmlparam("alpha", "0");
+		MainPLVUPeakRight.setxmlparam("alpha", "0");
 	}else{
 		if(MainShadeWindow.isVisible() == 1 || WinampMainWindow.isVisible() == 1){
 			PLVisualizer.setXmlParam("alpha", "0");
+			MainPLVULeft.setxmlparam("alpha", "0");
+			MainPLVURight.setxmlparam("alpha", "0");
+			MainPLVUPeakLeft.setxmlparam("alpha", "0");
+			MainPLVUPeakRight.setxmlparam("alpha", "0");
 		}else{
 			PLVisualizer.setXmlParam("alpha", "255");
+			MainPLVULeft.setxmlparam("alpha", "255");
+			MainPLVURight.setxmlparam("alpha", "255");
+			MainPLVUPeakLeft.setxmlparam("alpha", "255");
+			MainPLVUPeakRight.setxmlparam("alpha", "255");
 		}
 	}
 	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");
+		MainPLVULeft.setxmlparam("alpha", "255");
+		MainPLVURight.setxmlparam("alpha", "255");
+		MainPLVUPeakLeft.setxmlparam("alpha", "255");
+		MainPLVUPeakRight.setxmlparam("alpha", "255");
 	}
 }
 
@@ -954,14 +1128,30 @@ WinampMainWindow.onSetVisible(Boolean onoff){
 MainShadeWindow.onSetVisible(Boolean onoff){
 	if(onoff == 1){
 		PLVisualizer.setXmlParam("alpha", "0");
+		MainPLVULeft.setxmlparam("alpha", "0");
+		MainPLVURight.setxmlparam("alpha", "0");
+		MainPLVUPeakLeft.setxmlparam("alpha", "0");
+		MainPLVUPeakRight.setxmlparam("alpha", "0");
 	}else{
 		if(MainShadeWindow.isVisible() == 1 || WinampMainWindow.isVisible() == 1){
 			PLVisualizer.setXmlParam("alpha", "0");
+			MainPLVULeft.setxmlparam("alpha", "0");
+			MainPLVURight.setxmlparam("alpha", "0");
+			MainPLVUPeakLeft.setxmlparam("alpha", "0");
+			MainPLVUPeakRight.setxmlparam("alpha", "0");
 		}else{
 			PLVisualizer.setXmlParam("alpha", "255");
+			MainPLVULeft.setxmlparam("alpha", "255");
+			MainPLVURight.setxmlparam("alpha", "255");
+			MainPLVUPeakLeft.setxmlparam("alpha", "255");
+			MainPLVUPeakRight.setxmlparam("alpha", "255");
 		}
 	}
 	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");
+		MainPLVULeft.setxmlparam("alpha", "255");
+		MainPLVURight.setxmlparam("alpha", "255");
+		MainPLVUPeakLeft.setxmlparam("alpha", "255");
+		MainPLVUPeakRight.setxmlparam("alpha", "255");
 	}
 }
