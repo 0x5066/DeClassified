@@ -56,7 +56,7 @@ Global PopUpMenu vusettings;
 Global PopUpMenu firemenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps, smoothvu;
-Global Boolean show_peaks, show_vupeaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, SKINNEDFONT;
+Global Boolean show_peaks, show_vupeaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, WA265SPEED, SKINNEDFONT;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
 #include "classicplaystatus.m"
@@ -202,16 +202,22 @@ VU.onTimer(){
 		level2_new -= vu_falloffspeed_bar*falloffrate;
 	}
 
-    MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
-    MainShadeVURight.gotoFrame(level2_new*MainShadeVURight.getLength()/256);
-
-	if(IsWACUP){
+	if(WA265SPEED){
+		MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
+		MainShadeVURight.gotoFrame(level2_new*MainShadeVURight.getLength()/256);
 		MainVULeft.gotoFrame(level1_new*MainVULeft.getLength()/256);
 		MainVURight.gotoFrame(level2_new*MainVURight.getLength()/256);
 		MainPLVULeft.gotoFrame(level1_new*MainPLVULeft.getLength()/256);
 		MainPLVURight.gotoFrame(level2_new*MainPLVURight.getLength()/256);
 	}else{
-		MainVULeft.gotoFrame(level1*MainVULeft.getLength()/256);
+		if(WA265MODE){
+			MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
+			MainShadeVURight.gotoFrame(level2_new*MainShadeVURight.getLength()/256);
+		}else{
+			MainShadeVULeft.gotoFrame(level1*MainShadeVULeft.getLength()/256);
+			MainShadeVURight.gotoFrame(level2*MainShadeVURight.getLength()/256);
+		}
+		MainVULeft.gotoFrame(Level1*MainVULeft.getLength()/256);
 		MainVURight.gotoFrame(level2*MainVURight.getLength()/256);
 		MainPLVULeft.gotoFrame(level1*MainPLVULeft.getLength()/256);
 		MainPLVURight.gotoFrame(level2*MainPLVURight.getLength()/256);
@@ -442,7 +448,7 @@ setVisModeRBD(){
 	if(IsWACUP){
 		visMenu.addSubmenu(vusettings, "VU Meter Options");
 		vusettings.addCommand("Show VU Peaks", 107, show_vupeaks == 1, 0);
-		//vusettings.addCommand("Smooth VU Peak falloff", 105, vu_gravity == 1, 0);
+		vusettings.addCommand("Winamp 2.65 Speed", 108, WA265SPEED == 1, 0);
 		vusettings.addSeparator();
 		vusettings.addSubmenu(vumenu2, "Peak falloff Speed");
 		vumenu2.addCommand("Slower", 500, vp_falloffspeed == 0, 0);
@@ -492,6 +498,7 @@ refreshVisSettings ()
 	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
 	playLED = getPrivateInt(getSkinName(), "DeClassified Play LED", 1);
 	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 1);
+	WA265SPEED = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Speed", 1);
 	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 1);
 	WA5MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", 0);
 	SKINNEDFONT = getPrivateInt(getSkinName(), "DeClassified Skinned Font", 1);
@@ -756,6 +763,11 @@ ProcessMenuResult (int a)
 		MainPLVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
 		MainPLVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
 		setPrivateInt(getSkinName(), "DeClassified show VU Peaks", show_vupeaks);
+	}
+	else if (a == 108)
+	{
+		WA265SPEED = (WA265SPEED - 1) * (-1);
+		setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Speed", WA265SPEED);
 	}
 
 	else if (a >= 200 && a <= 204)
