@@ -85,10 +85,10 @@ System.onScriptLoaded()
 	MainShadeVULeft = MainShadeWindow.findObject("wa.shade.vu.left");
 	MainShadeVURight = MainShadeWindow.findObject("wa.shade.vu.right");
 	MainShadeTrigger = MainShadeWindow.findObject("main.vis.trigger");
-	MainVULeft = MainClassicVis.findObject("wacup.vu.l");
-	MainVURight = MainClassicVis.findObject("wacup.vu.r");
-	MainVUPeakLeft = MainClassicVis.findObject("wacup.vu.l.peak");
-	MainVUPeakRight = MainClassicVis.findObject("wacup.vu.r.peak");
+	if(IsWACUP) MainVULeft = MainClassicVis.findObject("wacup.vu.l");
+	if(IsWACUP) MainVURight = MainClassicVis.findObject("wacup.vu.r");
+	if(IsWACUP) MainVUPeakLeft = MainClassicVis.findObject("wacup.vu.l.peak");
+	if(IsWACUP) MainVUPeakRight = MainClassicVis.findObject("wacup.vu.r.peak");
 
 	pgrav1 = 0;
 	pgrav2 = 0;
@@ -104,10 +104,10 @@ System.onScriptLoaded()
 	PLVis = PLWindow.findObject("waclassicplvis");
 	PLVisualizer = PLVis.getObject("wa.vis");
 	PLTrigger = PLVis.getObject("main.vis.trigger");
-	MainPLVULeft = PLVis.findObject("wacup.vu.l");
-	MainPLVURight = PLVis.findObject("wacup.vu.r");
-	MainPLVUPeakLeft = PLVis.findObject("wacup.vu.l.peak");
-	MainPLVUPeakRight = PLVis.findObject("wacup.vu.r.peak");
+	if(IsWACUP) MainPLVULeft = PLVis.findObject("wacup.vu.l");
+	if(IsWACUP) MainPLVURight = PLVis.findObject("wacup.vu.r");
+	if(IsWACUP) MainPLVUPeakLeft = PLVis.findObject("wacup.vu.l.peak");
+	if(IsWACUP) MainPLVUPeakRight = PLVis.findObject("wacup.vu.r.peak");
 	VU.onTimer();
 
 	MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
@@ -203,12 +203,12 @@ VU.onTimer(){
 	}
 
 	if(WA265SPEED){
-		MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
-		MainShadeVURight.gotoFrame(level2_new*MainShadeVURight.getLength()/256);
-		MainVULeft.gotoFrame(level1_new*MainVULeft.getLength()/256);
-		MainVURight.gotoFrame(level2_new*MainVURight.getLength()/256);
-		MainPLVULeft.gotoFrame(level1_new*MainPLVULeft.getLength()/256);
-		MainPLVURight.gotoFrame(level2_new*MainPLVURight.getLength()/256);
+		if(IsWACUP) MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
+		if(IsWACUP) MainShadeVURight.gotoFrame(level2_new*MainShadeVURight.getLength()/256);
+		if(IsWACUP) MainVULeft.gotoFrame(level1_new*MainVULeft.getLength()/256);
+		if(IsWACUP) MainVURight.gotoFrame(level2_new*MainVURight.getLength()/256);
+		if(IsWACUP) MainPLVULeft.gotoFrame(level1_new*MainPLVULeft.getLength()/256);
+		if(IsWACUP) MainPLVURight.gotoFrame(level2_new*MainPLVURight.getLength()/256);
 	}else{
 		if(WA265MODE){
 			MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
@@ -217,10 +217,10 @@ VU.onTimer(){
 			MainShadeVULeft.gotoFrame(level1*MainShadeVULeft.getLength()/256);
 			MainShadeVURight.gotoFrame(level2*MainShadeVURight.getLength()/256);
 		}
-		MainVULeft.gotoFrame(Level1*MainVULeft.getLength()/256);
-		MainVURight.gotoFrame(level2*MainVURight.getLength()/256);
-		MainPLVULeft.gotoFrame(level1*MainPLVULeft.getLength()/256);
-		MainPLVURight.gotoFrame(level2*MainPLVURight.getLength()/256);
+		if(IsWACUP) MainVULeft.gotoFrame(Level1*MainVULeft.getLength()/256);
+		if(IsWACUP) MainVURight.gotoFrame(level2*MainVURight.getLength()/256);
+		if(IsWACUP) MainPLVULeft.gotoFrame(level1*MainPLVULeft.getLength()/256);
+		if(IsWACUP) MainPLVURight.gotoFrame(level2*MainPLVURight.getLength()/256);
 	}
 
 	if (level1 >= peak1){
@@ -240,10 +240,10 @@ VU.onTimer(){
 		pgrav2 -= vu_falloffspeed_peak;
 	}
 
-	MainVUPeakLeft.gotoFrame(peak1*MainVULeft.getLength()/256);
-	MainVUPeakRight.gotoFrame(peak2*MainVULeft.getLength()/256);
-	MainPLVUPeakLeft.gotoFrame(peak1*MainPLVULeft.getLength()/256);
-	MainPLVUPeakRight.gotoFrame(peak2*MainPLVULeft.getLength()/256);
+	if(IsWACUP) MainVUPeakLeft.gotoFrame(peak1*MainVULeft.getLength()/256);
+	if(IsWACUP) MainVUPeakRight.gotoFrame(peak2*MainVULeft.getLength()/256);
+	if(IsWACUP) MainPLVUPeakLeft.gotoFrame(peak1*MainPLVULeft.getLength()/256);
+	if(IsWACUP) MainPLVUPeakRight.gotoFrame(peak2*MainPLVULeft.getLength()/256);
 
 }
 
@@ -312,8 +312,8 @@ setVisModeRBD(){
 	oscsettings = new PopUpMenu;
 	fpsmenu = new PopUpMenu;
 	vumenu = new PopUpMenu;
-	vumenu2 = new PopUpMenu;
-	vusettings = new PopUpMenu;
+	if(IsWACUP) vumenu2 = new PopUpMenu;
+	if(IsWACUP) vusettings = new PopUpMenu;
 	firemenu = new PopUpmenu;
 
 	if(WA5MODE){
@@ -487,7 +487,7 @@ setVisModeRBD(){
 refreshVisSettings ()
 {
 	currentMode = getPrivateInt(getSkinName(), "Visualizer Mode", 1);
-	show_vupeaks = getPrivateInt(getSkinName(), "DeClassified show VU Peaks", 1);
+	if(IsWACUP) show_vupeaks = getPrivateInt(getSkinName(), "DeClassified show VU Peaks", 1);
 	show_peaks = getPrivateInt(getSkinName(), "Visualizer show Peaks", 1);
 	compatibility = getPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", 1);
 	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
@@ -498,13 +498,13 @@ refreshVisSettings ()
 	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
 	playLED = getPrivateInt(getSkinName(), "DeClassified Play LED", 1);
 	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 1);
-	WA265SPEED = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Speed", 1);
-	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 1);
+	if(IsWACUP) WA265SPEED = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Speed", 1);
+	if(IsWACUP) smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 1);
 	WA5MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", 0);
 	SKINNEDFONT = getPrivateInt(getSkinName(), "DeClassified Skinned Font", 1);
-	vp_falloffspeed = getPrivateInt(getSkinName(), "DeClassified VU peaks falloff", 2);
+	if(IsWACUP) vp_falloffspeed = getPrivateInt(getSkinName(), "DeClassified VU peaks falloff", 2);
 
-	vu_falloffspeed_peak = (vp_falloffspeed/100)+0.02;
+	if(IsWACUP) vu_falloffspeed_peak = (vp_falloffspeed/100)+0.02;
 
 	if(compatibility){
 		PlayIndicator.setXmlParam("visible", "1");
@@ -524,10 +524,10 @@ refreshVisSettings ()
 	MainShadeVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
 	MainShadeVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
 
-	MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
-	MainVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
-	MainPLVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
-	MainPLVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
+	if(IsWACUP) MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+	if(IsWACUP) MainVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
+	if(IsWACUP) MainPLVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+	if(IsWACUP) MainPLVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
 
 	PLVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	PLVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
