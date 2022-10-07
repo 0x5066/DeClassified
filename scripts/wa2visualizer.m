@@ -225,39 +225,81 @@ VU.onTimer(){
 		if(IsWACUP) MainPLVURight.gotoFrame(level2*MainPLVURight.getLength()/256);
 	}
 
+//somehow, with gravity disabled and peak falloff to fast,
+//the peaks will clip inside the bars themselves, 
+//in Winamp Modern i havent seen it happen but here it happens
+//what's going on?
 	if(vu_gravity == 0){
-		if (level1 >= peak1){
-			peak1 = level1;
-			//pgrav1 = 0;
-		}
-		else{
-			//peak1 += pgrav1;
-			peak1 -= vu_falloffspeed_peak*falloffrate_peak;
-		}
-		if (level2 >= peak2){
-			peak2 = level2;
-			//pgrav2 = 0;
-		}
-		else{
-			//peak2 += pgrav2;
-			peak2 -= vu_falloffspeed_peak*falloffrate_peak;
+		if(WA265SPEED){
+			if (level1_new >= peak1){
+				peak1 = level1_new;
+				//pgrav1 = 0;
+			}
+			else{
+				//peak1 += pgrav1;
+				peak1 -= vu_falloffspeed_peak*falloffrate_peak;
+			}
+			if (level2_new || level2_new <= peak2){
+				peak2 = level2_new;
+				//pgrav2 = 0;
+			}
+			else{
+				//peak2 += pgrav2;
+				peak2 -= vu_falloffspeed_peak*falloffrate_peak;
+			}
+		}else{
+			if (level1 >= peak1){
+				peak1 = level1;
+				//pgrav1 = 0;
+			}
+			else{
+				//peak1 += pgrav1;
+				peak1 -= vu_falloffspeed_peak*falloffrate_peak;
+			}
+			if (level2 >= peak2 || level2_new <= peak2){
+				peak2 = level2;
+				//pgrav2 = 0;
+			}
+			else{
+				//peak2 += pgrav2;
+				peak2 -= vu_falloffspeed_peak*falloffrate_peak;
+			}
 		}
 	}else{
-		if (level1 >= peak1){
-			peak1 = level1;
-			pgrav1 = 0;
-		}
-		else{
-			peak1 += pgrav1;
-			pgrav1 -= vu_falloffspeed_peak;
-		}
-		if (level2 >= peak2){
-			peak2 = level2;
-			pgrav2 = 0;
-		}
-		else{
-			peak2 += pgrav2;
-			pgrav2 -= vu_falloffspeed_peak;
+		if(WA265SPEED){
+			if (level1_new >= peak1){
+				peak1 = level1_new;
+				pgrav1 = 0;
+			}
+			else{
+				peak1 += pgrav1;
+				pgrav1 -= vu_falloffspeed_peak*1.5;
+			}
+			if (level2_new >= peak2){
+				peak2 = level2_new;
+				pgrav2 = 0;
+			}
+			else{
+				peak2 += pgrav2;
+				pgrav2 -= vu_falloffspeed_peak*1.5;
+			}
+		}else{
+			if (level1 >= peak1){
+				peak1 = level1;
+				pgrav1 = 0;
+			}
+			else{
+				peak1 += pgrav1;
+				pgrav1 -= vu_falloffspeed_peak*1.5;
+			}
+			if (level2 >= peak2){
+				peak2 = level2;
+				pgrav2 = 0;
+			}
+			else{
+				peak2 += pgrav2;
+				pgrav2 -= vu_falloffspeed_peak*1.5;
+			}
 		}
 	}
 
@@ -1138,16 +1180,16 @@ WinampMainWindow.onSetVisible(Boolean onoff){
 			MainPLVUPeakRight.setxmlparam("alpha", "0");
 		}else{
 			PLVisualizer.setXmlParam("alpha", "255");
-			MainPLVULeft.setxmlparam("alpha", "255");
-			MainPLVURight.setxmlparam("alpha", "255");
+			MainPLVULeft.setxmlparam("alpha", "128");
+			MainPLVURight.setxmlparam("alpha", "128");
 			MainPLVUPeakLeft.setxmlparam("alpha", "255");
 			MainPLVUPeakRight.setxmlparam("alpha", "255");
 		}
 	}
 	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");
-		MainPLVULeft.setxmlparam("alpha", "255");
-		MainPLVURight.setxmlparam("alpha", "255");
+		MainPLVULeft.setxmlparam("alpha", "128");
+		MainPLVURight.setxmlparam("alpha", "128");
 		MainPLVUPeakLeft.setxmlparam("alpha", "255");
 		MainPLVUPeakRight.setxmlparam("alpha", "255");
 	}
