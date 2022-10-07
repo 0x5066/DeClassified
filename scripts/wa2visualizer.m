@@ -1180,16 +1180,16 @@ WinampMainWindow.onSetVisible(Boolean onoff){
 			MainPLVUPeakRight.setxmlparam("alpha", "0");
 		}else{
 			PLVisualizer.setXmlParam("alpha", "255");
-			MainPLVULeft.setxmlparam("alpha", "128");
-			MainPLVURight.setxmlparam("alpha", "128");
+			MainPLVULeft.setxmlparam("alpha", "256");
+			MainPLVURight.setxmlparam("alpha", "256");
 			MainPLVUPeakLeft.setxmlparam("alpha", "255");
 			MainPLVUPeakRight.setxmlparam("alpha", "255");
 		}
 	}
 	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");
-		MainPLVULeft.setxmlparam("alpha", "128");
-		MainPLVURight.setxmlparam("alpha", "128");
+		MainPLVULeft.setxmlparam("alpha", "256");
+		MainPLVURight.setxmlparam("alpha", "256");
 		MainPLVUPeakLeft.setxmlparam("alpha", "255");
 		MainPLVUPeakRight.setxmlparam("alpha", "255");
 	}
