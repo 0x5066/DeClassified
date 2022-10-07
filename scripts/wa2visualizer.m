@@ -230,7 +230,7 @@ VU.onTimer(){
 //what's going on?
 	if(vu_gravity == 0){
 		if(WA265SPEED){
-			if (level1_new >= peak1){
+			if (level1_new >= peak2){
 				peak1 = level1_new;
 				//pgrav1 = 0;
 			}
@@ -238,7 +238,7 @@ VU.onTimer(){
 				//peak1 += pgrav1;
 				peak1 -= vu_falloffspeed_peak*falloffrate_peak;
 			}
-			if (level2_new || level2_new <= peak2){
+			if (level2_new >= peak2){
 				peak2 = level2_new;
 				//pgrav2 = 0;
 			}
@@ -247,7 +247,7 @@ VU.onTimer(){
 				peak2 -= vu_falloffspeed_peak*falloffrate_peak;
 			}
 		}else{
-			if (level1 >= peak1){
+			if (level1 >= peak2){
 				peak1 = level1;
 				//pgrav1 = 0;
 			}
@@ -255,7 +255,7 @@ VU.onTimer(){
 				//peak1 += pgrav1;
 				peak1 -= vu_falloffspeed_peak*falloffrate_peak;
 			}
-			if (level2 >= peak2 || level2_new <= peak2){
+			if (level2 >= peak2){
 				peak2 = level2;
 				//pgrav2 = 0;
 			}
