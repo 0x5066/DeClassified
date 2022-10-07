@@ -93,7 +93,7 @@ System.onScriptLoaded()
 	pgrav2 = 0;
 
 	VU = new Timer;
-	VU.setdelay(16);
+	VU.setdelay(0);
     VU.start();
 	
 	vu_falloffspeed_bar = (2/100)+0.02;
@@ -230,7 +230,7 @@ VU.onTimer(){
 //what's going on?
 	if(vu_gravity == 0){
 		if(WA265SPEED){
-			if (level1_new >= peak2){
+			if (level1_new >= peak1){
 				peak1 = level1_new;
 				//pgrav1 = 0;
 			}
@@ -247,7 +247,7 @@ VU.onTimer(){
 				peak2 -= vu_falloffspeed_peak*falloffrate_peak;
 			}
 		}else{
-			if (level1 >= peak2){
+			if (level1 >= peak1){
 				peak1 = level1;
 				//pgrav1 = 0;
 			}
