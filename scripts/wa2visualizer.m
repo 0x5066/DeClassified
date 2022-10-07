@@ -32,7 +32,7 @@ Function setFont(int font);
 Global GuiObject PlayIndicator, Songticker, Infoticker;
 
 Global Group MainWindow, MainClassicVis, Clutterbar;
-Global Group MainShadeWindow, PLVis;
+Global Group MainShadeWindow, PLVis, PLVUVis;
 Global Group PLWindow;
 
 Global Vis MainVisualizer, MainShadeVisualizer, PLVisualizer;
@@ -102,12 +102,13 @@ System.onScriptLoaded()
 
 	PLWindow = getContainer("pl").getLayout("normal");
 	PLVis = PLWindow.findObject("waclassicplvis");
+	if(IsWACUP) PLVUVis = PLVis.findObject("WACUPVU");
 	PLVisualizer = PLVis.getObject("wa.vis");
 	PLTrigger = PLVis.getObject("main.vis.trigger");
-	if(IsWACUP) MainPLVULeft = PLVis.findObject("wacup.vu.l");
-	if(IsWACUP) MainPLVURight = PLVis.findObject("wacup.vu.r");
-	if(IsWACUP) MainPLVUPeakLeft = PLVis.findObject("wacup.vu.l.peak");
-	if(IsWACUP) MainPLVUPeakRight = PLVis.findObject("wacup.vu.r.peak");
+	if(IsWACUP) MainPLVULeft = PLVUVis.findObject("wacup.vu.l");
+	if(IsWACUP) MainPLVURight = PLVUVis.findObject("wacup.vu.r");
+	if(IsWACUP) MainPLVUPeakLeft = PLVUVis.findObject("wacup.vu.l.peak");
+	if(IsWACUP) MainPLVUPeakRight = PLVUVis.findObject("wacup.vu.r.peak");
 	VU.onTimer();
 
 	MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
@@ -1038,26 +1039,17 @@ LegacyOptions(int legacy){
 			MainVisualizer.setXmlParam("visible", "1");
 			MainShadeVisualizer.setXmlParam("visible", "1");
 			PLVisualizer.setXmlParam("visible", "1");
-			MainPLVULeft.setxmlparam("alpha", "255");
-			MainPLVURight.setxmlparam("alpha", "255");
-			MainPLVUPeakLeft.setxmlparam("alpha", "255");
-			MainPLVUPeakRight.setxmlparam("alpha", "255");
+			PLVUVis.hide();
 		}else if(getStatus() == 0){
 			MainVisualizer.setXmlParam("visible", "0");
 			MainShadeVisualizer.setXmlParam("visible", "0");
 			PLVisualizer.setXmlParam("visible", "0");
-			MainPLVULeft.setxmlparam("alpha", "0");
-			MainPLVURight.setxmlparam("alpha", "0");
-			MainPLVUPeakLeft.setxmlparam("alpha", "0");
-			MainPLVUPeakRight.setxmlparam("alpha", "0");
+			PLVUVis.hide();
 		}else if(getStatus() == 1){
 			MainVisualizer.setXmlParam("visible", "1");
 			MainShadeVisualizer.setXmlParam("visible", "1");
 			PLVisualizer.setXmlParam("visible", "1");
-			MainPLVULeft.setxmlparam("alpha", "255");
-			MainPLVURight.setxmlparam("alpha", "255");
-			MainPLVUPeakLeft.setxmlparam("alpha", "255");
-			MainPLVUPeakRight.setxmlparam("alpha", "255");
+			PLVUVis.show();
 		}
 		if(WinampMainWindow.getScale() != 2){
 		MainVisualizer.setXmlParam("y", "2");
@@ -1074,10 +1066,7 @@ LegacyOptions(int legacy){
 		MainVisualizer.setXmlParam("visible", "1");
 		MainShadeVisualizer.setXmlParam("visible", "1");
 		PLVisualizer.setXmlParam("visible", "1");
-		MainPLVULeft.setxmlparam("alpha", "255");
-		MainPLVURight.setxmlparam("alpha", "255");
-		MainPLVUPeakLeft.setxmlparam("alpha", "255");
-		MainPLVUPeakRight.setxmlparam("alpha", "255");
+		PLVUVis.show();
 		MainVisualizer.setXmlParam("y", "0");
 		PLVisualizer.setXmlParam("y", "0");
 		WinampMainWindow.onSetVisible(0);
