@@ -39,7 +39,7 @@ Global Vis MainVisualizer, MainShadeVisualizer, PLVisualizer;
 Global AnimatedLayer MainShadeVULeft, MainShadeVURight, MainVULeft, MainVURight, MainVUPeakLeft, MainVUPeakRight;
 Global AnimatedLayer MainPLVULeft, MainPLVURight, MainPLVUPeakLeft, MainPLVUPeakRight;
 Global timer VU;
-Global float level1, level2, peak1, peak2, pgrav1, pgrav2, level1_new, level2_new, vu_falloffspeed_bar, vu_falloffspeed_peak, vp_falloffspeed, falloffrate;
+Global float level1, level2, peak1, peak2, pgrav1, pgrav2, level1_new, level2_new, vu_falloffspeed_bar, vu_falloffspeed_peak, vp_falloffspeed, falloffrate, falloffrate_peak;
 
 Global Button CLBV1, CLBV2, CLBV3;
 
@@ -56,7 +56,7 @@ Global PopUpMenu vusettings;
 Global PopUpMenu firemenu;
 
 Global Int currentMode, a_falloffspeed, p_falloffspeed, osc_render, ana_render, a_coloring, v_fps, smoothvu;
-Global Boolean show_peaks, show_vupeaks, isShade, compatibility, playLED, WA265MODE, WA5MODE, WA265SPEED, SKINNEDFONT;
+Global Boolean show_peaks, show_vupeaks, vu_gravity, isShade, compatibility, playLED, WA265MODE, WA5MODE, WA265SPEED, SKINNEDFONT;
 Global layer MainTrigger, MainShadeTrigger, PLTrigger;
 
 #include "classicplaystatus.m"
@@ -99,6 +99,7 @@ System.onScriptLoaded()
 	
 	vu_falloffspeed_bar = (2/100)+0.02;
 	falloffrate = 128;
+	falloffrate_peak = 256;
 
 	PLWindow = getContainer("pl").getLayout("normal");
 	PLVis = PLWindow.findObject("waclassicplvis");
@@ -224,21 +225,40 @@ VU.onTimer(){
 		if(IsWACUP) MainPLVURight.gotoFrame(level2*MainPLVURight.getLength()/256);
 	}
 
-	if (level1 >= peak1){
-		peak1 = level1;
-		pgrav1 = 0;
-	}
-	else{
-		peak1 += pgrav1;
-		pgrav1 -= vu_falloffspeed_peak;
-	}
-	if (level2 >= peak2){
-		peak2 = level2;
-		pgrav2 = 0;
-	}
-	else{
-		peak2 += pgrav2;
-		pgrav2 -= vu_falloffspeed_peak;
+	if(vu_gravity == 0){
+		if (level1 >= peak1){
+			peak1 = level1;
+			//pgrav1 = 0;
+		}
+		else{
+			//peak1 += pgrav1;
+			peak1 -= vu_falloffspeed_peak*falloffrate_peak;
+		}
+		if (level2 >= peak2){
+			peak2 = level2;
+			//pgrav2 = 0;
+		}
+		else{
+			//peak2 += pgrav2;
+			peak2 -= vu_falloffspeed_peak*falloffrate_peak;
+		}
+	}else{
+		if (level1 >= peak1){
+			peak1 = level1;
+			pgrav1 = 0;
+		}
+		else{
+			peak1 += pgrav1;
+			pgrav1 -= vu_falloffspeed_peak;
+		}
+		if (level2 >= peak2){
+			peak2 = level2;
+			pgrav2 = 0;
+		}
+		else{
+			peak2 += pgrav2;
+			pgrav2 -= vu_falloffspeed_peak;
+		}
 	}
 
 	if(IsWACUP) MainVUPeakLeft.gotoFrame(peak1*MainVULeft.getLength()/256);
@@ -449,6 +469,7 @@ setVisModeRBD(){
 	if(IsWACUP){
 		visMenu.addSubmenu(vusettings, "VU Meter Options");
 		vusettings.addCommand("Show VU Peaks", 107, show_vupeaks == 1, 0);
+		vusettings.addCommand("Smooth VU Peak falloff", 109, vu_gravity == 1, 0);
 		vusettings.addCommand("Winamp 2.65 Speed", 108, WA265SPEED == 1, 0);
 		vusettings.addSeparator();
 		vusettings.addSubmenu(vumenu2, "Peak falloff Speed");
@@ -504,6 +525,7 @@ refreshVisSettings ()
 	WA5MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", 0);
 	SKINNEDFONT = getPrivateInt(getSkinName(), "DeClassified Skinned Font", 1);
 	if(IsWACUP) vp_falloffspeed = getPrivateInt(getSkinName(), "DeClassified VU peaks falloff", 2);
+	if(IsWACUP) vu_gravity = getPrivateInt(getSkinName(), "DeClassified VU Peak Gravity", 1);
 
 	if(IsWACUP) vu_falloffspeed_peak = (vp_falloffspeed/100)+0.02;
 
@@ -769,6 +791,12 @@ ProcessMenuResult (int a)
 	{
 		WA265SPEED = (WA265SPEED - 1) * (-1);
 		setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Speed", WA265SPEED);
+	}
+
+	else if (a == 109)
+	{
+		vu_gravity = (vu_gravity - 1) * (-1);
+		setPrivateInt(getSkinName(), "DeClassified VU Peak Gravity", vu_gravity);
 	}
 
 	else if (a >= 200 && a <= 204)
