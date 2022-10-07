@@ -18,7 +18,6 @@ Note:		Ripped from Winamp Modern, this also includes the option
 ---------------------------------------------------*/
 
 #include "..\..\..\lib/std.mi"
-#include "IsWACUP.m"
 
 Function refreshVisSettings();
 Function setVis (int mode);
