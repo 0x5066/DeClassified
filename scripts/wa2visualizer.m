@@ -190,6 +190,8 @@ VU.onTimer(){
     level2 = getRightVuMeter();
 
 //doesnt work anyway
+//the idea was to remove the decimal points
+//the peaks still clip inside
 	int newlevel1;
 	int newlevel2;
 	if(WA265SPEED){
@@ -200,7 +202,7 @@ VU.onTimer(){
 		newlevel2 = Level2;
 	}
 
-//Winamp 2.65 type beat
+//Winamp 2.65 type beat (is WA265SPEED)
 	if (level1 >= level1_new){
 		level1_new = level1;
 	}
@@ -215,6 +217,13 @@ VU.onTimer(){
 		level2_new -= vu_falloffspeed_bar*falloffrate;
 	}
 
+//because i provide modes of compatibility and also because i like
+//how wa 2.65's vu meter works... in falloff, i'm providing an extra
+//option just for that
+
+//the if(IsWACUP) checks only exist because i only want it to be there for wacup
+//idk if this kills winamp...
+//update a few seconds later: only guru errors
 	if(WA265SPEED){
 		if(IsWACUP) MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
 		if(IsWACUP) MainShadeVURight.gotoFrame(level2_new*MainShadeVURight.getLength()/256);
