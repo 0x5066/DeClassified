@@ -96,9 +96,9 @@ System.onScriptLoaded()
 	VU.setdelay(0);
     VU.start();
 	
-	vu_falloffspeed_bar = (2/100)+0.02;
-	falloffrate = 128;
-	falloffrate_peak = 256;
+	vu_falloffspeed_bar = (2/100)+0.02; //magic number
+	falloffrate = 128; //winamp 2.65 vu falloff
+	falloffrate_peak = 256; //wacup vu peak falloff
 
 	PLWindow = getContainer("pl").getLayout("normal");
 	PLVis = PLWindow.findObject("waclassicplvis");
@@ -189,6 +189,18 @@ VU.onTimer(){
     level1 = getLeftVuMeter();
     level2 = getRightVuMeter();
 
+//doesnt work anyway
+	int newlevel1;
+	int newlevel2;
+	if(WA265SPEED){
+		newlevel1 = Level1_new;
+		newlevel2 = Level2_new;
+	}else{
+		newlevel1 = Level1;
+		newlevel2 = Level2;
+	}
+
+//Winamp 2.65 type beat
 	if (level1 >= level1_new){
 		level1_new = level1;
 	}
@@ -228,84 +240,50 @@ VU.onTimer(){
 //the peaks will clip inside the bars themselves, 
 //in Winamp Modern i havent seen it happen but here it happens
 //what's going on?
+
+//10/08/22
+//seems unfixable, peaks just want to clip
+//inside the bars for some fucking reason
 	if(vu_gravity == 0){
-		if(WA265SPEED){
-			if (level1_new >= peak1){
-				peak1 = level1_new;
-				//pgrav1 = 0;
-			}
-			else{
-				//peak1 += pgrav1;
-				peak1 -= vu_falloffspeed_peak*falloffrate_peak;
-			}
-			if (level2_new >= peak2){
-				peak2 = level2_new;
-				//pgrav2 = 0;
-			}
-			else{
-				//peak2 += pgrav2;
-				peak2 -= vu_falloffspeed_peak*falloffrate_peak;
-			}
-		}else{
-			if (level1 >= peak1){
-				peak1 = level1;
-				//pgrav1 = 0;
-			}
-			else{
-				//peak1 += pgrav1;
-				peak1 -= vu_falloffspeed_peak*falloffrate_peak;
-			}
-			if (level2 >= peak2){
-				peak2 = level2;
-				//pgrav2 = 0;
-			}
-			else{
-				//peak2 += pgrav2;
-				peak2 -= vu_falloffspeed_peak*falloffrate_peak;
-			}
+		if (newlevel1 >= peak1){
+			peak1 = newlevel1;
+			//pgrav1 = 0;
+		}
+		else{
+			//peak1 += pgrav1;
+			peak1 -= vu_falloffspeed_peak*falloffrate_peak;
+		}
+		if (newlevel2 >= peak2){
+			peak2 = newlevel2;
+			//pgrav2 = 0;
+		}
+		else{
+			//peak2 += pgrav2;
+			peak2 -= vu_falloffspeed_peak*falloffrate_peak;
 		}
 	}else{
-		if(WA265SPEED){
-			if (level1_new >= peak1){
-				peak1 = level1_new;
-				pgrav1 = 0;
-			}
-			else{
-				peak1 += pgrav1;
-				pgrav1 -= vu_falloffspeed_peak*1.5;
-			}
-			if (level2_new >= peak2){
-				peak2 = level2_new;
-				pgrav2 = 0;
-			}
-			else{
-				peak2 += pgrav2;
-				pgrav2 -= vu_falloffspeed_peak*1.5;
-			}
-		}else{
-			if (level1 >= peak1){
-				peak1 = level1;
-				pgrav1 = 0;
-			}
-			else{
-				peak1 += pgrav1;
-				pgrav1 -= vu_falloffspeed_peak*1.5;
-			}
-			if (level2 >= peak2){
-				peak2 = level2;
-				pgrav2 = 0;
-			}
-			else{
-				peak2 += pgrav2;
-				pgrav2 -= vu_falloffspeed_peak*1.5;
-			}
+		if (newlevel1 >= peak1){
+			peak1 = newlevel1;
+			pgrav1 = 0;
+		}
+		else{
+			peak1 += pgrav1;
+			pgrav1 -= vu_falloffspeed_peak*1.5;
+		}
+		if (newlevel2 >= peak2){
+			peak2 = newlevel2;
+			pgrav2 = 0;
+		}
+		else{
+			peak2 += pgrav2;
+			pgrav2 -= vu_falloffspeed_peak*1.5;
 		}
 	}
 
 	if(IsWACUP) MainVUPeakLeft.gotoFrame(peak1*MainVULeft.getLength()/256);
-	if(IsWACUP) MainVUPeakRight.gotoFrame(peak2*MainVULeft.getLength()/256);
+	if(IsWACUP) MainVUPeakRight.gotoFrame(peak2*MainVURight.getLength()/256);
 	if(IsWACUP) MainPLVUPeakLeft.gotoFrame(peak1*MainPLVULeft.getLength()/256);
-	if(IsWACUP) MainPLVUPeakRight.gotoFrame(peak2*MainPLVULeft.getLength()/256);
+	if(IsWACUP) MainPLVUPeakRight.gotoFrame(peak2*MainPLVURight.getLength()/256);
 
 }
 
@@ -568,7 +546,7 @@ refreshVisSettings ()
 	if(IsWACUP) vp_falloffspeed = getPrivateInt(getSkinName(), "DeClassified VU peaks falloff", 2);
 	if(IsWACUP) vu_gravity = getPrivateInt(getSkinName(), "DeClassified VU Peak Gravity", 1);
 
-	if(IsWACUP) vu_falloffspeed_peak = (vp_falloffspeed/100)+0.02;
+	if(IsWACUP) vu_falloffspeed_peak = (vp_falloffspeed/100)+0.02; //magic number
 
 	if(compatibility){
 		PlayIndicator.setXmlParam("visible", "1");
