@@ -327,9 +327,9 @@ setVisModeRBD(){
 		visMenu.addSubmenu(oscsettings, "Oscilloscope Options");
 		oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
 		oscsettings.addSeparator();
-		oscsettings.addCommand("Dots", 603, osc_render == 3, 0);
-		oscsettings.addCommand("Lines", 601, osc_render == 1, 0);
-		oscsettings.addCommand("Solid", 602, osc_render == 2, 0);
+		oscsettings.addCommand("Dots", 601, osc_render == 1, 0);
+		oscsettings.addCommand("Lines", 602, osc_render == 2, 0);
+		oscsettings.addCommand("Solid", 603, osc_render == 3, 0);
 	}else{
 		visMenu.addSubmenu(anasettings, "Spectrum analyzer options");
 
