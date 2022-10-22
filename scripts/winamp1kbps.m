@@ -53,8 +53,16 @@ System.onTitleChange(String newtitle){
 	{
 		getSonginfo(sit);
 		if(getStatus() == 1){
-			bitrateText.setText("  0");
-			frequencyText.setText(" 0");
+			if(IsWACUP){
+				bitrateText.setText(" --");
+				frequencyText.setText("--");
+			}else if(IsWACUP && IsPreview){
+				bitrateText.setText("  0");
+				frequencyText.setText(" 0");
+			}else{
+				bitrateText.setText("  0");
+				frequencyText.setText(" 0");
+			}
 		}
 	}
 	//else songInfoTimer.setDelay(250); // goes to 250ms once info is available
@@ -84,8 +92,16 @@ System.onInfoChange(String info){
 	{
 		getSonginfo(sit);
 		if(getStatus() == 1){
-			bitrateText.setText("  0");
-			frequencyText.setText(" 0");
+			if(IsWACUP){
+				bitrateText.setText(" --");
+				frequencyText.setText("--");
+			}else if(IsWACUP && IsPreview){
+				bitrateText.setText("  0");
+				frequencyText.setText(" 0");
+			}else{
+				bitrateText.setText("  0");
+				frequencyText.setText(" 0");
+			}
 		}
 	}
 	//songInfoTimer.setDelay(250);
@@ -134,7 +150,14 @@ getSonginfo(String SongInfoString) {
 	if(bitrateint > 1000) {bitrateText.setText(strleft(tkn, 2)+"H");} //definitely hundred
 	if(bitrateint > 10000) {bitrateText.setText(strleft(tkn, 1)+"C");} //still not sure about this - Cillions???
 	if(bitrateint > 10000 && strlen(strleft(tkn, 1)+"C") == 2) {bitrateText.setText(" "+strleft(tkn, 1)+"C");} //has to exist because i wasnt accounting for extremely high bitrates
-	if(bitrateint == 0 || bitrateint == -1) {bitrateText.setText("  0");}
+	if(IsWACUP){
+		if(bitrateint == 0 || bitrateint == -1) {bitrateText.setText(" --");}
+	}else if(IsWACUP && IsPreview){
+		if(bitrateint == 0 || bitrateint == -1) {bitrateText.setText("  0");}
+	}else{
+		if(bitrateint == 0 || bitrateint == -1) {bitrateText.setText("  0");}
+	}
+
 
 	tkn = tokenizeSongInfo("Channels", SongInfoString);
 	tkn = tokenizeSongInfo("Frequency", SongInfoString);
@@ -143,7 +166,14 @@ getSonginfo(String SongInfoString) {
 	if(tkn != "") {frequencyText.setText(tkn);}
 	if(freqint < 100) {frequencyText.setText(tkn);}
 	if(freqint < 10) {frequencyText.setText(" "+tkn);}
-	if(freqint == 0 || freqint == -1 ) {frequencyText.setText(" 0");}
+	if(IsWACUP){
+		if(freqint == 0 || freqint == -1 ) {frequencyText.setText("--");}
+	}else if(IsWACUP && IsPreview){
+		if(freqint == 0 || freqint == -1 ) {frequencyText.setText(" 0");}
+	}else{
+		if(freqint == 0 || freqint == -1 ) {frequencyText.setText(" 0");}
+	}
+	
 	if(IsWACUP == 1){
 		if(freqint > 100) {frequencyText.setText(strleft(tkn, 1)+"H");} //definitely hundred
 		if(freqint > 10000) {frequencyText.setText(strleft(tkn, 1)+"C");} //still not sure about this - Cillions???
@@ -162,13 +192,11 @@ getSonginfo(String SongInfoString) {
 bitratetext.onEnterArea(){
 	if(IsWACUP == 1){
 		if(bitrateint > 1000) bitratetext.setXmlParam("tooltip", "Current bitrate: "+bitratestring+" kbps");
-		if(bitrateint < 1000) bitratetext.setXmlParam("tooltip", "");
 	}
 }
 
 frequencyText.onEnterArea(){
 	if(IsWACUP == 1){
 		if(freqint > 100) frequencyText.setXmlParam("tooltip", "Current samplerate: "+freqstring+" khz");
-		if(freqint < 100) frequencyText.setXmlParam("tooltip", "");
 	}
 }
