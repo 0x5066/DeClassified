@@ -47,13 +47,13 @@
 		x="111" y="27"
 		w="154" h="9"
 		font="wasabi.font.default" altfont="arial" fontsize="13"
-		altvalign="center" dblclickaction="trackinfo" color="0,198,0"
+		altvalign="center" dblclickaction="trackinfo" color="textbmp"
 	rightclickaction="trackmenu" cursor="cur.horizslider" antialias="0"
 	/>
 
 	<text id="infoticker" x="110" y="27" offsetx="-1" offsety="-1"
 		w="155" h="9" font="wasabi.font.default" fontsize="13" dblclickaction="trackinfo" 
-		rightclickaction="trackmenu" ghost="1" color="0,198,0" antialias="0"/>
+		rightclickaction="trackmenu" ghost="1" color="textbmp" antialias="0"/>
 
 	<!--text
 		id="debugticker"

@@ -23,6 +23,7 @@
 	<color id="x86" value="0,0,180"/>		<!-- listview/treeview selectionbar back color -->
 	<color id="x88" value="0,255,0"/>		<!-- listview/treeview selection bar textcolor (inactive) -->
 	<color id="x90" value="0,0,128"/>		<!-- listview/treeview selectionbar back color (inactive) -->
+    <color id="textbmp" value="0,198,0"/>   <!-- use the text color from text.bmp, unless you want to use a custom color -->
 
 <!-- Generic Button -->
 
