@@ -10,16 +10,14 @@ E-Mail:		martin@skinconsortium.com
 Internet:	www.skinconsortium.com
 			www.martin.deimos.de.vu
 
-Note:		Ripped from Winamp Modern, removed the VU Meter section
-			this also includes the option to set the Spectrum 
-			Analyzer coloring.
+Note:		Ripped from Winamp Modern, this also includes the option 
+			to set the Spectrum Analyzer coloring, and more.
 			Now resides in skin.xml to hook into the Main Window and
 			Playlist Editor.
 -----------------------------------------------------
 ---------------------------------------------------*/
 
 #include "..\..\..\lib/std.mi"
-#include "IsWACUP.m"
 
 Function refreshVisSettings();
 Function setVis (int mode);
@@ -88,7 +86,7 @@ System.onScriptLoaded()
 	pgrav2 = 0;
 
 	VU = new Timer;
-	VU.setdelay(16);
+	VU.setdelay(0);
     VU.start();
     VU.onTimer();
 
@@ -136,7 +134,7 @@ setFont(int font){
 		Infoticker.setXmlParam("h", "18");
 	}else{
 		Songticker.setXmlParam("font", "arial");
-		Songticker.setXmlParam("y", "44");
+		Songticker.setXmlParam("y", "47");
 		Songticker.setXmlParam("h", "28");
 
 		Infoticker.setXmlParam("font", "arial");
@@ -329,9 +327,9 @@ setVisModeRBD(){
 		visMenu.addSubmenu(oscsettings, "Oscilloscope Options");
 		oscsettings.addCommand("Oscilloscope drawing style:", 996, 0, 1);
 		oscsettings.addSeparator();
-		oscsettings.addCommand("Dots", 603, osc_render == 3, 0);
-		oscsettings.addCommand("Lines", 601, osc_render == 1, 0);
-		oscsettings.addCommand("Solid", 602, osc_render == 2, 0);
+		oscsettings.addCommand("Dots", 601, osc_render == 1, 0);
+		oscsettings.addCommand("Lines", 602, osc_render == 2, 0);
+		oscsettings.addCommand("Solid", 603, osc_render == 3, 0);
 	}else{
 		visMenu.addSubmenu(anasettings, "Spectrum analyzer options");
 

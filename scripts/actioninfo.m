@@ -249,11 +249,11 @@ CLBD.onLeftButtonDown(int x, int y){
 	SongTicker.hide();
 	InfoTicker.show();
 	if(dbsize == 0){
-		InfoTicker.setText("Enable Doublesize Mode");
+		InfoTicker.setText("Enable Triplesize Mode");
 		dbsize = 1;
 		CLBD.setXmlParam("image", "CLBDp");
 	}else{
-		InfoTicker.setText("Disable Doublesize Mode"); //no idea why this works but it works
+		InfoTicker.setText("Disable Triplesize Mode"); //no idea why this works but it works
 		dbsize = 0;
 		CLBD.setXmlParam("image", "CLBD");
 	}
