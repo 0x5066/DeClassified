@@ -13,7 +13,7 @@
 		<layer x="-19" y="-19" w="19" h="19" relatx="1" relaty="1" resize="bottomright" move="0" cursor="cur.resize"/>
 
 		<winamp:browser fitparent="1"
-		x="10" y="20" w="-19" h="-29" relatw="1" relath="1"
+		x="11" y="21" w="-20" h="-30" relatw="1" relath="1"
 		home="https://getwacup.com/browser.html"
 		wantfocus="0" mainmb="0"
 		/>

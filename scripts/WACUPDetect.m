@@ -2,7 +2,7 @@
 //the Equalizer does this on it's own, though the
 //mechanism is the same.
 
-#include "compiler/lib/std.mi"
+#include "..\..\..\lib/std.mi"
 #include "IsWACUP.m"
 
 Global GuiObject WAPLC;
@@ -96,6 +96,19 @@ System.onScriptLoaded(){
 		wacupvideo7.setXmlParam("image", "wacup.video.bottomleft");
 		wacupvideo8.setXmlParam("image", "wacup.video.bottom.stretchybit");
 		wacupvideo9.setXmlParam("image", "wacup.video.bottomright");
+		wacupMB1.setXmlParam("image", "wacup.browser.topleft.active");
+		wacupMB2.setXmlParam("image", "wacup.browser.top.stretchybit.active");
+		wacupMB3.setXmlParam("image", "wacup.browser.top.center.active");
+		wacupMB4.setXmlParam("image", "wacup.browser.topright.active");
+		wacupMB1.setXmlParam("inactiveimage", "wacup.browser.topleft.inactive");
+		wacupMB2.setXmlParam("inactiveimage", "wacup.browser.top.stretchybit.inactive");
+		wacupMB3.setXmlParam("inactiveimage", "wacup.browser.top.center.inactive");
+		wacupMB4.setXmlParam("inactiveimage", "wacup.browser.topright.inactive");
+		wacupMB5.setXmlParam("image", "wacup.browser.left");
+		wacupMB6.setXmlParam("image", "wacup.browser.right");
+		wacupMB7.setXmlParam("image", "wacup.browser.bottomleft");
+		wacupMB8.setXmlParam("image", "wacup.browser.bottom.stretchybit");
+		wacupMB9.setXmlParam("image", "wacup.browser.bottomright");
 	}else{
 		wacupmain.setXmlParam("image", "wa.main");
 		wacuptitlebar.setXmlParam("image", "wa.titlebar.on");
@@ -131,5 +144,18 @@ System.onScriptLoaded(){
 		wacupvideo7.setXmlParam("image", "video.bottomleft");
 		wacupvideo8.setXmlParam("image", "video.bottom.stretchybit");
 		wacupvideo9.setXmlParam("image", "video.bottomright");
+		wacupMB1.setXmlParam("image", "mb.topleft.active");
+		wacupMB2.setXmlParam("image", "mb.top.stretchybit.active");
+		wacupMB3.setXmlParam("image", "mb.top.center.active");
+		wacupMB4.setXmlParam("image", "mb.topright.active");
+		wacupMB1.setXmlParam("inactiveimage", "mb.topleft.inactive");
+		wacupMB2.setXmlParam("inactiveimage", "mb.top.stretchybit.inactive");
+		wacupMB3.setXmlParam("inactiveimage", "mb.top.center.inactive");
+		wacupMB4.setXmlParam("inactiveimage", "mb.topright.inactive");
+		wacupMB5.setXmlParam("image", "mb.left");
+		wacupMB6.setXmlParam("image", "mb.right");
+		wacupMB7.setXmlParam("image", "mb.bottomleft");
+		wacupMB8.setXmlParam("image", "mb.bottom.stretchybit");
+		wacupMB9.setXmlParam("image", "mb.bottomright");
 	}
 }
