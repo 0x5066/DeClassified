@@ -787,6 +787,10 @@ ProcessMenuResult (int a)
 	else if (a == 105)
 		{
 			WA5MODE = (WA5MODE - 1) * (-1);
+			if(WA5MODE == 1 && currentMode == 3){
+				currentMode = 1;
+				setVis (currentMode);
+			}
 			setPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", WA5MODE);
 		}
 
