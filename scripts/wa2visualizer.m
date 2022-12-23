@@ -31,12 +31,11 @@ Function setFont(int font);
 Global GuiObject PlayIndicator, Songticker, Infoticker;
 
 Global Group MainWindow, MainClassicVis, Clutterbar;
-Global Group MainShadeWindow, PLVis, PLVUVis;
-Global Group PLWindow;
+Global Group PLWindow, MainShadeWindow, PLVis, PLVUVis;
 
 Global Vis MainVisualizer, MainShadeVisualizer, PLVisualizer;
 Global AnimatedLayer MainShadeVULeft, MainShadeVURight, MainVULeft, MainVURight, MainVUPeakLeft, MainVUPeakRight;
-Global AnimatedLayer MainPLVULeft, MainPLVURight, MainPLVUPeakLeft, MainPLVUPeakRight;
+Global AnimatedLayer PlaylistVULeft, PlaylistVURight, PlaylistVUPeakLeft, PlaylistVUPeakRight;
 Global timer VU;
 Global float level1, level2, peak1, peak2, pgrav1, pgrav2, level1_new, level2_new, vu_falloffspeed_bar, vu_falloffspeed_peak, vp_falloffspeed, falloffrate, falloffrate_peak;
 
@@ -89,6 +88,16 @@ System.onScriptLoaded()
 		MainVUPeakLeft = MainClassicVis.findObject("wacup.vu.l.peak");
 		MainVUPeakRight = MainClassicVis.findObject("wacup.vu.r.peak");
 
+	PLWindow = getContainer("PL").getLayout("normal");
+	PLVis = PLWindow.findObject("waclassicplvis");
+	PLVisualizer = PLVis.getObject("wa.vis");
+	PLTrigger = PLVis.getObject("main.vis.trigger");
+		PLVUVis = PLVis.findObject("WACUPVU");
+		PlaylistVULeft = PLVUVis.findObject("wacup.vu.l");
+		PlaylistVURight = PLVUVis.findObject("wacup.vu.r");
+		PlaylistVUPeakLeft = PLVUVis.findObject("wacup.vu.l.peak");
+		PlaylistVUPeakRight = PLVUVis.findObject("wacup.vu.r.peak");
+
 	pgrav1 = 0;
 	pgrav2 = 0;
 
@@ -100,16 +109,6 @@ System.onScriptLoaded()
 	vu_falloffspeed_bar = (2/100)+0.02; //magic number
 	falloffrate = 128; //winamp 2.65 vu falloff
 	falloffrate_peak = 256; //wacup vu peak falloff
-
-	PLWindow = getContainer("pl").getLayout("normal");
-	PLVis = PLWindow.findObject("waclassicplvis");
-		PLVUVis = PLVis.findObject("WACUPVU");
-	PLVisualizer = PLVis.getObject("wa.vis");
-	PLTrigger = PLVis.getObject("main.vis.trigger");
-		MainPLVULeft = PLVUVis.findObject("wacup.vu.l");
-		MainPLVURight = PLVUVis.findObject("wacup.vu.r");
-		MainPLVUPeakLeft = PLVUVis.findObject("wacup.vu.l.peak");
-		MainPLVUPeakRight = PLVUVis.findObject("wacup.vu.r.peak");
 
 	MainVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	MainVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
@@ -225,12 +224,12 @@ VU.onTimer(){
 //idk if this kills winamp...
 //update a few seconds later: only guru errors
 	if(WA265SPEED){
-		MainShadeVULeft.gotoFrame(peak1*MainShadeVULeft.getLength()/256);
-		MainShadeVURight.gotoFrame(peak2*MainShadeVURight.getLength()/256);
+		MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
+		MainShadeVURight.gotoFrame(level2_new*MainShadeVURight.getLength()/256);
 			MainVULeft.gotoFrame(level1_new*MainVULeft.getLength()/256);
 			MainVURight.gotoFrame(level2_new*MainVURight.getLength()/256);
-			MainPLVULeft.gotoFrame(level1_new*MainPLVULeft.getLength()/256);
-			MainPLVURight.gotoFrame(level2_new*MainPLVURight.getLength()/256);
+			PlaylistVULeft.gotoFrame(level1_new*PlaylistVULeft.getLength()/256);
+			PlaylistVURight.gotoFrame(level2_new*PlaylistVURight.getLength()/256);
 	}else{
 		if(WA265MODE){
 			MainShadeVULeft.gotoFrame(level1_new*MainShadeVULeft.getLength()/256);
@@ -241,8 +240,8 @@ VU.onTimer(){
 		}
 		MainVULeft.gotoFrame(Level1*MainVULeft.getLength()/256);
 		MainVURight.gotoFrame(level2*MainVURight.getLength()/256);
-		MainPLVULeft.gotoFrame(level1*MainPLVULeft.getLength()/256);
-		MainPLVURight.gotoFrame(level2*MainPLVURight.getLength()/256);
+		PlaylistVULeft.gotoFrame(level1*PlaylistVULeft.getLength()/256);
+		PlaylistVURight.gotoFrame(level2*PlaylistVURight.getLength()/256);
 	}
 
 //somehow, with gravity disabled and peak falloff to fast,
@@ -291,8 +290,8 @@ VU.onTimer(){
 
 		MainVUPeakLeft.gotoFrame(peak1*MainVULeft.getLength()/256);
 		MainVUPeakRight.gotoFrame(peak2*MainVURight.getLength()/256);
-		MainPLVUPeakLeft.gotoFrame(peak1*MainPLVULeft.getLength()/256);
-		MainPLVUPeakRight.gotoFrame(peak2*MainPLVURight.getLength()/256);
+		PlaylistVUPeakLeft.gotoFrame(peak1*PlaylistVULeft.getLength()/256);
+		PlaylistVUPeakRight.gotoFrame(peak2*PlaylistVURight.getLength()/256);
 
 }
 
@@ -567,8 +566,8 @@ refreshVisSettings ()
 
 		MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
 		MainVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
-		MainPLVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
-		MainPLVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
+		PlaylistVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+		PlaylistVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
 
 	PLVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	PLVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
@@ -801,8 +800,8 @@ ProcessMenuResult (int a)
 		show_vupeaks = (show_vupeaks - 1) * (-1);
 		MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
 		MainVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
-		MainPLVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
-		MainPLVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
+		PlaylistVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+		PlaylistVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
 		setPrivateInt(getSkinName(), "DeClassified show VU Peaks", show_vupeaks);
 	}
 	else if (a == 108)
@@ -1013,12 +1012,12 @@ setVis (int mode)
 		PLVisualizer.setMode(0);
 		MainVULeft.setXmlParam("visible", "0");
 		MainVURight.setXmlParam("visible", "0");
-		MainPLVULeft.setXmlParam("visible", "0");
-		MainPLVURight.setXmlParam("visible", "0");
+		PlaylistVULeft.setXmlParam("visible", "0");
+		PlaylistVURight.setXmlParam("visible", "0");
 		MainVUPeakLeft.setXmlParam("image", "");
 		MainVUPeakRight.setXmlParam("image", "");
-		MainPLVUPeakLeft.setXmlParam("image", "");
-		MainPLVUPeakRight.setXmlParam("image", "");
+		PlaylistVUPeakLeft.setXmlParam("image", "");
+		PlaylistVUPeakRight.setXmlParam("image", "");
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.stop();
@@ -1030,12 +1029,12 @@ setVis (int mode)
 		PLVisualizer.setMode(1);
 		MainVULeft.setXmlParam("visible", "0");
 		MainVURight.setXmlParam("visible", "0");
-		MainPLVULeft.setXmlParam("visible", "0");
-		MainPLVURight.setXmlParam("visible", "0");
+		PlaylistVULeft.setXmlParam("visible", "0");
+		PlaylistVURight.setXmlParam("visible", "0");
 		MainVUPeakLeft.setXmlParam("image", "");
 		MainVUPeakRight.setXmlParam("image", "");
-		MainPLVUPeakLeft.setXmlParam("image", "");
-		MainPLVUPeakRight.setXmlParam("image", "");
+		PlaylistVUPeakLeft.setXmlParam("image", "");
+		PlaylistVUPeakRight.setXmlParam("image", "");
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.start();
@@ -1047,12 +1046,12 @@ setVis (int mode)
 		PLVisualizer.setMode(2);
 		MainVULeft.setXmlParam("visible", "0");
 		MainVURight.setXmlParam("visible", "0");
-		MainPLVULeft.setXmlParam("visible", "0");
-		MainPLVURight.setXmlParam("visible", "0");
+		PlaylistVULeft.setXmlParam("visible", "0");
+		PlaylistVURight.setXmlParam("visible", "0");
 		MainVUPeakLeft.setXmlParam("image", "");
 		MainVUPeakRight.setXmlParam("image", "");
-		MainPLVUPeakLeft.setXmlParam("image", "");
-		MainPLVUPeakRight.setXmlParam("image", "");
+		PlaylistVUPeakLeft.setXmlParam("image", "");
+		PlaylistVUPeakRight.setXmlParam("image", "");
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.stop();
@@ -1063,12 +1062,12 @@ setVis (int mode)
 		PLVisualizer.setMode(0);
 		MainVULeft.setXmlParam("visible", "1");
 		MainVURight.setXmlParam("visible", "1");
-		MainPLVULeft.setXmlParam("visible", "1");
-		MainPLVURight.setXmlParam("visible", "1");
+		PlaylistVULeft.setXmlParam("visible", "1");
+		PlaylistVURight.setXmlParam("visible", "1");
 		MainVUPeakLeft.setXmlParam("image", "wacup.vu.peak");
 		MainVUPeakRight.setXmlParam("image", "wacup.vu.peak");
-		MainPLVUPeakLeft.setXmlParam("image", "wacup.vu.peak.pl");
-		MainPLVUPeakRight.setXmlParam("image", "wacup.vu.peak.pl");
+		PlaylistVUPeakLeft.setXmlParam("image", "wacup.vu.peak.pl");
+		PlaylistVUPeakRight.setXmlParam("image", "wacup.vu.peak.pl");
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.start();
@@ -1143,31 +1142,31 @@ WinampMainWindow.onScale(Double newscalevalue){
 WinampMainWindow.onSetVisible(Boolean onoff){
 	if(onoff == 1){
 		PLVisualizer.setXmlParam("alpha", "0");
-		MainPLVULeft.setxmlparam("alpha", "0");
-		MainPLVURight.setxmlparam("alpha", "0");
-		MainPLVUPeakLeft.setxmlparam("alpha", "0");
-		MainPLVUPeakRight.setxmlparam("alpha", "0");
+		PlaylistVULeft.setxmlparam("alpha", "0");
+		PlaylistVURight.setxmlparam("alpha", "0");
+		PlaylistVUPeakLeft.setxmlparam("alpha", "0");
+		PlaylistVUPeakRight.setxmlparam("alpha", "0");
 	}else{
 		if(MainShadeWindow.isVisible() == 1 || WinampMainWindow.isVisible() == 1){
 			PLVisualizer.setXmlParam("alpha", "0");
-			MainPLVULeft.setxmlparam("alpha", "0");
-			MainPLVURight.setxmlparam("alpha", "0");
-			MainPLVUPeakLeft.setxmlparam("alpha", "0");
-			MainPLVUPeakRight.setxmlparam("alpha", "0");
+			PlaylistVULeft.setxmlparam("alpha", "0");
+			PlaylistVURight.setxmlparam("alpha", "0");
+			PlaylistVUPeakLeft.setxmlparam("alpha", "0");
+			PlaylistVUPeakRight.setxmlparam("alpha", "0");
 		}else{
 			PLVisualizer.setXmlParam("alpha", "255");
-			MainPLVULeft.setxmlparam("alpha", "256");
-			MainPLVURight.setxmlparam("alpha", "256");
-			MainPLVUPeakLeft.setxmlparam("alpha", "255");
-			MainPLVUPeakRight.setxmlparam("alpha", "255");
+			PlaylistVULeft.setxmlparam("alpha", "256");
+			PlaylistVURight.setxmlparam("alpha", "256");
+			PlaylistVUPeakLeft.setxmlparam("alpha", "255");
+			PlaylistVUPeakRight.setxmlparam("alpha", "255");
 		}
 	}
 	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");
-		MainPLVULeft.setxmlparam("alpha", "256");
-		MainPLVURight.setxmlparam("alpha", "256");
-		MainPLVUPeakLeft.setxmlparam("alpha", "255");
-		MainPLVUPeakRight.setxmlparam("alpha", "255");
+		PlaylistVULeft.setxmlparam("alpha", "256");
+		PlaylistVURight.setxmlparam("alpha", "256");
+		PlaylistVUPeakLeft.setxmlparam("alpha", "255");
+		PlaylistVUPeakRight.setxmlparam("alpha", "255");
 	}
 }
 
@@ -1175,30 +1174,30 @@ WinampMainWindow.onSetVisible(Boolean onoff){
 MainShadeWindow.onSetVisible(Boolean onoff){
 	if(onoff == 1){
 		PLVisualizer.setXmlParam("alpha", "0");
-		MainPLVULeft.setxmlparam("alpha", "0");
-		MainPLVURight.setxmlparam("alpha", "0");
-		MainPLVUPeakLeft.setxmlparam("alpha", "0");
-		MainPLVUPeakRight.setxmlparam("alpha", "0");
+		PlaylistVULeft.setxmlparam("alpha", "0");
+		PlaylistVURight.setxmlparam("alpha", "0");
+		PlaylistVUPeakLeft.setxmlparam("alpha", "0");
+		PlaylistVUPeakRight.setxmlparam("alpha", "0");
 	}else{
 		if(MainShadeWindow.isVisible() == 1 || WinampMainWindow.isVisible() == 1){
 			PLVisualizer.setXmlParam("alpha", "0");
-			MainPLVULeft.setxmlparam("alpha", "0");
-			MainPLVURight.setxmlparam("alpha", "0");
-			MainPLVUPeakLeft.setxmlparam("alpha", "0");
-			MainPLVUPeakRight.setxmlparam("alpha", "0");
+			PlaylistVULeft.setxmlparam("alpha", "0");
+			PlaylistVURight.setxmlparam("alpha", "0");
+			PlaylistVUPeakLeft.setxmlparam("alpha", "0");
+			PlaylistVUPeakRight.setxmlparam("alpha", "0");
 		}else{
 			PLVisualizer.setXmlParam("alpha", "255");
-			MainPLVULeft.setxmlparam("alpha", "255");
-			MainPLVURight.setxmlparam("alpha", "255");
-			MainPLVUPeakLeft.setxmlparam("alpha", "255");
-			MainPLVUPeakRight.setxmlparam("alpha", "255");
+			PlaylistVULeft.setxmlparam("alpha", "255");
+			PlaylistVURight.setxmlparam("alpha", "255");
+			PlaylistVUPeakLeft.setxmlparam("alpha", "255");
+			PlaylistVUPeakRight.setxmlparam("alpha", "255");
 		}
 	}
 	if(legacy == 0){
 		PLVisualizer.setXmlParam("alpha", "255");
-		MainPLVULeft.setxmlparam("alpha", "255");
-		MainPLVURight.setxmlparam("alpha", "255");
-		MainPLVUPeakLeft.setxmlparam("alpha", "255");
-		MainPLVUPeakRight.setxmlparam("alpha", "255");
+		PlaylistVULeft.setxmlparam("alpha", "255");
+		PlaylistVURight.setxmlparam("alpha", "255");
+		PlaylistVUPeakLeft.setxmlparam("alpha", "255");
+		PlaylistVUPeakRight.setxmlparam("alpha", "255");
 	}
 }
