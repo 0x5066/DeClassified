@@ -298,8 +298,10 @@ VU.onTimer(){
 System.onStop(){
 	LegacyOptions(compatibility);
 	VU.start();
-	peak1 = 0;
-	peak2 = 0;
+	if(IsWACUP == 0){
+		peak1 = 0;
+		peak2 = 0;
+	}
 	StopStuff();
 }
 
@@ -523,10 +525,10 @@ setVisModeRBD(){
 	complete;	
 }
 
-refreshVisSettings ()
+refreshVisSettings()
 {
 	currentMode = getPrivateInt(getSkinName(), "Visualizer Mode", 1);
-		show_vupeaks = getPrivateInt(getSkinName(), "DeClassified show VU Peaks", 1);
+	show_vupeaks = getPrivateInt(getSkinName(), "DeClassified show VU Peaks", 1);
 	show_peaks = getPrivateInt(getSkinName(), "Visualizer show Peaks", 1);
 	compatibility = getPrivateInt(getSkinName(), "DeClassified Classic Visualizer behavior", 1);
 	a_falloffspeed = getPrivateInt(getSkinName(), "Visualizer analyzer falloff", 3);
@@ -536,13 +538,13 @@ refreshVisSettings ()
 	a_coloring = getPrivateInt(getSkinName(), "Visualizer analyzer coloring", 0);
 	v_fps = getPrivateInt(getSkinName(), "Visualizer Refresh rate", 3);
 	playLED = getPrivateInt(getSkinName(), "DeClassified Play LED", 1);
-	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 1);
-		WA265SPEED = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Speed", 1);
-	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 1);
+	WA265MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", 0);
+	WA265SPEED = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Speed", 0);
+	smoothvu = getPrivateInt(getSkinName(), "DeClassified Winamp 2.65 VU Options", 0);
 	WA5MODE = getPrivateInt(getSkinName(), "DeClassified Winamp 5.x Mode", 0);
 	SKINNEDFONT = getPrivateInt(getSkinName(), "DeClassified Skinned Font", 1);
-		vp_falloffspeed = getPrivateInt(getSkinName(), "DeClassified VU peaks falloff", 2);
-		vu_gravity = getPrivateInt(getSkinName(), "DeClassified VU Peak Gravity", 1);
+	vp_falloffspeed = getPrivateInt(getSkinName(), "DeClassified VU peaks falloff", 2);
+	vu_gravity = getPrivateInt(getSkinName(), "DeClassified VU Peak Gravity", 1);
 
 		vu_falloffspeed_peak = (vp_falloffspeed/100)+0.02; //magic number
 
