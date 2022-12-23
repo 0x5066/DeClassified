@@ -21,6 +21,7 @@
 	<include file="xml/wasabi.classic/statusbar/statusbar.xml"/>
 	<include file="xml/wasabi.classic/tooltips/tooltips.xml"/>
 	<include file="xml/wasabi.classic/browser/browser.xml"/> 
+	<include file="xml/wasabi.classic/components.xml"/> 
 
 	<!-- the very building blocks to get our 4 main windows rendered -->
 	<include file="xml/classic-elements.xml"/>
@@ -52,8 +53,6 @@
 
 	<!-- Modern Skin Album Art window -->
 	<include file="xml/albumart.xml"/> 
-
-
 
 	<!-- About the skin -->
 	<include file="about/about.xml"/> 
