@@ -338,6 +338,9 @@ setVisModeLBD(){
 	if (WA5MODE == 1 && currentMode >= 3)
 		{
 			currentMode = 0;
+	}else if(WA265MODE == 1 && currentMode >= 3)
+		{
+			currentMode = 0;
 	}else if(currentMode == 4)
 		{
 			currentMode = 0;
@@ -782,6 +785,10 @@ ProcessMenuResult (int a)
 		{
 			WA265MODE = (WA265MODE - 1) * (-1);
 			setWA265Mode(WA265MODE);
+			if(WA265MODE == 1 && currentMode == 3){
+				currentMode = 1;
+				setVis (currentMode);
+			}
 			setPrivateInt(getSkinName(), "DeClassified Winamp 2.65 Mode", WA265MODE);
 		}
 
