@@ -335,12 +335,13 @@ System.onTitleChange(String newtitle){
 
 setVisModeLBD(){
 	currentMode++;
-
-	if (currentMode == 4)
-	{
-		currentMode = 0;
-	}
-
+	if (WA5MODE == 1 && currentMode >= 3)
+		{
+			currentMode = 0;
+	}else if(currentMode == 4)
+		{
+			currentMode = 0;
+		}
 	setVis (currentMode);
 	setWA265Mode(WA265MODE);
 	complete;
