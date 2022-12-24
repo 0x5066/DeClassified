@@ -570,10 +570,10 @@ refreshVisSettings()
 	MainShadeVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
 	MainShadeVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
 
-		/*MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+		MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
 		MainVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
 		PlaylistVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
-		PlaylistVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));*/
+		PlaylistVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
 
 	PLVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	PLVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
