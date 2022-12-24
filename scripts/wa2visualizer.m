@@ -378,7 +378,7 @@ setVisModeRBD(){
 		}else{
 			visMenu.addCommand("Spectrum analyzer", 1, currentMode == 1, 0);
 		}
-	visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
+		visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
 		visMenu.addCommand("VU meter", 3, currentMode == 3, 0);
 	}
 
@@ -570,10 +570,10 @@ refreshVisSettings()
 	MainShadeVisualizer.setXmlParam("oscstyle", integerToString(osc_render));
 	MainShadeVisualizer.setXmlParam("bandwidth", integerToString(ana_render));
 
-		MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
+		/*MainVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
 		MainVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
 		PlaylistVUPeakLeft.setXmlParam("visible", integerToString(show_vupeaks));
-		PlaylistVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));
+		PlaylistVUPeakRight.setXmlParam("visible", integerToString(show_vupeaks));*/
 
 	PLVisualizer.setXmlParam("Peaks", integerToString(show_peaks));
 	PLVisualizer.setXmlParam("peakfalloff", integerToString(p_falloffspeed));
@@ -1028,10 +1028,10 @@ setVis (int mode)
 		MainVURight.setXmlParam("visible", "0");
 		PlaylistVULeft.setXmlParam("visible", "0");
 		PlaylistVURight.setXmlParam("visible", "0");
-		MainVUPeakLeft.setXmlParam("image", "");
+		/*MainVUPeakLeft.setXmlParam("image", "");
 		MainVUPeakRight.setXmlParam("image", "");
 		PlaylistVUPeakLeft.setXmlParam("image", "");
-		PlaylistVUPeakRight.setXmlParam("image", "");
+		PlaylistVUPeakRight.setXmlParam("image", "");*/
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.stop();
@@ -1045,10 +1045,10 @@ setVis (int mode)
 		MainVURight.setXmlParam("visible", "0");
 		PlaylistVULeft.setXmlParam("visible", "0");
 		PlaylistVURight.setXmlParam("visible", "0");
-		MainVUPeakLeft.setXmlParam("image", "");
+		/*MainVUPeakLeft.setXmlParam("image", "");
 		MainVUPeakRight.setXmlParam("image", "");
 		PlaylistVUPeakLeft.setXmlParam("image", "");
-		PlaylistVUPeakRight.setXmlParam("image", "");
+		PlaylistVUPeakRight.setXmlParam("image", "");*/
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.start();
@@ -1062,10 +1062,10 @@ setVis (int mode)
 		MainVURight.setXmlParam("visible", "0");
 		PlaylistVULeft.setXmlParam("visible", "0");
 		PlaylistVURight.setXmlParam("visible", "0");
-		MainVUPeakLeft.setXmlParam("image", "");
+		/*MainVUPeakLeft.setXmlParam("image", "");
 		MainVUPeakRight.setXmlParam("image", "");
 		PlaylistVUPeakLeft.setXmlParam("image", "");
-		PlaylistVUPeakRight.setXmlParam("image", "");
+		PlaylistVUPeakRight.setXmlParam("image", "");*/
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.stop();
@@ -1169,8 +1169,8 @@ WinampMainWindow.onSetVisible(Boolean onoff){
 			PlaylistVUPeakRight.setxmlparam("alpha", "0");
 		}else{
 			PLVisualizer.setXmlParam("alpha", "255");
-			PlaylistVULeft.setxmlparam("alpha", "256");
-			PlaylistVURight.setxmlparam("alpha", "256");
+			PlaylistVULeft.setxmlparam("alpha", "255");
+			PlaylistVURight.setxmlparam("alpha", "255");
 			PlaylistVUPeakLeft.setxmlparam("alpha", "255");
 			PlaylistVUPeakRight.setxmlparam("alpha", "255");
 		}

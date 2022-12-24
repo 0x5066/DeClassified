@@ -1,5 +1,5 @@
-#include "compiler\lib/fileio.mi"
-#include "compiler\lib/application.mi"
+#include "..\..\..\lib/fileio.mi"
+#include "..\..\..\lib/application.mi"
 
 Function initDetector();
 
