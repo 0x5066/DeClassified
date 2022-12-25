@@ -128,7 +128,7 @@
       image="wasabi.button.close"
       downImage="wasabi.button.close.pressed"
       inactiveAlpha="0"
-	cursor="cur.close"
+	cursor="cur.close" tooltip="Close"
   />
   <Wasabi:TitleBar
     id="wasabi.titlebar"

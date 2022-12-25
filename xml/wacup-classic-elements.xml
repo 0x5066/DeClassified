@@ -1,6 +1,14 @@
     <!-- Main Window -->
     <bitmap id="wacup.main" file="skin/main_wacup.bmp"/>
 
+    <!-- WACUP VU -->
+    <bitmap id="wacup.vu" file="skin\wacup_vu\bar.png"/>
+    <bitmap id="wacup.vu.peak" file="skin\wacup_vu\peak.png"/>
+	<bitmap id="wacup.vu.peak.blank" file="skin\wacup_vu\peak_blank.png"/> <!-- god i hate this can someone fix this please?! -->
+    <bitmap id="wacup.vu.pl" file="skin\wacup_vu\bar_pl.png"/>
+    <bitmap id="wacup.vu.peak.pl" file="skin\wacup_vu\peak_pl.png"/>
+	<bitmap id="wacup.vu.peak.pl.blank" file="skin\wacup_vu\peak_pl_blank.png"/>
+
     <!-- Title bar, on and off respectively -->
 	<bitmap id="wacup.titlebar.on" file="skin/titlebar_wacup.bmp"  x="27" y="0" h="13" w="275"/>
 	<bitmap id="wacup.titlebar.off" file="skin/titlebar_wacup.bmp"  x="27" y="15" h="13" w="275"/>
@@ -54,3 +62,20 @@
 	<bitmap id="wacup.iso.eqvis.bg" file="skin/eqmain_iso_wacup.bmp" x="0" y="294" w="113" h="19"/>
 	<bitmap id="wacupisoeq.titlebar.on" file="skin/eqmain_iso_wacup.bmp" x="0" y="134" w="275" h="14"/>
 	<bitmap id="wacupisoeq.titlebar.off" file="skin/eqmain_iso_wacup.bmp" x="0" y="149" w="275" h="14"/>
+
+    <!-- Minibrowser window -->
+    <bitmap id="wacup.browser.topleft.active" file="skin/mb_wacup.bmp" x="0" y="0" h="20" w="25"/>
+	<bitmap id="wacup.browser.top.center.active" file="skin/mb_wacup.bmp" x="26" y="0" h="20" w="100"/>
+	<bitmap id="wacup.browser.top.stretchybit.active" file="skin/mb_wacup.bmp" x="127" y="0" h="20" w="25"/>
+	<bitmap id="wacup.browser.topright.active" file="skin/mb_wacup.bmp" x="153" y="0" h="20" w="25"/>
+
+	<bitmap id="wacup.browser.topleft.inactive" file="skin/mb_wacup.bmp" x="0" y="21" h="20" w="25"/>
+	<bitmap id="wacup.browser.top.center.inactive" file="skin/mb_wacup.bmp" x="26" y="21" h="20" w="100"/>
+	<bitmap id="wacup.browser.top.stretchybit.inactive" file="skin/mb_wacup.bmp" x="127" y="21" h="20" w="25"/>
+	<bitmap id="wacup.browser.topright.inactive" file="skin/mb_wacup.bmp" x="153" y="21" h="20" w="25"/>
+
+	<bitmap id="wacup.browser.left" file="skin/mb_wacup.bmp" x="127" y="42" h="29" w="11"/>
+	<bitmap id="wacup.browser.right" file="skin/mb_wacup.bmp" x="139" y="42" h="29" w="8"/>
+	<bitmap id="wacup.browser.bottomleft" file="skin/mb_wacup.bmp" x="0" y="42" h="38" w="125"/>
+	<bitmap id="wacup.browser.bottom.stretchybit" file="skin/mb_wacup.bmp" x="127" y="81" h="38" w="25"/>
+	<bitmap id="wacup.browser.bottomright" file="skin/mb_wacup.bmp" x="0" y="81" h="38" w="125"/>

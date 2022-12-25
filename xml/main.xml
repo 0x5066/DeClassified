@@ -15,16 +15,16 @@
 	<!--Menu id="OAIDU.buttons.O.m" menu="WA5:Options" x="11" y="24" normal="CLBO" down="CLBOp"/-->
 	<layer id="CLB.Op" x="11" y="24" w="7" h="8" image="CLBOp" cursor="cur.normal"/>
 	<layer id="CLB.O1" x="11" y="24" w="7" h="8" image="CLBO" cursor="cur.normal"/>
-	<Menu id="CLB.O" x="11" y="24" w="7" h="8" menu="WA5:Options" normal="CLB.O1" down="CLB.Op" cursor="cur.normal"/>
-	<Togglebutton id="CLB.A" x="11" y="32" image="CLBA" downimage="CLBAp" activeimage="CLBAp" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1" cursor="cur.normal"/>
-	<button id="CLB.I" x="11" y="40" image="CLBI" downimage="CLBIp" action="trackinfo" cursor="cur.normal"/>
-	<button id="CLB.D" x="11" y="48" image="CLBD" downimage="CLBDp" cursor="cur.normal"/>
+	<Menu id="CLB.O" x="11" y="24" w="7" h="8" menu="WA5:Options" normal="CLB.O1" down="CLB.Op" cursor="cur.normal" tooltip="Options Menu"/>
+	<Togglebutton id="CLB.A" x="11" y="32" image="CLBA" downimage="CLBAp" activeimage="CLBAp" cfgattrib="{280876CF-48C0-40BC-8E86-73CE6BB462E5};Always on top" cfgvals="0;1" rectrgn="1" cursor="cur.normal" tooltip="Toggle Always-On-Top"/>
+	<button id="CLB.I" x="11" y="40" image="CLBI" downimage="CLBIp" action="trackinfo" cursor="cur.normal" tooltip="File Info Box"/>
+	<button id="CLB.D" x="11" y="48" image="CLBD" downimage="CLBDp" cursor="cur.normal" tooltip="Toggle Doublesize Mode"/>
 
 	<button id="CLB.V1" x="11" y="56" h="0" w="0" action="TOGGLE" param="guid:avs" cursor="cur.normal"/>
 	<button id="CLB.V2" x="11" y="56" h="0" w="0" action="Vis_Cfg" cursor="cur.normal"/>
 	<button id="CLB.V3" x="11" y="56" h="0" w="0" action="WA5:Prefs" param="33" cursor="cur.normal"/>
 
-	<button id="CLB.V" x="11" y="56" image="CLBV" downimage="CLBVp" cursor="cur.normal"/>
+	<button id="CLB.V" x="11" y="56" image="CLBV" downimage="CLBVp" cursor="cur.normal" tooltip="Visualisation Menu"/>
 
 	<group id="waclassicvis" x="24" y="43" w="76" h="16"/>	
 	<!-- Timer -->
@@ -49,6 +49,7 @@
 		font="wasabi.font.default" altfont="arial" fontsize="13"
 		altvalign="center" dblclickaction="trackinfo" color="textbmp"
 	rightclickaction="trackmenu" cursor="cur.horizslider" antialias="0"
+	tooltip="Song Title (right-click for options)"
 	/>
 
 	<text id="infoticker" x="110" y="27" offsetx="-1" offsety="-1"
@@ -74,15 +75,24 @@
 
 <script file="scripts/setposbarvisibility.maki"/>
 
-	<togglebutton id="Repeat" x="210" y="89" image="rep"
-		downImage="repp" activeImage="repa"
-		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Repeat" cfgvals="0;1;-1"
-		cursor="cur.normal"/>
+	<NStatesButton
+		id="Repeat"
+		x="210" y="89"
+		nstates="3"
+		image="rep"
+		hoverimage="rep"
+		downImage="repp"
+		activeImage="repa"
+		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Repeat"
+		cfgvals="0;1;-1"
+		rectrgn="1"
+		cursor="cur.normal"
+		tooltip="Toggle Playlist Repeating"/>
 	
 	<togglebutton id="Shuffle" x="164" y="89" image="shuf"
 		downImage="shufp" activeImage="shufa"
 		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Shuffle"
-		cursor="cur.normal"/>
+		cursor="cur.normal" tooltip="Toggle Playlist Shuffling"/>
 
 	<status id="wastatus" x="26" y="28" stopBitmap="wa.stop" playBitmap="wa.play" pauseBitmap="wa.pause" ghost="1" cursor="cur.normal"/>
 	<layer id="playbackstatus" x="24" y="28" image="wa.play.green" ghost="1"/>
@@ -104,7 +114,7 @@
 
 	<layer id="wa.titlebar" x="0" y="0" image="wa.titlebar.on" inactiveimage="wa.titlebar.off" ghost="1"/>
 
-	<button id="wa.sysmenu" action="SYSMENU" x="6" y="3" image="menu" downimage="menup" activealpha="255" inactivealpha="0" tooltip="Winamp Menu" cursor="cur.mainmenu"/>	
+	<button id="wa.sysmenu" action="SYSMENU" x="6" y="3" image="menu" downimage="menup" activealpha="255" inactivealpha="0" tooltip="" cursor="cur.mainmenu"/>	
 
 	<button id="wa.minimize" x="244" y="3" action="MINIMIZE" image="mini" downimage="minip" tooltip="Minimize" activealpha="255" inactivealpha="0" cursor="cur.minimise"/>
 	<button id="wa.switch" x="254" y="3" action="SWITCH" param="shade" image="switch" downimage="switchp" tooltip="Toggle Windowshade Mode" activealpha="255" inactivealpha="0" cursor="cur.normal"/>
@@ -120,7 +130,7 @@
 
 	<group id="sliders" x="107" y="57" h="13"/>
 
-	<togglebutton id="AboutWinamp" x="251" y="91" w="14" h="16" rectrgn="1" action="TOGGLE" param="guid:{D6201408-476A-4308-BF1B-7BACA1124B12}" cursor="cur.normal"/>
+	<togglebutton id="AboutWinamp" x="251" y="91" w="14" h="16" rectrgn="1" action="TOGGLE" param="guid:{D6201408-476A-4308-BF1B-7BACA1124B12}" cursor="cur.normal" tooltip=""/> 
 
 </groupdef>	
 
@@ -159,6 +169,10 @@
     colorosc3="181,189,189"
     colorosc4="160,170,175"
     colorosc5="148,156,165"/>
+	<animatedlayer id="wacup.vu.l" y="1" h="7" image="wacup.vu" frameheight="1"/>
+	<animatedlayer id="wacup.vu.r" y="9" h="7" image="wacup.vu" frameheight="1"/>
+	<animatedlayer id="wacup.vu.l.peak" y="1" h="7" image="wacup.vu.peak" frameheight="1"/>
+	<animatedlayer id="wacup.vu.r.peak" y="9" h="7" image="wacup.vu.peak" frameheight="1"/>
 	<layer id="main.vis.trigger" w="76" h="16" cursor="cur.normal"/>
 </groupdef>
 
@@ -206,11 +220,11 @@
 	<animatedlayer id="wa.shade.vu.right" x="79" y="8" h="2" w="38" image="wa2.player.shade.normal.vu" frameheight="2"/>
 	<layer id="main.vis.trigger" x="79" y="5" w="38" h="5" cursor="cur.normal"/>
 
-    <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="wa2.player.title.shademode" downImage="wa2.player.title.shademode.pressed" cursor="cur.normal"/>
+    <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="wa2.player.title.shademode" downImage="wa2.player.title.shademode.pressed" cursor="cur.normal" tooltip="Toggle Windowshade Mode"/>
     <button id="Close" inactivealpha="0" action="close" x="264" y="3" image="wa2.player.title.quit" downImage="wa2.player.title.quit.pressed" tooltip="Close" cursor="cur.close"/>
     <button id="Minimize" inactivealpha="0" action="MINIMIZE" x="244" y="3" image="wa2.player.title.min" downImage="wa2.player.title.min.pressed" tooltip="Minimize Winamp" cursor="cur.minimise"/>
-    <button id="sysbutton" inactivealpha="0" action="SYSMENU" x="6" y="3" image="wa2.player.shade.menu" downImage="wa2.player.shade.menu.pressed" cursor="cur.mainmenu"/>
-    <slider id="seeker" action="seek" x="227" y="4" h="7" w="15" thumb="posbarsm" cursor="cur.horizslider"/>
+    <button id="sysbutton" inactivealpha="0" action="SYSMENU" x="6" y="3" image="wa2.player.shade.menu" downImage="wa2.player.shade.menu.pressed" cursor="cur.mainmenu" tooltip=""/>
+    <slider id="seeker" action="seek" x="227" y="4" h="7" w="15" thumb="posbarsm" cursor="cur.horizslider" tooltip="Seeking Bar"/>
 	<script file="scripts/setShadePosbar.maki"/>
 
 </groupdef>
