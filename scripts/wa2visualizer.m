@@ -335,10 +335,7 @@ System.onTitleChange(String newtitle){
 
 setVisModeLBD(){
 	currentMode++;
-	if (WA5MODE == 1 && currentMode >= 3)
-		{
-			currentMode = 0;
-	}else if(WA265MODE == 1 && currentMode >= 3)
+	if (WA5MODE == 1 && currentMode >= 3 || WA265MODE == 1 && currentMode >= 3)
 		{
 			currentMode = 0;
 	}else if(currentMode == 4)
@@ -379,7 +376,9 @@ setVisModeRBD(){
 			visMenu.addCommand("Spectrum analyzer", 1, currentMode == 1, 0);
 		}
 		visMenu.addCommand("Oscilliscope", 2, currentMode == 2, 0);
-		visMenu.addCommand("VU meter", 3, currentMode == 3, 0);
+		if(WA265MODE == 0){
+			visMenu.addCommand("VU meter", 3, currentMode == 3, 0);
+		}
 	}
 
 	visMenu.addSeparator();
