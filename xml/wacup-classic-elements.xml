@@ -4,8 +4,10 @@
     <!-- WACUP VU -->
     <bitmap id="wacup.vu" file="skin\wacup_vu\bar.png"/>
     <bitmap id="wacup.vu.peak" file="skin\wacup_vu\peak.png"/>
+	<bitmap id="wacup.vu.peak.blank" file="skin\wacup_vu\peak_blank.png"/> <!-- god i hate this can someone fix this please?! -->
     <bitmap id="wacup.vu.pl" file="skin\wacup_vu\bar_pl.png"/>
     <bitmap id="wacup.vu.peak.pl" file="skin\wacup_vu\peak_pl.png"/>
+	<bitmap id="wacup.vu.peak.pl.blank" file="skin\wacup_vu\peak_pl_blank.png"/>
 
     <!-- Title bar, on and off respectively -->
 	<bitmap id="wacup.titlebar.on" file="skin/titlebar_wacup.bmp"  x="27" y="0" h="13" w="275"/>

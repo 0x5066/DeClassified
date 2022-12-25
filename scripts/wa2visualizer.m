@@ -1028,10 +1028,10 @@ setVis (int mode)
 		MainVURight.setXmlParam("visible", "0");
 		PlaylistVULeft.setXmlParam("visible", "0");
 		PlaylistVURight.setXmlParam("visible", "0");
-		/*MainVUPeakLeft.setXmlParam("image", "");
-		MainVUPeakRight.setXmlParam("image", "");
-		PlaylistVUPeakLeft.setXmlParam("image", "");
-		PlaylistVUPeakRight.setXmlParam("image", "");*/
+		MainVUPeakLeft.setXmlParam("image", "wacup.vu.peak.blank");
+		MainVUPeakRight.setXmlParam("image", "wacup.vu.peak.blank");
+		PlaylistVUPeakLeft.setXmlParam("image", "wacup.vu.peak.pl.blank");
+		PlaylistVUPeakRight.setXmlParam("image", "wacup.vu.peak.pl.blank");
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.stop();
@@ -1045,10 +1045,10 @@ setVis (int mode)
 		MainVURight.setXmlParam("visible", "0");
 		PlaylistVULeft.setXmlParam("visible", "0");
 		PlaylistVURight.setXmlParam("visible", "0");
-		/*MainVUPeakLeft.setXmlParam("image", "");
-		MainVUPeakRight.setXmlParam("image", "");
-		PlaylistVUPeakLeft.setXmlParam("image", "");
-		PlaylistVUPeakRight.setXmlParam("image", "");*/
+		MainVUPeakLeft.setXmlParam("image", "wacup.vu.peak.blank");
+		MainVUPeakRight.setXmlParam("image", "wacup.vu.peak.blank");
+		PlaylistVUPeakLeft.setXmlParam("image", "wacup.vu.peak.pl.blank");
+		PlaylistVUPeakRight.setXmlParam("image", "wacup.vu.peak.pl.blank");
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.start();
@@ -1062,10 +1062,10 @@ setVis (int mode)
 		MainVURight.setXmlParam("visible", "0");
 		PlaylistVULeft.setXmlParam("visible", "0");
 		PlaylistVURight.setXmlParam("visible", "0");
-		/*MainVUPeakLeft.setXmlParam("image", "");
-		MainVUPeakRight.setXmlParam("image", "");
-		PlaylistVUPeakLeft.setXmlParam("image", "");
-		PlaylistVUPeakRight.setXmlParam("image", "");*/
+		MainVUPeakLeft.setXmlParam("image", "wacup.vu.peak.blank");
+		MainVUPeakRight.setXmlParam("image", "wacup.vu.peak.blank");
+		PlaylistVUPeakLeft.setXmlParam("image", "wacup.vu.peak.pl.blank");
+		PlaylistVUPeakRight.setXmlParam("image", "wacup.vu.peak.pl.blank");
 		setWA265Mode(WA265MODE);
 		LegacyOptions(compatibility);
 		VU.stop();
