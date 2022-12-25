@@ -1111,7 +1111,11 @@ LegacyOptions(int legacy){
 		}
 		if(WinampMainWindow.getScale() != 2){
 		MainVisualizer.setXmlParam("y", "2");
-		PLVisualizer.setXmlParam("y", "2");
+			if(IsWACUP){
+				PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
+				}else{
+				PLVisualizer.setXmlParam("y", "2");
+			}
 		}else{
 		MainVisualizer.setXmlParam("y", "0");
 		if(IsWACUP){
@@ -1137,7 +1141,11 @@ WinampMainWindow.onScale(Double newscalevalue){
 	if(legacy == 1){
 		if(newscalevalue != 2){
 			MainVisualizer.setXmlParam("y", "2");
-			PLVisualizer.setXmlParam("y", "2");
+			if(IsWACUP){
+				PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
+				}else{
+				PLVisualizer.setXmlParam("y", "2");
+			}
 		}else{
 			MainVisualizer.setXmlParam("y", "0");
 			if(IsWACUP){
