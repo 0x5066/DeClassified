@@ -191,12 +191,12 @@ getSonginfo(String SongInfoString) {
 
 bitratetext.onEnterArea(){
 	if(IsWACUP == 1){
-		if(bitrateint > 1000) bitratetext.setXmlParam("tooltip", "Current bitrate: "+bitratestring+" kbps");
+		bitratetext.setXmlParam("tooltip", "Current bitrate: "+bitratestring+" kbps");
 	}
 }
 
 frequencyText.onEnterArea(){
 	if(IsWACUP == 1){
-		if(freqint > 100) frequencyText.setXmlParam("tooltip", "Current samplerate: "+freqstring+" khz");
+		frequencyText.setXmlParam("tooltip", "Current samplerate: "+freqstring+" khz");
 	}
 }
