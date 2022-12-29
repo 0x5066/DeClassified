@@ -102,7 +102,6 @@ System.onScriptLoaded()
 	pgrav2 = 0;
 
 	VU = new Timer;
-	VU.setdelay(0);
     VU.start();
     VU.onTimer();
 
@@ -656,30 +655,35 @@ refreshVisSettings()
 			MainVisualizer.setXmlParam("fps", "9");
 			MainShadeVisualizer.setXmlParam("fps", "9");
 			PLVisualizer.setXmlParam("fps", "9");
+			VU.setDelay(111);
 		}
 		else if (v_fps == 1)
 		{
 			MainVisualizer.setXmlParam("fps", "9");
 			MainShadeVisualizer.setXmlParam("fps", "9");
 			PLVisualizer.setXmlParam("fps", "9");
+			VU.setDelay(111);
 		}
 		else if (v_fps == 2)
 		{
 			MainVisualizer.setXmlParam("fps", "18");
 			MainShadeVisualizer.setXmlParam("fps", "18");
 			PLVisualizer.setXmlParam("fps", "18");
+			VU.setDelay(83);
 		}
 		else if (v_fps == 3)
 		{
 			MainVisualizer.setXmlParam("fps", "35");
 			MainShadeVisualizer.setXmlParam("fps", "35");
 			PLVisualizer.setXmlParam("fps", "35");
+			VU.setDelay(28);
 		}
 		else if (v_fps == 4)
 		{
 			MainVisualizer.setXmlParam("fps", "70");
 			MainShadeVisualizer.setXmlParam("fps", "70");
 			PLVisualizer.setXmlParam("fps", "70");
+			VU.setDelay(14);
 		}
 	setPrivateInt(getSkinName(), "Visualizer Refresh rate", v_fps);
 
@@ -959,30 +963,35 @@ else if (a >= 400 && a <= 403)
 			MainVisualizer.setXmlParam("fps", "9");
 			MainShadeVisualizer.setXmlParam("fps", "9");
 			PLVisualizer.setXmlParam("fps", "9");
+			VU.setDelay(111);
 		}
 		else if (v_fps == 1)
 		{
 			MainVisualizer.setXmlParam("fps", "9");
 			MainShadeVisualizer.setXmlParam("fps", "9");
 			PLVisualizer.setXmlParam("fps", "9");
+			VU.setDelay(111);
 		}
 		else if (v_fps == 2)
 		{
 			MainVisualizer.setXmlParam("fps", "18");
 			MainShadeVisualizer.setXmlParam("fps", "18");
 			PLVisualizer.setXmlParam("fps", "18");
+			VU.setDelay(83);
 		}
 		else if (v_fps == 3)
 		{
 			MainVisualizer.setXmlParam("fps", "35");
 			MainShadeVisualizer.setXmlParam("fps", "35");
 			PLVisualizer.setXmlParam("fps", "35");
+			VU.setDelay(28);
 		}
 		else if (v_fps == 4)
 		{
 			MainVisualizer.setXmlParam("fps", "70");
 			MainShadeVisualizer.setXmlParam("fps", "70");
 			PLVisualizer.setXmlParam("fps", "70");
+			VU.setDelay(14);
 		}
 		setPrivateInt(getSkinName(), "Visualizer Refresh rate", v_fps);
 	}
