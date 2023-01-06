@@ -3,6 +3,7 @@
 
         <layer id="blah" dblClickAction="SWITCH;shadeeq" x="0" y="0" h="14" w="275" move="1" cursor="cur.move"/>
         <layer id="eq.bg" image="wa.eq" ghost="1"/>
+        <layer x="0" y="0" w="10" h="10" resize="topleft"/>
 
         <layer id="waeq.titlebar" x="0" y="0" image="waeq.titlebar.on" inactiveimage="waeq.titlebar.off" ghost="1"/>
         <layer id="waeq.eqvis" x="86" y="17" image="wa.eqvis.bg" ghost="1"/>
@@ -59,6 +60,7 @@
     <groupdef id="shadeeq">
     
         <layer id="blah" dblClickAction="SWITCH;eq" x="0" y="0" h="14" w="275" image="eq.shade.on" inactiveimage="eq.shade.off" move="1" cursor="cur.move"/>
+        <layer x="0" y="0" w="10" h="10" resize="topleft"/>
 
         <button id="winshade" inactivealpha="0" action="SWITCH" param="normal" x="254" y="3" image="eqshade.shade" downImage="eqshade.shadep" cursor="cur.minimise" tooltip="Toggle Windowshade Mode"/>
         <button id="Close" inactivealpha="0" action="close" x="264" y="3" image="eqshade.close" downImage="eqshade.closep" cursor="cur.close" tooltip="Close"/>
@@ -72,7 +74,7 @@
     <layout id="EQ" background="wasabi.frame.basetexture" minimum_w="275" minimum_h="116" maximum_w="275" maximum_h="116" cursor="cur.normal">
         <group id="eq"/>
     </layout>
-    <layout id="shadeeq" background="eq.shade.on" minimum_h="14" minimum_w="275">
+    <layout id="shadeeq" background="eq.shade.on" maximum_h="14" maximum_w="275"  minimum_h="14" minimum_w="275">
 		<group id="shadeeq" x="0" y="0" sysregion="1"/>
 	</layout>
 

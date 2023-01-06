@@ -9,6 +9,7 @@
 	
 	<layer id="mainwnd" image="wa.main" cursor="cur.normal"/>
 	<layer id="blah" dblClickAction="SWITCH;shade" x="0" y="0" h="14" w="275" move="1" cursor="cur.move"/>
+	<layer x="0" y="0" w="10" h="10" resize="topleft"/>
 
 	<layer image="clutterbar" x="10" y="22" cursor="cur.normal"/>
 	<!--Togglebutton id="CLB.O" x="11" y="24" w="8" h="9" action="CONTROLMENU" rectrgn="1"/-->
@@ -180,6 +181,7 @@
 
 	<layer id="washade" image="wa2.player.shade.enabled" inactiveimage="wa2.player.shade.disabled" ghost="1"/>
     <layer id="blah" dblClickAction="SWITCH;normal" x="0" y="0" h="14" w="275" move="1" cursor="cur.normal"/>
+	<layer x="0" y="0" w="10" h="10" resize="topleft"/>
 
     <text id="timer" display="time" x="128" y="2" w="31" h="10" font="wasabi.font.default" align="right" timecolonwidth="5" cursor="cur.normal"/>
 	<layer id="TimerTrigger" x="128" y="2" w="31" h="10" cursor="cur.normal"/>
