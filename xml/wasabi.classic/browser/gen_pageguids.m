@@ -19,7 +19,7 @@ Internet:	www.skinconsortium.com
 #ifndef __GEN_PAGEGUIDS_M
 #define __GEN_PAGEGUIDS_M
 
-#include "lib/config.mi"
+#include "../../../../../lib/config.mi"
 
 Function initPages();
 

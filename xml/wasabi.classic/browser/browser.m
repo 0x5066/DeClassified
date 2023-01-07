@@ -12,15 +12,15 @@ Internet:	www.skinconsortium.com
 -----------------------------------------------------
 ---------------------------------------------------*/
 
-#include "lib/std.mi"
-#include "lib/config.mi"
-#include "lib/fileio.mi"
-#include "lib/application.mi"
-#include "lib/private.mi"
+#include "../../../../../lib/std.mi"
+#include "../../../../../lib/config.mi"
+#include "../../../../../lib/fileio.mi"
+#include "../../../../../lib/application.mi"
+#include "../../../../../lib/private.mi"
 
 #define RELEASE
 #define FILE_NAME "browser.m"
-#include "lib/com/debug.m"
+#include "../../../../../lib/com/debug.m"
 
 #define BROWSER_SCRIPT
 Global String BROWSER_DEFAULT_HOME;
@@ -78,7 +78,7 @@ System.onScriptLoaded ()
 	initWaPrivateCalls();
 
 	initAttribs_Browser();
-	BROWSER_DEFAULT_HOME = "http://client.winamp.com/browser/welcome";
+	BROWSER_DEFAULT_HOME = "https://getwacup.com/browser.html";
 
 	download = true;
 

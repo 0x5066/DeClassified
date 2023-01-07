@@ -1,4 +1,4 @@
-#include "lib/std.mi"
+#include "../../../../../lib/std.mi"
 
 Function updateButton();
 Function setIconState(int i);
