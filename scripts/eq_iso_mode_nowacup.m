@@ -1,5 +1,5 @@
-#include "compiler/lib/std.mi"
-#include "compiler/lib/winampconfig.mi"
+#include "../../../lib/std.mi"
+#include "../../../lib/winampconfig.mi"
 
 Global Group frameGroup;
 Global Slider eq1tip, eq2tip, eq3tip, eq4tip, eq5tip, eq6tip, eq7tip, eq8tip, eq9tip, eq10tip;

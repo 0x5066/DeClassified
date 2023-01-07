@@ -60,9 +60,9 @@
     <!-- Equalizer, ISO Frquencies -->
 	<bitmap id="wacup.iso.eq" file="skin/eqmain_iso_wacup.bmp" x="0" y="0" w="550" h="232"/>
 	<bitmap id="wacup.iso.eqvis.bg" file="skin/eqmain_iso_wacup.bmp" x="0" y="294" w="113" h="19"/>
-	<bitmap id="wacupisoeq.titlebar.on" file="skin/eqmain_iso_wacup.bmp" x="0" y="134" w="275" h="14"/>
-	<bitmap id="wacupisoeq.titlebar.off" file="skin/eqmain_iso_wacup.bmp" x="0" y="149" w="275" h="14"/>
-
+	<bitmap id="wacupisoeq.titlebar.on" file="skin/eqmain_iso_wacup.bmp" x="0" y="268" w="550" h="28"/>
+	<bitmap id="wacupisoeq.titlebar.off" file="skin/eqmain_iso_wacup.bmp" x="0" y="298" w="550" h="28"/>
+	
     <!-- Minibrowser window -->
     <bitmap id="wacup.browser.topleft.active" file="skin/mb_wacup.bmp" x="0" y="0" h="20" w="25"/>
 	<bitmap id="wacup.browser.top.center.active" file="skin/mb_wacup.bmp" x="26" y="0" h="20" w="100"/>

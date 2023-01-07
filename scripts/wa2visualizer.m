@@ -136,22 +136,22 @@ System.onScriptUnloading(){
 setFont(int font){
 	if(font){
 		Songticker.setXmlParam("font", "wasabi.font.default");
-		Songticker.setXmlParam("y", "27");
-		Songticker.setXmlParam("h", "9");
+		Songticker.setXmlParam("y", "54");
+		Songticker.setXmlParam("h", "18");
 
 		Infoticker.setXmlParam("font", "wasabi.font.default");
-		Infoticker.setXmlParam("y", "27");
-		Infoticker.setXmlParam("offsety", "-1");
-		Infoticker.setXmlParam("h", "9");
+		Infoticker.setXmlParam("y", "54");
+		Infoticker.setXmlParam("offsety", "-3");
+		Infoticker.setXmlParam("h", "18");
 	}else{
 		Songticker.setXmlParam("font", "arial");
-		Songticker.setXmlParam("y", "22");
-		Songticker.setXmlParam("h", "14");
+		Songticker.setXmlParam("y", "47");
+		Songticker.setXmlParam("h", "28");
 
 		Infoticker.setXmlParam("font", "arial");
-		Infoticker.setXmlParam("y", "24");
+		Infoticker.setXmlParam("y", "48");
 		Infoticker.setXmlParam("offsety", "-2");
-		Infoticker.setXmlParam("h", "14");
+		Infoticker.setXmlParam("h", "28");
 	}
 }
 
@@ -485,20 +485,20 @@ setVisModeRBD(){
 			visMenu.addSubmenu(vumenu, "Winshade VU options");
 			vumenu.addCommand("Normal VU", 901, smoothvu == 1, 0);
 			vumenu.addCommand("Smooth VU", 902, smoothvu == 2, 0);
+		}else if(WA265MODE == 0){
+			visMenu.addSubmenu(vusettings, "VU Meter Options");
+			vusettings.addCommand("Show VU Peaks", 107, show_vupeaks == 1, 0);
+			vusettings.addCommand("Smooth VU Peak falloff", 109, vu_gravity == 1, 0);
+			vusettings.addCommand("Winamp 2.65 Speed", 108, WA265SPEED == 1, 0);
+			vusettings.addSeparator();
+			vusettings.addSubmenu(vumenu2, "Peak falloff Speed");
+			vumenu2.addCommand("Slower", 500, vp_falloffspeed == 0, 0);
+			vumenu2.addCommand("Slow", 501, vp_falloffspeed == 1, 0);
+			vumenu2.addCommand("Moderate", 502, vp_falloffspeed == 2, 0);
+			vumenu2.addCommand("Fast", 503, vp_falloffspeed == 3, 0);
+			vumenu2.addCommand("Faster", 504, vp_falloffspeed == 4, 0);
 		}
-	}
-
-		visMenu.addSubmenu(vusettings, "VU Meter Options");
-		vusettings.addCommand("Show VU Peaks", 107, show_vupeaks == 1, 0);
-		vusettings.addCommand("Smooth VU Peak falloff", 109, vu_gravity == 1, 0);
-		vusettings.addCommand("Winamp 2.65 Speed", 108, WA265SPEED == 1, 0);
-		vusettings.addSeparator();
-		vusettings.addSubmenu(vumenu2, "Peak falloff Speed");
-		vumenu2.addCommand("Slower", 500, vp_falloffspeed == 0, 0);
-		vumenu2.addCommand("Slow", 501, vp_falloffspeed == 1, 0);
-		vumenu2.addCommand("Moderate", 502, vp_falloffspeed == 2, 0);
-		vumenu2.addCommand("Fast", 503, vp_falloffspeed == 3, 0);
-		vumenu2.addCommand("Faster", 504, vp_falloffspeed == 4, 0);
+	}	
 
 	visMenu.addSeparator();
 	visMenu.addcommand(translate("Start/Stop plug-in")+"\tCtrl+Shift+K", 404, 0,0);
@@ -1119,18 +1119,18 @@ LegacyOptions(int legacy){
 			PLVUVis.show();
 		}
 		if(WinampMainWindow.getScale() != 2){
-		MainVisualizer.setXmlParam("y", "2");
+		MainVisualizer.setXmlParam("y", "4");
 			if(IsWACUP){
 				PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
 				}else{
-				PLVisualizer.setXmlParam("y", "2");
+				PLVisualizer.setXmlParam("y", "4");
 			}
 		}else{
 		MainVisualizer.setXmlParam("y", "0");
 		if(IsWACUP){
 			PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
 		}else{
-			PLVisualizer.setXmlParam("y", "2"); //despite winamp being in doublesize mode, the pl vis does not show it's full height... for some reason
+			PLVisualizer.setXmlParam("y", "4"); //despite winamp being in doublesize mode, the pl vis does not show it's full height... for some reason
 			}
 		}
 	}else{
@@ -1149,18 +1149,18 @@ WinampMainWindow.onScale(Double newscalevalue){
 	LegacyOptions(compatibility);
 	if(legacy == 1){
 		if(newscalevalue != 2){
-			MainVisualizer.setXmlParam("y", "2");
+			MainVisualizer.setXmlParam("y", "4");
 			if(IsWACUP){
 				PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
 				}else{
-				PLVisualizer.setXmlParam("y", "2");
+				PLVisualizer.setXmlParam("y", "4");
 			}
 		}else{
 			MainVisualizer.setXmlParam("y", "0");
 			if(IsWACUP){
 				PLVisualizer.setXmlParam("y", "0"); //we're in wacup so i dont fully care about preserving the below behavior
 			}else{
-			PLVisualizer.setXmlParam("y", "2"); //despite winamp being in doublesize mode, the pl vis does not show it's full height... for some reason
+			PLVisualizer.setXmlParam("y", "4"); //despite winamp being in doublesize mode, the pl vis does not show it's full height... for some reason
 			}
 		}
 	}else{

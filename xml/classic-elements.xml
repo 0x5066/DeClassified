@@ -49,10 +49,10 @@
 	<bitmap id="nextp" file="skin/cbuttons.bmp"   x="184" y="36" h="36" w="44"/>
 	<bitmap id="ejectp" file="skin/cbuttons.bmp"  x="228" y="32" h="32" w="44"/>
 
-	<bitmap id="rep" file="skin/shufrep.bmp" x="0" y="0" w="28" h="15"/>
-	<bitmap id="repp" file="skin/shufrep.bmp" x="0" y="15" w="28" h="15"/>
-	<bitmap id="repa" file="skin/shufrep.bmp" x="0" y="30" w="28" h="15"/>
-	<!-- bitmap id="reppa" 	file="skin/shufrep.bmp" x="0" y="45" w="28" h="15"/ -->
+	<bitmap id="rep" file="skin/shufrep.bmp"  x="0" y="0"  w="56" h="30"/>
+	<bitmap id="repp" file="skin/shufrep.bmp" x="0" y="30" w="56" h="30"/>
+	<bitmap id="repa" file="skin/shufrep.bmp" x="0" y="60" w="56" h="30"/>
+	<bitmap id="reppa" file="skin/shufrep.bmp" x="0" y="90" w="56" h="30"/>
 
 	<bitmap id="shuf" file="skin/shufrep.bmp"  x="56" y="0"  h="30" w="94"/>
 	<bitmap id="shufp" file="skin/shufrep.bmp" x="56" y="30" h="30" w="94"/>
@@ -60,23 +60,23 @@
 	<bitmap id="shufpa" file="skin/shufrep.bmp" x="56" y="90" h="30" w="94"/>
 
 	<!-- NStates Button images Start -->
-	<bitmap id="rep0" file="skin/shufrep.bmp" x="0" y="0" w="28" h="15"/>
-	<bitmap id="repp0" file="skin/shufrep.bmp" x="0" y="15" w="28" h="15"/>
-	<bitmap id="repa0" file="skin/shufrep.bmp" x="0" y="30" w="28" h="15"/>
+	<bitmap id="rep0" file="skin/shufrep.bmp" x="0" y="0" w="56" h="30"/>
+	<bitmap id="repp0" file="skin/shufrep.bmp" x="0" y="30" w="56" h="30"/>
+	<bitmap id="repa0" file="skin/shufrep.bmp" x="0" y="60" w="56" h="30"/>
 
-	<bitmap id="rep1" file="skin/shufrep.bmp" x="0" y="30" w="28" h="15"/>
-	<bitmap id="repp1" file="skin/shufrep.bmp" x="0" y="45" w="28" h="15"/>
-	<bitmap id="repa1" file="skin/repeatone.bmp" x="0" y="0" w="28" h="15"/>
+	<bitmap id="rep1" file="skin/shufrep.bmp" x="0" y="60" w="56" h="30"/>
+	<bitmap id="repp1" file="skin/shufrep.bmp" x="0" y="90" w="56" h="30"/>
+	<bitmap id="repa1" file="skin/repeatone.bmp" x="0" y="0" w="56" h="30"/>
 
-	<bitmap id="rep2" file="skin/repeatone.bmp" x="0" y="0" w="28" h="15"/>
-	<bitmap id="repp2" file="skin/repeatone.bmp" x="0" y="15" w="28" h="15"/>
-	<bitmap id="repa2" file="skin/shufrep.bmp" x="0" y="0" w="28" h="15"/>
+	<bitmap id="rep2" file="skin/repeatone.bmp" x="0" y="0" w="56" h="15"/>
+	<bitmap id="repp2" file="skin/repeatone.bmp" x="0" y="30" w="56" h="15"/>
+	<bitmap id="repa2" file="skin/shufrep.bmp" x="0" y="0" w="56" h="15"/>
 	<!-- NStates Button images End-->
 
-	<bitmap id="player.toggler.eq.disabled" file="skin/shufrep.bmp" x="0" y="61" h="12" w="23"/>
-	<bitmap id="player.toggler.eq.pressed" file="skin/shufrep.bmp" x="46" y="61" h="12" w="23"/>
-	<bitmap id="player.toggler.eq.enabled" file="skin/shufrep.bmp" x="0" y="73" h="12" w="23"/>
-	<bitmap id="player.toggler.eq.pressed.enabled" file="skin/shufrep.bmp" x="46" y="73" h="12" w="23"/>
+	<bitmap id="player.toggler.eq.disabled" file="skin/shufrep.bmp" x="0"  y="122" h="24" w="46"/>
+	<bitmap id="player.toggler.eq.pressed" file="skin/shufrep.bmp"  x="92" y="146" h="24" w="46"/>
+	<bitmap id="player.toggler.eq.enabled" file="skin/shufrep.bmp"  x="0"  y="146" h="24" w="46"/>
+	<bitmap id="player.toggler.eq.pressed.enabled" file="skin/shufrep.bmp" x="92" y="146" h="24" w="46"/>
 
 	<bitmap id="player.toggler.pl.disabled" file="skin/shufrep.bmp" x="46" y="122" h="24" w="46"/>
 	<bitmap id="player.toggler.pl.pressed" file="skin/shufrep.bmp"  x="138" y="146" h="24" w="46"/>
@@ -183,6 +183,39 @@
 	<bitmap id="video.misc" file="skin/video.bmp" x="69" y="51" h="18" w="15"/>
 	<bitmap id="video.miscp" file="skin/video.bmp" x="218" y="42" h="18" w="15"/>
 
+	<!-- minibrowser -->
+	<bitmap id="mb.topleft.active" file="skin/mb.bmp" x="0" y="0" h="20" w="25"/>
+	<bitmap id="mb.top.center.active" file="skin/mb.bmp" x="26" y="0" h="20" w="100"/>
+	<bitmap id="mb.top.stretchybit.active" file="skin/mb.bmp" x="127" y="0" h="20" w="25"/>
+	<bitmap id="mb.topright.active" file="skin/mb.bmp" x="153" y="0" h="20" w="25"/>
+
+	<bitmap id="mb.topleft.inactive" file="skin/mb.bmp" x="0" y="21" h="20" w="25"/>
+	<bitmap id="mb.top.center.inactive" file="skin/mb.bmp" x="26" y="21" h="20" w="100"/>
+	<bitmap id="mb.top.stretchybit.inactive" file="skin/mb.bmp" x="127" y="21" h="20" w="25"/>
+	<bitmap id="mb.topright.inactive" file="skin/mb.bmp" x="153" y="21" h="20" w="25"/>
+
+	<bitmap id="mb.left" file="skin/mb.bmp" x="127" y="42" h="29" w="11"/>
+	<bitmap id="mb.right" file="skin/mb.bmp" x="139" y="42" h="29" w="8"/>
+	<bitmap id="mb.bottomleft" file="skin/mb.bmp" x="0" y="42" h="38" w="125"/>
+	<bitmap id="mb.bottom.stretchybit" file="skin/mb.bmp" x="127" y="81" h="38" w="25"/>
+	<bitmap id="mb.bottomright" file="skin/mb.bmp" x="0" y="81" h="38" w="125"/>
+
+	<bitmap id="mb.close" file="skin/mb.bmp" x="167" y="3" h="9" w="9"/>
+	<bitmap id="mb.closep" file="skin/mb.bmp" x="148" y="42" h="9" w="9"/>
+
+	<bitmap id="mb.back" file="skin/mb.bmp" x="9" y="51" h="18" w="15"/>
+	<bitmap id="mb.backp" file="skin/mb.bmp" x="159" y="42" h="18" w="15"/>
+
+	<bitmap id="mb.forward" file="skin/mb.bmp" x="24" y="51" h="18" w="15"/>
+	<bitmap id="mb.forwardp" file="skin/mb.bmp" x="173" y="42" h="18" w="15"/>
+
+	<bitmap id="mb.stop" file="skin/mb.bmp" x="39" y="51" h="18" w="15"/>
+	<bitmap id="mb.stopp" file="skin/mb.bmp" x="188" y="42" h="18" w="15"/>
+
+	<bitmap id="mb.refresh" file="skin/mb.bmp" x="54" y="51" h="18" w="15"/>
+	<bitmap id="mb.refreshp" file="skin/mb.bmp" x="203" y="42" h="18" w="15"/>
+
+	<bitmap id="mb.misc" file="skin/mb.bmp" x="69" y="51" h="18" w="15"/>
 	<!-- playlist editor -->
 
     <!-- pledit shade elements -->

@@ -1,5 +1,5 @@
-#include "compiler/lib/std.mi"
-#include "compiler/lib/winampconfig.mi"
+#include "../../../lib/std.mi"
+#include "../../../lib/winampconfig.mi"
 #include "IsWACUP.m"
 
 Global Group frameGroup;
