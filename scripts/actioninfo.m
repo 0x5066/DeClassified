@@ -150,14 +150,9 @@ RepeatBtn.onToggle(boolean on) {
 	int v = getCurCfgVal();
 	SongTicker.hide();
 	InfoTicker.show();
-    if (on){
-		InfoTicker.setText("Repeat: ON");
-		RepeatBtn.setXmlParam("downImage", "reppa");
-		}
-	else{
-		InfoTicker.setText("Repeat: OFF");
-		RepeatBtn.setXmlParam("downImage", "repp");
-	}
+	if (v == 0) InfoTicker.setText("Repeat: Off");
+	else if (v > 0) InfoTicker.setText("Repeat: Playlist");
+	else if (v < 0) InfoTicker.setText("Repeat: Track");
 }
 
 ShuffleBtn.onToggle(boolean on) {

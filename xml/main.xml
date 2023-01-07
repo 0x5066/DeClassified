@@ -50,6 +50,7 @@
 		font="wasabi.font.default" altfont="arial" fontsize="26"
 		altvalign="center" dblclickaction="trackinfo" color="textbmp"
 	rightclickaction="trackmenu" cursor="cur.horizslider" antialias="0"
+	tooltip="Song Title (right-click for options)"
 	/>
 
 	<text id="infoticker" x="220" y="54" offsetx="-0" offsety="-6"
@@ -75,15 +76,24 @@
 
 <script file="scripts/setposbarvisibility.maki"/>
 
-	<togglebutton id="Repeat" x="420" y="178" image="rep"
-		downImage="repp" activeImage="repa"
-		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Repeat" cfgvals="0;1;-1"
-		cursor="cur.normal"/>
+	<NStatesButton
+		id="Repeat"
+		x="420" y="178"
+		nstates="3"
+		image="rep"
+		hoverimage="rep"
+		downImage="repp"
+		activeImage="repa"
+		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Repeat"
+		cfgvals="0;1;-1"
+		rectrgn="1"
+		cursor="cur.normal"
+		tooltip="Toggle Playlist Repeating"/>
 	
 	<togglebutton id="Shuffle" x="328" y="178" image="shuf"
 		downImage="shufp" activeImage="shufa"
 		cfgattrib="{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D};Shuffle"
-		cursor="cur.normal"/>
+		cursor="cur.normal" tooltip="Toggle Playlist Shuffling"/>
 
 	<status id="wastatus" x="52" y="56" stopBitmap="wa.stop" playBitmap="wa.play" pauseBitmap="wa.pause" ghost="1" cursor="cur.normal"/>
 	<layer id="playbackstatus" x="48" y="56" image="wa.play.green" ghost="1"/>
@@ -121,7 +131,7 @@
 
 	<group id="sliders" x="214" y="114" h="26"/>
 
-	<togglebutton id="AboutWinamp" x="251" y="91" w="14" h="16" rectrgn="1" action="TOGGLE" param="guid:{D6201408-476A-4308-BF1B-7BACA1124B12}" cursor="cur.normal"/>
+	<togglebutton id="AboutWinamp" x="251" y="91" w="14" h="16" rectrgn="1" action="TOGGLE" param="guid:{D6201408-476A-4308-BF1B-7BACA1124B12}" cursor="cur.normal" tooltip=""/> 
 
 </groupdef>	
 
@@ -160,6 +170,10 @@
     colorosc3="181,189,189"
     colorosc4="160,170,175"
     colorosc5="148,156,165"/>
+	<animatedlayer id="wacup.vu.l" y="1" h="7" image="wacup.vu" frameheight="1"/>
+	<animatedlayer id="wacup.vu.r" y="9" h="7" image="wacup.vu" frameheight="1"/>
+	<animatedlayer id="wacup.vu.l.peak" y="1" h="7" image="wacup.vu.peak" frameheight="1"/>
+	<animatedlayer id="wacup.vu.r.peak" y="9" h="7" image="wacup.vu.peak" frameheight="1"/>
 	<layer id="main.vis.trigger" w="152" h="32" cursor="cur.normal"/>
 </groupdef>
 

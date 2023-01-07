@@ -49,20 +49,34 @@
 	<bitmap id="nextp" file="skin/cbuttons.bmp"   x="184" y="36" h="36" w="44"/>
 	<bitmap id="ejectp" file="skin/cbuttons.bmp"  x="228" y="32" h="32" w="44"/>
 
-	<bitmap id="rep" file="skin/shufrep.bmp"  x="0" y="0"  w="56" h="30"/>
-	<bitmap id="repp" file="skin/shufrep.bmp" x="0" y="30" w="56" h="30"/>
-	<bitmap id="repa" file="skin/shufrep.bmp" x="0" y="60" w="56" h="30"/>
-	<bitmap id="reppa" file="skin/shufrep.bmp" x="0" y="90" w="56" h="30"/>
+	<bitmap id="rep" file="skin/shufrep.bmp" x="0" y="0" w="28" h="15"/>
+	<bitmap id="repp" file="skin/shufrep.bmp" x="0" y="15" w="28" h="15"/>
+	<bitmap id="repa" file="skin/shufrep.bmp" x="0" y="30" w="28" h="15"/>
+	<!-- bitmap id="reppa" 	file="skin/shufrep.bmp" x="0" y="45" w="28" h="15"/ -->
 
 	<bitmap id="shuf" file="skin/shufrep.bmp"  x="56" y="0"  h="30" w="94"/>
 	<bitmap id="shufp" file="skin/shufrep.bmp" x="56" y="30" h="30" w="94"/>
 	<bitmap id="shufa" file="skin/shufrep.bmp" x="56" y="60" h="30" w="94"/>
 	<bitmap id="shufpa" file="skin/shufrep.bmp" x="56" y="90" h="30" w="94"/>
 
-	<bitmap id="player.toggler.eq.disabled" file="skin/shufrep.bmp" x="0"  y="122" h="24" w="46"/>
-	<bitmap id="player.toggler.eq.pressed" file="skin/shufrep.bmp"  x="92" y="146" h="24" w="46"/>
-	<bitmap id="player.toggler.eq.enabled" file="skin/shufrep.bmp"  x="0"  y="146" h="24" w="46"/>
-	<bitmap id="player.toggler.eq.pressed.enabled" file="skin/shufrep.bmp" x="92" y="146" h="24" w="46"/>
+	<!-- NStates Button images Start -->
+	<bitmap id="rep0" file="skin/shufrep.bmp" x="0" y="0" w="28" h="15"/>
+	<bitmap id="repp0" file="skin/shufrep.bmp" x="0" y="15" w="28" h="15"/>
+	<bitmap id="repa0" file="skin/shufrep.bmp" x="0" y="30" w="28" h="15"/>
+
+	<bitmap id="rep1" file="skin/shufrep.bmp" x="0" y="30" w="28" h="15"/>
+	<bitmap id="repp1" file="skin/shufrep.bmp" x="0" y="45" w="28" h="15"/>
+	<bitmap id="repa1" file="skin/repeatone.bmp" x="0" y="0" w="28" h="15"/>
+
+	<bitmap id="rep2" file="skin/repeatone.bmp" x="0" y="0" w="28" h="15"/>
+	<bitmap id="repp2" file="skin/repeatone.bmp" x="0" y="15" w="28" h="15"/>
+	<bitmap id="repa2" file="skin/shufrep.bmp" x="0" y="0" w="28" h="15"/>
+	<!-- NStates Button images End-->
+
+	<bitmap id="player.toggler.eq.disabled" file="skin/shufrep.bmp" x="0" y="61" h="12" w="23"/>
+	<bitmap id="player.toggler.eq.pressed" file="skin/shufrep.bmp" x="46" y="61" h="12" w="23"/>
+	<bitmap id="player.toggler.eq.enabled" file="skin/shufrep.bmp" x="0" y="73" h="12" w="23"/>
+	<bitmap id="player.toggler.eq.pressed.enabled" file="skin/shufrep.bmp" x="46" y="73" h="12" w="23"/>
 
 	<bitmap id="player.toggler.pl.disabled" file="skin/shufrep.bmp" x="46" y="122" h="24" w="46"/>
 	<bitmap id="player.toggler.pl.pressed" file="skin/shufrep.bmp"  x="138" y="146" h="24" w="46"/>

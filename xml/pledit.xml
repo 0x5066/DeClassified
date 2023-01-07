@@ -80,8 +80,15 @@
 		colorosc3="181,189,189"
 		colorosc4="160,170,175"
 		colorosc5="148,156,165"/>
+		<group id="WACUPVU" x="0" y="1"/>
 		<layer id="main.vis.trigger" w="144" h="32" cursor="cur.normal"/>
-		</groupdef>
+	</groupdef>
+	<groupdef id="WACUPVU">
+		<animatedlayer id="wacup.vu.l" y="0" h="14" image="wacup.vu.pl" frameheight="1"/>
+		<animatedlayer id="wacup.vu.r" y="16" h="14" image="wacup.vu.pl" frameheight="1"/>
+		<animatedlayer id="wacup.vu.l.peak" y="0" h="14" image="wacup.vu.peak.pl" frameheight="1"/>
+		<animatedlayer id="wacup.vu.r.peak" y="16" h="14" image="wacup.vu.peak.pl" frameheight="1"/>
+	</groupdef>
 	</layout>
     <layout id="shadepl" background="wasabi.frame.basetexture" minimum_h="28" maximum_h="28" minimum_w="550" linkwidth="normal">
 
