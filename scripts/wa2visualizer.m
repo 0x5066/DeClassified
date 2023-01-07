@@ -485,20 +485,20 @@ setVisModeRBD(){
 			visMenu.addSubmenu(vumenu, "Winshade VU options");
 			vumenu.addCommand("Normal VU", 901, smoothvu == 1, 0);
 			vumenu.addCommand("Smooth VU", 902, smoothvu == 2, 0);
+		}else if(WA265MODE == 0){
+			visMenu.addSubmenu(vusettings, "VU Meter Options");
+			vusettings.addCommand("Show VU Peaks", 107, show_vupeaks == 1, 0);
+			vusettings.addCommand("Smooth VU Peak falloff", 109, vu_gravity == 1, 0);
+			vusettings.addCommand("Winamp 2.65 Speed", 108, WA265SPEED == 1, 0);
+			vusettings.addSeparator();
+			vusettings.addSubmenu(vumenu2, "Peak falloff Speed");
+			vumenu2.addCommand("Slower", 500, vp_falloffspeed == 0, 0);
+			vumenu2.addCommand("Slow", 501, vp_falloffspeed == 1, 0);
+			vumenu2.addCommand("Moderate", 502, vp_falloffspeed == 2, 0);
+			vumenu2.addCommand("Fast", 503, vp_falloffspeed == 3, 0);
+			vumenu2.addCommand("Faster", 504, vp_falloffspeed == 4, 0);
 		}
-	}
-
-		visMenu.addSubmenu(vusettings, "VU Meter Options");
-		vusettings.addCommand("Show VU Peaks", 107, show_vupeaks == 1, 0);
-		vusettings.addCommand("Smooth VU Peak falloff", 109, vu_gravity == 1, 0);
-		vusettings.addCommand("Winamp 2.65 Speed", 108, WA265SPEED == 1, 0);
-		vusettings.addSeparator();
-		vusettings.addSubmenu(vumenu2, "Peak falloff Speed");
-		vumenu2.addCommand("Slower", 500, vp_falloffspeed == 0, 0);
-		vumenu2.addCommand("Slow", 501, vp_falloffspeed == 1, 0);
-		vumenu2.addCommand("Moderate", 502, vp_falloffspeed == 2, 0);
-		vumenu2.addCommand("Fast", 503, vp_falloffspeed == 3, 0);
-		vumenu2.addCommand("Faster", 504, vp_falloffspeed == 4, 0);
+	}	
 
 	visMenu.addSeparator();
 	visMenu.addcommand(translate("Start/Stop plug-in")+"\tCtrl+Shift+K", 404, 0,0);
