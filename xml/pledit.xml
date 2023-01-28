@@ -1,18 +1,18 @@
 <container id="PL" name="Playlist Editor" default_y="232" default_visible="1">
-	<layout id="normal" image="wasabi.frame.basetexture" minimum_h="116" minimum_w="275" default_h="116" linkwidth="shadepl" cursor="cur.normal">
+	<layout id="normal" minimum_h="116" minimum_w="275" default_h="116" linkwidth="shadepl" cursor="cur.normal" desktopalpha="1">
 		
 		
 		<!-- Can use the grid object here but then you won't have the inactive image option -->
-		<layer id="wa2.pl1" image="wa2.pl.1" x="0" y="0" inactiveimage="wa2.pl.1.disabled" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl2" image="wa2.pl.2" x="25" y="0" w="-50" relatw="1" inactiveimage="wa2.pl.2.disabled" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl3" image="wa2.pl.3" x="-25" y="0" relatx="1" inactiveimage="wa2.pl.3.disabled" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl4" image="wa2.pl.4" tile="1" x="0" y="20" h="-58" relath="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl5" image="wa2.pl.5" x="25" y="20" w="-50" h="-58" relatw="1" relath="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl6" image="wa2.pl.6" tile="1" x="-25" y="20" h="-58" relatx="1" relath="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl7" image="wa2.pl.7" x="0" y="-38" relaty="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl8" image="wa2.pl.8" x="125" y="-38" w="-125" tile="1" relaty="1" relatw="1" regionop="1" cursor="cur.normal"/>
-		<layer id="wa2.pl9" image="wa2.pl.9" x="-150" y="-38" relatx="1" relaty="1" regionop="1" cursor="cur.normal"/>
-		<layer x="-19" y="-19" w="19" h="19" relatx="1" relaty="1" resize="bottomright" move="0" cursor="cur.resize"/>
+		<layer id="wa2.pl1" image="wa2.pl.1" x="0" y="0" inactiveimage="wa2.pl.1.disabled" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer id="wa2.pl2" image="wa2.pl.2" x="25" y="0" w="-50" relatw="1" inactiveimage="wa2.pl.2.disabled" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer id="wa2.pl3" image="wa2.pl.3" x="-25" y="0" relatx="1" inactiveimage="wa2.pl.3.disabled" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer id="wa2.pl4" image="wa2.pl.4" tile="1" x="0" y="20" h="-58" relath="1" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer id="wa2.pl5" image="wa2.pl.5" x="25" y="20" w="-50" h="-58" relatw="1" relath="1" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer id="wa2.pl6" image="wa2.pl.6" tile="1" x="-25" y="20" h="-58" relatx="1" relath="1" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer id="wa2.pl7" image="wa2.pl.7" x="0" y="-38" relaty="1" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer id="wa2.pl8" image="wa2.pl.8" x="125" y="-38" w="-125" tile="1" relaty="1" relatw="1" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer id="wa2.pl9" image="wa2.pl.9" x="-150" y="-38" relatx="1" relaty="1" regionop="1" cursor="cur.normal" sysregion="1"/>
+		<layer x="-19" y="-19" w="19" h="19" relatx="1" relaty="1" resize="bottomright" move="0" cursor="cur.resize" sysregion="1"/>
 
 		<!-- Layers that needs to be hidden or centered -->
 		<layer id="pl.center.logo" image="wa2.pl.2.center" x="-100" y="0" inactiveimage="wa2.pl.2.center.disabled"/>
@@ -92,11 +92,11 @@
 		<animatedlayer id="wacup.vu.r.peak" y="8" h="7" image="wacup.vu.peak.pl" frameheight="1"/>
 	</groupdef>
 	</layout>
-    <layout id="shadepl" background="wasabi.frame.basetexture" minimum_h="14" maximum_h="14" minimum_w="275" linkwidth="normal">
+    <layout id="shadepl" minimum_h="14" maximum_h="14" minimum_w="275" linkwidth="normal" desktopalpha="1">
 
-        <layer image="wa2.plshade.left" ghost="1"/>
-        <layer image="wa2.plshade.middle" x="25" w="-75" relatw="1" tile="1" ghost="1"/>
-        <layer x="-50" relatx="1" image="wa2.plshade.right.active" inactiveimage="wa2.plshade.right.inactive" ghost="1"/>
+        <layer image="wa2.plshade.left" ghost="1" sysregion="1"/>
+        <layer image="wa2.plshade.middle" x="25" w="-75" relatw="1" tile="1" ghost="1" sysregion="1"/>
+        <layer x="-50" relatx="1" image="wa2.plshade.right.active" inactiveimage="wa2.plshade.right.inactive" ghost="1" sysregion="1"/>
 
         <Songticker
 		id="songticker"
