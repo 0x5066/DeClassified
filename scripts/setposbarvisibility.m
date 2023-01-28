@@ -30,3 +30,16 @@ System.onStop(){
     posbarbg.setXmlParam("visible", "0");
     nums_ex.setXmlParam("visible", "0");
 }
+
+System.onInfoChange(string newinfo){
+        if(getStatus() == 1){
+        posbarbg.setXmlParam("visible", "1");
+        nums_ex.setXmlParam("visible", "1");
+    }else if(getStatus() == -1){
+        posbarbg.setXmlParam("visible", "1");
+        nums_ex.setXmlParam("visible", "1");
+    }else if(getStatus() == 0){
+        posbarbg.setXmlParam("visible", "0");
+        nums_ex.setXmlParam("visible", "0");
+    }
+}
