@@ -1,5 +1,5 @@
 <container id="PL" name="Playlist Editor" default_y="232" default_visible="1">
-	<layout id="normal" minimum_h="116" minimum_w="275" default_h="116" linkwidth="shadepl" cursor="cur.normal" desktopalpha="1">
+	<layout id="normal" minimum_h="116" minimum_w="275" default_h="116" linkwidth="shadepl" cursor="cur.normal">
 		
 		
 		<!-- Can use the grid object here but then you won't have the inactive image option -->
